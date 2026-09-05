@@ -204,7 +204,7 @@ export default function ProductDetails() {
 
               <div className="product-details__buttons">
                 <div className="product-details__buttons-1">
-                  <Link to="/cart" className="theme-btn btn-style-one">
+                  <Link to="/checkout" className="theme-btn btn-style-one">
                     <span className="btn-title">Add to Cart</span>
                   </Link>
                 </div>
@@ -386,7 +386,7 @@ export default function ProductDetails() {
                           <Link to="/product-details" className="ui-btn like-btn">
                             <i className="fa fa-heart" />
                           </Link>
-                          <Link to="/cart" className="ui-btn add-to-cart">
+                          <Link to="/checkout" className="ui-btn add-to-cart">
                             <i className="fa fa-shopping-cart" />
                           </Link>
                         </div>

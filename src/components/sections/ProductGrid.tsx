@@ -26,7 +26,7 @@ function ProductBlock({ p, colClass }: { p: Product; colClass: string }) {
           <Link to="/product-details" className="ui-btn like-btn">
             <i className="fa fa-heart" />
           </Link>
-          <Link to="/cart" className="ui-btn add-to-cart">
+          <Link to="/checkout" className="ui-btn add-to-cart">
             <i className="fa fa-shopping-cart" />
           </Link>
         </div>

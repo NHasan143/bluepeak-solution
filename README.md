@@ -68,7 +68,7 @@ npm run preview    # preview the production build
 
 `/` `/about` `/services` `/service-details` `/projects` `/project-details`
 `/team` `/team-details` `/testimonial` `/pricing` `/faq` `/blog` `/blog-details`
-`/contact` `/shop` `/shop-sidebar` `/product-details` `/cart` `/checkout`
+`/contact` `/shop` `/shop-sidebar` `/product-details` `/checkout`
 `/404` (+ catch-all).
 
 The shop pages are not in the header nav (they weren't in the original template

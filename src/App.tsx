@@ -17,7 +17,6 @@ import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
 import ShopSidebar from "./pages/ShopSidebar";
 import ProductDetails from "./pages/ProductDetails";
-import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 
@@ -42,7 +41,6 @@ export default function App() {
         <Route path="shop" element={<Shop />} />
         <Route path="shop-sidebar" element={<ShopSidebar />} />
         <Route path="product-details" element={<ProductDetails />} />
-        <Route path="cart" element={<Cart />} />
         <Route path="checkout" element={<Checkout />} />
       </Route>
       <Route element={<RootLayout bare />}>
