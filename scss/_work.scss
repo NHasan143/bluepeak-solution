@@ -1,0 +1,254 @@
+/* =====================================
+   Register Custom Property (REQUIRED)
+===================================== */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* =====================================
+   Keyframes
+===================================== */
+@keyframes rotate {
+  from {
+    --gradient-angle: 0deg;
+  }
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+/* =====================================
+   Work Block
+===================================== */
+.work-block {
+  position: relative;
+  max-width: 215px;
+  margin: 0 auto 40px;
+  padding: 7px;
+  border-radius: 200px;
+  overflow: hidden;
+
+  /* 🔥 Rotating Background */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: conic-gradient(
+      from var(--gradient-angle),
+      var(--theme-color-black),
+      var(--theme-color1),
+      var(--theme-color-black),
+      var(--theme-color1)
+    );
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* ✅ Hover / Active */
+  &:hover::before,
+  &.active::before {
+    opacity: 1;
+    animation: rotate 2.5s linear infinite;
+  }
+
+  .inner-box {
+    position: relative;
+    min-height: 344px;
+    border-radius: 200px;
+    background: #121310;
+    border: 1px solid rgba(51, 51, 51, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+
+  /* =============================
+     Icon
+  ============================== */
+  .icon {
+    margin-bottom: 25px;
+
+    img {
+      transition: all 0.3s ease;
+    }
+  }
+
+  /* =============================
+     Count
+  ============================== */
+  .count {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--theme-color-white);
+  }
+
+  /* =============================
+     Title
+  ============================== */
+  .title {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--theme-color15);
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    .title {
+      color: var(--theme-color1);
+    }
+
+    .icon img {
+      animation: wobble 1.5s ease-in-out;
+    }
+  }
+}
+
+
+.work-section {
+    .marquee {
+        margin-top: -20px;
+        margin-bottom: -20px;
+    }
+}
+
+.work-five {
+  position: relative;
+
+  .work-light {
+    position: absolute;
+    top: -5%;
+    left: 25%;
+
+  }
+    .cards-content {
+      margin-top: 90px;
+
+      @include media-breakpoint-down (xl){
+        margin-top: 40px;
+      }
+    }
+}
+
+.work-block-5 {
+  margin-bottom: 50px;
+  margin-top: 70px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+
+  @include media-breakpoint-down (xl){
+    margin-top: 90px;
+  }
+
+  @include media-breakpoint-down (lg){
+    max-width: 315px;
+    margin: 90px auto 50px;
+  }
+
+  &:before{
+    background-color: rgba(var(--theme-color-white-rgb), 0.2);
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    top: -71px;
+    width: calc(100% + 24px);
+    @include media-breakpoint-down (xl){
+      width: calc(100% + 0px);
+    }
+  }
+  &::after {
+    background-color: var(--border-color1-rgba);
+    height: 70px;
+    @include after;
+    top: -70px;
+    width: 1px;
+    @include transformCenterLeft;
+    z-index: -1;
+  }
+  .step-btn {
+    background-color: var(--theme-color-black);
+    border-radius: 40px;
+    color: var(--theme-color-white);
+    padding: 5px 20px;
+    position: absolute;
+    rotate: -30deg;
+    text-align: center;
+    top: -111px;
+    @include transformCenterLeft;
+    @include transition;
+    @include media-breakpoint-down (xl){
+      rotate: 0deg;
+      top: -90px;
+    }
+  }
+  .inner-box{
+    background-color: var(--theme-color-black);
+    border: 1px solid var(--theme-color1-border);
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 35px 35px 60px;
+    position: relative;
+    @include transition;
+    &:before{
+      background-color: #111111;
+      bottom: auto;
+      content: "";
+      clip-path: polygon(382.68px 38.3898px, 382.68px 38.3898px, 337.615016px 41.5418496px, 302.562088px 50.0974128px, 275.598252px 62.7056112px, 254.800544px 78.0155664px, 238.246px 94.6764px, 224.011656px 111.3372336px, 210.174548px 126.6471888px, 194.811712px 139.2553872px, 176.000184px 147.8109504px, 151.817px 150.963px, 151.817px 150.963px, 125.9586136px 147.8109504px, 105.6682488px 139.2553872px, 89.0888972px 126.6471888px, 74.3635504px 111.3372336px, 59.6352px 94.6764px, 43.0468376px 78.0155664px, 22.7414548px 62.7056112px, -3.1379568px 50.0974128px, -36.4484056px 41.5418496px, -79.0469px 38.3898px, -79.0469px 38.3898px, -76.0252837px 24.80746688px, -67.2773136px 11.92290544px, -53.2783079px -0.091483440000007px, -34.5035848px -11.06329888px, -11.4284625px -20.82014px, 15.4717408px -29.18960592px, 45.7217069px -35.99929576px, 78.8461176px -41.07680864px, 114.3696547px -44.24974368px, 151.817px -45.3457px, 151.817px -45.3457px, 189.26415px -44.24974368px, 224.78752px -41.07680864px, 257.91179px -35.99929576px, 288.16164px -29.18960592px, 315.06175px -20.82014px, 338.1368px -11.06329888px, 356.91147px -0.091483440000005px, 370.91044px 11.92290544px, 379.65839px 24.80746688px, 382.68px 38.3898px);
+      height: 151px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width:100%;
+      z-index: 0;
+      transition: all .4s ease-in-out;
+    }
+  }
+  .icon {
+    color: var(--theme-color1);
+    position: relative;
+    z-index: 0;
+    i,img {
+      font-size: 60px;
+      -webkit-transition: all 900ms ease;
+      transition: all 900ms ease;
+      display: inline-block;
+    }
+  }
+  .title {
+    color: var(--theme-color-white);
+    padding: 110px 0 15px;
+    @include transition;
+  }
+  &:hover {
+    .step-btn {
+      background-color: var(--theme-color1);
+      color: var(--theme-color-white);
+    }
+    .inner-box {
+      &::before {
+        background-color: var(--theme-color1);
+      }
+    }
+    .icon {
+      color: var(--theme-color-white);
+      i,img {
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+      }
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+}

@@ -1,0 +1,359 @@
+/***
+
+====================================================================
+Reset
+====================================================================
+
+***/
+
+* {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  outline: none;
+  font-size: 100%;
+}
+
+/***
+
+====================================================================
+Global Settings
+====================================================================
+
+***/
+
+textarea {
+  overflow: hidden;
+  resize: none;
+}
+
+button {
+  outline: none !important;
+  cursor: pointer;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.title a {
+  color: inherit;
+}
+
+.color1 {
+  color: var(--theme-color1);
+}
+.color2 {
+  color: var(--theme-color2);
+}
+.color3 {
+  color: var(--theme-color3);
+}
+.bg-color3 {
+  background-color: var(--theme-color3) !important;
+}
+
+.page-wrapper {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  min-width: 300px;
+  z-index: 99;
+  background-color: var(--body-bg);
+}
+
+.large-container {
+  position: static;
+  max-width: var(--large-container-width);
+  padding: 0px 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.auto-container {
+  position: static;
+  max-width: var(--container-width);
+  padding: 0px 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.small-container {
+  position: static;
+  max-width: var(--small-container-width);
+  padding: 0px 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+
+
+/*=======================
+Scroll To Top style
+=======================*/
+
+.scroll-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 40px;
+  font-size: 16px;
+  line-height: 40px;
+  color: var(--theme-color-black);
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--theme-color1);
+  z-index: 100;
+  display: none;
+  border-radius: 50%;
+  margin: 0 auto;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.scroll-to-top:hover {
+  background: var(--theme-color1);
+  color: #000;
+}
+
+.tabs-box {
+  position: relative;
+  .tab {
+    display: none;
+    &.active-tab {
+      display: block;
+    }
+  }
+}
+
+
+  /* background */
+  .bg-cover {
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	background-position: center;
+  }
+
+  .fix {
+    overflow: hidden;
+  }
+
+  .bb-top {
+    border-top: 1px solid rgba(255, 255, 255, 0.20);
+  }
+
+
+
+  //Line custom animation
+.line-shape-animation {
+	max-width: 1654px;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	justify-content: space-between;
+	margin: 0 auto;
+	transform: translateX(-50%);
+  z-index: -1;
+}
+.line-shape-animation span {
+	position: relative;
+	width: 1px;
+	height: 100%;
+	display: block;
+	background: rgba(255, 255, 255, 0.10);
+  opacity: .5;
+}
+.line-shape-animation span::before,
+.line-shape-animation span::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	background: var(--theme-color1);
+	box-shadow: rgba(255, 255, 255, 0.10) 0px 8px 24px;
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
+	clip-path: polygon(
+		51% 8%,
+		68% 15%,
+		66% 40%,
+		60% 78%,
+		56% 100%,
+		46% 100%,
+		42% 84%,
+		38% 56%,
+		34% 17%
+	);
+}
+.line-shape-animation span::after {
+	animation: dscroll 2s linear infinite;
+	width: 2px;
+	height: 24px;
+	bottom: 0;
+	left: 0;
+	background: var(--theme-color1);
+	box-shadow: rgba(255, 255, 255, 0.10) 0px 8px 24px;
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
+	clip-path: polygon(
+		51% 8%,
+		68% 15%,
+		66% 40%,
+		60% 78%,
+		56% 100%,
+		46% 100%,
+		42% 84%,
+		38% 56%,
+		34% 17%
+	);
+}
+.line-shape-animation span:nth-child(2)::after {
+	animation: dscroll 2.1s linear infinite;
+}
+.line-shape-animation span:nth-child(3)::after {
+	animation: dscroll 2.2s linear infinite;
+}
+.line-shape-animation span:nth-child(4)::after {
+	animation: dscroll 2.3s linear infinite;
+}
+.line-shape-animation span:nth-child(5)::after {
+	animation: dscroll 2.4s linear infinite;
+}
+.line-shape-animation span:nth-child(6)::after {
+	animation: dscroll 1s linear infinite;
+}
+.line-shape-animation span:nth-child(7)::after {
+	animation: dscroll 3.5s linear infinite;
+}
+
+.line-shape-animation span:nth-child(2)::backdrop {
+	animation: dscroll 4.1s linear infinite;
+}
+.line-shape-animation span:nth-child(3)::before {
+	animation: dscroll 4.2s linear infinite;
+}
+.line-shape-animation span:nth-child(4)::before {
+	animation: dscroll 4.3s linear infinite;
+}
+.line-shape-animation span:nth-child(5)::before {
+	animation: dscroll 4.4s linear infinite;
+}
+.line-shape-animation span:nth-child(6)::before {
+	animation: dscroll 4s linear infinite;
+}
+.line-shape-animation span:nth-child(7)::before {
+	animation: dscroll 4.5s linear infinite;
+}
+//Line custom animation
+@keyframes dscroll {
+	100% {
+		transform: translateY(100vh);
+	}
+}
+
+.p-relative {
+	position: relative !important;
+}
+
+.section-bg2 {
+    background-color: var(--theme-color3);
+}
+
+.mb-135 {
+    margin-bottom: 135px
+}
+
+.mb-140 {
+    margin-bottom: 140px
+}
+
+.mb-145 {
+    margin-bottom: 145px
+}
+
+.mb-150 {
+    margin-bottom: 150px;
+}
+
+.mb-155 {
+    margin-bottom: 155px
+}
+
+.mb-160 {
+    margin-bottom: 160px
+}
+
+.mb-165 {
+    margin-bottom: 165px
+}
+
+.mb-170 {
+    margin-bottom: 170px
+}
+
+.mb-175 {
+    margin-bottom: 175px
+}
+
+.mb-180 {
+    margin-bottom: 180px
+}
+
+.mb-185 {
+    margin-bottom: 185px
+}
+
+.mb-190 {
+    margin-bottom: 190px
+}
+
+.mb-195 {
+    margin-bottom: 195px
+}
+
+.mb-200 {
+    margin-bottom: 200px
+}
+
+.tp-hero-2-img-box.last-item {
+    margin-bottom: 1100px;
+}
+
+.tilt_scale {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.theme-btn-main{
+  .btn-style-one.transform{
+    border: 1px solid transparent;
+    &:hover{
+      background-color: var(--theme-color-black);
+      border: 1px solid var(--theme-color1);
+      color: var(--theme-color1);
+    }
+  }
+}
+.theme-btn-main:hover .transform,
+.transform{
+  transform: none !important;
+}
