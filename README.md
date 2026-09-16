@@ -73,3 +73,61 @@ npm run preview    # preview the production build
 
 The shop pages are not in the header nav (they weren't in the original template
 either) but are reachable by URL.
+
+## Automatic deployment to Namecheap
+
+Pushes to GitHub `main` run `.github/workflows/deploy.yml`: install dependencies,
+build with Node 22, then push only the built site and `.cpanel.yml` to the
+cPanel repository's `master` branch. Keep the local `origin` pointing to GitHub.
+No Node.js runtime is needed on the hosting server.
+
+- cPanel repository: `ssh://corlfzmv@corlissfederalgroup.com:21098/home/corlfzmv/repositories/bluepeak-solution`
+- Website document root: `/home/corlfzmv/blupeaksolutions.com`
+- Verify that document root in cPanel → Domains before enabling deployment.
+- `public/.htaccess` is included in the build to support React Router deep links
+  and prioritize `index.html` over a hosting placeholder's `index.php`.
+
+### One-time credentials
+
+Enable hosting SSH access. Generate a dedicated key locally (choose another
+filename if this one already exists):
+
+```sh
+ssh-keygen -t ed25519 -C "bluepeak-github-deploy" -f ~/.ssh/bluepeak_deploy -N ""
+```
+
+Import `~/.ssh/bluepeak_deploy.pub` in cPanel → SSH Access → Manage SSH Keys,
+then authorize it. Store the contents of the private file
+`~/.ssh/bluepeak_deploy` in the GitHub repository's Actions secret
+`CPANEL_SSH_KEY`. Never commit the private key.
+
+Collect the server's public host keys:
+
+```sh
+ssh-keyscan -p 21098 corlissfederalgroup.com > /tmp/bluepeak-known-hosts
+ssh-keygen -lf /tmp/bluepeak-known-hosts
+```
+
+Verify those fingerprints with Namecheap support or a trusted hosting-server
+source before trusting them. Save the contents of `/tmp/bluepeak-known-hosts`
+as the Actions secret `CPANEL_KNOWN_HOSTS`.
+
+Optionally add `VITE_WEB3FORMS_ACCESS_KEY` as an Actions secret to enable contact
+forms in the deployed build. Vite embeds this form access key in the public
+client bundle; it is not a server-side secret.
+
+### First deployment and verification
+
+Commit these configuration files and push to GitHub `main`. Check GitHub →
+Actions → Deploy to Namecheap, then cPanel → Git Version Control → Manage →
+Pull or Deploy for the deployment result. A successful Git push does not by
+itself prove that cPanel's deployment tasks succeeded. Check the deployed site
+and refresh `/about` to verify route handling. Configure/check domain SSL in
+cPanel separately so the site can be served over HTTPS.
+
+The copy task writes only into the new domain's document root. It does not
+touch `/home/corlfzmv/public_html` or remove existing files. Old generated assets
+can accumulate between deployments; publication is a file copy, not an atomic
+directory swap. To retry unchanged artifacts after a hosting-side failure, use
+cPanel's Deploy HEAD Commit button. The GitHub workflow can also be started
+manually on `main` via Run workflow.

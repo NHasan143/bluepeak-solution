@@ -1,0 +1,68 @@
+name: Deploy to Namecheap
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: namecheap-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.VITE_WEB3FORMS_ACCESS_KEY }}
+      - name: Configure SSH
+        env:
+          CPANEL_SSH_KEY: ${{ secrets.CPANEL_SSH_KEY }}
+          CPANEL_KNOWN_HOSTS: ${{ secrets.CPANEL_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          test -n "$CPANEL_SSH_KEY" || { echo 'Missing CPANEL_SSH_KEY secret'; exit 1; }
+          test -n "$CPANEL_KNOWN_HOSTS" || { echo 'Missing CPANEL_KNOWN_HOSTS secret'; exit 1; }
+          install -m 700 -d "$HOME/.ssh"
+          printf '%s\n' "$CPANEL_SSH_KEY" > "$HOME/.ssh/cpanel_deploy"
+          printf '%s\n' "$CPANEL_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/cpanel_deploy" "$HOME/.ssh/known_hosts"
+      - name: Push built site to cPanel
+        env:
+          GIT_SSH_COMMAND: ssh -i /home/runner/.ssh/cpanel_deploy -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes
+          CPANEL_REPOSITORY: ssh://corlfzmv@corlissfederalgroup.com:21098/home/corlfzmv/repositories/bluepeak-solution
+        run: |
+          set -euo pipefail
+          test -f dist/index.html
+          test -f dist/.htaccess
+          git clone "$CPANEL_REPOSITORY" "$RUNNER_TEMP/cpanel-site"
+          cd "$RUNNER_TEMP/cpanel-site"
+          # cPanel's empty repository uses master; GitHub source stays on main.
+          git checkout -B master
+          git config user.name 'Bluepeak deployment'
+          git config user.email 'deploy@blupeaksolutions.com'
+          git rm -r --ignore-unmatch .
+          mkdir -p site
+          cp -R "$GITHUB_WORKSPACE/dist/." site/
+          cp "$GITHUB_WORKSPACE/.cpanel.yml" .cpanel.yml
+          git add --all
+          if git diff --cached --quiet; then
+            echo 'Built site is unchanged.'
+            exit 0
+          fi
+          git commit -m "Deploy source $GITHUB_SHA"
+          git push origin HEAD:master

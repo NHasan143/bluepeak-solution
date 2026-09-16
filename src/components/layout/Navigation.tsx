@@ -9,11 +9,6 @@ export const MENU: Node[] = [
   {
     label: "Home",
     to: "/",
-    children: [
-      { label: "Digtital Agency", to: "/" },
-      { label: "Software Solutions", to: "/" },
-      { label: "Marketing agency", to: "/" },
-    ],
   },
   {
     label: "Pages",

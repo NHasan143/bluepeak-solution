@@ -80,9 +80,6 @@ export default function Home() {
         </div>
         <div className="container">
           <div className="hero-content">
-            <span className="sub-text">
-              🔥 <b>AI-Accelerated</b> Product Development
-            </span>
             <h1 className="hero-title text-anim">
               We Build Brands
               <span>Digital</span> Results.
