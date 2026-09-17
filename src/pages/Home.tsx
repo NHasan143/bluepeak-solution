@@ -1,5 +1,6 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
+import { ScrollSmoother } from "../lib/gsap";
 import Star from "../components/common/Star";
 import Accordion, { type AccordionEntry } from "../components/common/Accordion";
 import Footer from "../components/layout/Footer";
@@ -65,6 +66,23 @@ const marqueeGroup = (
 );
 
 export default function Home() {
+  const scrollToAbout = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const target = document.getElementById("home-about");
+    if (!target) return;
+
+    // Native hash jumps can scroll ScrollSmoother's fixed wrapper independently
+    // of the document, leaving the hero unreachable when scrolling back up.
+    event.preventDefault();
+    const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const smoother = ScrollSmoother.get();
+    if (smoother) {
+      smoother.scrollTo(target, smooth, "top 100px");
+    } else {
+      target.scrollIntoView({ behavior: smooth ? "smooth" : "instant", block: "start" });
+    }
+  };
+
   return (
     <>
       {/* Hero */}
@@ -83,14 +101,14 @@ export default function Home() {
             </h1>
           </div>
           <div className="text-circle">
-            <a href="#home-projects" className="down-icon" aria-label="Explore our projects">
+            <a href="#home-about" onClick={scrollToAbout} className="down-icon" aria-label="Explore About Us">
               <i className="fa-regular fa-arrow-down-long" />
             </a>
           </div>
         </div>
       </section>
 
-      <AboutSection />
+      <AboutSection id="home-about" />
 
       {/* Services */}
       <section className="service-section fix section-padding section-bg">

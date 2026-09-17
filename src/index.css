@@ -87,7 +87,8 @@
   display: block;
 }
 
-#home-projects {
+#home-projects,
+#home-about {
   scroll-margin-top: 100px;
 }
 
