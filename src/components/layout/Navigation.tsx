@@ -10,10 +10,10 @@ export const MENU: Node[] = [
     label: "Home",
     to: "/",
   },
+  { label: "About", to: "/about" },
   {
     label: "Pages",
     children: [
-      { label: "About", to: "/about" },
       {
         label: "Projects",
         children: [
