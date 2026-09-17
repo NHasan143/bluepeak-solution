@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import Star from "../components/common/Star";
 import Accordion, { type AccordionEntry } from "../components/common/Accordion";
@@ -7,6 +8,8 @@ import AboutSection from "../components/sections/AboutSection";
 import FeatureSection from "../components/sections/FeatureSection";
 import ClientsSection from "../components/sections/ClientsSection";
 import ServiceList from "../components/sections/ServiceList";
+
+const MagicRings = lazy(() => import("../components/common/MagicRings"));
 
 const FAQ_ANSWER =
   "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem";
@@ -65,29 +68,22 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="hero-section hero-1 bg-cover"
-        style={{ backgroundImage: 'url("/images/banner/hero-bg1-1.jpg")' }}
-      >
-        <div className="hero-image">
-          <img src="/images/banner/hero-image1-1.jpg" alt="img" />
-        </div>
-        <div className="hero-shape1 tm-gsap-animate-circle d-none d-xxl-block">
-          <img src="/images/icons/heroshape1-1.png" alt="" />
-        </div>
-        <div className="hero-3d tm-gsap-animate-circle d-none d-xxl-block">
-          <img src="/images/icons/hero2-3d-1.png" alt="img" />
+      <section className="hero-section hero-1 hero-rings">
+        <div className="hero-rings-background" aria-hidden="true">
+          <Suspense fallback={null}>
+            <MagicRings speed={0.65} noiseAmount={0.025} followMouse
+              mouseInfluence={0.08} parallax={0.015} hoverScale={1.04} />
+          </Suspense>
         </div>
         <div className="container">
           <div className="hero-content">
-            <h1 className="hero-title text-anim">
-              We Build Brands
+            <h1 className="hero-title">
+              We Build Brands<br />
               <span>Digital</span> Results.
             </h1>
           </div>
           <div className="text-circle">
-            <img src="/images/banner/circle-text.png" alt="img" />
-            <a href="#" className="down-icon">
+            <a href="#home-projects" className="down-icon" aria-label="Explore our projects">
               <i className="fa-regular fa-arrow-down-long" />
             </a>
           </div>
@@ -128,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section className="project-section section-padding tm-panel-pin-area">
+      <section id="home-projects" className="project-section section-padding tm-panel-pin-area">
         <div className="project-shape tm-gsap-animate-circle d-none d-xxl-block">
           <img src="/images/icons/project-shape1-1.png" alt="img" />
         </div>
