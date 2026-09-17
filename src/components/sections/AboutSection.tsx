@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import Star from "../common/Star";
 
 /** The "About Us" block shared verbatim by the homepage and the About page. */
-export default function AboutSection() {
+export default function AboutSection({ id }: { id?: string }) {
   return (
-    <section className="about-section fix section-padding">
+    <section id={id} className="about-section fix section-padding">
       <div className="about-shape1 tm-gsap-animate-circle d-none d-xxl-block">
         <img src="/images/icons/about-shape1-1.png" alt="img" />
       </div>

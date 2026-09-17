@@ -15,9 +15,11 @@ original stylesheet are unchanged — only the delivery mechanism moved to React
 - **GSAP 3** — ScrollSmoother, ScrollTrigger, SplitText, ScrollToPlugin
   (all free in GSAP ≥ 3.13, so no vendored Club plugins).
 - **Swiper 14** for every carousel.
+- **Three.js** for the lazy-loaded MagicRings hero animation, with static rings
+  when reduced motion is requested or WebGL is unavailable.
 
 jQuery, Bootstrap JS, WOW.js, Slick, Magnific Popup, nice-select, knob,
-mixitup, parallaxie, three.js and the Revolution slider are **not** used —
+mixitup, parallaxie and the Revolution slider are **not** used —
 their behaviours were reimplemented in `src/hooks/usePageEffects.ts` and small
 React components.
 

@@ -11,3 +11,106 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 @source "./";
+
+.hero-1.hero-rings {
+  isolation: isolate;
+  overflow: hidden;
+  background: #080910;
+  padding: 240px 0 260px;
+}
+
+.hero-rings-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-rings-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #080910a6, #08091040 45%, #080910e6);
+}
+
+.magic-rings,
+.magic-rings-fallback {
+  position: absolute;
+  inset: 0;
+}
+
+.magic-rings canvas {
+  display: block;
+}
+
+.magic-rings-fallback {
+  display: grid;
+  place-items: center;
+  opacity: 0.35;
+}
+
+.magic-rings-fallback span {
+  position: absolute;
+  width: min(65vw, 600px);
+  aspect-ratio: 1;
+  border: 2px solid #fc42ff;
+  border-radius: 50%;
+}
+
+.magic-rings-fallback span:nth-child(2) {
+  width: min(85vw, 800px);
+  border-color: #a381ff;
+}
+
+.magic-rings-fallback span:nth-child(3) {
+  width: min(105vw, 1000px);
+  border-color: #42fcff;
+}
+
+.magic-rings[data-ready="true"] .magic-rings-fallback {
+  display: none;
+}
+
+.hero-1.hero-rings .hero-content {
+  max-width: 1050px;
+  margin-inline: auto;
+}
+
+.hero-1.hero-rings .hero-content h1 {
+  font-size: clamp(3.1rem, 7vw, 6rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hero-1.hero-rings .hero-title br {
+  display: block;
+}
+
+#home-projects,
+#home-about {
+  scroll-margin-top: 100px;
+}
+
+@media (max-width: 991.98px) {
+  .hero-1.hero-rings {
+    padding: 180px 0 70px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-1.hero-rings {
+    padding-top: 160px;
+  }
+}
+
+.hero-1.hero-rings .text-circle,
+.hero-1.hero-rings .text-circle .down-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.hero-1.hero-rings .text-circle .down-icon {
+  display: grid;
+  place-items: center;
+}
