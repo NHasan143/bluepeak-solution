@@ -4,11 +4,11 @@ import { Pagination } from "swiper/modules";
 import Star from "../common/Star";
 
 const CARDS = [
-  { cls: "card-1", icon: "feature-icon1.png", title: "Brand Strategy & Positioning" },
-  { cls: "card-2", icon: "feature-icon2.png", title: "Website Design & Development" },
-  { cls: "card-3", icon: "feature-icon3.png", title: "Social Media Marketing", active: true },
-  { cls: "card-4", icon: "feature-icon4.png", title: "Content Creation & Marketing" },
-  { cls: "card-5", icon: "feature-icon5.png", title: "Mail Marketing Automation" },
+  { cls: "card-1", icon: "feature-icon1.png", title: "Demand Generation and B2B Sales", description: "Targeted outreach, pipeline management, and full cycle closing handled by native English speaking consultants trained to run high ticket deals.", slug: "b2b-outbound-sales" },
+  { cls: "card-2", icon: "feature-icon2.png", title: "CRM Architecture and Workflow Automation", description: "We design and optimize Salesforce, Zoho, and HubSpot environments, automating lead routing so no opportunity falls through the cracks.", slug: "crm-architecture" },
+  { cls: "card-3", icon: "feature-icon3.png", title: "Tech Enabled Operations", description: "Our in house engineering team builds the backend systems that keep the sales floor fast, data accurate, and scalable.", slug: "tech-enabled-operations", active: true },
+  { cls: "card-4", icon: "feature-icon4.png", title: "SEO Sprints and Content Growth", description: "Technical SEO audits, keyword clustering, and content strategy built to help client brands dominate organic search.", slug: "seo-organic-growth" },
+  { cls: "card-5", icon: "feature-icon5.png", title: "Brand and Asset Design", description: "Premium capability statements, pitch decks, and whitepapers that make client brands look and close like the market leader.", slug: "brand-creative-paid-media" },
 ];
 
 const ArrowIcon = (
@@ -27,8 +27,8 @@ function Card({ card }: { card: (typeof CARDS)[number] }) {
       </div>
       <div className="content">
         <h4 className="title">{card.title}</h4>
-        <p>We offer dental services at highly innovative level, with innovative</p>
-        <Link to="/service-details" className="arrow-icon">
+        <p>{card.description}</p>
+        <Link to={`/service-details/${card.slug}`} className="arrow-icon">
           {ArrowIcon}
         </Link>
       </div>
@@ -63,11 +63,11 @@ export default function FeatureSection({
             <div className="section-title text-center">
               <div className="sub-title">
                 <Star />
-                <span>Our features </span>
+                <span>Our Features</span>
               </div>
               <h2 className="title text-anim">
-                Transforming Businesses <br />
-                Into <span> Digital Success Stories</span>
+                Turning Companies <br />
+                Into <span>Category Leaders</span>
               </h2>
             </div>
           </div>

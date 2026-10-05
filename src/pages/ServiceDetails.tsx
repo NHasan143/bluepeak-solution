@@ -1,16 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link, useParams } from "react-router-dom";
 import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
 import Accordion, { type AccordionEntry } from "../components/common/Accordion";
- 
-const SIDEBAR_LINKS = [
-  "Outbound Outreach & Pipeline",
-  "Full-Cycle B2B Closing",
-  "CRM Architecture",
-  "Workflow Automation",
-  "SEO Sprints & Content Growth",
-  "Brand Assets, Ads & Media",
-];
+import { getService, SERVICES } from "../lib/services";
  
 const SLIDER = [
   { img: "service-d1.jpg" },
@@ -29,9 +22,12 @@ const FAQ: AccordionEntry[] = [
 ];
  
 export default function ServiceDetails() {
+  const { slug } = useParams();
+  const service = getService(slug);
+
   return (
     <>
-      <PageTitle title="Service Details" crumb="Services" />
+      <PageTitle title={service.title} crumb="Services" />
  
       <section className="services-details pt-120 pb-0">
         <div className="container">
@@ -42,12 +38,12 @@ export default function ServiceDetails() {
                 <div className="sidebar-widget service-sidebar-single">
                   <div className="sidebar-service-list">
                     <ul>
-                      {SIDEBAR_LINKS.map((label, i) => (
-                        <li key={i} className={i === 1 ? "current" : undefined}>
-                          <a href="#" className={i === 0 ? "current" : undefined}>
+                      {SERVICES.map((item) => (
+                        <li key={item.slug} className={item.slug === service.slug ? "current" : undefined}>
+                          <Link to={`/service-details/${item.slug}`} className={item.slug === service.slug ? "current" : undefined}>
                             <i className="fas fa-angle-right" />
-                            <span>{label}</span>
-                          </a>
+                            <span>{item.title}</span>
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -93,32 +89,21 @@ export default function ServiceDetails() {
                 <div className="service-details-image fix">
                   <img data-speed=".8" src="/images/resource/service-details.jpg" alt="" />
                 </div>
-                <h3 className="mt-4">Service Overview</h3>
-                <p className="text">
-                  Lorem ipsum is simply free text used by copytyping refreshing. Neque porro est qui
-                  dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae vitae dicta
-                  sunt explicabo. Aelltes port lacus quis enim var sed efficitur turpis gilla sed sit
-                  amet finibus eros. Lorem Ipsum is simply dummy text of the printing and typesetting
-                  industry. Lorem Ipsum has been the ndustry standard dummy text ever since the
-                  1500s, when an unknown printer took a galley of type and scrambled it to make
-                </p>
-                <p className="text">
-                  When an unknown printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but also the leap into
-                  electronic typesetting, remaining essentially unchanged Lorem ipsum dolor sit amet
-                  consec tetur adipis icing elit
-                </p>
+                <h3 className="mt-4">{service.title}</h3>
+                <p className="text">{service.intro}</p>
                 <div className="content mt-40">
                   <div className="text">
-                    <h3>Service Center</h3>
-                    <p className="text">
-                      Lorem ipsum is simply free text used by copytyping refreshing. Neque porro est
-                      qui dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae
-                      vitae dicta sunt explicabo.
-                    </p>
+                    <h3>What&apos;s included</h3>
+                    <ul className="feature-list">
+                      {service.included.map((item) => (
+                        <li className="single-item" key={item}>
+                          <span className="icon-box fas fa-check" />
+                          <span className="title">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                     <blockquote className="blockquote-one">
-                      Lorem ipsum dolor sit amet, consectetur notted adipisicing elit sed do eiusmod
-                      remaining essentially unchanged Lorem ipsum dolor sit amet consec tetur
+                      {service.outcome}
                     </blockquote>
                   </div>
                   <Swiper

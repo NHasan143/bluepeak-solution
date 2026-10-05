@@ -8,7 +8,7 @@ import HomeContactForm from "../components/forms/HomeContactForm";
 import AboutSection from "../components/sections/AboutSection";
 import FeatureSection from "../components/sections/FeatureSection";
 import ClientsSection from "../components/sections/ClientsSection";
-import ServiceList from "../components/sections/ServiceList";
+import GrowthServiceAccordion from "../components/sections/GrowthServiceAccordion";
 
 const MagicRings = lazy(() => import("../components/common/MagicRings"));
 
@@ -118,26 +118,36 @@ export default function Home() {
               <div className="section-title mb-0">
                 <div className="sub-title text-left">
                   <Star variant="lime" />
-                  <span>Our Service</span>
+                  <span>Our Services</span>
                 </div>
                 <h2 className="title text-anim">
-                  We craft user-focused digital experiences <span>that elevate brands</span>
+                  B2B Growth Services Built Around <span>Your Revenue Goals</span>
                 </h2>
+                <p className="growth-services-intro">
+                  Three pillars, one in-house team: demand generation, digital infrastructure and
+                  creative execution, built and run under one roof.
+                </p>
               </div>
             </div>
             <div className="col-lg-3 wow fadeInUp" data-wow-delay=".3s">
               <div className="circle-area d-flex justify-content-end">
-                <a href="#" className="circle-box">
+                <Link to="/services" className="circle-box">
                   <span>
                     More Services
                     <i className="fa-solid fa-arrow-right" />
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
 
-          <ServiceList showHoverImage={false} />
+          <GrowthServiceAccordion />
+          <div className="growth-services-cta">
+            <Link to="/contact" className="theme-btn btn-style-one">
+              <span className="btn-title">Book a Growth Consultation</span>
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
 
