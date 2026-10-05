@@ -29,7 +29,7 @@ function Spacer() {
   );
 }
 
-/** "Working with 30+ Brands" — shared by the homepage and the About page. */
+/** Shared client band heading for the homepage and About page. */
 export default function ClientsSection({
   heading = true,
 }: {
@@ -57,7 +57,7 @@ export default function ClientsSection({
           {heading && (
             <div className="section-title mb-60 text-center">
               <h2 className="title text-anim">
-                Working with <span>30+ Brands</span> Worldwide
+                Powering Growth for <span>Businesses Across Industries</span>
               </h2>
             </div>
           )}

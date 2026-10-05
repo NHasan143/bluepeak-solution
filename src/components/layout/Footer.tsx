@@ -36,8 +36,8 @@ export default function Footer({ padded = false }: { padded?: boolean }) {
                   </div>
                   <div className="footer-content">
                     <p>
-                      Through disciplined execution and in house expertise, Blupeak exists to turn
-                      ambitious companies into category leaders.
+                      Blupeak Solutions is the tech-enabled growth agency behind the sales, marketing
+                      and digital infrastructure of scaling businesses worldwide.
                     </p>
                   </div>
                 </div>

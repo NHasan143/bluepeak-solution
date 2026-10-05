@@ -17,18 +17,18 @@ export default function AboutSection({ id }: { id?: string }) {
                 <span>About Blupeak</span>
               </div>
               <h2 className="title text-anim">
-                The Growth Engine Behind <span>Ambitious Global Brands</span>
+                A Tech-Enabled Growth Agency <span>Built to Scale Businesses Worldwide</span>
               </h2>
             </div>
           </div>
           <div className="col-xl-4 col-lg-5 wow fadeInUp" data-wow-delay=".3s">
             <div className="about-top-counter">
               <div className="year-box">
-                <p>Combined team experience</p>
+                <p>Team Experience</p>
                 <h2 className="year-title">6+</h2>
               </div>
               <div className="count-box">
-                <p>Core service pillars</p>
+                <p>Core Growth Pillars</p>
                 <h2 className="title">
                   <span className="count-text" data-speed="3000" data-stop="89" data-lag="0">
                     3
@@ -42,11 +42,10 @@ export default function AboutSection({ id }: { id?: string }) {
           <div className="col-lg-3 wow fadeInUp" data-wow-delay=".3s">
             <div className="about-left-style-1">
               <p>
-                Blupeak Solutions is a Dhaka based, tech enabled growth agency built for one
-                purpose: giving ambitious businesses an in house caliber team without the in house
-                overhead. We run full cycle demand generation, digital infrastructure, and search
-                and creative execution as a single, unified agency. Every specialist on our floor
-                works under one roof, on one mission: scaling our clients' revenue.
+                Blupeak Solutions is not a staffing pool or a placement service. We are a unified
+                growth agency. Our internal specialists in sales, marketing and engineering work
+                inside one Dhaka-based digital operations hub, running outbound pipeline, full-cycle
+                closing, CRM automation, SEO and creative production as one accountable team.
               </p>
               <div className="counter-left">
                 <div className="count-box">
@@ -56,7 +55,7 @@ export default function AboutSection({ id }: { id?: string }) {
                     </span>
                     %
                   </h2>
-                  <p>Delivery model: 100% In House</p>
+                  <p>100% In-House Execution</p>
                 </div>
                 <div className="line" />
                 <div className="client-image">
@@ -77,8 +76,8 @@ export default function AboutSection({ id }: { id?: string }) {
                   <img src="/images/icons/quote-icon.png" alt="img" />
                 </div>
                 <p>
-                  Real growth isn't outsourced. It's built in partnership, with a team that treats
-                  your pipeline as its own.
+                  True growth isn’t rented by the hour. It’s built by a team that treats your
+                  pipeline as its own.
                 </p>
               </div>
             </div>
@@ -91,8 +90,8 @@ export default function AboutSection({ id }: { id?: string }) {
                     <img src="/images/icons/about-icon1-1.png" alt="" />
                   </div>
                   <div className="content">
-                    <h4 className="title">Full Cycle B2B Sales</h4>
-                    <p>Our internal consultants run the entire pipeline in house, from targeted outreach to discovery calls to closing high value deals.</p>
+                    <h4 className="title">Full-Cycle B2B Sales</h4>
+                    <p>Our internal consultants run discovery calls, handle objections and close high-ticket B2B deals on behalf of our clients, start to finish.</p>
                   </div>
                 </li>
                 <li>
@@ -100,8 +99,8 @@ export default function AboutSection({ id }: { id?: string }) {
                     <img src="/images/icons/about-icon1-2.png" alt="" />
                   </div>
                   <div className="content">
-                    <h4 className="title">Tech Enabled Growth Infrastructure</h4>
-                    <p>We architect the CRM systems, automations, and SEO foundations that give your sales floor an edge.</p>
+                    <h4 className="title">Tech-Enabled Operations</h4>
+                    <p>Our engineering team builds the CRM architecture and automations that give every campaign an edge in the market.</p>
                   </div>
                 </li>
               </ul>

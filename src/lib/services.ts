@@ -11,7 +11,7 @@ export const SERVICES: Service[] = [
     slug: "b2b-outbound-sales",
     title: "B2B Outbound Sales & Pipeline Generation",
     intro:
-      "We build and run the cold outreach that fills your calendar. Every list, message and cadence is built around your actual buyer, by call and by email, so the leads coming in are ones worth having a conversation with, not just names on a list.",
+      "Targeted cold outreach, by call and email, built to land Blupeak consultants in front of the right decision-makers and fill your calendar with qualified, ready-to-close appointments.",
     included: [
       "Custom prospect lists built around your ideal customer profile",
       "Cold call and cold email sequences written for your specific offer",
@@ -25,7 +25,7 @@ export const SERVICES: Service[] = [
     slug: "full-cycle-deal-closing",
     title: "Full-Cycle Deal Closing",
     intro:
-      "Booking a call is only half the job. Our native English speaking sales consultants take it from there, running discovery, handling objections and closing high-ticket B2B deals on your behalf, under your brand.",
+      "Native-English-speaking sales consultants run the entire sales cycle, from discovery through objection handling to close, on high-ticket B2B engagements.",
     included: [
       "Discovery calls run by trained closers, not junior reps reading a script",
       "Objection handling built around your actual sales process and offer",
@@ -53,7 +53,7 @@ export const SERVICES: Service[] = [
     slug: "seo-organic-growth",
     title: "SEO & Organic Growth",
     intro:
-      "Paid outreach fills the pipeline today. SEO is what keeps it filling months from now without you spending more on ads. We handle the technical fixes, the keyword strategy and the content itself.",
+      "Technical SEO, keyword clustering and content strategy built to help your brand dominate organic search and compound pipeline without paid spend.",
     included: [
       "Technical audit and fixes for crawlability and site health",
       "Keyword clustering built around what your buyers actually search",
@@ -67,7 +67,7 @@ export const SERVICES: Service[] = [
     slug: "brand-creative-paid-media",
     title: "Brand, Creative & Paid Media",
     intro:
-      "The systems and the outreach only work as well as the material behind them. Our in-house design team produces the assets your sales team needs and manages the paid campaigns that put them in front of the right people.",
+      "Capability statements, pitch decks, whitepapers, paid ad campaigns and high-converting video and graphic creative, produced in-house, on brand, on deadline.",
     included: [
       "Capability statements, pitch decks and whitepapers",
       "Paid social and search campaign management",
