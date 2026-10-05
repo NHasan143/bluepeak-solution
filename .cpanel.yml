@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - /usr/bin/test -f site/index.html
+    - /usr/bin/test -d /home/corlfzmv/blupeaksolutions.com
+    - /bin/cp -R site/. /home/corlfzmv/blupeaksolutions.com/

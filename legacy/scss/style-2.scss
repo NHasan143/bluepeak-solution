@@ -1,0 +1,72 @@
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 90deg;
+  inherits: false;
+}
+:root {
+  --r: 30px; /* radius */
+  --s: 50px; /* size of the inner curve*/
+  --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%) no-repeat;
+  --theme-color1: #BAFF39;
+  --theme-color2: #161616;
+  --theme-color3: #161616;
+  --theme-color4: #4D84FF;
+  --theme-color1-rgb: 141, 86, 250;
+  --theme-color2-rgb: 4, 11, 29;
+  --theme-color3-rgb: 2, 223, 130;
+  --theme-color4-rgb: 77, 132, 255;
+  --text-color-theme-color1: #D9D9D9;
+  --body-bg: #0D0D0D;
+  --gradient-1: linear-gradient(180deg, #040B1D 33.14%, #0745E3 101.28%);
+  --gradient-2: linear-gradient(89.51deg, #040B1D -14.03%, #0A308D 99.77%);
+  --gradient-3: linear-gradient(180deg, #1AAFD8 0%, #3055EB 49.19%, #B443FF 100%);
+  --gradient-4: linear-gradient(90deg, #0A308D -9.47%, #040B1D 91.33%);
+  --gradient-5: linear-gradient(90deg, #040B1D 0%, #0A308D 85.07%);
+  --gradient-6: linear-gradient(180deg, #040B1D 43.39%, #0745E3 156.01%);
+  --gradient-7: linear-gradient(180deg, #040B1D 33.14%, #0745E3 101.28%);
+  --gradient-8: linear-gradient(180deg, var(--theme-color1) 0%, #25184A 100%);
+  --gradient-9: linear-gradient(180deg, #040B1D 43.39%, #0745E3 156.01%);
+  --h6-font-weight: 600;
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro";
+  src: url("../fonts/gt-walsheim-pro/GTWalsheimPro-Regular.eot");
+  src:
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Regular.woff2") format("woff2"),
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Regular.woff") format("woff"),
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Regular.ttf") format("truetype"),
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Regular.svg#GTWalsheimPro-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro";
+  src: url("../fonts/gt-walsheim-pro/GTWalsheimPro-Medium.eot");
+  src:
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Medium.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Medium.woff2") format("woff2"),
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Medium.woff") format("woff"),
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Medium.ttf") format("truetype"),
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Medium.svg#GTWalsheimPro-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro";
+  src: url("../fonts/gt-walsheim-pro/GTWalsheimPro-Bold.eot");
+  src:
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Bold.woff2") format("woff2"),
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Bold.woff") format("woff"),
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Bold.ttf") format("truetype"),
+    url("../fonts/gt-walsheim-pro/GTWalsheimPro-Bold.svg#GTWalsheimPro-Bold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

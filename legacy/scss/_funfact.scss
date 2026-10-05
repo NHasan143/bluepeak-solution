@@ -1,0 +1,203 @@
+.funfact-section-home1 {
+  padding: 130px 0;
+  position: relative;
+  .funfact-light {
+    bottom: 0;
+    left: 25%;
+    position: absolute;
+    top: -10%;
+    z-index: -1;
+  }
+  @include media-breakpoint-down(lg){
+    padding: 80px 0;
+  }
+  .section-title {
+    margin-bottom: 32px;
+    @include media-breakpoint-down (md){
+      margin-bottom: -20px;
+    }
+    p {
+      max-width: 472px;
+    }
+  }
+  .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .video-box {
+    margin-top: 60px;
+    .inner-box {
+      height: 274px;
+      width: 100%;
+      border-radius: 40px;
+      overflow: hidden;
+      position: relative;
+      border: 1.5px solid #02DF8233;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      .play-now {
+        display: inline-block;
+        margin-bottom: 33px;
+        .icon {
+          height: 79px;
+          width: 79px;
+          line-height: 79px;
+          background-color: var(--theme-color1);
+          font-size: 24px;
+          padding: 0;
+          color: var(--theme-color-white);
+        }
+        .ripple {
+          width: 79px;
+          height: 79px;
+          &:before,
+          &:after {
+            width: 79px;
+            height: 79px;
+          }
+        }
+      }
+    }
+    .bg-image{
+      &:before {
+        background: linear-gradient(0deg, #19110F 53.63%, #FD5B38 124.45%);
+        border: 1.5px solid rgba(2, 223, 130, 0.2);
+        content: '';
+        height: 100%;
+        left: 0;
+        opacity: 0.57;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+.funfact-wrap{
+  margin-left: 6px;
+  @include media-breakpoint-down(lg){
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+.funfact-item{
+  background: linear-gradient(181.35deg, rgba(5, 15, 19, 0) 1.15%, rgba(253, 91, 56, 0.1) 98.91%);
+  border: 2px solid rgba(253, 91, 56, 0.2);
+  border-radius: 40px;
+  border-radius: 40px;
+  margin-bottom: 20px;
+  padding-right: 0;
+  text-align: left;
+  gap: 50px;
+  @include transition(all .3s ease);
+  @include media-breakpoint-down(sm) {
+    padding: 30px;
+  }
+  @include media-breakpoint-down(md){
+    gap: 0;
+  }
+  @include media-breakpoint-up(sm){
+    align-items: center;
+    display: flex;
+  }
+  @include media-breakpoint-down(sm){
+    text-align: center;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: var(--body-font-family);
+    line-height: 1.6;
+    margin-left: -40%;
+
+    @include media-breakpoint-down (xxl){
+      font-size: 16px;
+      margin-left: -42%;
+      max-width: 145px;
+    }
+
+    @include media-breakpoint-down (md){
+      margin-left: -28%;
+      padding-right: 30px;
+    }
+
+     @include media-breakpoint-down (md){
+      margin-left: 0;
+      padding-right: 0;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+  &:hover{
+    .icon {
+      img{
+        transform: scaleX(-1);
+      }
+    }
+  }
+  .ff-head{
+    @include media-breakpoint-up(sm) {
+      align-items: center;
+      display: flex;
+      // max-width: 340px;
+      width: 100%;
+      gap: 60px;
+    }
+  }
+  .icon{
+    background: linear-gradient(
+    90deg,
+    rgba(5, 15, 19, 0.5) 0%,
+    rgba(253, 91, 56, 0.4) 100%
+);
+
+    border-radius: 40px;
+    color: var(--theme-color-white);
+    display: inline-block;
+    font-size: 60px;
+    height: 137px;
+    line-height: 137px;
+    text-align: center;
+    max-width: 137px;  
+    width: 100%;  
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 15px;
+      margin-right: 0;
+    }
+    i{
+      @include transition(all .3s ease);
+    }
+    img {
+      @include transition(all .3s ease);
+    }
+  }
+  .count-box{
+    color: var(--theme-color1);
+    font-weight: 500;
+    font-family: var(--heading-font-family);
+    margin-bottom: 0;
+    font-size: 80px;
+    line-height: 1;
+    @include media-breakpoint-down (xxxl){
+      font-size: 65px;
+    }
+    //@include responsive-font(40px, 6.8vw, 80px, 1.4);
+    @include transition(all .3s ease);
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 10px;
+    }
+    i {
+      font-style: normal;
+    }
+  }
+}

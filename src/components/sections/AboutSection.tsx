@@ -1,0 +1,119 @@
+import { Link } from "react-router-dom";
+import Star from "../common/Star";
+
+/** The "About Us" block shared verbatim by the homepage and the About page. */
+export default function AboutSection({ id }: { id?: string }) {
+  return (
+    <section id={id} className="about-section fix section-padding">
+      <div className="about-shape1 tm-gsap-animate-circle d-none d-xxl-block">
+        <img src="/images/icons/about-shape1-1.png" alt="img" />
+      </div>
+      <div className="container">
+        <div className="row g-4 mb-60">
+          <div className="col-xl-8 col-lg-7">
+            <div className="section-title mb-0">
+              <div className="sub-title text-left">
+                <Star variant="lime" />
+                <span>About Us</span>
+              </div>
+              <h2 className="title text-anim">
+                We blend creativity and technology to build{" "}
+                <span>digital experiences</span>
+              </h2>
+            </div>
+          </div>
+          <div className="col-xl-4 col-lg-5 wow fadeInUp" data-wow-delay=".3s">
+            <div className="about-top-counter">
+              <div className="year-box">
+                <p>Since</p>
+                <h2 className="year-title">2010</h2>
+              </div>
+              <div className="count-box">
+                <p>Digital awards</p>
+                <h2 className="title">
+                  <span className="count-text" data-speed="3000" data-stop="89" data-lag="0">
+                    10
+                  </span>
+                  +
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row g-4 align-items-center">
+          <div className="col-lg-3 wow fadeInUp" data-wow-delay=".3s">
+            <div className="about-left-style-1">
+              <p>
+                We believe in innovation, collaboration, and data-driven design to
+                help clients stand out in a digital world.
+              </p>
+              <div className="counter-left">
+                <div className="count-box">
+                  <h2 className="title">
+                    <span className="count-text" data-speed="3000" data-stop="10" data-lag="0">
+                      2
+                    </span>
+                    M <sub>+</sub>
+                  </h2>
+                  <p>Raised more than</p>
+                </div>
+                <div className="line" />
+                <div className="client-image">
+                  <img src="/images/resource/about-1-1.jpg" alt="img" className="icon-1" />
+                  <img src="/images/resource/about-1-2.jpg" alt="img" className="icon-2" />
+                  <img src="/images/resource/about-1-3.jpg" alt="img" className="icon-3" />
+                  <img src="/images/resource/about-1-4.jpg" alt="img" className="icon-4" />
+                  <span>+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-5 wow fadeInUp" data-wow-delay=".5s">
+            <div className="about-image-style-1 fix">
+              <img data-speed=".8" src="/images/resource/about-1-5.jpg" alt="img" />
+              <div className="about-info">
+                <div className="icon">
+                  <img src="/images/icons/quote-icon.png" alt="img" />
+                </div>
+                <p>
+                  True progress is made not in isolation, but in partnership—with
+                  those who trust us, challenge us, and grow
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4 wow fadeInUp" data-wow-delay=".7s">
+            <div className="about-counter-item-1">
+              <ul>
+                <li>
+                  <div className="icon">
+                    <img src="/images/icons/about-icon1-1.png" alt="" />
+                  </div>
+                  <div className="content">
+                    <h4 className="title">Creative Content &amp; Design</h4>
+                    <p>Lorem ipsum dolor sit amet, conse ctetur sadipiscing elit, sed dominus</p>
+                  </div>
+                </li>
+                <li>
+                  <div className="icon">
+                    <img src="/images/icons/about-icon1-2.png" alt="" />
+                  </div>
+                  <div className="content">
+                    <h4 className="title">Strategy &amp; Consultation</h4>
+                    <p>Lorem ipsum dolor sit amet, conse ctetur sadipiscing elit, sed dominus</p>
+                  </div>
+                </li>
+              </ul>
+              <Link to="/about" className="theme-btn btn-style-four">
+                <span className="btn-title">More About Us</span>
+                <span className="dot-box">
+                  <span className="dot-item" />
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
