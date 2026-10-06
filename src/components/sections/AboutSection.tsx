@@ -14,27 +14,25 @@ export default function AboutSection({ id }: { id?: string }) {
             <div className="section-title mb-0">
               <div className="sub-title text-left">
                 <Star variant="lime" />
-                <span>About Us</span>
+                <span>About Blupeak</span>
               </div>
               <h2 className="title text-anim">
-                We blend creativity and technology to build{" "}
-                <span>digital experiences</span>
+                A Tech-Enabled Growth Agency <span>Built to Scale Businesses Worldwide</span>
               </h2>
             </div>
           </div>
           <div className="col-xl-4 col-lg-5 wow fadeInUp" data-wow-delay=".3s">
             <div className="about-top-counter">
               <div className="year-box">
-                <p>Since</p>
-                <h2 className="year-title">2010</h2>
+                <p>Team Experience</p>
+                <h2 className="year-title">6+</h2>
               </div>
               <div className="count-box">
-                <p>Digital awards</p>
+                <p>Core Growth Pillars</p>
                 <h2 className="title">
                   <span className="count-text" data-speed="3000" data-stop="89" data-lag="0">
-                    10
+                    3
                   </span>
-                  +
                 </h2>
               </div>
             </div>
@@ -44,18 +42,20 @@ export default function AboutSection({ id }: { id?: string }) {
           <div className="col-lg-3 wow fadeInUp" data-wow-delay=".3s">
             <div className="about-left-style-1">
               <p>
-                We believe in innovation, collaboration, and data-driven design to
-                help clients stand out in a digital world.
+                Blupeak Solutions is not a staffing pool or a placement service. We are a unified
+                growth agency. Our internal specialists in sales, marketing and engineering work
+                inside one Dhaka-based digital operations hub, running outbound pipeline, full-cycle
+                closing, CRM automation, SEO and creative production as one accountable team.
               </p>
               <div className="counter-left">
                 <div className="count-box">
                   <h2 className="title">
                     <span className="count-text" data-speed="3000" data-stop="10" data-lag="0">
-                      2
+                      100
                     </span>
-                    M <sub>+</sub>
+                    %
                   </h2>
-                  <p>Raised more than</p>
+                  <p>100% In-House Execution</p>
                 </div>
                 <div className="line" />
                 <div className="client-image">
@@ -76,8 +76,8 @@ export default function AboutSection({ id }: { id?: string }) {
                   <img src="/images/icons/quote-icon.png" alt="img" />
                 </div>
                 <p>
-                  True progress is made not in isolation, but in partnership—with
-                  those who trust us, challenge us, and grow
+                  True growth isn’t rented by the hour. It’s built by a team that treats your
+                  pipeline as its own.
                 </p>
               </div>
             </div>
@@ -90,8 +90,8 @@ export default function AboutSection({ id }: { id?: string }) {
                     <img src="/images/icons/about-icon1-1.png" alt="" />
                   </div>
                   <div className="content">
-                    <h4 className="title">Creative Content &amp; Design</h4>
-                    <p>Lorem ipsum dolor sit amet, conse ctetur sadipiscing elit, sed dominus</p>
+                    <h4 className="title">Full-Cycle B2B Sales</h4>
+                    <p>Our internal consultants run discovery calls, handle objections and close high-ticket B2B deals on behalf of our clients, start to finish.</p>
                   </div>
                 </li>
                 <li>
@@ -99,13 +99,13 @@ export default function AboutSection({ id }: { id?: string }) {
                     <img src="/images/icons/about-icon1-2.png" alt="" />
                   </div>
                   <div className="content">
-                    <h4 className="title">Strategy &amp; Consultation</h4>
-                    <p>Lorem ipsum dolor sit amet, conse ctetur sadipiscing elit, sed dominus</p>
+                    <h4 className="title">Tech-Enabled Operations</h4>
+                    <p>Our engineering team builds the CRM architecture and automations that give every campaign an edge in the market.</p>
                   </div>
                 </li>
               </ul>
               <Link to="/about" className="theme-btn btn-style-four">
-                <span className="btn-title">More About Us</span>
+                <span className="btn-title">More About Blupeak</span>
                 <span className="dot-box">
                   <span className="dot-item" />
                 </span>

@@ -1,38 +1,34 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link, useParams } from "react-router-dom";
 import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
 import Accordion, { type AccordionEntry } from "../components/common/Accordion";
-
-const SIDEBAR_LINKS = [
-  "Brand Identity Design",
-  "UI/UX Design",
-  "Website Design",
-  "Website Development",
-  "Creative Direction",
-  "SEO Optimization",
-];
-
+import { getService, SERVICES } from "../lib/services";
+ 
 const SLIDER = [
   { img: "service-d1.jpg" },
   { img: "service-d2.jpg" },
   { img: "service-d1.jpg" },
 ];
-
+ 
 const FAQ_ANSWER =
   "There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable.";
-
+ 
 const FAQ: AccordionEntry[] = [
   { no: "", question: "Is my technology allowed on tech?", answer: FAQ_ANSWER },
   { no: "", question: "How to soft launch your business?", answer: FAQ_ANSWER },
   { no: "", question: "How to turn visitors into contributors", answer: FAQ_ANSWER },
   { no: "", question: "How can i find my solutions?", answer: FAQ_ANSWER },
 ];
-
+ 
 export default function ServiceDetails() {
+  const { slug } = useParams();
+  const service = getService(slug);
+
   return (
     <>
-      <PageTitle title="Service Details" crumb="Services" />
-
+      <PageTitle title={service.title} crumb="Services" />
+ 
       <section className="services-details pt-120 pb-0">
         <div className="container">
           <div className="row">
@@ -42,17 +38,17 @@ export default function ServiceDetails() {
                 <div className="sidebar-widget service-sidebar-single">
                   <div className="sidebar-service-list">
                     <ul>
-                      {SIDEBAR_LINKS.map((label, i) => (
-                        <li key={i} className={i === 1 ? "current" : undefined}>
-                          <a href="#" className={i === 0 ? "current" : undefined}>
+                      {SERVICES.map((item) => (
+                        <li key={item.slug} className={item.slug === service.slug ? "current" : undefined}>
+                          <Link to={`/service-details/${item.slug}`} className={item.slug === service.slug ? "current" : undefined}>
                             <i className="fas fa-angle-right" />
-                            <span>{label}</span>
-                          </a>
+                            <span>{item.title}</span>
+                          </Link>
                         </li>
                       ))}
                     </ul>
                   </div>
-
+ 
                   <div className="service-details-help">
                     <div className="help-shape-1" />
                     <div className="help-shape-2" />
@@ -66,10 +62,10 @@ export default function ServiceDetails() {
                     </div>
                     <div className="help-contact">
                       <p>Need help? Talk to an expert</p>
-                      <a href="tel:12463330079">+892 ( 123 ) 112 - 9999</a>
+                      <a href="tel:01849415421">018-4941-5421</a>
                     </div>
                   </div>
-
+ 
                   <div className="sidebar-widget service-sidebar-single mt-4">
                     <div
                       className="service-sidebar-single-btn wow fadeInUp"
@@ -86,39 +82,28 @@ export default function ServiceDetails() {
                 </div>
               </div>
             </div>
-
+ 
             {/* Content */}
             <div className="col-xl-8 col-lg-8">
               <div className="services-details__content">
                 <div className="service-details-image fix">
                   <img data-speed=".8" src="/images/resource/service-details.jpg" alt="" />
                 </div>
-                <h3 className="mt-4">Service Overview</h3>
-                <p className="text">
-                  Lorem ipsum is simply free text used by copytyping refreshing. Neque porro est qui
-                  dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae vitae dicta
-                  sunt explicabo. Aelltes port lacus quis enim var sed efficitur turpis gilla sed sit
-                  amet finibus eros. Lorem Ipsum is simply dummy text of the printing and typesetting
-                  industry. Lorem Ipsum has been the ndustry standard dummy text ever since the
-                  1500s, when an unknown printer took a galley of type and scrambled it to make
-                </p>
-                <p className="text">
-                  When an unknown printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but also the leap into
-                  electronic typesetting, remaining essentially unchanged Lorem ipsum dolor sit amet
-                  consec tetur adipis icing elit
-                </p>
+                <h3 className="mt-4">{service.title}</h3>
+                <p className="text">{service.intro}</p>
                 <div className="content mt-40">
                   <div className="text">
-                    <h3>Service Center</h3>
-                    <p className="text">
-                      Lorem ipsum is simply free text used by copytyping refreshing. Neque porro est
-                      qui dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae
-                      vitae dicta sunt explicabo.
-                    </p>
+                    <h3>What&apos;s included</h3>
+                    <ul className="feature-list">
+                      {service.included.map((item) => (
+                        <li className="single-item" key={item}>
+                          <span className="icon-box fas fa-check" />
+                          <span className="title">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                     <blockquote className="blockquote-one">
-                      Lorem ipsum dolor sit amet, consectetur notted adipisicing elit sed do eiusmod
-                      remaining essentially unchanged Lorem ipsum dolor sit amet consec tetur
+                      {service.outcome}
                     </blockquote>
                   </div>
                   <Swiper
@@ -166,7 +151,7 @@ export default function ServiceDetails() {
           </div>
         </div>
       </section>
-
+ 
       <Footer padded />
     </>
   );

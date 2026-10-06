@@ -1,0 +1,99 @@
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "../../lib/gsap";
+import { SERVICES } from "../../lib/services";
+
+const HOME_SERVICE_TITLES = [
+  "Outbound B2B Sales & Pipeline Generation",
+  "Full-Cycle Deal Closing",
+  "CRM Architecture & Workflow Automation",
+  "SEO & Organic Growth",
+  "Brand & Creative Execution",
+];
+
+export default function GrowthServiceAccordion() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
+
+  useEffect(() => {
+    const content = contentRefs.current[openIndex ?? -1];
+    const contents = contentRefs.current.filter(
+      (item): item is HTMLDivElement => item !== null,
+    );
+
+    gsap.killTweensOf(contents);
+    gsap.to(contents, {
+      height: 0,
+      opacity: 0,
+      duration: 0.45,
+      ease: "power2.inOut",
+      overwrite: true,
+    });
+
+    if (content) {
+      gsap.fromTo(
+        content,
+        { height: 0, opacity: 0 },
+        {
+          height: "auto",
+          opacity: 1,
+          duration: 0.6,
+          ease: "power3.out",
+          overwrite: true,
+        },
+      );
+    }
+  }, [openIndex]);
+
+  return (
+    <div className="growth-services" aria-label="Growth services">
+      {SERVICES.map((service, index) => {
+        const isOpen = openIndex === index;
+        const contentId = `growth-service-content-${index}`;
+
+        return (
+          <article className={`growth-service${isOpen ? " is-open" : ""}`} key={service.title}>
+            <button
+              type="button"
+              className="growth-service-toggle"
+              aria-expanded={isOpen}
+              aria-controls={contentId}
+              onClick={() => setOpenIndex(isOpen ? null : index)}
+            >
+              <span className="growth-service-number">0{index + 1}.</span>
+              <span className="growth-service-title">{HOME_SERVICE_TITLES[index]}</span>
+              <span className="growth-service-arrow" aria-hidden="true">
+                <i className="fa-solid fa-arrow-right" />
+              </span>
+            </button>
+            <div
+              id={contentId}
+              ref={(element) => {
+                contentRefs.current[index] = element;
+              }}
+              className="growth-service-content"
+              aria-hidden={!isOpen}
+            >
+              <div className="growth-service-content-inner">
+                <p>{service.intro}</p>
+                <div className="growth-service-columns">
+                  <div>
+                    <h3>What's included</h3>
+                    <ul>
+                      {service.included.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="growth-service-outcome">
+                    <h3>What you get</h3>
+                    <p>{service.outcome}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  );
+}

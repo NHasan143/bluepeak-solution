@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
  */
 export default function Footer({ padded = false }: { padded?: boolean }) {
   return (
-    <footer className={`footer-section${padded ? " pt-120" : ""}`}>
+    <footer className={`footer-section blupeak-footer${padded ? " pt-120" : ""}`}>
       <div className="footer-ellipse1 d-none d-xxl-block">
         <img src="/images/icons/footer1-1ellipse.png" alt="img" />
       </div>
@@ -22,7 +22,7 @@ export default function Footer({ padded = false }: { padded?: boolean }) {
           <img src="/images/icons/footer-shape1-1.png" alt="" />
         </div>
         <div className="container">
-          <div className="footer-widget-wrapper">
+          <div className="footer-widget-wrapper blupeak-footer-grid">
             <div className="row">
               <div
                 className="col-xl-4 col-lg-5 col-md-8 wow fadeInUp"
@@ -30,29 +30,15 @@ export default function Footer({ padded = false }: { padded?: boolean }) {
               >
                 <div className="footer-widgwet-items">
                   <div className="widget-head">
-                    <Link to="/" className="footer-logo">
-                      <img src="/images/logo.png" alt="img" />
+                    <Link to="/" className="footer-logo" aria-label="Blupeak home">
+                      <img src="/images/logo.png" alt="Blupeak" />
                     </Link>
                   </div>
                   <div className="footer-content">
                     <p>
-                      Through critical analysis and creative inquiry, our mission
-                      is to understand the complexities human.
+                      Blupeak Solutions is the tech-enabled growth agency behind the sales, marketing
+                      and digital infrastructure of scaling businesses worldwide.
                     </p>
-                    <div className="social-icon">
-                      <a href="#">
-                        <i className="fa-brands fa-x-twitter" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-pinterest-p" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-instagram" />
-                      </a>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -69,16 +55,16 @@ export default function Footer({ padded = false }: { padded?: boolean }) {
                       <Link to="/">Home</Link>
                     </li>
                     <li>
-                      <Link to="/about">About Us</Link>
+                      <Link to="/services">What We Do</Link>
                     </li>
                     <li>
-                      <Link to="/services">Services</Link>
+                      <Link to="/about">The Blupeak Advantage</Link>
                     </li>
                     <li>
-                      <Link to="/projects">Portfolio</Link>
+                      <a href="#">Careers</a>
                     </li>
                     <li>
-                      <Link to="/contact">contact us</Link>
+                      <Link to="/contact">Contact Us</Link>
                     </li>
                   </ul>
                 </div>
@@ -93,19 +79,19 @@ export default function Footer({ padded = false }: { padded?: boolean }) {
                   </div>
                   <ul className="list-area">
                     <li>
-                      <a href="#">Mobile &amp; App Design</a>
+                      <a href="#">Demand Generation</a>
                     </li>
                     <li>
-                      <a href="#">Branding &amp; Identity</a>
+                      <a href="#">B2B Closing</a>
                     </li>
                     <li>
-                      <a href="#">Consultation</a>
+                      <a href="#">CRM Architecture</a>
                     </li>
                     <li>
-                      <a href="#">UI/UX Design</a>
+                      <a href="#">Workflow Automation</a>
                     </li>
                     <li>
-                      <a href="#">System Creation</a>
+                      <a href="#">SEO &amp; Creative</a>
                     </li>
                   </ul>
                 </div>
@@ -118,13 +104,11 @@ export default function Footer({ padded = false }: { padded?: boolean }) {
                   <div className="widget-head">
                     <h4 className="widget-title font-weight-700">Stay with us</h4>
                   </div>
-                  <div className="social-post">
-                    <a href="#" className="mt-0">
-                      Behance
-                    </a>
-                    <a href="#">Upwork</a>
-                    <a href="#">Dribbble</a>
-                    <a href="#">Fiverr</a>
+                  <div className="social-post blupeak-social-links">
+                    <a href="#" className="mt-0">LinkedIn</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Behance</a>
                   </div>
                 </div>
               </div>
@@ -135,7 +119,7 @@ export default function Footer({ padded = false }: { padded?: boolean }) {
           <div className="container">
             <div className="footer-bottom-wrapper">
               <p className="wow fadeInLeft" data-wow-delay=".5s">
-                © Copyright Reserved by Bluepeak Solution
+                &copy; Copyright Reserved by Blupeak
               </p>
               <ul className="footer-menu wow fadeInRight" data-wow-delay=".5s">
                 <li>
