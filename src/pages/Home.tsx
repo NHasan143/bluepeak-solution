@@ -12,56 +12,50 @@ import ServiceList from "../components/sections/ServiceList";
 
 const MagicRings = lazy(() => import("../components/common/MagicRings"));
 
-const FAQ_ANSWER =
-  "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem";
-
 const FAQ_LEFT: AccordionEntry[] = [
-  { no: "01.", question: "What services does your digital agency offer?", answer: FAQ_ANSWER },
-  { no: "02.", question: "How do you approach a new project?", answer: FAQ_ANSWER, wowDelay: ".2s" },
-  { no: "03.", question: "What industries do you specialize in?", answer: FAQ_ANSWER, wowDelay: ".4s" },
-  { no: "04.", question: "How long does it take to complete a project?", answer: FAQ_ANSWER, wowDelay: ".6s" },
+  { no: "01.", question: "What services does Blupeak offer?", answer: "We run three pillars in-house: demand generation and full-cycle B2B sales, digital infrastructure and CRM automation, and SEO and creative execution. Everything your growth engine needs sits under one team." },
+  { no: "02.", question: "How do you approach a new client engagement?", answer: "We start with a discovery consultation to map your ideal customer, build the outbound and CRM infrastructure around it, then deploy our sales consultants to run the pipeline, with reporting visibility from day one.", wowDelay: ".2s" },
+  { no: "03.", question: "What industries do you specialize in?", answer: "Our systems are built to adapt to high-ticket B2B sales cycles across sectors, including SaaS, professional services, home services and healthcare.", wowDelay: ".4s" },
+  { no: "04.", question: "How long does it take to see results?", answer: "Outbound infrastructure and CRM builds are typically live within the first few weeks, with pipeline momentum building from there. We will set a realistic onboarding and ramp timeline during your consultation.", wowDelay: ".6s" },
 ];
 
 const FAQ_RIGHT: AccordionEntry[] = [
-  { no: "05.", question: "Do you offer custom website or app development?", answer: FAQ_ANSWER, wowDelay: ".2s" },
-  { no: "06.", question: "What is your pricing model or cost structure?", answer: FAQ_ANSWER, wowDelay: ".2s" },
-  { no: "07.", question: "Can you help with ongoing support and maintenance?", answer: FAQ_ANSWER, wowDelay: ".4s" },
-  { no: "08.", question: "Do you work with startups or only established brands?", answer: FAQ_ANSWER, wowDelay: ".6s" },
+  { no: "05.", question: "Do you only handle sales, or tech and creative too?", answer: "All three. Blupeak is a unified agency. The same internal team that fills your pipeline also builds your CRM automations and produces your brand and ad creative.", wowDelay: ".2s" },
+  { no: "06.", question: "What is your pricing model?", answer: "We will walk through the right retainer, performance-based or hybrid model for your goals during a growth consultation.", wowDelay: ".2s" },
+  { no: "07.", question: "Do you offer ongoing support after launch?", answer: "Yes. Our team continuously optimizes outreach, CRM workflows and campaigns after launch rather than handing off and disappearing.", wowDelay: ".4s" },
+  { no: "08.", question: "Do you work with startups or only established brands?", answer: "Both. We tailor engagement scope to company stage, from early-stage teams building their first outbound engine to established brands scaling an existing one.", wowDelay: ".6s" },
 ];
 
 const SKILLS = [
-  { icon: "wa-sketch.png", count: "90%", title: "Skatch" },
-  { icon: "wa-photoshop.png", count: "80%", title: "Photoshop", delay: ".2s" },
-  { icon: "wa-figma.png", count: "90%", title: "Figma", delay: ".4s", active: true },
-  { icon: "wa-invision.png", count: "90%", title: "Invision", delay: ".6s" },
-  { icon: "wa-xd.png", count: "85%", title: "XD", delay: ".8s" },
-  { icon: "wa-Illustration.png", count: "75%", title: "Illustration", delay: ".9s" },
+  { icon: "wa-sketch.png", count: "CRM", title: "Salesforce" },
+  { icon: "wa-photoshop.png", count: "CRM", title: "HubSpot", delay: ".2s" },
+  { icon: "wa-figma.png", count: "CRM", title: "Zoho", delay: ".4s", active: true },
+  { icon: "wa-invision.png", count: "OUTBOUND", title: "Outreach & Dialers", delay: ".6s" },
+  { icon: "wa-xd.png", count: "AUTOMATION", title: "Zapier & Make", delay: ".8s" },
+  { icon: "wa-Illustration.png", count: "VISIBILITY", title: "Analytics Dashboards", delay: ".9s" },
 ];
 
 const NEWS = [
-  { img: "news1-1.jpg", title: "The ultimate guide to content marketing for businesses", delay: ".3s" },
-  { img: "news1-2.jpg", title: "Web3 marketing breakthroughs agency case study", delay: ".5s" },
-  { img: "news1-3.jpg", title: "Innovative web3 marketing campaigns agency", delay: ".7s" },
-];
-
-const PROJECTS = [
-  { img: "project1-1.jpg", title: "Product Advertisement" },
-  { img: "project1-2.jpg", title: "Mock-up Design" },
-  { img: "project-1-3.jpg", title: "Digital Branding" },
+  { img: "news1-1.jpg", title: "How to Build a High-Ticket Deal Pipeline Without Hiring In-House", delay: ".3s" },
+  { img: "news1-2.jpg", title: "CRM Automation: The Edge B2B Sales Teams Need", delay: ".5s" },
+  { img: "news1-3.jpg", title: "Why Full-Cycle Sales Consultants Outperform Cold Outreach Alone", delay: ".7s" },
 ];
 
 const COUNTERS = [
-  { stop: "1500", start: "5", suffix: "", label: "Years of Experience" },
-  { stop: "40", start: "5", suffix: "+", label: "Countries in Services", rotate: true },
-  { stop: "30", start: "5", suffix: "%", label: "Increase in Productivity" },
-  { stop: "20", start: "3", suffix: "k", label: "Project Completed", rotate: true },
+  { stop: "6", start: "6", suffix: "+", label: "Combined Team Experience" },
+  { stop: "3", start: "3", suffix: "", label: "Core Growth Pillars, One Team", rotate: true },
+  { stop: "100", start: "100", suffix: "%", label: "In-House Execution", rotate: true },
+  { stop: "0", start: "Global", suffix: "", label: "Clients Welcome, No Region Restriction" },
 ];
 
 const marqueeGroup = (
   <div className="marquee-group">
-    <div className="text">web design</div>
-    <div className="text">copywriting</div>
-    <div className="text">WEB DESIGN</div>
+    <div className="text">B2B GROWTH AGENCY</div>
+    <div className="text">REVENUE ARCHITECTURE</div>
+    <div className="text">TECH-ENABLED EXECUTION</div>
+    <div className="text">DEMAND GENERATION</div>
+    <div className="text">FULL-CYCLE CLOSING</div>
+    <div className="text">CRM AUTOMATION</div>
   </div>
 );
 
@@ -95,10 +89,16 @@ export default function Home() {
         </div>
         <div className="container">
           <div className="hero-content">
+            <div className="sub-title hero-eyebrow"><Star /><span>AI-Accelerated Growth Execution</span></div>
             <h1 className="hero-title">
-              We Build Brands<br />
-              <span>Digital</span> Results.
+              Build Your <span>Revenue Engine</span><br />
+              With Blupeak Solutions
             </h1>
+            <p className="hero-description">Blupeak Solutions is the tech-enabled B2B growth agency behind the sales, marketing and digital infrastructure of fast-scaling companies around the world. From the first cold outreach to the closed deal, our in-house team runs your revenue engine end to end, so you get agency-level results without building an internal team from scratch.</p>
+            <div className="hero-actions">
+              <Link to="/contact" className="theme-btn btn-style-one"><span className="btn-title">Book a Growth Consultation</span><i className="fa-solid fa-arrow-right" /></Link>
+              <Link to="/services" className="hero-secondary-link">See What We Do <i className="fa-solid fa-arrow-right" /></Link>
+            </div>
           </div>
           <div className="text-circle">
             <a href="#home-about" onClick={scrollToAbout} className="down-icon" aria-label="Explore About Us">
@@ -141,65 +141,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects */}
-      <section id="home-projects" className="project-section section-padding tm-panel-pin-area">
-        <div className="project-shape tm-gsap-animate-circle d-none d-xxl-block">
-          <img src="/images/icons/project-shape1-1.png" alt="img" />
-        </div>
-        <div className="project-ellipse d-none d-xl-block">
-          <img src="/images/icons/project1-1ellipse.png" alt="img" />
-        </div>
-        <div className="container">
-          <div className="row g-4">
-            <div className="col-lg-5">
-              <div className="project-left mt-0 tm-panel-pin">
-                <div className="section-title mb-40">
-                  <div className="sub-title text-left">
-                    <Star variant="lime" />
-                    <span>Projects</span>
-                  </div>
-                  <h2 className="title text-anim">
-                    Discover the artistry behind <span>our projects</span>
-                  </h2>
-                </div>
-                <p>
-                  It is a long established fact that a reader will be distracted by the readable
-                  content of a page when looking at its layout
-                </p>
-                <Link to="/projects" className="circle-box">
-                  <span>
-                    View portfolio
-                    <i className="fa-solid fa-arrow-right" />
-                  </span>
-                </Link>
-              </div>
-            </div>
-            <div className="col-lg-7 mt-5 mt-lg-0">
-              {PROJECTS.map((p, i) => (
-                <div key={i} className={`case-block-three${i === 0 ? " mt-0" : ""} tm-panel-pin`}>
-                  <div className="image">
-                    <img src={`/images/resource/${p.img}`} alt="" />
-                    <img src={`/images/resource/${p.img}`} alt="" />
-                  </div>
-                  <div className="tag-wrap">
-                    <span className="tag">UI/UX Design</span>
-                    <span className="tag">Branding</span>
-                  </div>
-                  <div className="info-title">
-                    <h4 className="title">
-                      <Link to="/project-details">{p.title}</Link>
-                    </h4>
-                    <Link to="/project-details" className="arrow-icon">
-                      <i className="far fa-long-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Work / Marquee + Skills */}
       <section className="work-section">
         <div className="marquee anim-fade-move">
@@ -216,6 +157,10 @@ export default function Home() {
             <img src="/images/icons/skill-shape1-1.png" alt="img" />
           </div>
           <div className="large-container">
+            <div className="section-title text-center tech-stack-heading">
+              <div className="sub-title"><Star /><span>Our Tech Stack</span></div>
+              <h2 className="title text-anim">The Platforms Powering <span>Our Growth Execution</span></h2>
+            </div>
             <div className="outer-box">
               <div className="row gx-50">
                 {SKILLS.map((s, i) => (
@@ -243,7 +188,7 @@ export default function Home() {
 
       <FeatureSection variant="slider" />
 
-      {/* Awards */}
+      {/* Recognition / Milestones */}
       <section className="award-section1 section-padding">
         <div className="award1-ellipse1">
           <img src="/images/icons/award1-ellipse1.png" alt="img" />
@@ -257,24 +202,24 @@ export default function Home() {
               <div className="section-title">
                 <div className="sub-title">
                   <Star />
-                  <span>Awwards</span>
+                  <span>Our Foundation</span>
                 </div>
                 <h2 className="title text-anim">
-                  Our Achievements &amp; <span>Recognitions</span>
+                  Built on Real Experience, <span>Not Empty Promises</span>
                 </h2>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay=".3s">
               <p>
-                This year marks 5 years of digital precision — bold thinking, and interfaces that
-                just work.
+                Blupeak is a young agency, but the team behind it is not. Here is what actually backs up our work.
               </p>
             </div>
           </div>
           <div className="row g-4 align-items-end">
             <div className="col-lg-5">
-              <div className="award-image1 text-center">
-                <img src="/images/resource/award1-1.png" alt="" />
+              <div className="award-image1 text-center milestone-highlight">
+                <strong>6+</strong>
+                <span>years of combined,<br />hands-on experience</span>
               </div>
             </div>
             <div className="col-lg-7">
@@ -288,17 +233,17 @@ export default function Home() {
                     <div className="content-items">
                       <div className="content">
                         <h6>
-                          X2 <span>FOR DISPLAY 2022</span>
+                          {i === 0 ? "01" : `0${i + 1}`} <span>WHY IT MATTERS</span>
                         </h6>
-                        <h4 className="title">Brand of the year.</h4>
+                        <h4 className="title">{["Experienced specialists behind the agency.", "A team that has run real B2B growth systems.", "Every project handled in-house.", "Strategy, execution and reporting under one roof."][i]}</h4>
                       </div>
-                      <span className="year">/ 2012</span>
+                      <span className="year">/ BLUPEAK</span>
                     </div>
                     <div
                       className="hover-image d-none d-md-block bg-cover"
-                      style={{ backgroundImage: 'url("/images/resource/award1-1-hover.jpg")' }}
+                      style={{ backgroundImage: 'url("/images/resource/about-1-5.jpg")' }}
                     />
-                    <Link to="/service-details" className="arrow-icon">
+                    <Link to="/about" className="arrow-icon">
                       <i className="fa-solid fa-arrow-right" />
                     </Link>
                   </div>
@@ -320,9 +265,7 @@ export default function Home() {
                 <div className={`counter-card-item${c.rotate ? " ratote-2" : ""} advance-item`}>
                   <div className="count-box">
                     <h2 className="title">
-                      <span className="count-text" data-speed="3000" data-stop={c.stop}>
-                        {c.start}
-                      </span>
+                      {c.start === "Global" ? c.start : <span className="count-text" data-speed="3000" data-stop={c.stop}>{c.start}</span>}
                       {c.suffix}
                     </h2>
                     <p>{c.label}</p>
@@ -378,12 +321,12 @@ export default function Home() {
                       <span>Get in touch</span>
                     </div>
                     <h2 className="title text-anim">
-                      Success is a team effort <span>let’s achieve it together </span>
+                      Success Is a Team Effort. <span>Let’s Achieve It Together</span>
                     </h2>
                   </div>
                   <div className="contact-info wow fadeInUp" data-wow-delay=".3s">
-                    <h6 className="email">needhelp@company.com</h6>
-                    <h3 className="phone">(+123) 456789 00</h3>
+                    <h6 className="email"><a href="mailto:info@blupeaksolutions.com">info@blupeaksolutions.com</a></h6>
+                    <h3 className="phone"><a href="tel:01849415421">018-4941-5421</a></h3>
                   </div>
                 </div>
               </div>
@@ -413,7 +356,7 @@ export default function Home() {
             </div>
             <h2 className="title text-anim">
               Check Out Latest News <br className="d-none d-lg-block" />
-              Update <span>&amp; Articales</span>
+              Updates <span>&amp; Articles</span>
             </h2>
           </div>
           <div className="row">
@@ -428,7 +371,7 @@ export default function Home() {
                     <img src={`/images/resource/${n.img}`} alt="img" />
                     <img src={`/images/resource/${n.img}`} alt="img" />
                     <span className="user-box">
-                      <span>UI Design</span> / admin
+                      <span>B2B Growth</span> / Blupeak
                     </span>
                   </div>
                   <div className="content">
@@ -446,15 +389,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Let's start a project */}
+      {/* Final CTA */}
       <section
         className="lets-project-section bg-cover"
         style={{ backgroundImage: 'url("/images/background/cta-bg1-1.jpg")' }}
       >
         <div className="container">
           <div className="lets-wrapper">
-            <h2 className="title text-anim">Let’s Start a Project</h2>
-            <Link to="/contact" className="arrow-icon wow fadeInUp" data-wow-delay=".3s">
+            <h2 className="title text-anim">Let’s Build Your Growth Engine</h2>
+            <Link to="/contact" className="arrow-icon wow fadeInUp" data-wow-delay=".3s" aria-label="Book a Growth Consultation">
               <i className="fa-solid fa-arrow-right" />
             </Link>
           </div>

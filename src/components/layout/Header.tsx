@@ -52,7 +52,7 @@ export default function Header() {
               <div className="ui-btn-outer">
                 <p className="phone-number">
                   <img src="/images/icons/call.png" alt="" />
-                  <a href="tel:01750050088">+0175-0050-088</a>
+                  <a href="tel:01849415421">018-4941-5421</a>
                 </p>
                 <Link to="/contact" className="theme-btn btn-style-four">
                   <span className="btn-title">Contact Us</span>
@@ -95,14 +95,14 @@ export default function Header() {
               <div className="contact-info-box">
                 <i className="icon lnr-icon-phone-handset" />
                 <span className="title">Call Now</span>
-                <a href="tel:+01750050088">+01 (7500) - 50088</a>
+                <a href="tel:01849415421">018-4941-5421</a>
               </div>
             </li>
             <li>
               <div className="contact-info-box">
                 <span className="icon lnr-icon-envelope1" />
                 <span className="title">Send Email</span>
-                <a href="mailto:help@company.com">help@company.com</a>
+                <a href="mailto:info@blupeaksolutions.com">info@blupeaksolutions.com</a>
               </div>
             </li>
             <li>

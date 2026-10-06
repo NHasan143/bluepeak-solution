@@ -36,8 +36,8 @@ export default function Footer({ padded = false }: { padded?: boolean }) {
                   </div>
                   <div className="footer-content">
                     <p>
-                      Through critical analysis and creative inquiry, our mission
-                      is to understand the complexities human.
+                      Blupeak Solutions is the tech-enabled growth agency behind the sales, marketing
+                      and digital infrastructure of scaling businesses worldwide.
                     </p>
                     <div className="social-icon">
                       <a href="#">

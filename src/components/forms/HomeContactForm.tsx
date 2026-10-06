@@ -10,7 +10,7 @@ export default function HomeContactForm() {
 
   return (
     <form onSubmit={onSubmit} id="contact-form">
-      <input type="hidden" name="subject" value="New lead from Bluepeak Solution website" />
+      <input type="hidden" name="subject" value="New lead from Blupeak Solutions website" />
       <input
         type="checkbox"
         name="botcheck"
