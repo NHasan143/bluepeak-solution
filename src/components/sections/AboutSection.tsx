@@ -16,7 +16,7 @@ export default function AboutSection({ id }: { id?: string }) {
                 <Star variant="lime" />
                 <span>About Blupeak</span>
               </div>
-              <h2 className="title text-anim">
+              <h2 className="title text-anim" data-reveal-on={id === "home-about" ? "desktop" : undefined}>
                 A Tech-Enabled Growth Agency <span>Built to Scale Businesses Worldwide</span>
               </h2>
             </div>
