@@ -460,6 +460,20 @@
   place-items: center;
 }
 
+@media (max-width: 767.98px) {
+  .hero-1.hero-rings {
+    padding-bottom: 24px;
+  }
+
+  .hero-1.hero-rings .text-circle {
+    margin-top: 16px;
+  }
+
+  #home-about {
+    padding-top: 32px;
+  }
+}
+
 .blupeak-footer .footer-area {
   background: #10120f;
   border-radius: 28px;

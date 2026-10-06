@@ -38,9 +38,8 @@ export function usePageEffects() {
       /* -------------------------------------------------- text reveal */
       const textAnimEls =
         root.querySelectorAll<HTMLElement>(".text-anim");
-      textAnimEls.forEach((element) => {
+      const revealText = (element: HTMLElement) => {
         const split = new SplitText(element, { type: "chars, words" });
-        splits.push(split);
         gsap.fromTo(
           split.chars,
           { x: 20, autoAlpha: 0 },
@@ -58,6 +57,22 @@ export function usePageEffects() {
             },
           },
         );
+        return split;
+      };
+
+      textAnimEls.forEach((element) => {
+        if (element.dataset.revealOn === "desktop") {
+          // Keep the homepage's next heading readable on phones. Revert the
+          // split when resizing so a desktop reveal cannot leave mobile gaps.
+          const media = gsap.matchMedia();
+          media.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+            const split = revealText(element);
+            return () => split.revert();
+          });
+          cleanups.push(() => media.revert());
+        } else {
+          splits.push(revealText(element));
+        }
       });
 
       /* -------------------------------------------------- panel pin */
