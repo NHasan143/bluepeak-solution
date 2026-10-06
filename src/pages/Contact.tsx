@@ -41,9 +41,7 @@ export default function Contact() {
                     </div>
                     <div className="text ml-xs--0 mt-xs-10">
                       <h4>Have any question?</h4>
-                      <a href="tel:980089850">
-                        <span>Free</span> +92 (020)-9850
-                      </a>
+                      <a href="tel:01849415421">018-4941-5421</a>
                     </div>
                   </li>
                   <li className="d-block d-sm-flex align-items-sm-center">
@@ -52,7 +50,7 @@ export default function Contact() {
                     </div>
                     <div className="text ml-xs--0 mt-xs-10">
                       <h4>Write email</h4>
-                      <a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                      <a href="mailto:info@blupeaksolutions.com">info@blupeaksolutions.com</a>
                     </div>
                   </li>
                   <li className="d-block d-sm-flex align-items-sm-center">

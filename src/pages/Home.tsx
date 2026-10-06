@@ -335,8 +335,8 @@ export default function Home() {
                     </h2>
                   </div>
                   <div className="contact-info wow fadeInUp" data-wow-delay=".3s">
-                    <h6 className="email">[Insert business email]</h6>
-                    <h3 className="phone">[Insert phone number]</h3>
+                    <h6 className="email"><a href="mailto:info@blupeaksolutions.com">info@blupeaksolutions.com</a></h6>
+                    <h3 className="phone"><a href="tel:01849415421">018-4941-5421</a></h3>
                   </div>
                 </div>
               </div>

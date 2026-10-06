@@ -3,8 +3,8 @@ import Footer from "../components/layout/Footer";
 import TemplateContactForm from "../components/forms/TemplateContactForm";
 
 const INFO_LEFT = [
-  { title: "Email", value: "info@yourdomain.com" },
-  { title: "Phone", value: "+012-3456-789" },
+  { title: "Email", value: "info@blupeaksolutions.com" },
+  { title: "Phone", value: "018-4941-5421" },
   { title: "Website", value: "www.yourdomain.com" },
 ];
 const INFO_RIGHT = [

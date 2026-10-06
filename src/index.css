@@ -16,7 +16,8 @@
   isolation: isolate;
   overflow: hidden;
   background: #080910;
-  padding: 240px 0 260px;
+  /* Clear the overlaid header without reserving a fixed desktop-sized gap. */
+  padding: clamp(128px, calc(96px + 4vw), 176px) 0 clamp(40px, 5vw, 72px);
 }
 
 .hero-rings-background {
@@ -77,35 +78,60 @@
 }
 
 .hero-1.hero-rings .hero-content h1 {
-  font-size: clamp(3.1rem, 7vw, 6rem);
+  font-size: clamp(2rem, calc(0.75rem + 6vw), 6rem);
   line-height: 1.12;
   letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
 .hero-eyebrow {
-  justify-content: flex-start;
-  margin-bottom: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: clamp(16px, 2vw, 24px);
   color: #d9f45f;
+  font-size: clamp(0.875rem, calc(0.75rem + 0.3vw), 1rem);
+  line-height: 1.5;
+}
+
+.hero-eyebrow svg {
+  flex-shrink: 0;
 }
 
 .hero-description {
   max-width: 760px;
-  margin: 28px auto 0;
+  margin: clamp(18px, 2vw, 28px) auto 0;
   color: rgba(255, 255, 255, 0.76);
-  font-size: 18px;
-  line-height: 1.75;
+  font-size: clamp(1rem, calc(0.875rem + 0.3vw), 1.125rem);
+  line-height: 1.65;
 }
 
 .hero-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 28px;
-  margin-top: 34px;
+  gap: 16px clamp(16px, 2vw, 28px);
+  margin-top: clamp(24px, 3vw, 34px);
+}
+
+.hero-actions .theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 100%;
+  min-height: 48px;
+  padding-inline: clamp(18px, 3vw, 48px);
+  line-height: 1.5;
 }
 
 .hero-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   color: #fff;
   font-size: 16px;
   font-weight: 600;
@@ -114,6 +140,12 @@
 .hero-secondary-link i {
   margin-left: 8px;
   color: #d9f45f;
+}
+
+.hero-actions a:focus-visible,
+.hero-1.hero-rings .down-icon:focus-visible {
+  outline: 2px solid #d9f45f;
+  outline-offset: 5px;
 }
 
 .tech-stack-heading {
@@ -168,24 +200,14 @@
   scroll-margin-top: 100px;
 }
 
-@media (max-width: 991.98px) {
-  .hero-1.hero-rings {
-    padding: 180px 0 70px;
-  }
-}
-
 @media (max-width: 575.98px) {
-  .hero-1.hero-rings {
-    padding-top: 160px;
-  }
-
-  .hero-description {
-    font-size: 16px;
-  }
-
   .hero-actions {
     flex-direction: column;
-    gap: 18px;
+    gap: 12px;
+  }
+
+  .hero-actions .theme-btn {
+    width: min(100%, 360px);
   }
 }
 
@@ -423,6 +445,14 @@
 .hero-1.hero-rings .text-circle .down-icon {
   width: 48px;
   height: 48px;
+}
+
+.hero-1.hero-rings .text-circle {
+  /* Keep the scroll cue below the actions as copy wraps or text is enlarged. */
+  position: relative;
+  inset: auto;
+  margin: clamp(24px, 4vw, 40px) auto 0;
+  transform: none;
 }
 
 .hero-1.hero-rings .text-circle .down-icon {
