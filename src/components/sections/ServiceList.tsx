@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { SERVICES } from "../../lib/services";
 
-export const HOME_SERVICES = [
+const HOME_SERVICES = [
   ...SERVICES.map((service, index) => ({
     title: service.title,
     slug: service.slug,
