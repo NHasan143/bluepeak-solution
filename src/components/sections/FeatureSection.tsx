@@ -3,7 +3,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import Star from "../common/Star";
 
-const CARDS = [
+export interface FeatureCardItem {
+  cls: string;
+  icon: string;
+  title: string;
+  description: string;
+  slug: string;
+  active?: boolean;
+}
+
+const DEFAULT_SLIDER_CARDS: FeatureCardItem[] = [
   { cls: "card-1", icon: "feature-icon1.png", title: "Outbound Sales Infrastructure", description: "Multi-channel outreach systems built to consistently fill your pipeline with qualified decision-makers.", slug: "b2b-outbound-sales" },
   { cls: "card-2", icon: "feature-icon2.png", title: "Full-Cycle Deal Closing", description: "In-house consultants who own the sales conversation from first call to signed contract.", slug: "full-cycle-deal-closing" },
   { cls: "card-3", icon: "feature-icon3.png", title: "CRM Architecture & Automation", description: "Purpose-built systems that remove manual work and keep every lead moving.", slug: "crm-architecture", active: true },
@@ -11,6 +20,50 @@ const CARDS = [
   { cls: "card-5", icon: "feature-icon5.png", title: "Paid Media & Creative", description: "Ad campaigns and creative assets built and edited by our in-house design team.", slug: "brand-creative-paid-media" },
   { cls: "card-6", icon: "feature-icon1.png", title: "Data-Driven Reporting", description: "Transparent dashboards so you always know what is working and why.", slug: "crm-architecture" },
   { cls: "card-7", icon: "feature-icon2.png", title: "One Accountable Growth Team", description: "Sales, tech and creative under one roof, with no hand-offs between vendors.", slug: "tech-enabled-operations" },
+];
+
+const ABOUT_FEATURE_CARDS: FeatureCardItem[] = [
+  {
+    cls: "card-1",
+    icon: "feature-icon1.png",
+    title: "Demand Generation and B2B Sales",
+    description:
+      "Targeted outreach, pipeline management, and full cycle closing handled by native English speaking consultants trained to run high ticket deals from first touch to signed contract.",
+    slug: "b2b-outbound-sales",
+  },
+  {
+    cls: "card-2",
+    icon: "feature-icon2.png",
+    title: "CRM Architecture and Workflow Automation",
+    description:
+      "We design and optimize Salesforce, Zoho, and HubSpot environments, automating lead routing so nothing, and no opportunity, falls through the cracks.",
+    slug: "crm-architecture",
+  },
+  {
+    cls: "card-3",
+    icon: "feature-icon3.png",
+    title: "Tech Enabled Operations",
+    description:
+      "Our in house engineering team builds the backend systems that keep the sales floor fast, data accurate, and scalable as client volume grows.",
+    slug: "crm-architecture",
+    active: true,
+  },
+  {
+    cls: "card-4",
+    icon: "feature-icon4.png",
+    title: "SEO Sprints and Content Growth",
+    description:
+      "Technical SEO audits, keyword clustering, and content strategy built to help client brands dominate organic search in competitive global markets.",
+    slug: "seo-organic-growth",
+  },
+  {
+    cls: "card-5",
+    icon: "feature-icon5.png",
+    title: "Brand and Asset Design",
+    description:
+      "Premium capability statements, pitch decks, and whitepapers that make client brands look, and close, like the market leader they're becoming.",
+    slug: "brand-creative-paid-media",
+  },
 ];
 
 const ArrowIcon = (
@@ -21,7 +74,7 @@ const ArrowIcon = (
   </svg>
 );
 
-function Card({ card }: { card: (typeof CARDS)[number] }) {
+function Card({ card }: { card: FeatureCardItem }) {
   return (
     <div className={`feature-card ${card.cls}${card.active ? " active" : ""}`}>
       <div className="icon">
@@ -38,19 +91,59 @@ function Card({ card }: { card: (typeof CARDS)[number] }) {
   );
 }
 
+export interface FeatureSectionProps {
+  id?: string;
+  variant?: "slider" | "static";
+  eyebrow?: string;
+  title?: React.ReactNode;
+  description?: string;
+  cards?: FeatureCardItem[];
+  ctaText?: string;
+  ctaLink?: string;
+}
+
 /**
  * "Our features" section. The homepage renders it as a Swiper carousel
- * (`.feature-slider-home1`); the About page renders the same cards as a
+ * (`.feature-slider-home1`); the About page renders 5 capabilities as a
  * static grid inside `.feature-wrapper`.
  */
 export default function FeatureSection({
+  id,
   variant = "slider",
-}: {
-  variant?: "slider" | "static";
-}) {
+  eyebrow = "Our Features",
+  title,
+  description,
+  cards,
+  ctaText = "More Features",
+  ctaLink = "/services",
+}: FeatureSectionProps = {}) {
+  const isStatic = variant === "static";
+  const resolvedTitle =
+    title ??
+    (isStatic ? (
+      <>
+        Turning Companies Into <span>Category Leaders</span>
+      </>
+    ) : (
+      <>
+        Turn Sales, Technology &amp; Marketing <br />
+        Into One <span>Growth Engine</span>
+      </>
+    ));
+
+  const resolvedDescription =
+    description ??
+    (isStatic
+      ? "Blupeak operates across three pillars: Demand Generation, Digital Infrastructure, and Search and Creative Execution, giving clients one accountable partner instead of a patchwork of vendors."
+      : undefined);
+
+  const resolvedCards = cards ?? (isStatic ? ABOUT_FEATURE_CARDS : DEFAULT_SLIDER_CARDS);
+  const resolvedId = id ?? (isStatic ? "our-features" : undefined);
+
   return (
     <section
-      className={`feature-section1 section-padding${variant === "static" ? " overflow-hidden" : ""}`}
+      id={resolvedId}
+      className={`feature-section1 section-padding${isStatic ? " overflow-hidden" : ""}`}
     >
       <div className="feature-shape">
         <svg width="1920" height="1158" viewBox="0 0 1919 1158" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,16 +154,20 @@ export default function FeatureSection({
 
       <div className="container">
         <div className="row justify-content-center mb-60">
-          <div className="col-xl-7">
+          <div className="col-xl-8 col-lg-9">
             <div className="section-title text-center">
               <div className="sub-title">
                 <Star />
-                <span>Our Features</span>
+                <span>{eyebrow}</span>
               </div>
               <h2 className="title text-anim">
-                Turn Sales, Technology &amp; Marketing <br />
-                Into One <span>Growth Engine</span>
+                {resolvedTitle}
               </h2>
+              {resolvedDescription && (
+                <p className="feature-intro-desc text-anim">
+                  {resolvedDescription}
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -94,21 +191,27 @@ export default function FeatureSection({
                 1440: { slidesPerView: 5 },
               }}
             >
-              {[...CARDS, CARDS[0], CARDS[1]].map((card, i) => (
+              {[...resolvedCards, resolvedCards[0], resolvedCards[1]].map((card, i) => (
                 <SwiperSlide key={i}>
                   <Card card={card} />
                 </SwiperSlide>
               ))}
             </Swiper>
           ) : (
-            CARDS.map((card, i) => <Card key={i} card={card} />)
+            resolvedCards.map((card, i) => <Card key={i} card={card} />)
           )}
         </div>
         <div className="feature-button">
-          <Link to="/services" className="circle-box wow fadeInUp" data-wow-delay=".5s">
+          <Link to={ctaLink} className="circle-box wow fadeInUp" data-wow-delay=".5s">
             <span>
-              <i className="fa-solid fa-arrow-right" /> More <br className="d-block" />
-              Features
+              <i className="fa-solid fa-arrow-right" /> {ctaText === "More Features" ? (
+                <>
+                  More <br className="d-block" />
+                  Features
+                </>
+              ) : (
+                ctaText
+              )}
             </span>
           </Link>
         </div>

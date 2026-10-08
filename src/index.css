@@ -824,3 +824,49 @@
   flex-shrink: 0;
 }
 
+/* About Page Enhancements */
+.about-section .about-top-counter .count-box .stat-sub-text {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--theme-color-black);
+  text-align: center;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.feature-section1 .feature-intro-desc {
+  max-width: 760px;
+  margin: 18px auto 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #a0a6a0;
+  text-align: center;
+}
+
+.feature-section1.overflow-hidden .feature-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.feature-section1.overflow-hidden .feature-wrapper .feature-card {
+  flex: 0 1 320px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-section1.overflow-hidden .feature-wrapper .feature-card .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-section1.overflow-hidden .feature-wrapper .feature-card .content p {
+  flex: 1;
+}
+
+

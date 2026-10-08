@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
  * Default footer, shared by the homepage and every inner page.
  * Inner pages render it with `padded` (adds `pt-120`), matching the original.
  */
-export default function Footer({ padded = false }: { padded?: boolean }) {
+export default function Footer({
+  padded = false,
+  tagline = "Through disciplined execution and in house expertise, Blupeak exists to turn ambitious companies into category leaders.",
+}: {
+  padded?: boolean;
+  tagline?: string;
+}) {
   return (
     <footer className={`footer-section blupeak-footer${padded ? " pt-120" : ""}`}>
       <div className="footer-ellipse1 d-none d-xxl-block">
@@ -35,10 +41,7 @@ export default function Footer({ padded = false }: { padded?: boolean }) {
                     </Link>
                   </div>
                   <div className="footer-content">
-                    <p>
-                      Blupeak Solutions is the tech-enabled growth agency behind the sales, marketing
-                      and digital infrastructure of scaling businesses worldwide.
-                    </p>
+                    <p>{tagline}</p>
                   </div>
                 </div>
               </div>
