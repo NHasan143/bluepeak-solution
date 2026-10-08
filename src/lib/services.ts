@@ -39,7 +39,7 @@ export const SERVICES: Service[] = [
     slug: "crm-architecture",
     title: "CRM Architecture & Workflow Automation",
     intro:
-      "Behind every good sales team is a CRM that actually works the way the team sells. We design and build systems in Salesforce, Zoho and HubSpot, then automate the parts that used to eat up hours of manual work.",
+      "We design and build Salesforce, Zoho and HubSpot systems that route leads automatically, eliminate manual data entry and give your sales floor real-time visibility.",
     included: [
       "Custom pipeline stages built around how you actually sell",
       "Clean data migration if you are moving off spreadsheets or another tool",
@@ -65,7 +65,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "brand-creative-paid-media",
-    title: "Brand, Creative & Paid Media",
+    title: "Brand & Creative Execution",
     intro:
       "Capability statements, pitch decks, whitepapers, paid ad campaigns and high-converting video and graphic creative, produced in-house, on brand, on deadline.",
     included: [

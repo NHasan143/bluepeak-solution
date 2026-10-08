@@ -15,24 +15,24 @@ const MagicRings = lazy(() => import("../components/common/MagicRings"));
 const FAQ_LEFT: AccordionEntry[] = [
   { no: "01.", question: "What services does Blupeak offer?", answer: "We run three pillars in-house: demand generation and full-cycle B2B sales, digital infrastructure and CRM automation, and SEO and creative execution. Everything your growth engine needs sits under one team." },
   { no: "02.", question: "How do you approach a new client engagement?", answer: "We start with a discovery consultation to map your ideal customer, build the outbound and CRM infrastructure around it, then deploy our sales consultants to run the pipeline, with reporting visibility from day one.", wowDelay: ".2s" },
-  { no: "03.", question: "What industries do you specialize in?", answer: "Our systems are built to adapt to high-ticket B2B sales cycles across sectors, including SaaS, professional services, home services and healthcare.", wowDelay: ".4s" },
-  { no: "04.", question: "How long does it take to see results?", answer: "Outbound infrastructure and CRM builds are typically live within the first few weeks, with pipeline momentum building from there. We will set a realistic onboarding and ramp timeline during your consultation.", wowDelay: ".6s" },
+  { no: "03.", question: "What industries do you specialize in?", answer: "We specialize in SaaS, professional services, home services, and healthcare. Our systems are built to adapt to high-ticket B2B sales cycles across sectors.", wowDelay: ".4s" },
+  { no: "04.", question: "How long does it take to see results?", answer: "Outbound infrastructure and CRM builds are typically live within the first few weeks, with pipeline momentum building from there. Realistic onboarding and ramp milestones are mapped during discovery.", wowDelay: ".6s" },
 ];
 
 const FAQ_RIGHT: AccordionEntry[] = [
   { no: "05.", question: "Do you only handle sales, or tech and creative too?", answer: "All three. Blupeak is a unified agency. The same internal team that fills your pipeline also builds your CRM automations and produces your brand and ad creative.", wowDelay: ".2s" },
-  { no: "06.", question: "What is your pricing model?", answer: "We will walk through the right retainer, performance-based or hybrid model for your goals during a growth consultation.", wowDelay: ".2s" },
+  { no: "06.", question: "What is your pricing model?", answer: "We offer tailored retainer, performance-based, or hybrid models. We will walk through the right model for your goals during a growth consultation.", wowDelay: ".2s" },
   { no: "07.", question: "Do you offer ongoing support after launch?", answer: "Yes. Our team continuously optimizes outreach, CRM workflows and campaigns after launch rather than handing off and disappearing.", wowDelay: ".4s" },
   { no: "08.", question: "Do you work with startups or only established brands?", answer: "Both. We tailor engagement scope to company stage, from early-stage teams building their first outbound engine to established brands scaling an existing one.", wowDelay: ".6s" },
 ];
 
 const SKILLS = [
-  { icon: "wa-sketch.png", count: "CRM", title: "Salesforce" },
-  { icon: "wa-photoshop.png", count: "CRM", title: "HubSpot", delay: ".2s" },
-  { icon: "wa-figma.png", count: "CRM", title: "Zoho", delay: ".4s", active: true },
-  { icon: "wa-invision.png", count: "OUTBOUND", title: "Outreach & Dialers", delay: ".6s" },
-  { icon: "wa-xd.png", count: "AUTOMATION", title: "Zapier & Make", delay: ".8s" },
-  { icon: "wa-Illustration.png", count: "VISIBILITY", title: "Analytics Dashboards", delay: ".9s" },
+  { icon: "wa-sketch.png", count: "CRM", title: "Salesforce", desc: "For enterprise CRM architecture" },
+  { icon: "wa-photoshop.png", count: "CRM", title: "HubSpot", desc: "For inbound and lifecycle automation", delay: ".2s" },
+  { icon: "wa-figma.png", count: "CRM", title: "Zoho", desc: "For lightweight CRM builds on lean teams", delay: ".4s", active: true },
+  { icon: "wa-invision.png", count: "OUTBOUND", title: "Outreach & Dialers", desc: "For outbound call and email infrastructure", delay: ".6s" },
+  { icon: "wa-xd.png", count: "AUTOMATION", title: "Zapier & Make", desc: "For cross-platform workflow automation", delay: ".8s" },
+  { icon: "wa-Illustration.png", count: "VISIBILITY", title: "Analytics Dashboards", desc: "For real-time pipeline visibility", delay: ".9s" },
 ];
 
 const NEWS = [
@@ -42,9 +42,9 @@ const NEWS = [
 ];
 
 const COUNTERS = [
-  { stop: "6", start: "6", suffix: "+", label: "Combined Team Experience" },
+  { stop: "6", start: "6", suffix: "+ Years", label: "Combined Team Experience" },
   { stop: "3", start: "3", suffix: "", label: "Core Growth Pillars, One Team", rotate: true },
-  { stop: "100", start: "100", suffix: "%", label: "In-House Execution", rotate: true },
+  { stop: "100", start: "100", suffix: "%", label: "In-House Execution, No Subcontracting", rotate: true },
   { stop: "0", start: "Global", suffix: "", label: "Clients Welcome, No Region Restriction" },
 ];
 
@@ -186,6 +186,7 @@ export default function Home() {
                         </span>
                         <span className="count">{s.count}</span>
                         <h4 className="title">{s.title}</h4>
+                        <p className="work-block-desc">{s.desc}</p>
                       </div>
                     </div>
                   </div>
@@ -221,7 +222,7 @@ export default function Home() {
             </div>
             <div className="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay=".3s">
               <p>
-                Blupeak is a young agency, but the team behind it is not. Here is what actually backs up our work.
+                Blupeak is a young agency, but the team behind it isn’t. Here is what actually backs that up.
               </p>
             </div>
           </div>
@@ -245,9 +246,20 @@ export default function Home() {
                         <h6>
                           {i === 0 ? "01" : `0${i + 1}`} <span>WHY IT MATTERS</span>
                         </h6>
-                        <h4 className="title">{["Experienced specialists behind the agency.", "A team that has run real B2B growth systems.", "Every project handled in-house.", "Strategy, execution and reporting under one roof."][i]}</h4>
+                        <h4 className="title">
+                          {[
+                            "6+ years of combined, hands-on experience across our sales, tech and creative team",
+                            "A team built from people who have run outbound, closing and CRM systems for growing B2B companies before",
+                            "Every project handled by our own in-house specialists, never subcontracted out",
+                            "One accountable team covering strategy, execution and reporting for each client, start to finish",
+                          ][i]}
+                        </h4>
                       </div>
-                      <span className="year">/ BLUPEAK</span>
+                      <img
+                        className="foundation-image"
+                        src="/images/resource/about-3-2.jpg"
+                        alt="Blupeak team"
+                      />
                     </div>
                     <div
                       className="hover-image d-none d-md-block bg-cover"
@@ -356,20 +368,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* News */}
+      {/* Latest News */}
       <section className="news-section fix section-padding">
         <div className="container">
-          <div className="section-title text-center mb-30">
+          <div className="section-title text-center mb-60">
             <div className="sub-title">
               <Star variant="lime" />
               <span>Latest News</span>
             </div>
             <h2 className="title text-anim">
-              Check Out Latest News <br className="d-none d-lg-block" />
-              Updates <span>&amp; Articles</span>
+              Check Out Latest News, <br className="d-none d-lg-block" />
+              Updates &amp; Articles
             </h2>
           </div>
-          <div className="row">
+          <div className="row g-4">
             {NEWS.map((n, i) => (
               <div
                 key={i}
@@ -407,7 +419,8 @@ export default function Home() {
         <div className="container">
           <div className="lets-wrapper">
             <h2 className="title text-anim">Let’s Build Your Growth Engine</h2>
-            <Link to="/contact" className="arrow-icon wow fadeInUp" data-wow-delay=".3s" aria-label="Book a Growth Consultation">
+            <Link to="/contact" className="theme-btn btn-style-one wow fadeInUp" data-wow-delay=".3s">
+              <span className="btn-title">Book a Growth Consultation</span>
               <i className="fa-solid fa-arrow-right" />
             </Link>
           </div>

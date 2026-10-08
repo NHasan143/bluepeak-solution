@@ -25,12 +25,12 @@ export default function AboutSection({ id }: { id?: string }) {
             <div className="about-top-counter">
               <div className="year-box">
                 <p>Team Experience</p>
-                <h2 className="year-title">6+</h2>
+                <h2 className="year-title">6+ Years</h2>
               </div>
               <div className="count-box">
                 <p>Core Growth Pillars</p>
                 <h2 className="title">
-                  <span className="count-text" data-speed="3000" data-stop="89" data-lag="0">
+                  <span className="count-text" data-speed="3000" data-stop="3" data-lag="0">
                     3
                   </span>
                 </h2>
@@ -45,12 +45,13 @@ export default function AboutSection({ id }: { id?: string }) {
                 Blupeak Solutions is not a staffing pool or a placement service. We are a unified
                 growth agency. Our internal specialists in sales, marketing and engineering work
                 inside one Dhaka-based digital operations hub, running outbound pipeline, full-cycle
-                closing, CRM automation, SEO and creative production as one accountable team.
+                closing, CRM automation, SEO and creative production as a single accountable team
+                behind every client we serve.
               </p>
               <div className="counter-left">
                 <div className="count-box">
                   <h2 className="title">
-                    <span className="count-text" data-speed="3000" data-stop="10" data-lag="0">
+                    <span className="count-text" data-speed="3000" data-stop="100" data-lag="0">
                       100
                     </span>
                     %
@@ -70,7 +71,13 @@ export default function AboutSection({ id }: { id?: string }) {
           </div>
           <div className="col-lg-5 wow fadeInUp" data-wow-delay=".5s">
             <div className="about-image-style-1 fix">
-              <img data-speed=".8" src="/images/resource/about-1-5.jpg" alt="img" />
+              <img
+                data-speed=".8"
+                src="/images/about/about-1-5.jpg"
+                alt="Blupeak Solutions team"
+                width={491}
+                height={486}
+              />
               <div className="about-info">
                 <div className="icon">
                   <img src="/images/icons/quote-icon.png" alt="img" />
