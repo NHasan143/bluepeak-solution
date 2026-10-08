@@ -17,9 +17,9 @@ const DEFAULT_SLIDER_CARDS: FeatureCardItem[] = [
   { cls: "card-2", icon: "feature-icon2.png", title: "Full-Cycle Deal Closing", description: "In-house consultants who own the sales conversation from first call to signed contract.", slug: "full-cycle-deal-closing" },
   { cls: "card-3", icon: "feature-icon3.png", title: "CRM Architecture & Automation", description: "Purpose-built systems that remove manual work and keep every lead moving.", slug: "crm-architecture", active: true },
   { cls: "card-4", icon: "feature-icon4.png", title: "SEO & Content Growth", description: "Organic strategies engineered for compounding, long-term pipeline.", slug: "seo-organic-growth" },
-  { cls: "card-5", icon: "feature-icon5.png", title: "Paid Media & Creative", description: "Ad campaigns and creative assets built and edited by our in-house design team.", slug: "brand-creative-paid-media" },
-  { cls: "card-6", icon: "feature-icon1.png", title: "Data-Driven Reporting", description: "Transparent dashboards so you always know what is working and why.", slug: "crm-architecture" },
-  { cls: "card-7", icon: "feature-icon2.png", title: "One Accountable Growth Team", description: "Sales, tech and creative under one roof, with no hand-offs between vendors.", slug: "tech-enabled-operations" },
+  { cls: "card-5", icon: "feature-icon5.png", title: "Paid Media & Creative", description: "Ad campaigns and creative assets built and edited by our in-house design team.", slug: "brand-creative-solutions" },
+  { cls: "card-6", icon: "feature-icon1.png", title: "Website Design & Development", description: "Build a High-Performing Website That Turns Visitors Into Customers", slug: "custom-web-software" },
+  { cls: "card-7", icon: "feature-icon2.png", title: "One Accountable Growth Team", description: "Sales, tech and creative under one roof, with no hand-offs between vendors.", slug: "revenue-sales-systems" },
 ];
 
 const ABOUT_FEATURE_CARDS: FeatureCardItem[] = [
@@ -126,8 +126,8 @@ export default function FeatureSection({
       </>
     ) : (
       <>
-        Turn Sales, Technology &amp; Marketing <br />
-        Into One <span>Growth Engine</span>
+        The Complete Engine <br />
+        <span>Behind Your Growth</span>
       </>
     ));
 

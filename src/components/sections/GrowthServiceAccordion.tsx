@@ -2,14 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "../../lib/gsap";
 import { SERVICES } from "../../lib/services";
 
-const HOME_SERVICE_TITLES = [
-  "Outbound B2B Sales & Pipeline Generation",
-  "Full-Cycle Deal Closing",
-  "CRM Architecture & Workflow Automation",
-  "SEO & Organic Growth",
-  "Brand & Creative Execution",
-];
-
 export default function GrowthServiceAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -60,7 +52,7 @@ export default function GrowthServiceAccordion() {
               onClick={() => setOpenIndex(isOpen ? null : index)}
             >
               <span className="growth-service-number">0{index + 1}.</span>
-              <span className="growth-service-title">{HOME_SERVICE_TITLES[index]}</span>
+              <span className="growth-service-title">{service.title}</span>
               <span className="growth-service-arrow" aria-hidden="true">
                 <i className="fa-solid fa-arrow-right" />
               </span>

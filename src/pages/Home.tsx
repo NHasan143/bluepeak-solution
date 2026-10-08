@@ -1,4 +1,4 @@
-import { lazy, Suspense, type MouseEvent } from "react";
+import { lazy, Suspense, useEffect, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { ScrollSmoother } from "../lib/gsap";
 import Star from "../components/common/Star";
@@ -8,7 +8,8 @@ import HomeContactForm from "../components/forms/HomeContactForm";
 import AboutSection from "../components/sections/AboutSection";
 import FeatureSection from "../components/sections/FeatureSection";
 import ClientsSection from "../components/sections/ClientsSection";
-import GrowthServiceAccordion from "../components/sections/GrowthServiceAccordion";
+import HomeServicesList from "../components/sections/HomeServicesList";
+import TeamSection from "../components/sections/TeamSection";
 
 const MagicRings = lazy(() => import("../components/common/MagicRings"));
 
@@ -26,26 +27,19 @@ const FAQ_RIGHT: AccordionEntry[] = [
   { no: "08.", question: "Do you work with startups or only established brands?", answer: "Both. We tailor engagement scope to company stage, from early-stage teams building their first outbound engine to established brands scaling an existing one.", wowDelay: ".6s" },
 ];
 
-const SKILLS = [
-  { icon: "wa-sketch.png", count: "CRM", title: "Salesforce", desc: "For enterprise CRM architecture" },
-  { icon: "wa-photoshop.png", count: "CRM", title: "HubSpot", desc: "For inbound and lifecycle automation", delay: ".2s" },
-  { icon: "wa-figma.png", count: "CRM", title: "Zoho", desc: "For lightweight CRM builds on lean teams", delay: ".4s", active: true },
-  { icon: "wa-invision.png", count: "OUTBOUND", title: "Outreach & Dialers", desc: "For outbound call and email infrastructure", delay: ".6s" },
-  { icon: "wa-xd.png", count: "AUTOMATION", title: "Zapier & Make", desc: "For cross-platform workflow automation", delay: ".8s" },
-  { icon: "wa-Illustration.png", count: "VISIBILITY", title: "Analytics Dashboards", desc: "For real-time pipeline visibility", delay: ".9s" },
-];
-
+/*
 const NEWS = [
   { img: "news1-1.jpg", title: "How to Build a High-Ticket Deal Pipeline Without Hiring In-House", delay: ".3s" },
   { img: "news1-2.jpg", title: "CRM Automation: The Edge B2B Sales Teams Need", delay: ".5s" },
   { img: "news1-3.jpg", title: "Why Full-Cycle Sales Consultants Outperform Cold Outreach Alone", delay: ".7s" },
 ];
+*/
 
 const COUNTERS = [
-  { stop: "6", start: "6", suffix: "+ Years", label: "Combined Team Experience" },
-  { stop: "3", start: "3", suffix: "", label: "Core Growth Pillars, One Team", rotate: true },
-  { stop: "100", start: "100", suffix: "%", label: "In-House Execution, No Subcontracting", rotate: true },
-  { stop: "0", start: "Global", suffix: "", label: "Clients Welcome, No Region Restriction" },
+  { stop: "100", start: "0", suffix: "+", label: "Businesses Supported With Growth Strategies" },
+  { stop: "500", start: "0", suffix: "+", label: "Marketing Campaigns Strategically Managed", rotate: true },
+  { stop: "10", start: "0", suffix: "K+", label: "Qualified Leads Generated Through Campaigns", rotate: true },
+  { stop: "95", start: "0", suffix: "%+", label: "Client-Focused Growth & Retention Commitment" },
 ];
 
 const marqueeGroup = (
@@ -60,6 +54,17 @@ const marqueeGroup = (
 );
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "Blupeak Solutions | Sales, Marketing & Growth Agency";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        "content",
+        "Grow revenue with Blupeak Solutions through sales, marketing, SEO, automation and creative solutions built to accelerate business growth."
+      );
+    }
+  }, []);
+
   const scrollToAbout = (event: MouseEvent<HTMLAnchorElement>) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const target = document.getElementById("home-about");
@@ -91,10 +96,10 @@ export default function Home() {
           <div className="hero-content">
             <div className="sub-title hero-eyebrow"><Star /><span>AI-Accelerated Growth Execution</span></div>
             <h1 className="hero-title">
-              Build Your <span>Revenue Engine</span><br />
+              Build a Smarter <span>Growth Strategy</span><br />
               With Blupeak Solutions
             </h1>
-            <p className="hero-description">Blupeak Solutions is the tech-enabled B2B growth agency behind the sales, marketing and digital infrastructure of fast-scaling companies around the world. From the first cold outreach to the closed deal, our in-house team runs your revenue engine end to end, so you get agency-level results without building an internal team from scratch.</p>
+            <p className="hero-description">Blupeak Solutions builds end-to-end B2B growth engines that turn cold outreach into qualified leads, closed deals, and scalable revenue.</p>
             <div className="hero-actions">
               <Link to="/contact" className="theme-btn btn-style-one"><span className="btn-title">Book a Growth Consultation</span><i className="fa-solid fa-arrow-right" /></Link>
               <Link to="/services" className="hero-secondary-link">See What We Do <i className="fa-solid fa-arrow-right" /></Link>
@@ -108,7 +113,7 @@ export default function Home() {
         </div>
       </section>
 
-      <AboutSection id="home-about" />
+      <AboutSection id="home-about" bodyParagraph="Blupeak Solutions unifies sales, marketing, engineering, SEO and automation into one growth engine built to accelerate revenue." />
 
       {/* Services */}
       <section className="service-section fix section-padding section-bg">
@@ -124,8 +129,7 @@ export default function Home() {
                   B2B Growth Services Built Around <span>Your Revenue Goals</span>
                 </h2>
                 <p className="growth-services-intro">
-                  Three pillars, one in-house team: demand generation, digital infrastructure and
-                  creative execution, built and run under one roof.
+                  End-to-end revenue systems, brand creative, SEO, custom web, and AI automation built and run under one roof.
                 </p>
               </div>
             </div>
@@ -141,7 +145,7 @@ export default function Home() {
             </div>
           </div>
 
-          <GrowthServiceAccordion />
+          <HomeServicesList />
           <div className="growth-services-cta">
             <Link to="/contact" className="theme-btn btn-style-one">
               <span className="btn-title">Book a Growth Consultation</span>
@@ -151,8 +155,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Work / Marquee + Skills */}
-      <section className="work-section">
+      {/* Marquee Banner */}
+{/*       <section className="work-section">
         <div className="marquee anim-fade-move">
           {marqueeGroup}
           {marqueeGroup}
@@ -161,41 +165,17 @@ export default function Home() {
           {marqueeGroup}
           {marqueeGroup}
         </div>
+      </section> */}
 
-        <div className="skills-section section-padding pb-90">
-          <div className="vec-shape d-none d-xxl-block">
-            <img src="/images/icons/skill-shape1-1.png" alt="img" />
-          </div>
-          <div className="large-container">
-            <div className="section-title text-center tech-stack-heading">
-              <div className="sub-title"><Star /><span>Our Tech Stack</span></div>
-              <h2 className="title text-anim">The Platforms Powering <span>Our Growth Execution</span></h2>
-            </div>
-            <div className="outer-box">
-              <div className="row gx-50">
-                {SKILLS.map((s, i) => (
-                  <div
-                    key={i}
-                    className="col-xl-2 col-lg-3 col-md-4 col-sm-6 wow fadeInUp"
-                    data-wow-delay={s.delay}
-                  >
-                    <div className="work-block work-block-active">
-                      <div className={`inner-box${s.active ? " active" : ""}`}>
-                        <span className="icon">
-                          <img src={`/images/resource/${s.icon}`} alt="" />
-                        </span>
-                        <span className="count">{s.count}</span>
-                        <h4 className="title">{s.title}</h4>
-                        <p className="work-block-desc">{s.desc}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Team Section (Instead of Tech Stack) */}
+      <TeamSection
+        eyebrow="Our Expert Team"
+        title={
+          <>
+            Meet the Team Behind <span>Your Digital Success</span>
+          </>
+        }
+      />
 
       <FeatureSection variant="slider" />
 
@@ -283,11 +263,11 @@ export default function Home() {
         <div className="container">
           <div className="row g-4 advance-wrap">
             {COUNTERS.map((c, i) => (
-              <div key={i} className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              <div key={i} className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                 <div className={`counter-card-item${c.rotate ? " ratote-2" : ""} advance-item`}>
                   <div className="count-box">
                     <h2 className="title">
-                      {c.start === "Global" ? c.start : <span className="count-text" data-speed="3000" data-stop={c.stop}>{c.start}</span>}
+                      <span className="count-text" data-speed="3000" data-stop={c.stop}>{c.start}</span>
                       {c.suffix}
                     </h2>
                     <p>{c.label}</p>
@@ -368,7 +348,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Latest News */}
+      {/* Latest News - Commented out per request */}
+      {/*
       <section className="news-section fix section-padding">
         <div className="container">
           <div className="section-title text-center mb-60">
@@ -410,6 +391,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Final CTA */}
       <section

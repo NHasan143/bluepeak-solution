@@ -85,19 +85,19 @@ export default function Footer({
                   </div>
                   <ul className="list-area">
                     <li>
-                      <Link to="/service-details/b2b-outbound-sales">Demand Generation</Link>
+                      <Link to="/service-details/revenue-sales-systems">Revenue &amp; Sales Systems</Link>
                     </li>
                     <li>
-                      <Link to="/service-details/full-cycle-deal-closing">B2B Closing</Link>
+                      <Link to="/service-details/brand-creative-solutions">Brand &amp; Creative Solutions</Link>
                     </li>
                     <li>
-                      <Link to="/service-details/crm-architecture">CRM Architecture</Link>
+                      <Link to="/service-details/seo-organic-growth">SEO &amp; Organic Growth</Link>
                     </li>
                     <li>
-                      <Link to="/service-details/seo-organic-growth">Workflow Automation</Link>
+                      <Link to="/service-details/custom-web-software">Custom Web &amp; Software</Link>
                     </li>
                     <li>
-                      <Link to="/service-details/brand-creative-paid-media">SEO &amp; Creative</Link>
+                      <Link to="/service-details/ai-workflow-automation">AI &amp; Workflow Automation</Link>
                     </li>
                   </ul>
                 </div>

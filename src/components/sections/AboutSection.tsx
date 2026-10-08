@@ -32,7 +32,7 @@ export default function AboutSection({
   stat2Label = "Core Service Pillars",
   stat2Value = "3",
   stat2Sub = "(Sales, Tech, Creative)",
-  bodyParagraph = "Blupeak Solutions is a Dhaka based, tech enabled growth agency built for one purpose: giving ambitious businesses an in house caliber team without the in house overhead. We don't supply staff, we run full cycle demand generation, digital infrastructure, and search and creative execution as a single, unified agency. Every specialist on our floor, from sales consultants to SEO strategists, brings years of hands on experience to the table and works under one roof, on one mission: scaling our clients' revenue.",
+  bodyParagraph = "Blupeak Solutions unifies sales, marketing, engineering, SEO and automation into one growth engine built to accelerate revenue.",
   stat3Label = "Delivery Model: 100% In House",
   stat3Value = "100",
   pullQuote = "Real growth isn't outsourced. It's built in partnership, with a team that treats your pipeline as its own.",

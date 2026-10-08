@@ -8,76 +8,87 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
-    slug: "b2b-outbound-sales",
-    title: "B2B Outbound Sales & Pipeline Generation",
+    slug: "revenue-sales-systems",
+    title: "Revenue & Sales Systems",
     intro:
-      "Targeted cold outreach, by call and email, built to land Blupeak consultants in front of the right decision-makers and fill your calendar with qualified, ready-to-close appointments.",
+      "Turn your sales process into a scalable system designed to attract, convert, and retain more customers.",
     included: [
       "Custom prospect lists built around your ideal customer profile",
-      "Cold call and cold email sequences written for your specific offer",
-      "Lead qualification, so only real opportunities reach your calendar",
-      "Ongoing testing on messaging, timing and targeting",
+      "Cold call and cold email sequences written for high conversions",
+      "Lead qualification so only high-value opportunities reach your pipeline",
+      "Full-cycle deal closing and real-time sales reporting",
     ],
     outcome:
-      "A calendar that fills on its own, with qualified conversations instead of cold leads you have to chase and sort through yourself.",
+      "A predictable sales engine that fills your calendar with qualified buyers and closes high-ticket deals reliably.",
   },
   {
-    slug: "full-cycle-deal-closing",
-    title: "Full-Cycle Deal Closing",
+    slug: "brand-creative-solutions",
+    title: "Brand & Creative Solutions",
     intro:
-      "Native-English-speaking sales consultants run the entire sales cycle, from discovery through objection handling to close, on high-ticket B2B engagements.",
+      "Build a distinctive brand identity with creative strategies that make your business memorable and market-ready.",
     included: [
-      "Discovery calls run by trained closers, not junior reps reading a script",
-      "Objection handling built around your actual sales process and offer",
-      "Contracts and closing handled end to end",
-      "Real-time reporting back to you after every call",
+      "Strategic brand identity, positioning and core messaging",
+      "High-converting pitch decks, capability statements and sales collateral",
+      "Custom graphic design and video editing for digital campaigns",
+      "Landing page design crafted to maximize conversion rates",
     ],
     outcome:
-      "Deals closed without you or your team spending hours on calls that were never going to convert.",
-  },
-  {
-    slug: "crm-architecture",
-    title: "CRM Architecture & Workflow Automation",
-    intro:
-      "We design and build Salesforce, Zoho and HubSpot systems that route leads automatically, eliminate manual data entry and give your sales floor real-time visibility.",
-    included: [
-      "Custom pipeline stages built around how you actually sell",
-      "Clean data migration if you are moving off spreadsheets or another tool",
-      "Automated lead routing and follow-up sequences",
-      "Live dashboards for pipeline, conversion and revenue",
-    ],
-    outcome:
-      "No lead falling through the cracks, no manual data entry, and a clear view of exactly where every deal stands at any moment.",
+      "A standout brand presence that builds instant market authority and turns casual observers into confident buyers.",
   },
   {
     slug: "seo-organic-growth",
     title: "SEO & Organic Growth",
     intro:
-      "Technical SEO, keyword clustering and content strategy built to help your brand dominate organic search and compound pipeline without paid spend.",
+      "Grow your search visibility, attract qualified traffic, and build sustainable organic growth with data-driven SEO.",
     included: [
-      "Technical audit and fixes for crawlability and site health",
-      "Keyword clustering built around what your buyers actually search",
-      "Content calendar and production, not just a strategy document",
-      "Monthly reporting on rankings and organic traffic",
+      "In-depth technical SEO audits and website health optimization",
+      "High-intent keyword clustering aligned with buyer journeys",
+      "End-to-end content calendar production and on-page optimization",
+      "Authoritative link acquisition and transparent ranking reports",
     ],
     outcome:
-      "Organic traffic and leads that keep compounding long after the initial sprint ends, instead of stopping the moment ad spend stops.",
+      "Compounding organic search traffic that consistently attracts qualified leads without recurring ad spend.",
   },
   {
-    slug: "brand-creative-paid-media",
-    title: "Brand & Creative Execution",
+    slug: "custom-web-software",
+    title: "Custom Web & Software Solutions",
     intro:
-      "Capability statements, pitch decks, whitepapers, paid ad campaigns and high-converting video and graphic creative, produced in-house, on brand, on deadline.",
+      "Create powerful websites and custom software solutions built around your business goals and customer needs.",
     included: [
-      "Capability statements, pitch decks and whitepapers",
-      "Paid social and search campaign management",
-      "Video and graphic editing for ads, social and sales enablement",
-      "Landing page and campaign creative",
+      "Custom modern website design and frontend development",
+      "Tailored web applications and scalable software architectures",
+      "Performance optimization for lightning-fast page loading speeds",
+      "Third-party integrations, APIs, and responsive mobile optimization",
     ],
     outcome:
-      "Sales and marketing material that actually holds up in front of serious buyers, produced in-house and on brand, without hiring a separate creative agency.",
+      "A robust, high-performing digital platform that engages visitors, delivers frictionless experiences, and drives conversions.",
+  },
+  {
+    slug: "ai-workflow-automation",
+    title: "AI & Workflow Automation",
+    intro:
+      "Automate repetitive workflows and integrate AI solutions to save time, improve efficiency, and scale smarter.",
+    included: [
+      "Custom workflow automation across CRM, communications and ops tools",
+      "AI-powered assistants and task automation for everyday efficiency",
+      "Multi-platform data syncing to eradicate manual copy-pasting",
+      "Custom analytics pipelines and automated performance notifications",
+    ],
+    outcome:
+      "Friction-free operations that free your team from manual tasks, prevent bottlenecks, and scale your output effortlessly.",
   },
 ];
 
-export const getService = (slug?: string) =>
-  SERVICES.find((service) => service.slug === slug) ?? SERVICES[0];
+const SLUG_ALIASES: Record<string, string> = {
+  "b2b-outbound-sales": "revenue-sales-systems",
+  "full-cycle-deal-closing": "revenue-sales-systems",
+  "crm-architecture": "ai-workflow-automation",
+  "brand-creative-paid-media": "brand-creative-solutions",
+  "tech-enabled-operations": "custom-web-software",
+};
+
+export const getService = (slug?: string) => {
+  if (!slug) return SERVICES[0];
+  const targetSlug = SLUG_ALIASES[slug] || slug;
+  return SERVICES.find((service) => service.slug === targetSlug) ?? SERVICES[0];
+};
