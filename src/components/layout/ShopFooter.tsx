@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /** `main-footer footer-style-one` — used by the shop pages. */
 export default function ShopFooter() {
   return (
@@ -59,7 +61,7 @@ export default function ShopFooter() {
                         <a href="#">About Us</a>
                       </li>
                       <li>
-                        <a href="#">Our Team</a>
+                        <Link to="/team">Our Team</Link>
                       </li>
                       <li>
                         <a href="#">Our Portfolio</a>

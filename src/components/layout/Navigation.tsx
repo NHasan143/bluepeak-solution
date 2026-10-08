@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { SERVICES } from "../../lib/services";
 
-type Leaf = { label: string; to: string };
-type Node = { label: string; to?: string; children?: (Leaf | Node)[] };
+export type Leaf = { label: string; to: string };
+export type Node = {
+  label: string;
+  to?: string;
+  children?: (Leaf | Node)[];
+  isServicesMenu?: boolean;
+};
 
 /** Mirrors the <ul class="navigation"> markup shared by every template page. */
 const MENU: Node[] = [
@@ -21,13 +27,6 @@ const MENU: Node[] = [
           { label: "Project Details", to: "/project-details" },
         ],
       },
-      {
-        label: "Team",
-        children: [
-          { label: "Our Team", to: "/team" },
-          { label: "Team Details", to: "/team-details" },
-        ],
-      },
       { label: "Testimonial", to: "/testimonial" },
       { label: "Pricing", to: "/pricing" },
       { label: "FAQ", to: "/faq" },
@@ -36,10 +35,7 @@ const MENU: Node[] = [
   },
   {
     label: "Services",
-    children: [
-      { label: "Our Services", to: "/services" },
-      { label: "service Details", to: "/service-details" },
-    ],
+    isServicesMenu: true,
   },
   {
     label: "Blog",
@@ -58,8 +54,7 @@ function hasChildren(
 }
 
 /**
- * Desktop navigation. In the original, js/script.js clones this markup into the
- * mobile menu and sticky header; here it is simply rendered wherever needed.
+ * Navigation component. Used in the main header, sticky header, and mobile menu.
  */
 export default function Navigation({ mobile = false }: { mobile?: boolean }) {
   const { pathname } = useLocation();
@@ -69,6 +64,9 @@ export default function Navigation({ mobile = false }: { mobile?: boolean }) {
     setOpen((s) => ({ ...s, [key]: !s[key] }));
 
   const isCurrent = (n: Leaf | Node): boolean => {
+    if ("isServicesMenu" in n && n.isServicesMenu) {
+      return pathname === "/services" || pathname.startsWith("/service-details");
+    }
     if ("to" in n && n.to) {
       if (n.to === "/") return pathname === "/";
       return pathname === n.to || pathname.startsWith(n.to + "/");
@@ -77,9 +75,133 @@ export default function Navigation({ mobile = false }: { mobile?: boolean }) {
     return false;
   };
 
+  const renderServicesDropdown = (key: string) => {
+    const isServicesActive = isCurrent({ label: "Services", isServicesMenu: true });
+
+    if (mobile) {
+      return (
+        <li
+          key={key}
+          className={[
+            "dropdown",
+            "services-nav-item",
+            isServicesActive ? "current" : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              toggle(key);
+            }}
+          >
+            Services
+          </a>
+          <ul
+            className="mobile-services-dropdown"
+            style={open[key] ? { display: "block" } : undefined}
+          >
+            {SERVICES.map((service, index) => {
+              const active = pathname === `/service-details/${service.slug}`;
+              return (
+                <li
+                  key={service.slug}
+                  className={active ? "current" : undefined}
+                >
+                  <Link to={`/service-details/${service.slug}`}>
+                    <span className="mobile-svc-num">0{index + 1}.</span>
+                    <span>{service.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+            <li className="mobile-services-footer-item">
+              <Link to="/services" className="mobile-services-view-all">
+                <span>View All Services</span>
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
+            </li>
+          </ul>
+          <div
+            className={`dropdown-btn${open[key] ? " active" : ""}`}
+            onClick={() => toggle(key)}
+          >
+            <i className="fa fa-angle-down" />
+          </div>
+        </li>
+      );
+    }
+
+    // Desktop services item with custom matching modal
+    return (
+      <li
+        key={key}
+        className={[
+          "dropdown",
+          "services-nav-item",
+          isServicesActive ? "current" : "",
+        ]
+          .filter(Boolean)
+          .join(" ")}
+      >
+        <Link to="/services">Services</Link>
+        <ul className="services-dropdown-modal" role="menu">
+          <li className="services-modal-header" role="presentation">
+            <span className="services-modal-badge">
+              <span className="services-modal-dot" />
+              Capabilities &amp; Services
+            </span>
+            <span className="services-modal-badge-subtitle">5 Core Disciplines</span>
+          </li>
+
+          {SERVICES.map((service, index) => {
+            const isItemActive = pathname === `/service-details/${service.slug}`;
+            return (
+              <li
+                key={service.slug}
+                className={`services-modal-item${isItemActive ? " is-active" : ""}`}
+                role="menuitem"
+              >
+                <Link
+                  to={`/service-details/${service.slug}`}
+                  className="services-modal-link"
+                >
+                  <div className="services-modal-left">
+                    <span className="services-modal-num">0{index + 1}</span>
+                    <span className="services-modal-item-title">{service.title}</span>
+                  </div>
+                  <span className="services-modal-arrow" aria-hidden="true">
+                    <i className="fas fa-arrow-right" />
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+
+          <li className="services-modal-footer" role="presentation">
+            <Link to="/services" className="services-modal-view-all">
+              <span>View All Services</span>
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+            </Link>
+          </li>
+        </ul>
+        <div className="dropdown-btn">
+          <i className="fa fa-angle-down" />
+        </div>
+      </li>
+    );
+  };
+
   const renderItems = (items: (Leaf | Node)[], depth: number) =>
     items.map((item, i) => {
       const key = `${depth}-${i}-${item.label}`;
+
+      if ("isServicesMenu" in item && item.isServicesMenu) {
+        return renderServicesDropdown(key);
+      }
+
       const dropdown = hasChildren(item);
       const current = isCurrent(item);
       return (
@@ -95,7 +217,17 @@ export default function Navigation({ mobile = false }: { mobile?: boolean }) {
           {"to" in item && item.to ? (
             <Link to={item.to}>{item.label}</Link>
           ) : (
-            <a href="#">{item.label}</a>
+            <a
+              href="#"
+              onClick={(e) => {
+                if (mobile && dropdown) {
+                  e.preventDefault();
+                  toggle(key);
+                }
+              }}
+            >
+              {item.label}
+            </a>
           )}
           {dropdown && (
             <ul style={mobile && open[key] ? { display: "block" } : undefined}>

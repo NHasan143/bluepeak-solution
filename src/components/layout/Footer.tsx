@@ -64,6 +64,9 @@ export default function Footer({
                       <Link to="/about">The Blupeak Advantage</Link>
                     </li>
                     <li>
+                      <Link to="/team">Our Team</Link>
+                    </li>
+                    <li>
                       <a href="#">Careers</a>
                     </li>
                     <li>
@@ -82,19 +85,19 @@ export default function Footer({
                   </div>
                   <ul className="list-area">
                     <li>
-                      <a href="#">Demand Generation</a>
+                      <Link to="/service-details/b2b-outbound-sales">Demand Generation</Link>
                     </li>
                     <li>
-                      <a href="#">B2B Closing</a>
+                      <Link to="/service-details/full-cycle-deal-closing">B2B Closing</Link>
                     </li>
                     <li>
-                      <a href="#">CRM Architecture</a>
+                      <Link to="/service-details/crm-architecture">CRM Architecture</Link>
                     </li>
                     <li>
-                      <a href="#">Workflow Automation</a>
+                      <Link to="/service-details/seo-organic-growth">Workflow Automation</Link>
                     </li>
                     <li>
-                      <a href="#">SEO &amp; Creative</a>
+                      <Link to="/service-details/brand-creative-paid-media">SEO &amp; Creative</Link>
                     </li>
                   </ul>
                 </div>
