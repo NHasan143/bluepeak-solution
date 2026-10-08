@@ -3,10 +3,16 @@ import { Link, useLocation } from "react-router-dom";
 import Navigation from "./Navigation";
 
 export default function Header() {
-  const { pathname } = useLocation();
+  const { key: locationKey } = useLocation();
   const [sticky, setSticky] = useState(false);
   const [fixed, setFixed] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState({ locationKey, open: false });
+  // Reset on navigation before committing, so going back cannot reopen a menu
+  // that was left open on an earlier history entry.
+  if (mobileMenu.locationKey !== locationKey) {
+    setMobileMenu({ locationKey, open: false });
+  }
+  const mobileOpen = mobileMenu.locationKey === locationKey && mobileMenu.open;
 
   // js/script.js headerStyle()
   useEffect(() => {
@@ -25,11 +31,6 @@ export default function Header() {
     document.body.classList.toggle("mobile-menu-visible", mobileOpen);
     return () => document.body.classList.remove("mobile-menu-visible");
   }, [mobileOpen]);
-
-  // Close the mobile menu on navigation
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
 
   return (
     <header className={`main-header header-style-one header-1${fixed ? " fixed-header" : ""}`}>
@@ -63,7 +64,7 @@ export default function Header() {
               </div>
               <div
                 className="mobile-nav-toggler"
-                onClick={() => setMobileOpen(true)}
+                onClick={() => setMobileMenu({ locationKey, open: true })}
               >
                 <i className="icon fa-regular fa-bars-staggered" />
               </div>
@@ -74,7 +75,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div className="mobile-menu">
-        <div className="menu-backdrop" onClick={() => setMobileOpen(false)} />
+        <div className="menu-backdrop" onClick={() => setMobileMenu({ locationKey, open: false })} />
         <nav className="menu-box">
           <div className="upper-box">
             <div className="nav-logo">
@@ -82,7 +83,7 @@ export default function Header() {
                 <img src="/images/logo.png" alt="" />
               </Link>
             </div>
-            <div className="close-btn" onClick={() => setMobileOpen(false)}>
+            <div className="close-btn" onClick={() => setMobileMenu({ locationKey, open: false })}>
               <i className="icon fa fa-times" />
             </div>
           </div>
@@ -160,7 +161,7 @@ export default function Header() {
               </nav>
               <div
                 className="mobile-nav-toggler"
-                onClick={() => setMobileOpen(true)}
+                onClick={() => setMobileMenu({ locationKey, open: true })}
               >
                 <span className="icon lnr-icon-bars" />
               </div>

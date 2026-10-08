@@ -62,9 +62,20 @@ of sending.
 
 ```
 npm run dev        # Vite dev server
+npm run lint       # ESLint checks for application and configuration code
 npm run build      # type-check + production build to dist/
 npm run preview    # preview the production build
 ```
+
+## Continuous integration
+
+`.github/workflows/ci.yml` runs `npm ci`, `npm run lint`, and `npm run build`
+with Node 22 on pull requests and pushes to branches other than `main`.
+ESLint ignores generated builds, the legacy template, and public assets.
+
+To prevent merging failed checks, make **Lint and build** a required status
+check in the branch protection rule or ruleset for `main` after its first run.
+The production deployment workflow remains separate and runs on `main`.
 
 ## Routes
 

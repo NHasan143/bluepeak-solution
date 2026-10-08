@@ -5,7 +5,7 @@ type Leaf = { label: string; to: string };
 type Node = { label: string; to?: string; children?: (Leaf | Node)[] };
 
 /** Mirrors the <ul class="navigation"> markup shared by every template page. */
-export const MENU: Node[] = [
+const MENU: Node[] = [
   {
     label: "Home",
     to: "/",
