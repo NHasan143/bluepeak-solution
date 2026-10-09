@@ -42,17 +42,6 @@ const COUNTERS = [
   { stop: "95", start: "0", suffix: "%+", label: "Client-Focused Growth & Retention Commitment" },
 ];
 
-const marqueeGroup = (
-  <div className="marquee-group">
-    <div className="text">B2B GROWTH AGENCY</div>
-    <div className="text">REVENUE ARCHITECTURE</div>
-    <div className="text">TECH-ENABLED EXECUTION</div>
-    <div className="text">DEMAND GENERATION</div>
-    <div className="text">FULL-CYCLE CLOSING</div>
-    <div className="text">CRM AUTOMATION</div>
-  </div>
-);
-
 export default function Home() {
   useEffect(() => {
     document.title = "Blupeak Solutions | Sales, Marketing & Growth Agency";
@@ -154,18 +143,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Marquee Banner */}
-{/*       <section className="work-section">
-        <div className="marquee anim-fade-move">
-          {marqueeGroup}
-          {marqueeGroup}
-          {marqueeGroup}
-          {marqueeGroup}
-          {marqueeGroup}
-          {marqueeGroup}
-        </div>
-      </section> */}
 
       {/* Team Section (Instead of Tech Stack) */}
       <TeamSection

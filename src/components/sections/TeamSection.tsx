@@ -9,7 +9,7 @@ export interface TeamMember {
   delay?: string;
 }
 
-export const TEAM_MEMBERS: TeamMember[] = [
+const TEAM_MEMBERS: TeamMember[] = [
   { img: "team5-1.png", name: "Wade Warren", role: "UX Designer", delay: ".3s" },
   { img: "team5-2.png", name: "Leslie Alexander", role: "UX Designer, Research", delay: ".5s" },
   { img: "team5-3.png", name: "Eleanor Pena", role: "UX Designer, Research", delay: ".7s" },

@@ -1218,12 +1218,27 @@
   margin-top: 20px;
 }
 
+.team-section-five .team-block-five .inner-box .image-box .image img {
+  width: 337px;
+  max-width: calc(100% - 48px);
+  height: auto;
+  max-height: none;
+  aspect-ratio: 337 / 495;
+  object-fit: cover;
+}
+
+@media (max-width: 1199.98px) {
+  .team-section-five .team-block-five .inner-box .image-box .image img {
+    width: 270px;
+  }
+}
+
 @media (max-width: 767.98px) {
   .team-block-five .inner-box .image-box .image {
     min-height: 400px;
   }
-  .team-block-five .inner-box .image-box .image img {
-    max-width: 240px;
+  .team-section-five .team-block-five .inner-box .image-box .image img {
+    width: 240px;
   }
 }
 
