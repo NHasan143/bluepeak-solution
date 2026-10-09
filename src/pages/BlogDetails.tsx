@@ -11,9 +11,9 @@ const COMMENTS = [
 ];
 
 const LATEST = [
-  { img: "news-1.jpg", title: "The Future of Smart Homes in Construction" },
-  { img: "news-2.jpg", title: "Tensive quality vectors life through strategies" },
-  { img: "news-3.jpg", title: "How to stay motivated until a project is finished" },
+  { title: "The Future of Smart Homes in Construction" },
+  { title: "Tensive quality vectors life through strategies" },
+  { title: "How to stay motivated until a project is finished" },
 ];
 
 const CATEGORIES = [
@@ -103,7 +103,6 @@ export default function BlogDetails() {
             <div className="col-xl-8 col-lg-7">
               <div className="blog-details__left">
                 <div className="blog-details__img">
-                  <img src="/images/resource/news-details.jpg" alt="" />
                   <div className="blog-details__date">
                     <span className="day">28</span>
                     <span className="month">Aug</span>
@@ -164,9 +163,6 @@ export default function BlogDetails() {
                   <h3 className="comment-one__title">2 Comments</h3>
                   {COMMENTS.map((c, i) => (
                     <div key={i} className="comment-one__single">
-                      <div className="comment-one__image">
-                        <img src="/images/resource/testi1-1.jpg" alt="" />
-                      </div>
                       <div className="comment-one__content">
                         <h3>{c.name}</h3>
                         <p>
@@ -206,9 +202,6 @@ export default function BlogDetails() {
                   <ul className="sidebar__post-list list-unstyled">
                     {LATEST.map((p, i) => (
                       <li key={i}>
-                        <div className="sidebar__post-image">
-                          <img src={`/images/resource/${p.img}`} alt="" />
-                        </div>
                         <div className="sidebar__post-content">
                           <h3>
                             <span className="sidebar__post-content-meta">

@@ -1332,6 +1332,50 @@
   margin-top: 20px;
 }
 
+/* Keep the existing cards usable when no real portrait is supplied. */
+.team-block-five.team-without-photo .inner-box {
+  padding: 32px 24px;
+  border-radius: 20px;
+  background: #222222;
+}
+
+.team-block-five.team-without-photo .content-box {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.team-block-five.team-without-photo .social-icon-list1 {
+  position: static;
+  margin-top: 24px;
+  opacity: 1;
+  transform: none;
+}
+
+.product-discription .single-comment-box .inner-box:not(:has(.comment-thumb)),
+.shop-sidebar .post-widget .post:not(:has(.post-thumb)),
+.comment-one .comment-one__single:not(:has(.comment-one__image)) .comment-one__content {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.blog-details__img:not(:has(img)) .blog-details__date {
+  position: static;
+  display: inline-flex;
+  margin-bottom: 24px;
+  border-radius: 10px;
+}
+
+.team-details__top-img:not(:has(img)) .team-details__big-text {
+  position: static;
+  transform: none;
+  margin-bottom: 24px;
+}
+
+.case-study-section .container {
+  position: relative;
+  z-index: 1;
+}
+
 .team-section-five .team-block-five .inner-box .image-box .image img {
   width: 337px;
   max-width: calc(100% - 48px);

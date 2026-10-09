@@ -6,11 +6,6 @@ function ProductBlock({ p, colClass }: { p: Product; colClass: string }) {
   return (
     <div className={`product-block all mix ${p.tags.join(" ")} ${colClass}`}>
       <div className="inner-box">
-        <div className="image">
-          <Link to="/product-details">
-            <img src={`/images/resource/products/${p.img}`} alt="" />
-          </Link>
-        </div>
         <div className="content">
           <h4>
             <Link to="/product-details">{p.name}</Link>

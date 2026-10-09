@@ -11950,7 +11950,7 @@ Section Title
   }
 }
 .marquee-style-one .marquee-style .text:after {
-  background-image: url(../images/icons/theme-flower2.png);
+  background-image: none;
   border-radius: 50%;
   content: "";
   position: absolute;
@@ -16049,7 +16049,7 @@ Section Title
   width: 100%;
   height: 100%;
   content: "";
-  background-image: url(../images/icons/pattern-7.png);
+  background-image: none;
   background-repeat: no-repeat;
   background-position: left top;
   z-index: -1;
@@ -16072,7 +16072,7 @@ Section Title
   width: 100%;
   z-index: 2;
   content: "";
-  background-image: url(../images/icons/pattern-3.png);
+  background-image: none;
   background-repeat: no-repeat;
   background-position: center bottom;
 }
@@ -16114,16 +16114,16 @@ Section Title
   transform: rotate(10deg) scale(1.2);
 }
 .category-block .inner-box.cat-bg-1:before {
-  background-image: url(../images/icons/cat-1-bg.png);
+  background-image: none;
 }
 .category-block .inner-box.cat-bg-2:before {
-  background-image: url(../images/icons/cat-2-bg.png);
+  background-image: none;
 }
 .category-block .inner-box.cat-bg-3:before {
-  background-image: url(../images/icons/cat-3-bg.png);
+  background-image: none;
 }
 .category-block .inner-box.cat-bg-4:before {
-  background-image: url(../images/icons/cat-4-bg.png);
+  background-image: none;
 }
 .category-block .image {
   position: relative;
@@ -16373,7 +16373,7 @@ Section Title
   bottom: 0;
   height: 50px;
   width: 100%;
-  background-image: url(../images/icons/pattern-8.png);
+  background-image: none;
   background-position: center bottom;
   content: "";
 }
@@ -16402,7 +16402,7 @@ Section Title
   bottom: 0;
   height: 70%;
   width: 100%;
-  background: url(../images/icons/shape-7.png) top left no-repeat;
+  background: none top left no-repeat;
   content: "";
 }
 
@@ -16641,7 +16641,7 @@ Section Title
   top: 0;
   height: 100%;
   width: 100%;
-  background: url(../images/icons/pattern-7.png) left bottom no-repeat;
+  background: none left bottom no-repeat;
   background-size: 700px;
 }
 
@@ -18315,7 +18315,7 @@ Page Title
   max-width: 520px;
 }
 .page-title .image-curve {
-  background-image: url(../images/main-slider/slide-shape-bottom.png);
+  background-image: none;
   position: absolute;
   width: 100%;
   height: 69px;

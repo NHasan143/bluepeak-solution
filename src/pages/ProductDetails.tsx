@@ -4,17 +4,11 @@ import PageTitle from "../components/common/PageTitle";
 import ShopFooter from "../components/layout/ShopFooter";
 import { useWeb3Forms } from "../lib/web3forms";
 
-const GALLERY = [
-  "product-details.png",
-  "product-details2.png",
-  "product-details3.png",
-];
-
 const RELATED = [
-  { img: "1.jpg", name: "Headphone", tags: "pantry fruit" },
-  { img: "2.jpg", name: "Lagage", tags: "dairy meat fruit" },
-  { img: "3.jpg", name: "Watch", tags: "pantry fruit vagetables" },
-  { img: "8.jpg", name: "SD Card", tags: "dairy pantry meat vagetables" },
+  { name: "Headphone", tags: "pantry fruit" },
+  { name: "Lagage", tags: "dairy meat fruit" },
+  { name: "Watch", tags: "pantry fruit vagetables" },
+  { name: "SD Card", tags: "dairy pantry meat vagetables" },
 ];
 
 function ReviewForm() {
@@ -108,7 +102,6 @@ function ReviewForm() {
 }
 
 export default function ProductDetails() {
-  const [active, setActive] = useState(0);
   const [qty, setQty] = useState(1);
   const [tab, setTab] = useState<"desc" | "reviews">("desc");
 
@@ -119,41 +112,7 @@ export default function ProductDetails() {
       <section className="product-details pt-120">
         <div className="container pb-70">
           <div className="row">
-            <div className="col-lg-6 col-xl-6">
-              <div className="bxslider">
-                <div className="slider-content">
-                  <figure className="image-box">
-                    <a
-                      href={`/images/resource/products/${GALLERY[active]}`}
-                      className="lightbox-image"
-                    >
-                      <img src={`/images/resource/products/${GALLERY[active]}`} alt="" />
-                    </a>
-                  </figure>
-                  <div className="slider-pager">
-                    <ul className="thumb-box">
-                      {GALLERY.map((img, i) => (
-                        <li key={i}>
-                          <a
-                            className={i === active ? "active" : undefined}
-                            href="#"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setActive(i);
-                            }}
-                          >
-                            <figure>
-                              <img src={`/images/resource/products/${img}`} alt="" />
-                            </figure>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 col-xl-6 product-info">
+            <div className="col-12 product-info">
               <div className="product-details__top">
                 <h3 className="product-details__title">
                   Backpack <span>$76.00</span>
@@ -311,15 +270,12 @@ export default function ProductDetails() {
                   <div className="customer-comment">
                     <div className="row clearfix">
                       {[
-                        { img: "testi1-1.png", name: "Jon D. William", date: "10 Jan, 2023 . 4:00 pm" },
-                        { img: "testi1-2.png", name: "Aleesha Brown", date: "12 Feb, 2023 . 8:00 pm" },
+                        { name: "Jon D. William", date: "10 Jan, 2023 . 4:00 pm" },
+                        { name: "Aleesha Brown", date: "12 Feb, 2023 . 8:00 pm" },
                       ].map((c, i) => (
                         <div key={i} className="col-lg-6 col-md-6 col-sm-12 comment-column">
                           <div className="single-comment-box">
                             <div className="inner-box">
-                              <figure className="comment-thumb">
-                                <img src={`/images/resource/${c.img}`} alt="" />
-                              </figure>
                               <div className="inner">
                                 <ul className="rating clearfix">
                                   {Array.from({ length: 5 }).map((_, j) => (
@@ -366,11 +322,6 @@ export default function ProductDetails() {
                       className={`product-block all mix ${p.tags} col-lg-3 col-md-6 col-sm-12`}
                     >
                       <div className="inner-box">
-                        <div className="image">
-                          <Link to="/product-details">
-                            <img src={`/images/resource/products/${p.img}`} alt="" />
-                          </Link>
-                        </div>
                         <div className="content">
                           <h4>
                             <Link to="/product-details">{p.name}</Link>

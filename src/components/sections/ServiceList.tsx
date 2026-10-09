@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import { SERVICES } from "../../lib/services";
 
 const HOME_SERVICES = [
@@ -12,10 +13,8 @@ const HOME_SERVICES = [
 /** `.service-wrapper` list — shared by the homepage and the Services page. */
 export default function ServiceList({
   items = HOME_SERVICES,
-  showHoverImage = true,
 }: {
   items?: { title: string; slug?: string; delay?: string }[];
-  showHoverImage?: boolean;
 }) {
   return (
     <div className="service-wrapper">
@@ -31,14 +30,8 @@ export default function ServiceList({
               <Link to={`/service-details/${s.slug ?? "b2b-outbound-sales"}`}>{s.title}</Link>
             </h4>
           </div>
-          {showHoverImage && (
-            <div
-              className="hover-image d-none d-lg-block bg-cover"
-              style={{ backgroundImage: 'url("/images/resource/service-image1-1.jpg")' }}
-            />
-          )}
           <Link to={`/service-details/${s.slug ?? "b2b-outbound-sales"}`} className="icon">
-            <img src="/images/icons/arrow-icon.png" alt="" />
+            <ArrowUpRight size={32} aria-hidden="true" />
           </Link>
         </div>
       ))}

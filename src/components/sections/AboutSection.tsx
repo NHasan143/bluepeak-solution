@@ -109,13 +109,6 @@ export default function AboutSection({
                   <p>{stat3Label}</p>
                 </div>
                 <div className="line" />
-                <div className="client-image">
-                  <img src="/images/resource/about-1-1.jpg" alt="img" className="icon-1" />
-                  <img src="/images/resource/about-1-2.jpg" alt="img" className="icon-2" />
-                  <img src="/images/resource/about-1-3.jpg" alt="img" className="icon-3" />
-                  <img src="/images/resource/about-1-4.jpg" alt="img" className="icon-4" />
-                  <span>+</span>
-                </div>
               </div>
             </div>
           </div>
