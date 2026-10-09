@@ -5,14 +5,6 @@ export default function ShopFooter() {
   return (
     <footer className="main-footer footer-style-one">
       <div className="widgets-section">
-        <div className="anim-icons">
-          <div className="image-1 bounce-x">
-            <img src="/images/icons/shape-style53.png" alt="" />
-          </div>
-          <div className="image-2 bounce-y">
-            <img src="/images/icons/shape-style53.png" alt="" />
-          </div>
-        </div>
         <div className="footer-middle">
           <div className="container">
             <div className="row">

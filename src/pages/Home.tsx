@@ -27,14 +27,6 @@ const FAQ_RIGHT: AccordionEntry[] = [
   { no: "08.", question: "Do you work with startups or only established brands?", answer: "Both. We tailor engagement scope to company stage, from early-stage teams building their first outbound engine to established brands scaling an existing one.", wowDelay: ".6s" },
 ];
 
-/*
-const NEWS = [
-  { img: "news1-1.jpg", title: "How to Build a High-Ticket Deal Pipeline Without Hiring In-House", delay: ".3s" },
-  { img: "news1-2.jpg", title: "CRM Automation: The Edge B2B Sales Teams Need", delay: ".5s" },
-  { img: "news1-3.jpg", title: "Why Full-Cycle Sales Consultants Outperform Cold Outreach Alone", delay: ".7s" },
-];
-*/
-
 const COUNTERS = [
   { stop: "100", start: "0", suffix: "+", label: "Businesses Supported With Growth Strategies" },
   { stop: "500", start: "0", suffix: "+", label: "Marketing Campaigns Strategically Managed", rotate: true },
@@ -212,16 +204,7 @@ export default function Home() {
                           ][i]}
                         </h4>
                       </div>
-                      <img
-                        className="foundation-image"
-                        src="/images/resource/about-3-2.jpg"
-                        alt="Blupeak team"
-                      />
                     </div>
-                    <div
-                      className="hover-image d-none d-md-block bg-cover"
-                      style={{ backgroundImage: 'url("/images/resource/about-1-5.jpg")' }}
-                    />
                     <Link to="/about" className="arrow-icon">
                       <i className="fa-solid fa-arrow-right" />
                     </Link>
@@ -324,51 +307,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Latest News - Commented out per request */}
-      {/*
-      <section className="news-section fix section-padding">
-        <div className="container">
-          <div className="section-title text-center mb-60">
-            <div className="sub-title">
-              <Star variant="lime" />
-              <span>Latest News</span>
-            </div>
-            <h2 className="title text-anim">
-              Check Out Latest News, <br className="d-none d-lg-block" />
-              Updates &amp; Articles
-            </h2>
-          </div>
-          <div className="row g-4">
-            {NEWS.map((n, i) => (
-              <div
-                key={i}
-                className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-                data-wow-delay={n.delay}
-              >
-                <div className="news-box-items">
-                  <div className="thumb">
-                    <img src={`/images/resource/${n.img}`} alt="img" />
-                    <img src={`/images/resource/${n.img}`} alt="img" />
-                    <span className="user-box">
-                      <span>B2B Growth</span> / Blupeak
-                    </span>
-                  </div>
-                  <div className="content">
-                    <h4 className="title">
-                      <Link to="/blog-details">{n.title}</Link>
-                    </h4>
-                    <Link to="/blog-details" className="link-btn">
-                      Read More <i className="fa-regular fa-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      */}
 
       {/* Final CTA */}
       <section

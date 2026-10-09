@@ -1,4 +1,3 @@
-import { Swiper, SwiperSlide } from "swiper/react";
 import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
 
@@ -9,8 +8,6 @@ const META = [
   { label: "Location:", value: "6391 Elgin St, Celina." },
 ];
 
-const SLIDES = ["project2-1.jpg", "project2-2.jpg", "project2-1.jpg"];
-
 export default function ProjectDetails() {
   return (
     <>
@@ -19,9 +16,6 @@ export default function ProjectDetails() {
       <section className="project-details pt-120 pb-0">
         <div className="container">
           <div className="project-details__top">
-            <div className="project-details__img fix">
-              <img data-speed=".8" src="/images/resource/project-details.jpg" alt="" />
-            </div>
             <div className="project-details__details-box">
               <ul className="list-unstyled project-details__details-list">
                 {META.map((m, i) => (
@@ -57,15 +51,6 @@ export default function ProjectDetails() {
               saying through shrinking from toil and pain. These cases are perfectly simple and easy
               to distinguish. In a free hour
             </p>
-            <Swiper className="project-image-slider mb-5" slidesPerView={1} spaceBetween={30} loop>
-              {SLIDES.map((img, i) => (
-                <SwiperSlide key={i}>
-                  <div className="image">
-                    <img className="w-100" src={`/images/resource/${img}`} alt="" />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
             <p className="text mb-5">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
               laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi

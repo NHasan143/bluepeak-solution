@@ -14,9 +14,9 @@ const CATEGORIES = [
 ];
 
 const POPULAR = [
-  { img: "thumb-1.jpg", name: "Best Headset", price: "$45.00" },
-  { img: "thumb-2.jpg", name: "Quality Battery", price: "$34.00" },
-  { img: "thumb-3.jpg", name: "Smart Watch", price: "$29.00" },
+  { name: "Best Headset", price: "$45.00" },
+  { name: "Quality Battery", price: "$34.00" },
+  { name: "Smart Watch", price: "$29.00" },
 ];
 
 export default function ShopSidebar() {
@@ -100,11 +100,6 @@ export default function ShopSidebar() {
                   <div className="post-inner">
                     {POPULAR.map((p, i) => (
                       <div key={i} className="post">
-                        <figure className="post-thumb">
-                          <Link to="/product-details">
-                            <img src={`/images/resource/products/${p.img}`} alt="" />
-                          </Link>
-                        </figure>
                         <Link to="/product-details">{p.name}</Link>
                         <span className="price">{p.price}</span>
                       </div>

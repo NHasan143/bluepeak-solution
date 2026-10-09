@@ -3,9 +3,9 @@ import ShopFooter from "../components/layout/ShopFooter";
 import Accordion, { type AccordionEntry } from "../components/common/Accordion";
 
 const ORDER = [
-  { img: "1.jpg", name: "Headphone", qty: 2, total: "$36.00" },
-  { img: "2.jpg", name: "Lagage", qty: 3, total: "$115.00" },
-  { img: "3.jpg", name: "Watch", qty: 1, total: "$68.00" },
+  { name: "Headphone", qty: 2, total: "$36.00" },
+  { name: "Lagage", qty: 3, total: "$115.00" },
+  { name: "Watch", qty: 1, total: "$68.00" },
 ];
 
 const BANK_TEXT =
@@ -138,7 +138,6 @@ export default function Checkout() {
                   <table className="table table-striped table-bordered tbl-shopping-cart">
                     <thead>
                       <tr>
-                        <th>Photo</th>
                         <th>Product Name</th>
                         <th>Total</th>
                       </tr>
@@ -146,11 +145,6 @@ export default function Checkout() {
                     <tbody>
                       {ORDER.map((o, i) => (
                         <tr key={i}>
-                          <td className="product-thumbnail">
-                            <a href="#">
-                              <img alt="product" src={`/images/resource/products/${o.img}`} />
-                            </a>
-                          </td>
                           <td className="product-name">
                             <a href="#">{o.name}</a> x {o.qty}
                           </td>
@@ -161,17 +155,14 @@ export default function Checkout() {
                       ))}
                       <tr>
                         <td>Cart Subtotal</td>
-                        <td>&nbsp;</td>
                         <td>$180.00</td>
                       </tr>
                       <tr>
                         <td>Shipping and Handling</td>
-                        <td>&nbsp;</td>
                         <td>Free Shipping</td>
                       </tr>
                       <tr>
                         <td>Order Total</td>
-                        <td>&nbsp;</td>
                         <td>$250.00</td>
                       </tr>
                     </tbody>

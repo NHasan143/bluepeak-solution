@@ -23,11 +23,17 @@ mixitup, parallaxie and the Revolution slider are **not** used —
 their behaviours were reimplemented in `src/hooks/usePageEffects.ts` and small
 React components.
 
+Unused template images/videos and dimension-label placeholder media have been
+removed. The existing sections and card text remain, with media-only controls
+removed where their images are no longer available. The hero uses the live
+MagicRings animation rather than a video file.
+
 ## Layout / structure
 
 ```
-public/                     original css, fonts, images (untouched)
-legacy/                     the original .html / .js / .php, kept for reference
+public/                     template css/fonts and media used by the React site
+legacy/                     original .html / .js / .php, kept for reference
+                            (unused plugin media removed)
 src/
   main.tsx                  entry (no StrictMode — see the comment there)
   App.tsx                   route table

@@ -8,10 +8,7 @@ export default function PageTitle({
   crumb: string;
 }) {
   return (
-    <section
-      className="page-title"
-      style={{ backgroundImage: "url(/images/background/page-title.jpg)" }}
-    >
+    <section className="page-title">
       <div className="auto-container">
         <div className="title-outer text-center">
           <h1 className="title">{title}</h1>

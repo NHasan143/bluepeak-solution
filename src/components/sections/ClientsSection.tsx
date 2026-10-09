@@ -1,34 +1,3 @@
-const ROW_ONE = ["client1-1.png", "client1-2.png", "client1-3.png"];
-const ROW_TWO = ["client1-2.png", "client1-1.png", "client1-3.png"];
-
-function ClientLogo({ img }: { img: string }) {
-  return (
-    <div className="client-block-two col-lg-3 col-md-4 col-sm-4">
-      <div className="inner-box">
-        <div className="image-box">
-          <figure className="image">
-            <a href="#">
-              <img src={`/images/resource/${img}`} alt="Image" />
-            </a>
-          </figure>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Spacer() {
-  return (
-    <div className="client-block-two col-lg-3 col-md-4 col-sm-4 d-none d-lg-block">
-      <div className="inner-box">
-        <div className="image-box">
-          <br />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 /** Shared client band heading for the homepage and About page. */
 export default function ClientsSection({
   heading = true,
@@ -55,26 +24,12 @@ export default function ClientsSection({
         </div>
         <div className="container">
           {heading && (
-            <div className="section-title mb-60 text-center">
+            <div className="section-title mb-0 text-center">
               <h2 className="title text-anim">
                 Powering Growth for <span>Businesses Across Industries</span>
               </h2>
             </div>
           )}
-          <div className="brand-outer-box wow fadeInUp" data-wow-delay=".3s">
-            <div className="row gx-0">
-              {ROW_ONE.map((img, i) => (
-                <ClientLogo key={i} img={img} />
-              ))}
-              <Spacer />
-            </div>
-            <div className="row gx-0">
-              <Spacer />
-              {ROW_TWO.map((img, i) => (
-                <ClientLogo key={i} img={img} />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

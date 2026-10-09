@@ -26,7 +26,6 @@ export default function Testimonial() {
             <div className="col-xl-3 col-lg-4 col-md-12">
               <div className="testimonial-one__clints-box mt-0 mb-4 mb-lg-0">
                 <div className="image">
-                  <img src="/images/resource/testi2-1.png" alt="" />
                   <img className="shape-1" src="/images/icons/testi2-shape1.png" alt="" />
                 </div>
                 <div className="rating">
