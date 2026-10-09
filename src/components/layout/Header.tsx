@@ -153,7 +153,7 @@ export default function Header() {
             </div>
             <div className="nav-outer">
               <nav className="main-menu">
-                <div className="navbar-collapse show collapse clearfix">
+                <div className="navbar-collapse show clearfix">
                   <ul className="navigation clearfix">
                     <Navigation />
                   </ul>
