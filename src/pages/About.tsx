@@ -131,10 +131,7 @@ export default function About() {
               <h4 className="title">
                 <Link to={`/service-details/${s.slug}`}>{s.title}</Link>
               </h4>
-              <div
-                className="hover-image d-none d-lg-block bg-cover"
-                style={{ backgroundImage: 'url("/images/resource/service-image2-1.png")' }}
-              />
+
               <p>{s.description}</p>
             </div>
           ))}

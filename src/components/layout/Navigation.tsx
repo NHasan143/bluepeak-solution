@@ -21,22 +21,7 @@ const MENU: Node[] = [
     to: "/",
   },
   { label: "About", to: "/about" },
-  {
-    label: "Pages",
-    children: [
-      {
-        label: "Projects",
-        children: [
-          { label: "Our Projects", to: "/projects" },
-          { label: "Project Details", to: "/project-details" },
-        ],
-      },
-      { label: "Testimonial", to: "/testimonial" },
-      { label: "Pricing", to: "/pricing" },
-      { label: "FAQ", to: "/faq" },
-      { label: "Page 404", to: "/404" },
-    ],
-  },
+
   {
     label: "Services",
     isServicesMenu: true,
