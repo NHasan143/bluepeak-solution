@@ -8,7 +8,7 @@ export interface HomeServiceItem {
   tag?: string;
 }
 
-export const HOME_SERVICES: HomeServiceItem[] = [
+const HOME_SERVICES: HomeServiceItem[] = [
   {
     num: "01.",
     title: "Revenue & Sales Systems",
