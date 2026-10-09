@@ -1,4 +1,8 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import {
+  ArrowRight, ArrowUpRight, ChartNoAxesCombined, ChevronDown,
+  CodeXml, Palette, Search, Workflow, type LucideIcon,
+} from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { SERVICES } from "../../lib/services";
 
@@ -55,6 +59,14 @@ const SERVICE_SUMMARIES: Record<string, string> = {
   "ai-workflow-automation": "Connected systems and fewer manual tasks.",
 };
 
+const SERVICE_ICONS: Record<string, LucideIcon> = {
+  "revenue-sales-systems": ChartNoAxesCombined,
+  "brand-creative-solutions": Palette,
+  "seo-organic-growth": Search,
+  "custom-web-software": CodeXml,
+  "ai-workflow-automation": Workflow,
+};
+
 function hasChildren(
   n: Leaf | Node,
 ): n is Node & { children: (Leaf | Node)[] } {
@@ -73,6 +85,20 @@ export default function Navigation({ mobile = false }: { mobile?: boolean }) {
   const servicesId = useId();
 
   const setServicesOpen = (next: boolean) => setServicesMenu({ locationKey, open: next });
+
+  useLayoutEffect(() => {
+    if (!servicesOpen || mobile) return;
+    const positionPanel = () => {
+      const item = servicesRef.current;
+      if (!item) return;
+      const bounds = item.getBoundingClientRect();
+      const shift = document.documentElement.clientWidth / 2 - bounds.left - bounds.width / 2;
+      item.style.setProperty("--services-panel-shift", `${shift}px`);
+    };
+    positionPanel();
+    window.addEventListener("resize", positionPanel);
+    return () => window.removeEventListener("resize", positionPanel);
+  }, [servicesOpen, mobile]);
 
   useEffect(() => {
     if (!servicesOpen) return;
@@ -104,6 +130,7 @@ export default function Navigation({ mobile = false }: { mobile?: boolean }) {
     const isServicesActive = isCurrent({ label: "Services", isServicesMenu: true });
     const serviceLinks = SERVICES.map((service) => {
       const active = pathname === `/service-details/${service.slug}`;
+      const Icon = SERVICE_ICONS[service.slug] ?? Workflow;
       return (
         <li key={service.slug}>
           <Link
@@ -112,11 +139,12 @@ export default function Navigation({ mobile = false }: { mobile?: boolean }) {
             aria-current={active ? "page" : undefined}
             onClick={() => setServicesOpen(false)}
           >
+            <Icon className="services-menu-icon" size={28} strokeWidth={1.6} aria-hidden="true" />
             <span className="services-menu-copy">
               <span className="services-menu-title">{service.title}</span>
               <span className="services-menu-description">{SERVICE_SUMMARIES[service.slug] ?? service.intro}</span>
             </span>
-            <i className="fa-solid fa-arrow-right services-menu-arrow" aria-hidden="true" />
+            <ArrowUpRight className="services-menu-arrow" size={16} aria-hidden="true" />
           </Link>
         </li>
       );
@@ -124,7 +152,7 @@ export default function Navigation({ mobile = false }: { mobile?: boolean }) {
     const catalogLink = (
       <Link to="/services" className="services-menu-catalog" onClick={() => setServicesOpen(false)}>
         <span>View all services</span>
-        <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+        <ArrowRight size={18} aria-hidden="true" />
       </Link>
     );
 
@@ -159,7 +187,7 @@ export default function Navigation({ mobile = false }: { mobile?: boolean }) {
               onClick={() => setServicesOpen(!servicesOpen)}
             >
               <span>Services</span>
-              <i className="fa-solid fa-chevron-down" aria-hidden="true" />
+              <ChevronDown size={16} aria-hidden="true" />
             </button>
             <ul id={servicesId} className="mobile-services-dropdown" hidden={!servicesOpen}>
               {serviceLinks}
@@ -184,11 +212,28 @@ export default function Navigation({ mobile = false }: { mobile?: boolean }) {
                 }
               }}
             >
-              <i className="fa-solid fa-chevron-down" aria-hidden="true" />
+              <ChevronDown size={14} aria-hidden="true" />
             </button>
             <div id={servicesId} className="services-dropdown-panel" inert={!servicesOpen}>
-              <ul className="services-menu-list" aria-label="Services">{serviceLinks}</ul>
-              <div className="services-menu-footer">{catalogLink}</div>
+              <div className="services-mega-heading">
+                <span className="services-mega-title">Explore our services</span>
+                <Link to="/services" className="services-mega-all" onClick={() => setServicesOpen(false)}>
+                  <span>View all services</span>
+                  <ArrowUpRight size={18} aria-hidden="true" />
+                </Link>
+              </div>
+              <ul className="services-menu-list" aria-label="Services">
+                {serviceLinks}
+                <li className="services-mega-consultation">
+                  <Link to="/contact" onClick={() => setServicesOpen(false)}>
+                    <span className="services-mega-consultation-title">Let’s talk growth.</span>
+                    <span className="services-mega-consultation-action">
+                      Book a growth consultation
+                      <ArrowRight size={20} aria-hidden="true" />
+                    </span>
+                  </Link>
+                </li>
+              </ul>
             </div>
           </>
         )}
