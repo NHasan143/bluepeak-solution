@@ -1,5 +1,19 @@
 import { Link } from "react-router-dom";
 
+const FacebookIcon = ({ size = 24, ...props }: React.SVGProps<SVGSVGElement> & { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
+const LinkedinIcon = ({ size = 24, ...props }: React.SVGProps<SVGSVGElement> & { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
 /**
  * Default footer, shared by the homepage and every inner page.
  * Inner pages render it with `padded` (adds `pt-120`), matching the original.
@@ -108,14 +122,16 @@ export default function Footer({
               >
                 <div className="footer-widgwet-items">
                   <div className="widget-head">
-                    <h4 className="widget-title font-weight-700">Stay with us</h4>
+                    <h4 className="widget-title font-weight-700">Legal</h4>
                   </div>
-                  <div className="social-post blupeak-social-links">
-                    <a href="#" className="mt-0">LinkedIn</a>
-                    <a href="#">Facebook</a>
-                    <a href="#">Instagram</a>
-                    <a href="#">Behance</a>
-                  </div>
+                  <ul className="list-area">
+                    <li>
+                      <Link to="/privacy-policy">Privacy Policy</Link>
+                    </li>
+                    <li>
+                      <Link to="/terms-of-service">Terms of Service</Link>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -127,13 +143,16 @@ export default function Footer({
               <p className="wow fadeInLeft" data-wow-delay=".5s">
                 &copy; Copyright Reserved by Blupeak
               </p>
-              <ul className="footer-menu wow fadeInRight" data-wow-delay=".5s">
+              <ul className="footer-social-icons wow fadeInRight" data-wow-delay=".5s" style={{ display: 'flex', gap: '16px', listStyle: 'none', padding: 0, margin: 0 }}>
                 <li>
-                  <a href="#">Privacy Policy</a>
+                  <a href="#" aria-label="Facebook" style={{ color: '#a9afa4', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#d9ef54'} onMouseLeave={(e) => e.currentTarget.style.color = '#a9afa4'}>
+                    <FacebookIcon size={24} />
+                  </a>
                 </li>
-                <li>|</li>
                 <li>
-                  <a href="#">Term of Service</a>
+                  <a href="#" aria-label="LinkedIn" style={{ color: '#a9afa4', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#d9ef54'} onMouseLeave={(e) => e.currentTarget.style.color = '#a9afa4'}>
+                    <LinkedinIcon size={24} />
+                  </a>
                 </li>
               </ul>
             </div>

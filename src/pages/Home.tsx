@@ -27,12 +27,31 @@ const FAQ_RIGHT: AccordionEntry[] = [
   { no: "08.", question: "Do you work with startups or only established brands?", answer: "Both. We tailor engagement scope to company stage, from early-stage teams building their first outbound engine to established brands scaling an existing one.", wowDelay: ".6s" },
 ];
 
+/*
+const NEWS = [
+  { img: "news1-1.jpg", title: "How to Build a High-Ticket Deal Pipeline Without Hiring In-House", delay: ".3s" },
+  { img: "news1-2.jpg", title: "CRM Automation: The Edge B2B Sales Teams Need", delay: ".5s" },
+  { img: "news1-3.jpg", title: "Why Full-Cycle Sales Consultants Outperform Cold Outreach Alone", delay: ".7s" },
+];
+*/
+
 const COUNTERS = [
   { stop: "100", start: "0", suffix: "+", label: "Businesses Supported With Growth Strategies" },
   { stop: "500", start: "0", suffix: "+", label: "Marketing Campaigns Strategically Managed", rotate: true },
   { stop: "10", start: "0", suffix: "K+", label: "Qualified Leads Generated Through Campaigns", rotate: true },
   { stop: "95", start: "0", suffix: "%+", label: "Client-Focused Growth & Retention Commitment" },
 ];
+
+const marqueeGroup = (
+  <div className="marquee-group">
+    <div className="text">B2B GROWTH AGENCY</div>
+    <div className="text">REVENUE ARCHITECTURE</div>
+    <div className="text">TECH-ENABLED EXECUTION</div>
+    <div className="text">DEMAND GENERATION</div>
+    <div className="text">FULL-CYCLE CLOSING</div>
+    <div className="text">CRM AUTOMATION</div>
+  </div>
+);
 
 export default function Home() {
   useEffect(() => {
@@ -136,6 +155,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Marquee Banner */}
+{/*       <section className="work-section">
+        <div className="marquee anim-fade-move">
+          {marqueeGroup}
+          {marqueeGroup}
+          {marqueeGroup}
+          {marqueeGroup}
+          {marqueeGroup}
+          {marqueeGroup}
+        </div>
+      </section> */}
+
       {/* Team Section (Instead of Tech Stack) */}
       <TeamSection
         eyebrow="Our Expert Team"
@@ -177,9 +208,11 @@ export default function Home() {
           </div>
           <div className="row g-4 align-items-end">
             <div className="col-lg-5">
-              <div className="award-image1 text-center milestone-highlight">
-                <strong>6+</strong>
-                <span>years of combined,<br />hands-on experience</span>
+              <div className="d-flex flex-column justify-content-center h-100 px-lg-4" style={{ minHeight: '300px' }}>
+                <h2 style={{ fontSize: 'clamp(80px, 8vw, 120px)', lineHeight: '1', color: '#BAFF39', fontWeight: '800', marginBottom: '16px', letterSpacing: '-2px' }}>6+</h2>
+                <h4 style={{ fontSize: 'clamp(24px, 3vw, 36px)', color: '#FFFFFF', fontWeight: '300', lineHeight: '1.2', letterSpacing: '0.5px' }}>
+                  Years of combined, <br />hands-on experience
+                </h4>
               </div>
             </div>
             <div className="col-lg-7">
@@ -192,9 +225,7 @@ export default function Home() {
                   >
                     <div className="content-items">
                       <div className="content">
-                        <h6>
-                          {i === 0 ? "01" : `0${i + 1}`} <span>WHY IT MATTERS</span>
-                        </h6>
+
                         <h4 className="title">
                           {[
                             "6+ years of combined, hands-on experience across our sales, tech and creative team",
@@ -204,7 +235,16 @@ export default function Home() {
                           ][i]}
                         </h4>
                       </div>
+                      <img
+                        className="foundation-image"
+                        src="/images/resource/about-3-2.jpg"
+                        alt="Blupeak team"
+                      />
                     </div>
+                    <div
+                      className="hover-image d-none d-md-block bg-cover"
+                      style={{ backgroundImage: 'url("/images/resource/about-1-5.jpg")' }}
+                    />
                     <Link to="/about" className="arrow-icon">
                       <i className="fa-solid fa-arrow-right" />
                     </Link>
@@ -307,6 +347,51 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Latest News - Commented out per request */}
+      {/*
+      <section className="news-section fix section-padding">
+        <div className="container">
+          <div className="section-title text-center mb-60">
+            <div className="sub-title">
+              <Star variant="lime" />
+              <span>Latest News</span>
+            </div>
+            <h2 className="title text-anim">
+              Check Out Latest News, <br className="d-none d-lg-block" />
+              Updates &amp; Articles
+            </h2>
+          </div>
+          <div className="row g-4">
+            {NEWS.map((n, i) => (
+              <div
+                key={i}
+                className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay={n.delay}
+              >
+                <div className="news-box-items">
+                  <div className="thumb">
+                    <img src={`/images/resource/${n.img}`} alt="img" />
+                    <img src={`/images/resource/${n.img}`} alt="img" />
+                    <span className="user-box">
+                      <span>B2B Growth</span> / Blupeak
+                    </span>
+                  </div>
+                  <div className="content">
+                    <h4 className="title">
+                      <Link to="/blog-details">{n.title}</Link>
+                    </h4>
+                    <Link to="/blog-details" className="link-btn">
+                      Read More <i className="fa-regular fa-arrow-right" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      */}
 
       {/* Final CTA */}
       <section

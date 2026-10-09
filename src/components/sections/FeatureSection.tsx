@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
 import Star from "../common/Star";
+import { Megaphone, Handshake, Database, TrendingUp, MonitorPlay, Code, Users, Workflow, Search, Palette, Rocket } from "lucide-react";
 
 export interface FeatureCardItem {
   cls: string;
-  icon: string;
+  icon: React.ElementType;
   title: string;
   description: string;
   slug: string;
@@ -13,19 +13,19 @@ export interface FeatureCardItem {
 }
 
 const DEFAULT_SLIDER_CARDS: FeatureCardItem[] = [
-  { cls: "card-1", icon: "feature-icon1.png", title: "Outbound Sales Infrastructure", description: "Multi-channel outreach systems built to consistently fill your pipeline with qualified decision-makers.", slug: "b2b-outbound-sales" },
-  { cls: "card-2", icon: "feature-icon2.png", title: "Full-Cycle Deal Closing", description: "In-house consultants who own the sales conversation from first call to signed contract.", slug: "full-cycle-deal-closing" },
-  { cls: "card-3", icon: "feature-icon3.png", title: "CRM Architecture & Automation", description: "Purpose-built systems that remove manual work and keep every lead moving.", slug: "crm-architecture", active: true },
-  { cls: "card-4", icon: "feature-icon4.png", title: "SEO & Content Growth", description: "Organic strategies engineered for compounding, long-term pipeline.", slug: "seo-organic-growth" },
-  { cls: "card-5", icon: "feature-icon5.png", title: "Paid Media & Creative", description: "Ad campaigns and creative assets built and edited by our in-house design team.", slug: "brand-creative-solutions" },
-  { cls: "card-6", icon: "feature-icon1.png", title: "Website Design & Development", description: "Build a High-Performing Website That Turns Visitors Into Customers", slug: "custom-web-software" },
-  { cls: "card-7", icon: "feature-icon2.png", title: "One Accountable Growth Team", description: "Sales, tech and creative under one roof, with no hand-offs between vendors.", slug: "revenue-sales-systems" },
+  { cls: "card-1", icon: Megaphone, title: "Outbound Sales Infrastructure", description: "Multi-channel outreach systems built to consistently fill your pipeline with qualified decision-makers.", slug: "b2b-outbound-sales" },
+  { cls: "card-2", icon: Handshake, title: "Full-Cycle Deal Closing", description: "In-house consultants who own the sales conversation from first call to signed contract.", slug: "full-cycle-deal-closing" },
+  { cls: "card-3", icon: Database, title: "CRM Architecture & Automation", description: "Purpose-built systems that remove manual work and keep every lead moving.", slug: "crm-architecture", active: true },
+  { cls: "card-4", icon: TrendingUp, title: "SEO & Content Growth", description: "Organic strategies engineered for compounding, long-term pipeline.", slug: "seo-organic-growth" },
+  { cls: "card-5", icon: MonitorPlay, title: "Paid Media & Creative", description: "Ad campaigns and creative assets built and edited by our in-house design team.", slug: "brand-creative-solutions" },
+  { cls: "card-6", icon: Code, title: "Website Design & Development", description: "Build a High-Performing Website That Turns Visitors Into Customers", slug: "custom-web-software" },
+  { cls: "card-7", icon: Users, title: "One Accountable Growth Team", description: "Sales, tech and creative under one roof, with no hand-offs between vendors.", slug: "revenue-sales-systems" },
 ];
 
 const ABOUT_FEATURE_CARDS: FeatureCardItem[] = [
   {
     cls: "card-1",
-    icon: "feature-icon1.png",
+    icon: Rocket,
     title: "Demand Generation and B2B Sales",
     description:
       "Targeted outreach, pipeline management, and full cycle closing handled by native English speaking consultants trained to run high ticket deals from first touch to signed contract.",
@@ -33,7 +33,7 @@ const ABOUT_FEATURE_CARDS: FeatureCardItem[] = [
   },
   {
     cls: "card-2",
-    icon: "feature-icon2.png",
+    icon: Workflow,
     title: "CRM Architecture and Workflow Automation",
     description:
       "We design and optimize Salesforce, Zoho, and HubSpot environments, automating lead routing so nothing, and no opportunity, falls through the cracks.",
@@ -41,7 +41,7 @@ const ABOUT_FEATURE_CARDS: FeatureCardItem[] = [
   },
   {
     cls: "card-3",
-    icon: "feature-icon3.png",
+    icon: Database,
     title: "Tech Enabled Operations",
     description:
       "Our in house engineering team builds the backend systems that keep the sales floor fast, data accurate, and scalable as client volume grows.",
@@ -50,7 +50,7 @@ const ABOUT_FEATURE_CARDS: FeatureCardItem[] = [
   },
   {
     cls: "card-4",
-    icon: "feature-icon4.png",
+    icon: Search,
     title: "SEO Sprints and Content Growth",
     description:
       "Technical SEO audits, keyword clustering, and content strategy built to help client brands dominate organic search in competitive global markets.",
@@ -58,7 +58,7 @@ const ABOUT_FEATURE_CARDS: FeatureCardItem[] = [
   },
   {
     cls: "card-5",
-    icon: "feature-icon5.png",
+    icon: Palette,
     title: "Brand and Asset Design",
     description:
       "Premium capability statements, pitch decks, and whitepapers that make client brands look, and close, like the market leader they're becoming.",
@@ -78,7 +78,7 @@ function Card({ card }: { card: FeatureCardItem }) {
   return (
     <div className={`feature-card ${card.cls}${card.active ? " active" : ""}`}>
       <div className="icon">
-        <img src={`/images/icons/${card.icon}`} alt="img" />
+        <card.icon size={48} strokeWidth={1} style={{ marginBottom: "20px" }} />
       </div>
       <div className="content">
         <h4 className="title">{card.title}</h4>
@@ -177,12 +177,10 @@ export default function FeatureSection({
           {variant === "slider" ? (
             <Swiper
               className="feature-slider-home1"
-              modules={[Pagination]}
               slidesPerView={5}
               spaceBetween={20}
               speed={600}
               loop
-              pagination={{ clickable: true }}
               breakpoints={{
                 320: { slidesPerView: 1 },
                 520: { slidesPerView: 2 },
