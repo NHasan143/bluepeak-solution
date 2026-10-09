@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { SERVICES } from "../../lib/services";
 
@@ -47,6 +47,14 @@ const MENU: Node[] = [
   { label: "Contact", to: "/contact" },
 ];
 
+const SERVICE_SUMMARIES: Record<string, string> = {
+  "revenue-sales-systems": "Prospecting, outreach and full-cycle deal closing.",
+  "brand-creative-solutions": "Brand strategy, design and creative execution.",
+  "seo-organic-growth": "Search visibility, content and sustainable growth.",
+  "custom-web-software": "Websites and software built around your business.",
+  "ai-workflow-automation": "Connected systems and fewer manual tasks.",
+};
+
 function hasChildren(
   n: Leaf | Node,
 ): n is Node & { children: (Leaf | Node)[] } {
@@ -57,8 +65,25 @@ function hasChildren(
  * Navigation component. Used in the main header, sticky header, and mobile menu.
  */
 export default function Navigation({ mobile = false }: { mobile?: boolean }) {
-  const { pathname } = useLocation();
+  const { pathname, key: locationKey } = useLocation();
   const [open, setOpen] = useState<Record<string, boolean>>({});
+  const [servicesMenu, setServicesMenu] = useState({ locationKey, open: false });
+  const servicesOpen = servicesMenu.locationKey === locationKey && servicesMenu.open;
+  const servicesRef = useRef<HTMLLIElement>(null);
+  const servicesId = useId();
+
+  const setServicesOpen = (next: boolean) => setServicesMenu({ locationKey, open: next });
+
+  useEffect(() => {
+    if (!servicesOpen) return;
+    const closeOutside = (event: PointerEvent) => {
+      if (!servicesRef.current?.contains(event.target as globalThis.Node)) {
+        setServicesMenu((current) => ({ ...current, open: false }));
+      }
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    return () => document.removeEventListener("pointerdown", closeOutside);
+  }, [servicesOpen]);
 
   const toggle = (key: string) =>
     setOpen((s) => ({ ...s, [key]: !s[key] }));
@@ -77,119 +102,96 @@ export default function Navigation({ mobile = false }: { mobile?: boolean }) {
 
   const renderServicesDropdown = (key: string) => {
     const isServicesActive = isCurrent({ label: "Services", isServicesMenu: true });
-
-    if (mobile) {
+    const serviceLinks = SERVICES.map((service) => {
+      const active = pathname === `/service-details/${service.slug}`;
       return (
-        <li
-          key={key}
-          className={[
-            "dropdown",
-            "services-nav-item",
-            isServicesActive ? "current" : "",
-          ]
-            .filter(Boolean)
-            .join(" ")}
-        >
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              toggle(key);
-            }}
+        <li key={service.slug}>
+          <Link
+            to={`/service-details/${service.slug}`}
+            className="services-menu-link"
+            aria-current={active ? "page" : undefined}
+            onClick={() => setServicesOpen(false)}
           >
-            Services
-          </a>
-          <ul
-            className="mobile-services-dropdown"
-            style={open[key] ? { display: "block" } : undefined}
-          >
-            {SERVICES.map((service, index) => {
-              const active = pathname === `/service-details/${service.slug}`;
-              return (
-                <li
-                  key={service.slug}
-                  className={active ? "current" : undefined}
-                >
-                  <Link to={`/service-details/${service.slug}`}>
-                    <span className="mobile-svc-num">0{index + 1}.</span>
-                    <span>{service.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
-            <li className="mobile-services-footer-item">
-              <Link to="/services" className="mobile-services-view-all">
-                <span>View All Services</span>
-                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-              </Link>
-            </li>
-          </ul>
-          <div
-            className={`dropdown-btn${open[key] ? " active" : ""}`}
-            onClick={() => toggle(key)}
-          >
-            <i className="fa fa-angle-down" />
-          </div>
+            <span className="services-menu-copy">
+              <span className="services-menu-title">{service.title}</span>
+              <span className="services-menu-description">{SERVICE_SUMMARIES[service.slug] ?? service.intro}</span>
+            </span>
+            <i className="fa-solid fa-arrow-right services-menu-arrow" aria-hidden="true" />
+          </Link>
         </li>
       );
-    }
+    });
+    const catalogLink = (
+      <Link to="/services" className="services-menu-catalog" onClick={() => setServicesOpen(false)}>
+        <span>View all services</span>
+        <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+      </Link>
+    );
 
-    // Desktop services item with custom matching modal
     return (
       <li
         key={key}
-        className={[
-          "dropdown",
-          "services-nav-item",
-          isServicesActive ? "current" : "",
-        ]
-          .filter(Boolean)
-          .join(" ")}
+        ref={servicesRef}
+        className={`dropdown services-nav-item${isServicesActive ? " current" : ""}${servicesOpen ? " is-services-open" : ""}`}
+        onMouseEnter={mobile ? undefined : () => setServicesOpen(true)}
+        onMouseLeave={mobile ? undefined : () => {
+          if (!servicesRef.current?.contains(document.activeElement)) setServicesOpen(false);
+        }}
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) setServicesOpen(false);
+        }}
+        onKeyDown={(event) => {
+          if (event.key === "Escape" && servicesOpen) {
+            event.preventDefault();
+            event.stopPropagation();
+            setServicesOpen(false);
+            servicesRef.current?.querySelector<HTMLButtonElement>(".services-toggle, .mobile-services-toggle")?.focus();
+          }
+        }}
       >
-        <Link to="/services">Services</Link>
-        <ul className="services-dropdown-modal" role="menu">
-          <li className="services-modal-header" role="presentation">
-            <span className="services-modal-badge">
-              <span className="services-modal-dot" />
-              Capabilities &amp; Services
-            </span>
-            <span className="services-modal-badge-subtitle">5 Core Disciplines</span>
-          </li>
-
-          {SERVICES.map((service, index) => {
-            const isItemActive = pathname === `/service-details/${service.slug}`;
-            return (
-              <li
-                key={service.slug}
-                className={`services-modal-item${isItemActive ? " is-active" : ""}`}
-                role="menuitem"
-              >
-                <Link
-                  to={`/service-details/${service.slug}`}
-                  className="services-modal-link"
-                >
-                  <div className="services-modal-left">
-                    <span className="services-modal-num">0{index + 1}</span>
-                    <span className="services-modal-item-title">{service.title}</span>
-                  </div>
-                  <span className="services-modal-arrow" aria-hidden="true">
-                    <i className="fas fa-arrow-right" />
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-
-          <li className="services-modal-footer" role="presentation">
-            <Link to="/services" className="services-modal-view-all">
-              <span>View All Services</span>
-              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-            </Link>
-          </li>
-        </ul>
-        <div className="dropdown-btn">
-          <i className="fa fa-angle-down" />
-        </div>
+        {mobile ? (
+          <>
+            <button
+              type="button"
+              className="mobile-services-toggle"
+              aria-expanded={servicesOpen}
+              aria-controls={servicesId}
+              onClick={() => setServicesOpen(!servicesOpen)}
+            >
+              <span>Services</span>
+              <i className="fa-solid fa-chevron-down" aria-hidden="true" />
+            </button>
+            <ul id={servicesId} className="mobile-services-dropdown" hidden={!servicesOpen}>
+              {serviceLinks}
+              <li className="services-menu-footer">{catalogLink}</li>
+            </ul>
+          </>
+        ) : (
+          <>
+            <Link to="/services" className="services-trigger-link" onClick={() => setServicesOpen(false)}>Services</Link>
+            <button
+              type="button"
+              className="services-toggle"
+              aria-label="Services submenu"
+              aria-expanded={servicesOpen}
+              aria-controls={servicesId}
+              onClick={() => setServicesOpen(!servicesOpen)}
+              onKeyDown={(event) => {
+                if (event.key === "ArrowDown") {
+                  event.preventDefault();
+                  setServicesOpen(true);
+                  requestAnimationFrame(() => servicesRef.current?.querySelector<HTMLAnchorElement>(".services-menu-link")?.focus());
+                }
+              }}
+            >
+              <i className="fa-solid fa-chevron-down" aria-hidden="true" />
+            </button>
+            <div id={servicesId} className="services-dropdown-panel" inert={!servicesOpen}>
+              <ul className="services-menu-list" aria-label="Services">{serviceLinks}</ul>
+              <div className="services-menu-footer">{catalogLink}</div>
+            </div>
+          </>
+        )}
       </li>
     );
   };
