@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
  * Default footer, shared by the homepage and every inner page.
  * Inner pages render it with `padded` (adds `pt-120`), matching the original.
  */
-export default function Footer({ padded = false }: { padded?: boolean }) {
+export default function Footer({
+  padded = false,
+  tagline = "Through disciplined execution and in house expertise, Blupeak exists to turn ambitious companies into category leaders.",
+}: {
+  padded?: boolean;
+  tagline?: string;
+}) {
   return (
     <footer className={`footer-section blupeak-footer${padded ? " pt-120" : ""}`}>
       <div className="footer-ellipse1 d-none d-xxl-block">
@@ -35,10 +41,7 @@ export default function Footer({ padded = false }: { padded?: boolean }) {
                     </Link>
                   </div>
                   <div className="footer-content">
-                    <p>
-                      Blupeak Solutions is the tech-enabled growth agency behind the sales, marketing
-                      and digital infrastructure of scaling businesses worldwide.
-                    </p>
+                    <p>{tagline}</p>
                   </div>
                 </div>
               </div>
@@ -61,6 +64,9 @@ export default function Footer({ padded = false }: { padded?: boolean }) {
                       <Link to="/about">The Blupeak Advantage</Link>
                     </li>
                     <li>
+                      <Link to="/team">Our Team</Link>
+                    </li>
+                    <li>
                       <a href="#">Careers</a>
                     </li>
                     <li>
@@ -79,19 +85,19 @@ export default function Footer({ padded = false }: { padded?: boolean }) {
                   </div>
                   <ul className="list-area">
                     <li>
-                      <a href="#">Demand Generation</a>
+                      <Link to="/service-details/revenue-sales-systems">Revenue &amp; Sales Systems</Link>
                     </li>
                     <li>
-                      <a href="#">B2B Closing</a>
+                      <Link to="/service-details/brand-creative-solutions">Brand &amp; Creative Solutions</Link>
                     </li>
                     <li>
-                      <a href="#">CRM Architecture</a>
+                      <Link to="/service-details/seo-organic-growth">SEO &amp; Organic Growth</Link>
                     </li>
                     <li>
-                      <a href="#">Workflow Automation</a>
+                      <Link to="/service-details/custom-web-software">Custom Web &amp; Software</Link>
                     </li>
                     <li>
-                      <a href="#">SEO &amp; Creative</a>
+                      <Link to="/service-details/ai-workflow-automation">AI &amp; Workflow Automation</Link>
                     </li>
                   </ul>
                 </div>

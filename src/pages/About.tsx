@@ -6,11 +6,42 @@ import AboutSection from "../components/sections/AboutSection";
 import FeatureSection from "../components/sections/FeatureSection";
 
 const SERVICES2 = [
-  { title: "Outbound Demand Generation", slug: "b2b-outbound-sales", description: "Highly targeted cold call and email campaigns designed to reach decision makers and set warm, qualified appointments.", delay: ".3s", active: true },
-  { title: "Full Cycle B2B Closing", slug: "full-cycle-deal-closing", description: "Elite sales consultants run discovery calls, handle objections, and close high ticket deals on your behalf.", delay: ".5s" },
-  { title: "CRM and Automation Architecture", slug: "crm-architecture", description: "Complex CRM builds and workflow automations that eliminate manual entry and keep your pipeline moving without friction.", delay: ".7s" },
-  { title: "SEO and Organic Growth", slug: "seo-organic-growth", description: "Keyword clustering, technical SEO, and content strategy that compounds, built to dominate search rather than just chase rankings.", delay: ".3s" },
-  { title: "Digital Advertising and Creative", slug: "brand-creative-paid-media", description: "Paid media management alongside high converting video and graphic creative, produced by our in house design bench.", delay: ".5s" },
+  {
+    title: "Outbound Demand Generation",
+    slug: "b2b-outbound-sales",
+    description:
+      "Highly targeted cold call and email campaigns designed to reach decision makers and set warm, qualified appointments.",
+    delay: ".3s",
+    active: true,
+  },
+  {
+    title: "Full Cycle B2B Closing",
+    slug: "full-cycle-deal-closing",
+    description:
+      "Elite sales consultants run discovery calls, handle objections, and close high ticket deals on your behalf, working with the same drive as an in house team.",
+    delay: ".5s",
+  },
+  {
+    title: "CRM and Automation Architecture",
+    slug: "crm-architecture",
+    description:
+      "Complex CRM builds and workflow automations that eliminate manual entry and keep your pipeline moving without friction.",
+    delay: ".7s",
+  },
+  {
+    title: "SEO and Organic Growth",
+    slug: "seo-organic-growth",
+    description:
+      "Keyword clustering, technical SEO, and content strategy that compounds, built to dominate search rather than just chase rankings.",
+    delay: ".3s",
+  },
+  {
+    title: "Digital Advertising and Creative",
+    slug: "brand-creative-paid-media",
+    description:
+      "Paid media management alongside high converting video and graphic creative, produced by our in house design bench.",
+    delay: ".5s",
+  },
 ];
 
 export default function About() {
@@ -18,26 +49,53 @@ export default function About() {
     <>
       <PageTitle title="About Us" crumb="About Us" />
 
-      <AboutSection />
-      <FeatureSection variant="static" />
+      {/* Section 1 & Section 2: Hero / Intro Stats Block & Two Column Feature Highlight */}
+      <AboutSection id="about-us" />
+
+      {/* Section 3: "Our Features" / Capabilities Grid */}
+      <FeatureSection id="our-features" variant="static" />
+
+      {/* Section 4: Trust Band */}
       <section className="clients-section-1">
+        <div className="ellipse-1">
+          <img src="/images/icons/client1-1ellipse.png" alt="img" />
+        </div>
+        <div className="ellipse-2">
+          <img src="/images/icons/client1-2ellipse.png" alt="img" />
+        </div>
         <div className="clients-wrapper section-bg section-padding">
+          <div className="client-shape">
+            <img src="/images/icons/client1-shape-1.png" alt="img" />
+          </div>
+          <div className="line-shape">
+            <img src="/images/icons/client1-line-1.png" alt="img" />
+          </div>
           <div className="container">
-            <div className="section-title text-center">
+            <div className="section-title text-center mb-0">
               <div className="sub-title">
                 <Star />
                 <span>Growth Standards Built for Global Brands</span>
               </div>
-              <p className="title text-anim">
+              <h2
+                className="title text-anim"
+                style={{
+                  maxWidth: "880px",
+                  margin: "24px auto 0",
+                  fontSize: "clamp(22px, 3.2vw, 34px)",
+                  lineHeight: "1.45",
+                  fontWeight: 500,
+                  color: "#ffffff",
+                }}
+              >
                 Blupeak's team brings 6+ years of combined experience across sales, technology,
                 and search, applied in service of every client we work with.
-              </p>
+              </h2>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Section 5: "Our Services" / Services Grid */}
       <section className="service-section-2 fix section-bg section-padding pb-70">
         <div className="service-ellipse">
           <img src="/images/icons/service2-1ellipse.png" alt="img" />
@@ -83,7 +141,8 @@ export default function About() {
         </div>
       </section>
 
-      <Footer padded />
+      {/* Section 6: Footer Tagline */}
+      <Footer padded tagline="Through disciplined execution and in house expertise, Blupeak exists to turn ambitious companies into category leaders." />
     </>
   );
 }
