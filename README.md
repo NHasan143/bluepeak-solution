@@ -1,8 +1,8 @@
 # Bluepeak Solution — React port
 
 The "Bluepeak Solution" creative-agency site, converted from a static multi-page
-template to a single-page React app. The visual design, markup classes and the
-original stylesheet are unchanged — only the delivery mechanism moved to React.
+template to a single-page React app. Pages are progressively migrating to
+Tailwind while preserving the existing brand and functionality.
 
 ## Stack
 
@@ -10,8 +10,8 @@ original stylesheet are unchanged — only the delivery mechanism moved to React
 - **Vite 7** (`@vitejs/plugin-react-swc`)
 - **React Router 7** (declarative `<Routes>`)
 - **Tailwind CSS 4** — additive only, preflight disabled (see `src/index.css`).
-  The template's own `css/style.css` + `css/bootstrap.min.css` remain the source
-  of truth for the design and are loaded verbatim from `public/` via `index.html`.
+  Migrated components use Tailwind utilities. `css/style.css` and
+  `css/bootstrap.min.css` still support components awaiting migration.
 - **GSAP 3** — ScrollSmoother, ScrollTrigger, SplitText, ScrollToPlugin
   (all free in GSAP ≥ 3.13, so no vendored Club plugins).
 - **Swiper 14** for every carousel.
@@ -32,8 +32,6 @@ MagicRings animation rather than a video file.
 
 ```
 public/                     template css/fonts and media used by the React site
-legacy/                     original .html / .js / .php, kept for reference
-                            (unused plugin media removed)
 src/
   main.tsx                  entry (no StrictMode — see the comment there)
   App.tsx                   route table
@@ -51,6 +49,13 @@ src/
     forms/                  HomeContactForm, TemplateContactForm
   pages/                    one component per route
 ```
+
+The active application uses TypeScript (`.ts` and `.tsx`) throughout `src/`.
+The unused `legacy/` archive has been removed, including its HTML, JavaScript,
+PHP handlers, SCSS and plugin files. Public font demos, unused alternate template
+stylesheets and obsolete plugin CSS have also been removed. Runtime libraries
+are managed through npm dependencies. The root `index.html` remains the Vite
+application entry; fonts, icons and styles used by current pages are retained.
 
 ## Lead / contact forms
 
@@ -77,7 +82,7 @@ npm run preview    # preview the production build
 
 `.github/workflows/ci.yml` runs `npm ci`, `npm run lint`, and `npm run build`
 with Node 22 on pull requests and pushes to branches other than `main`.
-ESLint ignores generated builds, the legacy template, and public assets.
+ESLint ignores generated builds and public assets.
 
 To prevent merging failed checks, make **Lint and build** a required status
 check in the branch protection rule or ruleset for `main` after its first run.
