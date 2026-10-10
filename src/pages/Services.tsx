@@ -4,10 +4,16 @@ import Footer from "../components/layout/Footer";
 import HomeServicesList from "../components/sections/HomeServicesList";
 import TextReveal from "../components/common/TextReveal";
 import PageEyebrow from "../components/common/PageEyebrow";
+import { usePageMetadata } from "../hooks/usePageMetadata";
 
 const focusRing = "focus-visible:outline-2! focus-visible:outline-solid! focus-visible:outline-[#D9F45F]! focus-visible:outline-offset-4!";
 
 export default function Services() {
+  usePageMetadata(
+    "Our Services | Blupeak Solutions Sales & Marketing Agency",
+    "Explore Blupeak Solutions services: sales strategy, digital marketing, SEO, automation and creative design built to generate leads and grow your revenue.",
+  );
+
   return (
     <>
       <main className="bg-[#000000]! text-white! selection:bg-[#D9F45F]! selection:text-[#111310]!" data-services-page>

@@ -1,5 +1,6 @@
 import { ChevronRight, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { usePageMetadata } from "../hooks/usePageMetadata";
 import Footer from "../components/layout/Footer";
 import TextReveal from "../components/common/TextReveal";
 import PageEyebrow from "../components/common/PageEyebrow";
@@ -13,6 +14,11 @@ const contactDetails = [
 ];
 
 export default function Contact() {
+  usePageMetadata(
+    "Contact Us | Blupeak Solutions Sales & Marketing Agency",
+    "Contact Blupeak Solutions to discuss your sales, marketing, SEO, software or automation needs. Send your inquiry and our team will get back to you soon.",
+  );
+
   return (
     <>
       <main className="bg-[#000000]! text-white! selection:bg-[#D9F45F]! selection:text-[#111310]!" data-contact-page>
