@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import InterfaceIcon from "../common/InterfaceIcon";
 import { Link } from "react-router-dom";
 
@@ -10,8 +11,8 @@ export default function ShopFooter() {
           <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
             <div className="flex! flex-wrap! -mx-3!">
               <div className="footer-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-5/12!">
-                <div className="footer-widget about-widget wow fadeInLeft">
-                  <h1 className="title">Let’s Talk</h1>
+                <div className={pageClasses("footer-widget about-widget wow fadeInLeft")}>
+                  <h1 className={pageClasses("title")}>Let’s Talk</h1>
                   <div className="widget-content">
                     <div className="text">
                       Lorem ipsum dolor sit amet, consectetuer adipiscing{" "}
@@ -46,7 +47,7 @@ export default function ShopFooter() {
                 </div>
               </div>
               <div className="footer-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-2/12!">
-                <div className="footer-widget links-widget flex-1! px-3! wow fadeInLeft" data-wow-delay="100ms">
+                <div className={pageClasses("footer-widget links-widget flex-1! px-3! wow fadeInLeft")} data-wow-delay="100ms">
                   <h5 className="widget-title">Quick Link</h5>
                   <div className="widget-content">
                     <ul className="user-links">
@@ -70,11 +71,11 @@ export default function ShopFooter() {
                 </div>
               </div>
               <div className="footer-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-5/12!">
-                <div className="footer-widget subscribe-widget wow fadeInLeft" data-wow-delay="200ms">
+                <div className={pageClasses("footer-widget subscribe-widget wow fadeInLeft")} data-wow-delay="200ms">
                   <h5 className="text">Get the latest inspiration &amp; insights</h5>
                   <div className="subscribe-form-one">
                     <form method="post" action="#" onSubmit={(e) => e.preventDefault()}>
-                      <div className="form-group" style={{ position: "relative" }}>
+                      <div className="form-group relative!" >
                         <label htmlFor="email" className="sr-only">
                           Email Address
                         </label>
@@ -95,7 +96,7 @@ export default function ShopFooter() {
                   </div>
                 </div>
                 <div className="flex! flex-wrap! -mx-3!">
-                  <div className="footer-widget flex-1! px-3! wow fadeInLeft" data-wow-delay="400ms">
+                  <div className={pageClasses("footer-widget flex-1! px-3! wow fadeInLeft")} data-wow-delay="400ms">
                     <h5 className="widget-title">Address</h5>
                     <div className="widget-content">
                       <div className="text">
@@ -104,7 +105,7 @@ export default function ShopFooter() {
                       </div>
                     </div>
                   </div>
-                  <div className="footer-widget flex-1! px-3! wow fadeInLeft" data-wow-delay="400ms">
+                  <div className={pageClasses("footer-widget flex-1! px-3! wow fadeInLeft")} data-wow-delay="400ms">
                     <h5 className="widget-title">Support</h5>
                     <div className="widget-content">
                       <div className="text">

@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import { ChevronDown, Minus, Plus } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
@@ -28,7 +29,7 @@ export default function Accordion({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <ul className={`accordion-box${className ? ` ${className}` : ""}`}>
+    <ul className={pageClasses(`accordion-box${className ? ` ${className}` : ""}`)}>
       {items.map((item, i) => {
         const isOpen = open === i;
         return (

@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import InterfaceIcon from "../components/common/InterfaceIcon";
 import { Link } from "react-router-dom";
 
@@ -7,7 +8,7 @@ export default function NotFound() {
       <div className="mx-auto! w-full! max-w-[1320px]! px-[15px]! pt-[70px]! pb-[100px]!">
         <div className="flex! flex-wrap! -mx-3!">
           <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-full!">
-            <div className="error-page__inner theme-btn-main">
+            <div className={pageClasses("error-page__inner theme-btn-main")}>
               <div className="error-page__title-box">
                 <img src="/images/resource/404.png" alt="" />
                 <h3 className="error-page__sub-title mt-[50px]!">Page not found!</h3>
@@ -39,7 +40,7 @@ export default function NotFound() {
                   </button>
                 </div>
               </form>
-              <Link to="/" className="theme-btn btn-style-one transform">
+              <Link to="/" className={pageClasses("theme-btn btn-style-one transform")}>
                 <span className="btn-title">Back to Home</span>
               </Link>
             </div>

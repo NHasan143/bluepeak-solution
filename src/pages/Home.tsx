@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import InterfaceIcon from "../components/common/InterfaceIcon";
 import { lazy, Suspense, useEffect, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
@@ -88,8 +89,8 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="hero-section hero-1 hero-rings">
-        <div className="hero-rings-background" aria-hidden="true">
+      <section className={pageClasses("hero-section hero-1 hero-rings")}>
+        <div className={pageClasses("hero-rings-background")} aria-hidden="true">
           <Suspense fallback={null}>
             <MagicRings speed={0.65} noiseAmount={0.025} followMouse
               mouseInfluence={0.08} parallax={0.015} hoverScale={1.04} />
@@ -97,15 +98,15 @@ export default function Home() {
         </div>
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="hero-content">
-            <div className="sub-title hero-eyebrow"><Star /><span>AI-Accelerated Growth Execution</span></div>
+            <div className={pageClasses("sub-title hero-eyebrow")}><Star /><span>AI-Accelerated Growth Execution</span></div>
             <h1 className="hero-title">
               Build a Smarter <span>Growth Strategy</span><br />
               With Blupeak Solutions
             </h1>
-            <p className="hero-description">Blupeak Solutions builds end-to-end B2B growth engines that turn cold outreach into qualified leads, closed deals, and scalable revenue.</p>
-            <div className="hero-actions">
-              <Link to="/contact" className="theme-btn btn-style-one"><span className="btn-title">Book a Growth Consultation</span><InterfaceIcon name="arrow-right"  /></Link>
-              <Link to="/services" className="hero-secondary-link">See What We Do <InterfaceIcon name="arrow-right"  /></Link>
+            <p className={pageClasses("hero-description")}>Blupeak Solutions builds end-to-end B2B growth engines that turn cold outreach into qualified leads, closed deals, and scalable revenue.</p>
+            <div className={pageClasses("hero-actions")}>
+              <Link to="/contact" className={pageClasses("theme-btn btn-style-one")}><span className="btn-title">Book a Growth Consultation</span><InterfaceIcon name="arrow-right"  /></Link>
+              <Link to="/services" className={pageClasses("hero-secondary-link")}>See What We Do <InterfaceIcon name="arrow-right"  /></Link>
             </div>
           </div>
           <div className="text-circle">
@@ -119,26 +120,26 @@ export default function Home() {
       <AboutSection id="home-about" bodyParagraph="Blupeak Solutions unifies sales, marketing, engineering, SEO and automation into one growth engine built to accelerate revenue." />
 
       {/* Services */}
-      <section className="service-section fix section-padding section-bg">
+      <section className={pageClasses("service-section fix section-padding section-bg")}>
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! mb-[60px]! justify-between!">
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-8/12!">
-              <div className="section-title mb-[0px]!">
+              <div className={pageClasses("section-title mb-[0px]!")}>
                 <div className="sub-title text-left">
                   <Star variant="lime" />
                   <span>Our Services</span>
                 </div>
-                <h2 className="title text-anim">
+                <h2 className={pageClasses("title text-anim")}>
                   B2B Growth Services Built Around <span>Your Revenue Goals</span>
                 </h2>
-                <p className="growth-services-intro">
+                <p className={pageClasses("growth-services-intro")}>
                   End-to-end revenue systems, brand creative, SEO, custom web, and AI automation built and run under one roof.
                 </p>
               </div>
             </div>
-            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! wow fadeInUp" data-wow-delay=".3s">
+            <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! wow fadeInUp")} data-wow-delay=".3s">
               <div className="circle-area flex! justify-end!">
-                <Link to="/services" className="circle-box">
+                <Link to="/services" className={pageClasses("circle-box")}>
                   <span>
                     More Services
                     <InterfaceIcon name="arrow-right"  />
@@ -149,8 +150,8 @@ export default function Home() {
           </div>
 
           <HomeServicesList />
-          <div className="growth-services-cta">
-            <Link to="/contact" className="theme-btn btn-style-one">
+          <div className={pageClasses("growth-services-cta")}>
+            <Link to="/contact" className={pageClasses("theme-btn btn-style-one")}>
               <span className="btn-title">Book a Growth Consultation</span>
               <InterfaceIcon name="arrow-right" aria-hidden="true"  />
             </Link>
@@ -183,7 +184,7 @@ export default function Home() {
       <FeatureSection variant="slider" />
 
       {/* Recognition / Milestones */}
-      <section className="award-section1 section-padding">
+      <section className={pageClasses("award-section1 section-padding")}>
         <div className="award1-ellipse1">
           <img src="/images/icons/award1-ellipse1.png" alt="img" />
         </div>
@@ -193,17 +194,17 @@ export default function Home() {
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! mb-[60px]! justify-between! items-center!">
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-6/12! min-[992px]:w-8/12!">
-              <div className="section-title">
+              <div className={pageClasses("section-title")}>
                 <div className="sub-title">
                   <Star />
                   <span>Our Foundation</span>
                 </div>
-                <h2 className="title text-anim">
+                <h2 className={pageClasses("title text-anim")}>
                   Built on Real Experience, <span>Not Empty Promises</span>
                 </h2>
               </div>
             </div>
-            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-4/12! wow fadeInUp" data-wow-delay=".3s">
+            <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-4/12! wow fadeInUp")} data-wow-delay=".3s">
               <p>
                 Blupeak is a young agency, but the team behind it isn’t. Here is what actually backs that up.
               </p>
@@ -211,25 +212,25 @@ export default function Home() {
           </div>
           <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! items-end!">
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-5/12!">
-              <div className="flex! flex-col! justify-center! h-full! min-[992px]:px-[24px]!" style={{ minHeight: '300px' }}>
-                <h2 style={{ fontSize: 'clamp(80px, 8vw, 120px)', lineHeight: '1', color: '#BAFF39', fontWeight: '800', marginBottom: '16px', letterSpacing: '-2px' }}>6+</h2>
-                <h4 style={{ fontSize: 'clamp(24px, 3vw, 36px)', color: '#FFFFFF', fontWeight: '300', lineHeight: '1.2', letterSpacing: '0.5px' }}>
+              <div className="flex! flex-col! justify-center! h-full! min-[992px]:px-[24px]! min-h-[300px]!" >
+                <h2 className="[font-size:clamp(80px,_8vw,_120px)]! [line-height:1]! [color:#BAFF39]! [font-weight:800]! [margin-bottom:16px]! [letter-spacing:-2px]!" >6+</h2>
+                <h4 className="[font-size:clamp(24px,_3vw,_36px)]! [color:#FFFFFF]! [font-weight:300]! [line-height:1.2]! [letter-spacing:0.5px]!" >
                   Years of combined, <br />hands-on experience
                 </h4>
               </div>
             </div>
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-7/12!">
-              <div className="award-list-items-area">
+              <div className={pageClasses("award-list-items-area")}>
                 {[".3s", ".3s", ".5s", ".7s"].map((delay, i) => (
                   <div
                     key={i}
-                    className={`award-list-items-items${i === 0 ? " active" : ""}${i === 3 ? " mb-0" : ""} wow fadeInUp`}
+                    className={pageClasses(`award-list-items-items${i === 0 ? " active" : ""}${i === 3 ? " mb-0" : ""} wow fadeInUp`)}
                     data-wow-delay={delay}
                   >
                     <div className="content-items">
                       <div className="content">
 
-                        <h4 className="title">
+                        <h4 className={pageClasses("title")}>
                           {[
                             "6+ years of combined, hands-on experience across our sales, tech and creative team",
                             "A team built from people who have run outbound, closing and CRM systems for growing B2B companies before",
@@ -245,8 +246,8 @@ export default function Home() {
                       />
                     </div>
                     <div
-                      className="hover-image hidden! min-[768px]:block! bg-cover"
-                      style={{ backgroundImage: 'url("/images/resource/about-1-5.jpg")' }}
+                      className={(pageClasses("hover-image hidden! min-[768px]:block! bg-cover") ?? "") + " [background-image:url(/images/resource/about-1-5.jpg)]!"}
+
                     />
                     <Link to="/about" className="arrow-icon">
                       <InterfaceIcon name="arrow-right"  />
@@ -262,14 +263,14 @@ export default function Home() {
       <ClientsSection />
 
       {/* Counters */}
-      <section className="counter-section section-padding">
+      <section className={pageClasses("counter-section section-padding")}>
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! advance-wrap">
             {COUNTERS.map((c, i) => (
               <div key={i} className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-3/12! min-[992px]:w-3/12! min-[768px]:w-6/12! min-[576px]:w-6/12!">
-                <div className={`counter-card-item${c.rotate ? " ratote-2" : ""} advance-item`}>
+                <div className={pageClasses(`counter-card-item${c.rotate ? " ratote-2" : ""} advance-item`)}>
                   <div className="count-box">
-                    <h2 className="title">
+                    <h2 className={pageClasses("title")}>
                       <span className="count-text" data-speed="3000" data-stop={c.stop}>{c.start}</span>
                       {c.suffix}
                     </h2>
@@ -283,26 +284,26 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="faq-section fix section-bg-3 section-padding pt-[0px]!">
+      <section className={pageClasses("faq-section fix section-bg-3 section-padding pt-[0px]!")}>
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-          <div className="section-title text-center! mb-[60px]!">
+          <div className={pageClasses("section-title text-center! mb-[60px]!")}>
             <div className="sub-title">
               <Star />
               <span>FAQS</span>
             </div>
-            <h2 className="title text-anim">
+            <h2 className={pageClasses("title text-anim")}>
               Have Questions in Your Mind? <br className="hidden! min-[992px]:block!" />
               Get the <span>Answers Now</span>
             </h2>
           </div>
           <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6!">
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12!">
-              <div className="faq-box-style-1">
+              <div className={pageClasses("faq-box-style-1")}>
                 <Accordion items={FAQ_LEFT} defaultOpen={0} />
               </div>
             </div>
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12!">
-              <div className="faq-box-style-1">
+              <div className={pageClasses("faq-box-style-1")}>
                 <Accordion items={FAQ_RIGHT} defaultOpen={-1} />
               </div>
             </div>
@@ -312,24 +313,24 @@ export default function Home() {
 
       {/* Contact */}
       <section
-        className="contact-section style-four bg-cover"
-        style={{ backgroundImage: 'url("/images/background/contact-bg1-1.jpg")' }}
+        className={(pageClasses("contact-section style-four bg-cover") ?? "") + " [background-image:url(/images/background/contact-bg1-1.jpg)]!"}
+
       >
         <div className="outer-box">
           <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
             <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! justify-between!">
               <div className="content-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[1200px]:w-5/12!">
                 <div className="inner-column">
-                  <div className="section-title">
+                  <div className={pageClasses("section-title")}>
                     <div className="sub-title">
                       <Star />
                       <span>Get in touch</span>
                     </div>
-                    <h2 className="title text-anim">
+                    <h2 className={pageClasses("title text-anim")}>
                       Success Is a Team Effort. <span>Let’s Achieve It Together</span>
                     </h2>
                   </div>
-                  <div className="contact-info wow fadeInUp" data-wow-delay=".3s">
+                  <div className={pageClasses("contact-info wow fadeInUp")} data-wow-delay=".3s">
                     <h6 className="email"><a href="mailto:info@blupeaksolutions.com">info@blupeaksolutions.com</a></h6>
                     <h3 className="phone"><a href="tel:01849415421">018-4941-5421</a></h3>
                   </div>
@@ -337,7 +338,7 @@ export default function Home() {
               </div>
               <div className="form-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[1200px]:w-6/12!">
                 <div className="inner-column">
-                  <div className="contact-form wow fadeInUp" data-wow-delay=".5s">
+                  <div className={pageClasses("contact-form wow fadeInUp")} data-wow-delay=".5s">
                     <div className="contact-line">
                       <img src="/images/icons/contact-line.png" alt="" />
                     </div>
@@ -398,13 +399,13 @@ export default function Home() {
 
       {/* Final CTA */}
       <section
-        className="lets-project-section bg-cover"
-        style={{ backgroundImage: 'url("/images/background/cta-bg1-1.jpg")' }}
+        className={(pageClasses("lets-project-section bg-cover") ?? "") + " [background-image:url(/images/background/cta-bg1-1.jpg)]!"}
+
       >
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-          <div className="lets-wrapper">
-            <h2 className="title text-anim">Let’s Build Your Growth Engine</h2>
-            <Link to="/contact" className="theme-btn btn-style-one wow fadeInUp" data-wow-delay=".3s">
+          <div className={pageClasses("lets-wrapper")}>
+            <h2 className={pageClasses("title text-anim")}>Let’s Build Your Growth Engine</h2>
+            <Link to="/contact" className={pageClasses("theme-btn btn-style-one wow fadeInUp")} data-wow-delay=".3s">
               <span className="btn-title">Book a Growth Consultation</span>
               <InterfaceIcon name="arrow-right"  />
             </Link>

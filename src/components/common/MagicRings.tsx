@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
@@ -346,9 +347,9 @@ export default function MagicRings({
   }, [reducedMotion]);
 
   return (
-    <div ref={mountRef} className="magic-rings" aria-hidden="true"
+    <div ref={mountRef} className={pageClasses("magic-rings")} aria-hidden="true"
       style={blur > 0 ? { filter: `blur(${blur}px)` } : undefined}>
-      <div className="magic-rings-fallback">
+      <div className={pageClasses("magic-rings-fallback")}>
         <span /><span /><span />
       </div>
     </div>

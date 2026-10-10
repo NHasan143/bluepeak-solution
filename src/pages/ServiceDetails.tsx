@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import InterfaceIcon from "../components/common/InterfaceIcon";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link, useParams } from "react-router-dom";
@@ -30,9 +31,9 @@ export default function ServiceDetails() {
           <div className="flex! flex-wrap! -mx-3!">
             {/* Sidebar */}
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-4/12!">
-              <div className="service-sidebar">
+              <div className={pageClasses("service-sidebar")}>
                 <div className="sidebar-widget service-sidebar-single">
-                  <div className="sidebar-service-list">
+                  <div className={pageClasses("sidebar-service-list")}>
                     <ul>
                       {SERVICES.map((item) => (
                         <li key={item.slug} className={item.slug === service.slug ? "current" : undefined}>
@@ -44,18 +45,18 @@ export default function ServiceDetails() {
                       ))}
                     </ul>
                   </div>
-                  <div className="service-details-help">
-                    <div className="help-shape-1" />
-                    <div className="help-shape-2" />
-                    <h2 className="help-title">
+                  <div className={pageClasses("service-details-help")}>
+                    <div className={pageClasses("help-shape-1")} />
+                    <div className={pageClasses("help-shape-2")} />
+                    <h2 className={pageClasses("help-title")}>
                       Contact with <br />
                       us for any <br />
                       advice
                     </h2>
-                    <div className="help-icon">
+                    <div className={pageClasses("help-icon")}>
                       <InterfaceIcon name="phone"  />
                     </div>
-                    <div className="help-contact">
+                    <div className={pageClasses("help-contact")}>
                       <p>Need help? Talk to an expert</p>
                       <a href="tel:01849415421">018-4941-5421</a>
                     </div>
@@ -65,7 +66,7 @@ export default function ServiceDetails() {
             </div>
             {/* Content */}
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-8/12! min-[992px]:w-8/12!">
-              <div className="services-details__content">
+              <div className={pageClasses("services-details__content")}>
                 <h3 className="mt-[24px]!">{service.title}</h3>
                 <p className="text">{service.intro}</p>
                 <div className="content mt-[40px]!">
@@ -75,7 +76,7 @@ export default function ServiceDetails() {
                       {service.included.map((item) => (
                         <li className="single-item" key={item}>
                           <InterfaceIcon name="check" className="icon-box"  />
-                          <span className="title">{item}</span>
+                          <span className={pageClasses("title")}>{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -117,7 +118,7 @@ export default function ServiceDetails() {
                   <Accordion
                     items={FAQ}
                     defaultOpen={1}
-                    className="wow fadeInUp p-[0px]! mt-[40px]!"
+                    className={pageClasses("wow fadeInUp p-[0px]! mt-[40px]!")}
                   />
                 </div>
               </div>

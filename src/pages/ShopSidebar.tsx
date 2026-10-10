@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import InterfaceIcon from "../components/common/InterfaceIcon";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -27,11 +28,11 @@ export default function ShopSidebar() {
     <>
       <PageTitle title="Shop" crumb="Products" />
 
-      <section className="featured-products">
+      <section className={pageClasses("featured-products")}>
         <div className="mx-auto! w-full! max-w-[1320px]! px-[15px]!">
           <div className="flex! flex-wrap! -mx-3! clearfix">
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! min-[768px]:w-full! min-[576px]:w-full!">
-              <div className="shop-sidebar">
+              <div className={pageClasses("shop-sidebar")}>
                 <div className="sidebar-search">
                   <form
                     action="#"
@@ -65,7 +66,7 @@ export default function ShopSidebar() {
                   <div className="widget-title">
                     <h5 className="widget-title">Filter by Price</h5>
                   </div>
-                  <div className="range-slider clearfix">
+                  <div className={pageClasses("range-slider clearfix")}>
                     <div className="price-range-slider">
                       <input
                         type="range"
@@ -75,12 +76,12 @@ export default function ShopSidebar() {
                         onChange={(e) =>
                           setRange([range[0], Number(e.target.value)])
                         }
-                        style={{ width: "100%" }}
+                        className="[width:100%]!"
                       />
                     </div>
                     <div className="clearfix">
                       <p>Price:</p>
-                      <div className="title" />
+                      <div className={pageClasses("title")} />
                       <div className="input">
                         <input
                           type="text"

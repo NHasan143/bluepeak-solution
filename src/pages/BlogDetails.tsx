@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import InterfaceIcon from "../components/common/InterfaceIcon";
 import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
@@ -43,14 +44,14 @@ function CommentForm() {
       <div className="flex! flex-wrap! -mx-3!">
         <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
           <div className="mb-[16px]!">
-            <input name="name" className="form-control" type="text" placeholder="Enter Name" />
+            <input name="name" className={pageClasses("form-control")} type="text" placeholder="Enter Name" />
           </div>
         </div>
         <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
           <div className="mb-[16px]!">
             <input
               name="email"
-              className="form-control required email"
+              className={pageClasses("form-control required email")}
               type="email"
               placeholder="Enter Email"
               required
@@ -61,16 +62,16 @@ function CommentForm() {
       <div className="mb-[16px]!">
         <textarea
           name="message"
-          className="form-control required"
+          className={pageClasses("form-control required")}
           rows={5}
           placeholder="Enter Message"
         />
       </div>
-      <div className="mb-[16px]! theme-btn-main">
-        <input name="botcheck" className="form-control" type="hidden" value="" />
+      <div className={pageClasses("mb-[16px]! theme-btn-main")}>
+        <input name="botcheck" className={pageClasses("form-control")} type="hidden" value="" />
         <button
           type="submit"
-          className="theme-btn btn-style-one transform"
+          className={pageClasses("theme-btn btn-style-one transform")}
           data-loading-text="Please wait..."
           disabled={status.state === "submitting"}
         >
@@ -98,19 +99,19 @@ export default function BlogDetails() {
     <>
       <PageTitle title="News" crumb="News" />
 
-      <section className="blog-details pt-[120px]! pb-[0px]!">
+      <section className={pageClasses("blog-details pt-[120px]! pb-[0px]!")}>
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="flex! flex-wrap! -mx-3!">
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-8/12! min-[992px]:w-7/12!">
-              <div className="blog-details__left">
-                <div className="blog-details__img">
-                  <div className="blog-details__date">
+              <div className={pageClasses("blog-details__left")}>
+                <div className={pageClasses("blog-details__img")}>
+                  <div className={pageClasses("blog-details__date")}>
                     <span className="day">28</span>
                     <span className="month">Aug</span>
                   </div>
                 </div>
-                <div className="blog-details__content">
-                  <ul className="list-none! pl-0! blog-details__meta">
+                <div className={pageClasses("blog-details__content")}>
+                  <ul className={pageClasses("list-none! pl-0! blog-details__meta")}>
                     <li>
                       <a href="#">
                         <InterfaceIcon name="user"  /> Admin
@@ -122,18 +123,18 @@ export default function BlogDetails() {
                       </a>
                     </li>
                   </ul>
-                  <h3 className="blog-details__title">
+                  <h3 className={pageClasses("blog-details__title")}>
                     Your business absolutely needs a updated daily
                   </h3>
                   <p className="blog-details__text-2">{PARA}</p>
                   <p className="blog-details__text-2">{PARA}</p>
                   <p className="blog-details__text-2">{PARA}</p>
                 </div>
-                <div className="blog-details__bottom">
-                  <p className="blog-details__tags">
+                <div className={pageClasses("blog-details__bottom")}>
+                  <p className={pageClasses("blog-details__tags")}>
                     <span>Tags</span> <a href="#">Business</a> <a href="#">Agency</a>
                   </p>
-                  <div className="blog-details__social-list">
+                  <div className={pageClasses("blog-details__social-list")}>
                     <a href="#">
                       <InterfaceIcon name="x"  />
                     </a>{" "}
@@ -148,7 +149,7 @@ export default function BlogDetails() {
                     </a>
                   </div>
                 </div>
-                <div className="nav-links">
+                <div className={pageClasses("nav-links")}>
                   <div className="prev">
                     <a href="#" rel="prev">
                       Bring to the table win-win survival strategies
@@ -160,7 +161,7 @@ export default function BlogDetails() {
                     </a>
                   </div>
                 </div>
-                <div className="comment-one">
+                <div className={pageClasses("comment-one")}>
                   <h3 className="comment-one__title">2 Comments</h3>
                   {COMMENTS.map((c, i) => (
                     <div key={i} className="comment-one__single">
@@ -171,13 +172,13 @@ export default function BlogDetails() {
                           Aliquam quis purus in justo pulvinar tempor. Aliquam tellus nulla,
                           sollicitudin at euismod.
                         </p>
-                        <a href="#" className="theme-btn btn-style-one comment-one__btn">
+                        <a href="#" className={pageClasses("theme-btn btn-style-one comment-one__btn")}>
                           <span className="btn-title">Reply</span>
                         </a>
                       </div>
                     </div>
                   ))}
-                  <div className="comment-form">
+                  <div className={pageClasses("comment-form")}>
                     <h3 className="comment-form__title mb-[16px]!">Leave a Comment</h3>
                     <CommentForm />
                   </div>
@@ -185,11 +186,11 @@ export default function BlogDetails() {
               </div>
             </div>
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-5/12!">
-              <div className="sidebar">
-                <div className="sidebar__single sidebar__search">
+              <div className={pageClasses("sidebar")}>
+                <div className={pageClasses("sidebar__single sidebar__search")}>
                   <form
                     action="#"
-                    className="sidebar__search-form"
+                    className={pageClasses("sidebar__search-form")}
                     onSubmit={(e) => e.preventDefault()}
                   >
                     <input type="search" placeholder="Search here" />
@@ -198,8 +199,8 @@ export default function BlogDetails() {
                     </button>
                   </form>
                 </div>
-                <div className="sidebar__single sidebar__post">
-                  <h3 className="sidebar__title">Latest Posts</h3>
+                <div className={pageClasses("sidebar__single sidebar__post")}>
+                  <h3 className={pageClasses("sidebar__title")}>Latest Posts</h3>
                   <ul className="sidebar__post-list list-none! pl-0!">
                     {LATEST.map((p, i) => (
                       <li key={i}>
@@ -216,9 +217,9 @@ export default function BlogDetails() {
                     ))}
                   </ul>
                 </div>
-                <div className="sidebar__single sidebar__category">
-                  <h3 className="sidebar__title">Categories</h3>
-                  <ul className="sidebar__category-list list-none! pl-0!">
+                <div className={pageClasses("sidebar__single sidebar__category")}>
+                  <h3 className={pageClasses("sidebar__title")}>Categories</h3>
+                  <ul className={pageClasses("sidebar__category-list list-none! pl-0!")}>
                     {CATEGORIES.map((c, i) => (
                       <li key={i} className={i === 1 ? "active" : undefined}>
                         <a href="#">
@@ -229,9 +230,9 @@ export default function BlogDetails() {
                     ))}
                   </ul>
                 </div>
-                <div className="sidebar__single sidebar__tags">
-                  <h3 className="sidebar__title">Tags</h3>
-                  <div className="sidebar__tags-list">
+                <div className={pageClasses("sidebar__single sidebar__tags")}>
+                  <h3 className={pageClasses("sidebar__title")}>Tags</h3>
+                  <div className={pageClasses("sidebar__tags-list")}>
                     {TAGS.map((t, i) => (
                       <a key={i} href="#">
                         {t}
@@ -239,15 +240,15 @@ export default function BlogDetails() {
                     ))}
                   </div>
                 </div>
-                <div className="sidebar__single sidebar__comments">
-                  <h3 className="sidebar__title">Recent Comments</h3>
-                  <ul className="sidebar__comments-list list-none! pl-0!">
+                <div className={pageClasses("sidebar__single sidebar__comments")}>
+                  <h3 className={pageClasses("sidebar__title")}>Recent Comments</h3>
+                  <ul className={pageClasses("sidebar__comments-list list-none! pl-0!")}>
                     {[0, 1, 2, 3].map((i) => (
                       <li key={i}>
-                        <div className="sidebar__comments-icon">
+                        <div className={pageClasses("sidebar__comments-icon")}>
                           <InterfaceIcon name="comments"  />
                         </div>
-                        <div className="sidebar__comments-text-box">
+                        <div className={pageClasses("sidebar__comments-text-box")}>
                           {i % 2 === 0 ? (
                             <p>
                               A wordpress commenter on <br />

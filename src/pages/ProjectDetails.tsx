@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import InterfaceIcon from "../components/common/InterfaceIcon";
 import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
@@ -17,19 +18,19 @@ export default function ProjectDetails() {
       <section className="project-details pt-[120px]! pb-[0px]!">
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="project-details__top">
-            <div className="project-details__details-box">
-              <ul className="list-none! pl-0! project-details__details-list">
+            <div className={pageClasses("project-details__details-box")}>
+              <ul className={pageClasses("list-none! pl-0! project-details__details-list")}>
                 {META.map((m, i) => (
                   <li key={i}>
-                    <p className="project-details__client">{m.label}</p>
-                    <h6 className="project-details__name">{m.value}</h6>
+                    <p className={pageClasses("project-details__client")}>{m.label}</p>
+                    <h6 className={pageClasses("project-details__name")}>{m.value}</h6>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
-          <div className="project-details__content">
-            <h3 className="title mb-[16px]!">Best Digital Solution</h3>
+          <div className={pageClasses("project-details__content")}>
+            <h3 className={pageClasses("title mb-[16px]!")}>Best Digital Solution</h3>
             <p className="text">
               But I must explain to you how all this mistaken idea of denouncing pleasure and
               praising pain was born and I will give you a complete account of the system, and

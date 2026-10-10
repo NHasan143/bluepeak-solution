@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { ScrollSmoother, ScrollTrigger } from "../../lib/gsap";
@@ -56,7 +57,7 @@ export default function RootLayout({ bare = false }: { bare?: boolean }) {
   usePageEffects();
 
   return (
-    <div className="page-wrapper">
+    <div className={pageClasses("page-wrapper")}>
       <Preloader />
       {!bare && (
         <>

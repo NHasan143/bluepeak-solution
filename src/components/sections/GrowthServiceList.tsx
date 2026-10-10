@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "../../lib/gsap";
 import { SERVICES, type Service } from "../../lib/services";
@@ -41,9 +42,9 @@ export default function GrowthServiceList({ items = GROWTH_SERVICES }: { items?:
               aria-controls={`growth-service-panel-${index}`}
               onClick={() => setOpen(isOpen ? -1 : index)}
             >
-              <span className="growth-service-number">0{index + 1}.</span>
-              <span className="growth-service-title">{service.title}</span>
-              <span className="growth-service-arrow" aria-hidden="true">-&gt;</span>
+              <span className={pageClasses("growth-service-number")}>0{index + 1}.</span>
+              <span className={pageClasses("growth-service-title")}>{service.title}</span>
+              <span className={pageClasses("growth-service-arrow")} aria-hidden="true">-&gt;</span>
             </button>
             <div
               className="growth-service-panel"

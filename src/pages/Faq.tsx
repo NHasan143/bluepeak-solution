@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
 import Accordion, { type AccordionEntry } from "../components/common/Accordion";
@@ -27,7 +28,7 @@ export default function Faq() {
                   defaultOpen={0}
                   icon="chevron"
                   itemWow=""
-                  className="wow fadeInLeft mb-[48px]! min-[992px]:mb-[0px]!"
+                  className={pageClasses("wow fadeInLeft mb-[48px]! min-[992px]:mb-[0px]!")}
                 />
               </div>
             </div>
@@ -38,7 +39,7 @@ export default function Faq() {
                   defaultOpen={0}
                   icon="chevron"
                   itemWow=""
-                  className="wow fadeInLeft"
+                  className={pageClasses("wow fadeInLeft")}
                 />
               </div>
             </div>

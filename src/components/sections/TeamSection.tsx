@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import { Link } from "react-router-dom";
 import Star from "../common/Star";
 import TeamBlob, { TeamSocials } from "./TeamBlob";
@@ -40,7 +41,7 @@ export default function TeamSection({
   className = "pt-20! min-[992px]:pt-[100px]! min-[1200px]:pt-[130px]! pb-[90px]!",
 }: TeamSectionProps = {}) {
   return (
-    <section id={id} className={`relative! overflow-hidden! ${className}`}>
+    <section id={id} className={pageClasses(`relative! overflow-hidden! ${className}`)}>
       <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
         {showHeading && (
           <div className="relative! z-[2]! text-center! mb-[60px]!">
@@ -55,7 +56,7 @@ export default function TeamSection({
           <div className="flex! flex-wrap! -mx-3! justify-center!">
             {members.map((m, i) => (
               <div key={i} className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-4/12! min-[768px]:w-6/12!">
-                <div className="relative! z-[999]! mt-5! wow fadeInUp" data-wow-delay={m.delay}>
+                <div className={pageClasses("relative! z-[999]! mt-5! wow fadeInUp")} data-wow-delay={m.delay}>
                   <div className={`group/team relative! overflow-hidden! text-center! max-[1199px]:mb-2.5! ${m.img ? "" : "py-8! px-6! rounded-[20px]! bg-[#222222]!"}`}>
                     {m.img && (
                       <div className="relative!">

@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import InterfaceIcon from "../components/common/InterfaceIcon";
 import { Link } from "react-router-dom";
 import PageTitle from "../components/common/PageTitle";
@@ -17,16 +18,16 @@ export default function Blog() {
     <>
       <PageTitle title="News" crumb="News" />
 
-      <section className="news-section fix section-padding pb-[0px]!">
+      <section className={pageClasses("news-section fix section-padding pb-[0px]!")}>
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="flex! flex-wrap! -mx-3!">
             {POSTS.map((p, i) => (
               <div
                 key={i}
-                className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[768px]:w-6/12! wow fadeInUp"
+                className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[768px]:w-6/12! wow fadeInUp")}
                 data-wow-delay={`.${i + 1}s`}
               >
-                <div className="news-box-items">
+                <div className={pageClasses("news-box-items")}>
                   <div className="thumb">
                     <img src={`/images/resource/${p.img}`} alt="img" />
                     <img src={`/images/resource/${p.img}`} alt="img" />
@@ -35,7 +36,7 @@ export default function Blog() {
                     </span>
                   </div>
                   <div className="content">
-                    <h4 className="title">
+                    <h4 className={pageClasses("title")}>
                       <Link to="/blog-details">{p.title}</Link>
                     </h4>
                     <Link to="/blog-details" className="link-btn">

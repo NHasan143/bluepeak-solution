@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import InterfaceIcon from "../common/InterfaceIcon";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -5,7 +6,7 @@ import { SHOP_FILTERS, PRODUCTS, type Product } from "../../pages/shopData";
 
 function ProductBlock({ p, colClass }: { p: Product; colClass: string }) {
   return (
-    <div className={`product-block all mix ${p.tags.join(" ")} ${colClass}`}>
+    <div className={pageClasses(`product-block all mix ${p.tags.join(" ")} ${colClass}`)}>
       <div className="inner-box">
         <div className="content">
           <h4>

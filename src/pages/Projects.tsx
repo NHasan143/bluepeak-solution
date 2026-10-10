@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import { Link } from "react-router-dom";
 import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
@@ -15,7 +16,7 @@ export default function Projects() {
     <>
       <PageTitle title="Protfolio" crumb="Protfolio" />
 
-      <section className="case-study-section fix section-padding pb-[120px]!">
+      <section className={pageClasses("case-study-section fix section-padding pb-[120px]!")}>
         <div className="project-shape tm-gsap-animate-circle hidden! min-[1400px]:block!">
           <img src="/images/icons/project-shape2-1.png" alt="img" />
         </div>
@@ -25,15 +26,15 @@ export default function Projects() {
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6!">
             {PROJECTS.map((p, i) => (
-              <div key={i} className={`${p.col} wow fadeInUp`} data-wow-delay={p.delay}>
-                <div className={`case-study-items-2${p.extra ? ` ${p.extra}` : ""}`}>
+              <div key={i} className={pageClasses(`${p.col} wow fadeInUp`)} data-wow-delay={p.delay}>
+                <div className={pageClasses(`case-study-items-2${p.extra ? ` ${p.extra}` : ""}`)}>
                   <div className="content">
                     <ul>
                       <li>Banding</li>
                       <li>UI/UX</li>
                       <li>Design</li>
                     </ul>
-                    <h4 className="title">
+                    <h4 className={pageClasses("title")}>
                       <Link to="/project-details">{p.title}</Link>
                     </h4>
                   </div>

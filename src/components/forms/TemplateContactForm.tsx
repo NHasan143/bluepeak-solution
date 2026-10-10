@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import { useId } from "react";
 import { useWeb3Forms } from "../../lib/web3forms";
 
@@ -50,7 +51,7 @@ export default function TemplateContactForm({
           {fields.map(({ label, name, ...attributes }) => (
             <div key={name} className="min-w-0!">
               <label htmlFor={`${fieldId}-${name}`} className="mb-2! block! text-sm! font-medium! text-[#b9beb6]!">{label}{attributes.required ? " (required)" : ""}</label>
-              <input id={`${fieldId}-${name}`} name={name} className={inputClass} {...attributes} />
+              <input id={`${fieldId}-${name}`} name={name} className={pageClasses(inputClass)} {...attributes} />
             </div>
           ))}
         </div>
@@ -79,14 +80,14 @@ export default function TemplateContactForm({
       <div className="flex! flex-wrap! -mx-3!">
         <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
           <div className="mb-[16px]!">
-            <input name="name" className="form-control" type="text" placeholder={namePlaceholder} />
+            <input name="name" className={pageClasses("form-control")} type="text" placeholder={namePlaceholder} />
           </div>
         </div>
         <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
           <div className="mb-[16px]!">
             <input
               name="email"
-              className="form-control required email"
+              className={pageClasses("form-control required email")}
               type="email"
               placeholder="Enter Email"
               required
@@ -99,7 +100,7 @@ export default function TemplateContactForm({
           <div className="mb-[16px]!">
             <input
               name="form_subject"
-              className="form-control required"
+              className={pageClasses("form-control required")}
               type="text"
               placeholder="Enter Subject"
             />
@@ -109,7 +110,7 @@ export default function TemplateContactForm({
           <div className="mb-[16px]!">
             <input
               name="form_phone"
-              className="form-control"
+              className={pageClasses("form-control")}
               type="text"
               placeholder={phonePlaceholder}
             />
@@ -119,16 +120,16 @@ export default function TemplateContactForm({
       <div className="mb-[16px]!">
         <textarea
           name="message"
-          className="form-control required"
+          className={pageClasses("form-control required")}
           rows={messageRows}
           placeholder="Enter Message"
         />
       </div>
-      <div className={buttonWrapClass}>
-        <input name="botcheck" className="form-control" type="hidden" value="" />
+      <div className={pageClasses(buttonWrapClass)}>
+        <input name="botcheck" className={pageClasses("form-control")} type="hidden" value="" />
         <button
           type="submit"
-          className="theme-btn btn-style-one transform"
+          className={pageClasses("theme-btn btn-style-one transform")}
           data-loading-text="Please wait..."
           disabled={status.state === "submitting"}
         >
@@ -137,7 +138,7 @@ export default function TemplateContactForm({
           </span>
         </button>
         {showReset && (
-          <button type="reset" className="theme-btn btn-style-one transform">
+          <button type="reset" className={pageClasses("theme-btn btn-style-one transform")}>
             <span className="btn-title">Reset</span>
           </button>
         )}

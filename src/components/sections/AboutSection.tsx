@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import { Link } from "react-router-dom";
 import Star from "../common/Star";
 import PageEyebrow from "../common/PageEyebrow";
@@ -64,7 +65,7 @@ export default function AboutSection({
   const resolvedCtaLink = ctaLink ?? (isHome ? "/about" : "#our-features");
 
   return (
-    <section id={id} className={`relative! overflow-hidden! pb-20! min-[992px]:pb-[100px]! min-[1200px]:pb-[130px]! ${isPageHeader ? "bg-black! pt-0!" : isHome ? "pt-8! min-[576px]:pt-20! min-[992px]:pt-[100px]! min-[1200px]:pt-[130px]!" : "pt-20! min-[992px]:pt-[100px]! min-[1200px]:pt-[130px]!"}`}>
+    <section id={id} className={`relative! overflow-hidden! scroll-mt-[100px]! pb-20! min-[992px]:pb-[100px]! min-[1200px]:pb-[130px]! ${isPageHeader ? "bg-black! pt-0!" : isHome ? "pt-8! min-[576px]:pt-20! min-[992px]:pt-[100px]! min-[1200px]:pt-[130px]!" : "pt-20! min-[992px]:pt-[100px]! min-[1200px]:pt-[130px]!"}`}>
       <div className="tm-gsap-animate-circle absolute! bottom-[50px]! left-0! hidden! min-[1700px]:block!">
         <img src="/images/icons/about-shape1-1.png" alt="img" />
       </div>
@@ -97,7 +98,7 @@ export default function AboutSection({
                 </Heading>
               </div>
             </div>
-            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-5/12! wow fadeInUp" data-wow-delay=".3s">
+            <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-5/12! wow fadeInUp")} data-wow-delay=".3s">
               <div className="flex! items-center! justify-end! max-[991px]:justify-center! max-[991px]:mt-[25px]! max-[991px]:mb-5! max-[575px]:w-full! max-[575px]:gap-0!">
                 <div className="relative! z-[1]! flex! flex-col! items-center! justify-center! size-[130px]! min-[576px]:size-[165px]! shrink-0! rounded-full! bg-[#171816]! border! border-white/8! px-2! min-[576px]:px-3!">
                   <p className="text-[11px]! min-[576px]:text-[13px]! font-medium! text-[#a0a6a0]! mb-0.5! min-[576px]:mb-1! text-center! leading-[1.2]!">{stat1Label}</p>
@@ -119,7 +120,7 @@ export default function AboutSection({
       </div>
       <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
         <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! items-center!">
-          <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! wow fadeInUp" data-wow-delay=".3s">
+          <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! wow fadeInUp")} data-wow-delay=".3s">
             <div className="min-[1200px]:mr-[30px]! max-[991px]:text-center! [&>p]:max-w-[335px]! max-[991px]:[&>p]:mx-auto!">
               <p>{bodyParagraph}</p>
               <div className="mt-[230px]! max-[991px]:mt-[30px]! max-[991px]:flex! max-[991px]:flex-col! max-[991px]:items-center!">
@@ -136,7 +137,7 @@ export default function AboutSection({
               </div>
             </div>
           </div>
-          <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-5/12! wow fadeInUp" data-wow-delay=".5s">
+          <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-5/12! wow fadeInUp")} data-wow-delay=".5s">
             <div className="relative! overflow-hidden! rounded-xl! h-[380px]! min-[576px]:h-[490px]! max-[991px]:mt-[15px]!">
               <img
                 data-speed=".8"
@@ -154,7 +155,7 @@ export default function AboutSection({
               </div>
             </div>
           </div>
-          <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-4/12! wow fadeInUp" data-wow-delay=".7s">
+          <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-4/12! wow fadeInUp")} data-wow-delay=".7s">
             <div className="min-[1200px]:ml-[30px]! max-[991px]:mt-[30px]! text-left! max-[991px]:[&>.theme-btn]:flex! max-[991px]:[&>.theme-btn]:justify-center! max-[991px]:[&>.theme-btn]:mx-auto! max-[991px]:[&>.theme-btn]:w-fit!">
               <ul className="mb-12!">
                 <li className="group/about-feature flex! gap-4! min-[576px]:gap-[15px]! min-[1200px]:gap-[25px]! [&:not(:last-child)]:border-b! [&:not(:last-child)]:border-white/11! [&:not(:last-child)]:mb-[25px]! [&:not(:last-child)]:pb-[25px]! min-[992px]:[&:not(:last-child)]:mb-[45px]! min-[992px]:[&:not(:last-child)]:pb-[45px]!">
@@ -177,14 +178,14 @@ export default function AboutSection({
                 </li>
               </ul>
               {resolvedCtaLink.startsWith("#") ? (
-                <a href={resolvedCtaLink} className="theme-btn btn-style-four">
+                <a href={resolvedCtaLink} className={pageClasses("theme-btn btn-style-four")}>
                   <span className="btn-title">{ctaText}</span>
                   <span className="dot-box">
                     <span className="dot-item" />
                   </span>
                 </a>
               ) : (
-                <Link to={resolvedCtaLink} className="theme-btn btn-style-four">
+                <Link to={resolvedCtaLink} className={pageClasses("theme-btn btn-style-four")}>
                   <span className="btn-title">{ctaText}</span>
                   <span className="dot-box">
                     <span className="dot-item" />

@@ -61,20 +61,24 @@ Text fonts and styles still required by current pages are retained.
 
 ## Styling migration
 
-The header, Services megamenu, shared footer, page titles, About block, feature
-cards/carousel, trust band and team cards use Tailwind utilities. Responsive
-page grids and spacing also use Tailwind, preserving the original 576/768/992/
-1200/1400px breakpoints. `gutter-row` is a hook for a Tailwind direct-child variant
-that applies 24px vertical gutters without leaking into nested form rows.
+Navigation, footer and page sections use Tailwind utilities. The remaining
+section recipes live in `src/styles/pageUtilities.ts`; every class is a literal
+that Tailwind can discover. `pageClasses` preserves semantic class names used by
+GSAP and attaches those static utilities. Descendant and state variants retain
+existing hover, accordion, tab and responsive behavior.
 
-Use Tailwind for new styling. Keep classes used by GSAP, Swiper and route effects
-when migrating an existing section; those hooks control behavior. The `!`
-modifier is needed where the remaining template reset overrides utilities.
+Use Tailwind for new presentation. Keep GSAP and Swiper hooks when editing
+existing markup. Page grids retain the original 576/768/992/1200/1400px
+breakpoints; `gutter-row` applies 24px gutters only to direct children.
 
-The migration is ongoing: page-specific template styles and Bootstrap form,
-table and reset styles remain. Remove a legacy rule or dependency only after its
-consumers have been migrated and desktop/mobile behavior has been compared.
-Run `npm run lint` and `npm run build` before opening a PR.
+The template's page rules have been removed. `public/css/style.css` now holds
+only global tokens, fonts, element defaults and animation keyframes. Bootstrap
+is still loaded in the base layer for its remaining form, table and reset
+consumers; removing it is a separate migration step. Tailwind preflight remains
+disabled until that step is verified. Libraries keep their own styles.
+
+Run `npm run lint` and `npm run build` before opening a PR, and compare migrated
+sections at desktop and mobile widths.
 
 ## Lead / contact forms
 

@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import { useEffect } from "react";
 
 /** Port of the itCursor() routine in js/script.js */
@@ -61,8 +62,8 @@ export default function MouseCursor() {
 
   return (
     <>
-      <div className="mouseCursor cursor-outer" />
-      <div className="mouseCursor cursor-inner" />
+      <div className={pageClasses("mouseCursor cursor-outer")} />
+      <div className={pageClasses("mouseCursor cursor-inner")} />
     </>
   );
 }
