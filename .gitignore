@@ -9,3 +9,4 @@ dist
 !.env.example
 node_modules/.vite
 /.impeccable/surfaces/src-components-layout-navigation-tsx.md
+/.impeccable/review/

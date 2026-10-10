@@ -1,5 +1,5 @@
+import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
 import Star from "../components/common/Star";
 import AboutSection from "../components/sections/AboutSection";
@@ -47,10 +47,23 @@ const SERVICES2 = [
 export default function About() {
   return (
     <>
-      <PageTitle title="About Us" crumb="About Us" />
-
       {/* Section 1 & Section 2: Hero / Intro Stats Block & Two Column Feature Highlight */}
-      <AboutSection id="about-us" />
+      <AboutSection
+        id="about-us"
+        pageHeader={
+          <nav aria-label="Breadcrumb" className="mb-8! text-left! sm:mb-12!">
+            <ol className="m-0! flex! list-none! items-center! gap-3! p-0! text-sm!">
+              <li>
+                <Link to="/" className="text-[#b9beb6]! underline-offset-4! hover:text-[#D9F45F]! hover:underline! focus-visible:outline-2! focus-visible:outline-solid! focus-visible:outline-[#D9F45F]! focus-visible:outline-offset-4!">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true"><ChevronRight size={14} className="text-[#747c6e]!" /></li>
+              <li aria-current="page" className="text-[#D9F45F]!">About Us</li>
+            </ol>
+          </nav>
+        }
+      />
 
       {/* Section 3: "Our Features" / Capabilities Grid */}
       <FeatureSection id="our-features" variant="static" />
