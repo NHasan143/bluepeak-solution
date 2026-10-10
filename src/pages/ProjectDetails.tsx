@@ -1,3 +1,4 @@
+import InterfaceIcon from "../components/common/InterfaceIcon";
 import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
 
@@ -13,11 +14,11 @@ export default function ProjectDetails() {
     <>
       <PageTitle title="Protfolio Details" crumb="Protfolio Details" />
 
-      <section className="project-details pt-120 pb-0">
-        <div className="container">
+      <section className="project-details pt-[120px]! pb-[0px]!">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="project-details__top">
             <div className="project-details__details-box">
-              <ul className="list-unstyled project-details__details-list">
+              <ul className="list-none! pl-0! project-details__details-list">
                 {META.map((m, i) => (
                   <li key={i}>
                     <p className="project-details__client">{m.label}</p>
@@ -28,7 +29,7 @@ export default function ProjectDetails() {
             </div>
           </div>
           <div className="project-details__content">
-            <h3 className="title mb-3">Best Digital Solution</h3>
+            <h3 className="title mb-[16px]!">Best Digital Solution</h3>
             <p className="text">
               But I must explain to you how all this mistaken idea of denouncing pleasure and
               praising pain was born and I will give you a complete account of the system, and
@@ -43,7 +44,7 @@ export default function ProjectDetails() {
               chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain
               that produces no resultant pleasure
             </p>
-            <p className="text mb-5">
+            <p className="text mb-[48px]!">
               On the other hand, we denounce with righteous indignation and dislike men who are so
               beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire,
               that they cannot foresee the pain and trouble that are bound to ensue; and equal blame
@@ -51,7 +52,7 @@ export default function ProjectDetails() {
               saying through shrinking from toil and pain. These cases are perfectly simple and easy
               to distinguish. In a free hour
             </p>
-            <p className="text mb-5">
+            <p className="text mb-[48px]!">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
               laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
               archi beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
@@ -59,11 +60,11 @@ export default function ProjectDetails() {
               voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit
               amet, consectetur, adipisci velit, sed quia non numqua
             </p>
-            <div className="row">
-              <div className="col-lg-5">
+            <div className="flex! flex-wrap! -mx-3!">
+              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-5/12!">
                 <h2 className="project-title-big-title">Interesting Facts In Development</h2>
               </div>
-              <div className="col-lg-7">
+              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-7/12!">
                 <p className="text">
                   Must explain to you how all this mistaken idea of denouncing pleasure and praising
                   pain was born and I will give you a complete account of the system, and expound the
@@ -72,21 +73,21 @@ export default function ProjectDetails() {
                   pleasure, but because those who do not know how to pursue pleasure rationally
                   encounter
                 </p>
-                <div className="feature-list mt-4">
+                <div className="feature-list mt-[24px]!">
                   <ul>
                     <li>
-                      <i className="icon fa-solid fa-circle-check" /> Efficient Sprint Planning
+                      <InterfaceIcon name="circle-check" className="icon"  /> Efficient Sprint Planning
                     </li>
                     <li>
-                      <i className="icon fa-solid fa-circle-check" /> Efficient Sprint Planning
+                      <InterfaceIcon name="circle-check" className="icon"  /> Efficient Sprint Planning
                     </li>
                   </ul>
                   <ul>
                     <li>
-                      <i className="icon fa-solid fa-circle-check" /> Iterative Delivery Approach
+                      <InterfaceIcon name="circle-check" className="icon"  /> Iterative Delivery Approach
                     </li>
                     <li>
-                      <i className="icon fa-solid fa-circle-check" /> Problem-solving
+                      <InterfaceIcon name="circle-check" className="icon"  /> Problem-solving
                     </li>
                   </ul>
                 </div>

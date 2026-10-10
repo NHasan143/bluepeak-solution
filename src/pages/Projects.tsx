@@ -3,11 +3,11 @@ import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
 
 const PROJECTS = [
-  { title: "Business card design", col: "col-xl-7 col-lg-7", delay: ".3s", extra: "style-height" },
-  { title: "Scrappy & Resourceful", col: "col-xl-5 col-lg-5", delay: ".5s", extra: "" },
-  { title: "Showcase Your Process", col: "col-xl-12", delay: ".3s", extra: "style-height" },
-  { title: "Professional Onboarding", col: "col-xl-5 col-lg-7", delay: ".3s", extra: "style-height" },
-  { title: "Targeted Cold Outreach", col: "col-xl-7 col-lg-5", delay: ".5s", extra: "style-height2" },
+  { title: "Business card design", col: "w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-7/12! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-7/12!", delay: ".3s", extra: "style-height" },
+  { title: "Scrappy & Resourceful", col: "w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-5/12! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-5/12!", delay: ".5s", extra: "" },
+  { title: "Showcase Your Process", col: "w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-full!", delay: ".3s", extra: "style-height" },
+  { title: "Professional Onboarding", col: "w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-5/12! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-7/12!", delay: ".3s", extra: "style-height" },
+  { title: "Targeted Cold Outreach", col: "w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-7/12! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-5/12!", delay: ".5s", extra: "style-height2" },
 ];
 
 export default function Projects() {
@@ -15,15 +15,15 @@ export default function Projects() {
     <>
       <PageTitle title="Protfolio" crumb="Protfolio" />
 
-      <section className="case-study-section fix section-padding pb-120">
-        <div className="project-shape tm-gsap-animate-circle d-none d-xxl-block">
+      <section className="case-study-section fix section-padding pb-[120px]!">
+        <div className="project-shape tm-gsap-animate-circle hidden! min-[1400px]:block!">
           <img src="/images/icons/project-shape2-1.png" alt="img" />
         </div>
-        <div className="project-ellipse d-none d-xxl-block">
+        <div className="project-ellipse hidden! min-[1400px]:block!">
           <img src="/images/icons/project2-1ellipse.png" alt="img" />
         </div>
-        <div className="container">
-          <div className="row g-4">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6!">
             {PROJECTS.map((p, i) => (
               <div key={i} className={`${p.col} wow fadeInUp`} data-wow-delay={p.delay}>
                 <div className={`case-study-items-2${p.extra ? ` ${p.extra}` : ""}`}>

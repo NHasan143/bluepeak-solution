@@ -1,8 +1,9 @@
+import InterfaceIcon from "../common/InterfaceIcon";
 /** The lime blob shape behind each team member photo (`.shape-style1`). */
 export default function TeamBlob() {
   return (
     <svg
-      className="shape-style1"
+      className="absolute! top-0! left-0! [&>path]:fill-[rgba(0,0,0,0.44)]! [&>path]:transition-all! [&>path]:duration-[400ms]! group-hover/team:[&>path]:fill-[var(--theme-color1)]! group-hover/team:[&>path]:opacity-100!"
       width="376"
       height="311"
       viewBox="0 0 376 311"
@@ -17,22 +18,22 @@ export default function TeamBlob() {
   );
 }
 
-export function TeamSocials() {
+export function TeamSocials({ floating = false }: { floating?: boolean }) {
   return (
-    <ul className="social-icon-list1">
-      <li>
-        <a href="#" className="text-white">
-          <i className="fab fa-instagram" />
+    <ul className={`flex! items-center! justify-center! w-full! z-[9999]! m-0! p-0! list-none! transition-all! duration-300! ${floating ? "absolute! left-0! bottom-0! opacity-0! -translate-y-2! group-hover/team:-translate-y-7! group-hover/team:opacity-100!" : "static! mt-6! opacity-100! translate-y-0!"}`}>
+      <li className="mr-2.5! last:mr-0!">
+        <a href="#" className="inline-block! size-[46px]! rounded-full! bg-[#222222]! text-white! text-xl! leading-[46px]! text-center! transition-all! duration-300! hover:bg-[var(--theme-color1)]!">
+          <InterfaceIcon name="instagram"  />
         </a>
       </li>
-      <li>
-        <a href="#" className="text-white">
-          <i className="fa-brands fa-x-twitter" />
+      <li className="mr-2.5! last:mr-0!">
+        <a href="#" className="inline-block! size-[46px]! rounded-full! bg-[#222222]! text-white! text-xl! leading-[46px]! text-center! transition-all! duration-300! hover:bg-[var(--theme-color1)]!">
+          <InterfaceIcon name="x"  />
         </a>
       </li>
-      <li>
-        <a href="#" className="text-white">
-          <i className="fa-brands fa-linkedin-in" />
+      <li className="mr-2.5! last:mr-0!">
+        <a href="#" className="inline-block! size-[46px]! rounded-full! bg-[#222222]! text-white! text-xl! leading-[46px]! text-center! transition-all! duration-300! hover:bg-[var(--theme-color1)]!">
+          <InterfaceIcon name="linkedin"  />
         </a>
       </li>
     </ul>

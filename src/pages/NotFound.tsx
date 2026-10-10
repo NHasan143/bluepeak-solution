@@ -1,15 +1,16 @@
+import InterfaceIcon from "../components/common/InterfaceIcon";
 import { Link } from "react-router-dom";
 
 export default function NotFound() {
   return (
     <section className="">
-      <div className="auto-container pt-70 pb-100">
-        <div className="row">
-          <div className="col-xl-12">
+      <div className="mx-auto! w-full! max-w-[1320px]! px-[15px]! pt-[70px]! pb-[100px]!">
+        <div className="flex! flex-wrap! -mx-3!">
+          <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-full!">
             <div className="error-page__inner theme-btn-main">
               <div className="error-page__title-box">
                 <img src="/images/resource/404.png" alt="" />
-                <h3 className="error-page__sub-title mt-50">Page not found!</h3>
+                <h3 className="error-page__sub-title mt-[50px]!">Page not found!</h3>
               </div>
               <p className="error-page__text">
                 Sorry we can't find that page! The page you are looking <br />
@@ -34,7 +35,7 @@ export default function NotFound() {
                     aria-required="true"
                   />
                   <button type="submit" aria-label="Submit Search">
-                    <i className="lnr lnr-icon-magnifier" aria-hidden="true" />
+                    <InterfaceIcon name="search" aria-hidden="true"  />
                   </button>
                 </div>
               </form>

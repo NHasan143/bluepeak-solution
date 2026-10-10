@@ -8,7 +8,7 @@ export default function Shop() {
       <PageTitle title="Shop" crumb="Products" />
 
       <section className="featured-products">
-        <div className="auto-container">
+        <div className="mx-auto! w-full! max-w-[1320px]! px-[15px]!">
           <ProductGrid />
         </div>
       </section>

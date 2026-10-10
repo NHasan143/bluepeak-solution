@@ -1,3 +1,4 @@
+import InterfaceIcon from "../components/common/InterfaceIcon";
 import { lazy, Suspense, useEffect, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { ScrollSmoother } from "../lib/gsap";
@@ -94,7 +95,7 @@ export default function Home() {
               mouseInfluence={0.08} parallax={0.015} hoverScale={1.04} />
           </Suspense>
         </div>
-        <div className="container">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="hero-content">
             <div className="sub-title hero-eyebrow"><Star /><span>AI-Accelerated Growth Execution</span></div>
             <h1 className="hero-title">
@@ -103,13 +104,13 @@ export default function Home() {
             </h1>
             <p className="hero-description">Blupeak Solutions builds end-to-end B2B growth engines that turn cold outreach into qualified leads, closed deals, and scalable revenue.</p>
             <div className="hero-actions">
-              <Link to="/contact" className="theme-btn btn-style-one"><span className="btn-title">Book a Growth Consultation</span><i className="fa-solid fa-arrow-right" /></Link>
-              <Link to="/services" className="hero-secondary-link">See What We Do <i className="fa-solid fa-arrow-right" /></Link>
+              <Link to="/contact" className="theme-btn btn-style-one"><span className="btn-title">Book a Growth Consultation</span><InterfaceIcon name="arrow-right"  /></Link>
+              <Link to="/services" className="hero-secondary-link">See What We Do <InterfaceIcon name="arrow-right"  /></Link>
             </div>
           </div>
           <div className="text-circle">
             <a href="#home-about" onClick={scrollToAbout} className="down-icon" aria-label="Explore About Us">
-              <i className="fa-regular fa-arrow-down-long" />
+              <InterfaceIcon name="arrow-down"  />
             </a>
           </div>
         </div>
@@ -119,10 +120,10 @@ export default function Home() {
 
       {/* Services */}
       <section className="service-section fix section-padding section-bg">
-        <div className="container">
-          <div className="row g-4 mb-60 justify-content-between">
-            <div className="col-lg-8">
-              <div className="section-title mb-0">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! mb-[60px]! justify-between!">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-8/12!">
+              <div className="section-title mb-[0px]!">
                 <div className="sub-title text-left">
                   <Star variant="lime" />
                   <span>Our Services</span>
@@ -135,12 +136,12 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="col-lg-3 wow fadeInUp" data-wow-delay=".3s">
-              <div className="circle-area d-flex justify-content-end">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! wow fadeInUp" data-wow-delay=".3s">
+              <div className="circle-area flex! justify-end!">
                 <Link to="/services" className="circle-box">
                   <span>
                     More Services
-                    <i className="fa-solid fa-arrow-right" />
+                    <InterfaceIcon name="arrow-right"  />
                   </span>
                 </Link>
               </div>
@@ -151,7 +152,7 @@ export default function Home() {
           <div className="growth-services-cta">
             <Link to="/contact" className="theme-btn btn-style-one">
               <span className="btn-title">Book a Growth Consultation</span>
-              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              <InterfaceIcon name="arrow-right" aria-hidden="true"  />
             </Link>
           </div>
         </div>
@@ -186,12 +187,12 @@ export default function Home() {
         <div className="award1-ellipse1">
           <img src="/images/icons/award1-ellipse1.png" alt="img" />
         </div>
-        <div className="shape1 d-none d-xxl-block">
+        <div className="shape1 hidden! min-[1400px]:block!">
           <img src="/images/icons/shape1-1.png" alt="" />
         </div>
-        <div className="container">
-          <div className="row g-4 mb-60 justify-content-between align-items-center">
-            <div className="col-xl-6 col-lg-8">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! mb-[60px]! justify-between! items-center!">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-6/12! min-[992px]:w-8/12!">
               <div className="section-title">
                 <div className="sub-title">
                   <Star />
@@ -202,22 +203,22 @@ export default function Home() {
                 </h2>
               </div>
             </div>
-            <div className="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay=".3s">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-4/12! wow fadeInUp" data-wow-delay=".3s">
               <p>
                 Blupeak is a young agency, but the team behind it isn’t. Here is what actually backs that up.
               </p>
             </div>
           </div>
-          <div className="row g-4 align-items-end">
-            <div className="col-lg-5">
-              <div className="d-flex flex-column justify-content-center h-100 px-lg-4" style={{ minHeight: '300px' }}>
+          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! items-end!">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-5/12!">
+              <div className="flex! flex-col! justify-center! h-full! min-[992px]:px-[24px]!" style={{ minHeight: '300px' }}>
                 <h2 style={{ fontSize: 'clamp(80px, 8vw, 120px)', lineHeight: '1', color: '#BAFF39', fontWeight: '800', marginBottom: '16px', letterSpacing: '-2px' }}>6+</h2>
                 <h4 style={{ fontSize: 'clamp(24px, 3vw, 36px)', color: '#FFFFFF', fontWeight: '300', lineHeight: '1.2', letterSpacing: '0.5px' }}>
                   Years of combined, <br />hands-on experience
                 </h4>
               </div>
             </div>
-            <div className="col-lg-7">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-7/12!">
               <div className="award-list-items-area">
                 {[".3s", ".3s", ".5s", ".7s"].map((delay, i) => (
                   <div
@@ -244,11 +245,11 @@ export default function Home() {
                       />
                     </div>
                     <div
-                      className="hover-image d-none d-md-block bg-cover"
+                      className="hover-image hidden! min-[768px]:block! bg-cover"
                       style={{ backgroundImage: 'url("/images/resource/about-1-5.jpg")' }}
                     />
                     <Link to="/about" className="arrow-icon">
-                      <i className="fa-solid fa-arrow-right" />
+                      <InterfaceIcon name="arrow-right"  />
                     </Link>
                   </div>
                 ))}
@@ -262,10 +263,10 @@ export default function Home() {
 
       {/* Counters */}
       <section className="counter-section section-padding">
-        <div className="container">
-          <div className="row g-4 advance-wrap">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! advance-wrap">
             {COUNTERS.map((c, i) => (
-              <div key={i} className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+              <div key={i} className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-3/12! min-[992px]:w-3/12! min-[768px]:w-6/12! min-[576px]:w-6/12!">
                 <div className={`counter-card-item${c.rotate ? " ratote-2" : ""} advance-item`}>
                   <div className="count-box">
                     <h2 className="title">
@@ -282,25 +283,25 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="faq-section fix section-bg-3 section-padding pt-0">
-        <div className="container">
-          <div className="section-title text-center mb-60">
+      <section className="faq-section fix section-bg-3 section-padding pt-[0px]!">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+          <div className="section-title text-center! mb-[60px]!">
             <div className="sub-title">
               <Star />
               <span>FAQS</span>
             </div>
             <h2 className="title text-anim">
-              Have Questions in Your Mind? <br className="d-none d-lg-block" />
+              Have Questions in Your Mind? <br className="hidden! min-[992px]:block!" />
               Get the <span>Answers Now</span>
             </h2>
           </div>
-          <div className="row g-4">
-            <div className="col-lg-6">
+          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6!">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12!">
               <div className="faq-box-style-1">
                 <Accordion items={FAQ_LEFT} defaultOpen={0} />
               </div>
             </div>
-            <div className="col-lg-6">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12!">
               <div className="faq-box-style-1">
                 <Accordion items={FAQ_RIGHT} defaultOpen={-1} />
               </div>
@@ -315,9 +316,9 @@ export default function Home() {
         style={{ backgroundImage: 'url("/images/background/contact-bg1-1.jpg")' }}
       >
         <div className="outer-box">
-          <div className="container">
-            <div className="row g-4 justify-content-between">
-              <div className="content-column col-lg-6 col-xl-5">
+          <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+            <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! justify-between!">
+              <div className="content-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[1200px]:w-5/12!">
                 <div className="inner-column">
                   <div className="section-title">
                     <div className="sub-title">
@@ -334,7 +335,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="form-column col-lg-6 col-xl-6">
+              <div className="form-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[1200px]:w-6/12!">
                 <div className="inner-column">
                   <div className="contact-form wow fadeInUp" data-wow-delay=".5s">
                     <div className="contact-line">
@@ -353,22 +354,22 @@ export default function Home() {
       {/* Latest News - Commented out per request */}
       {/*
       <section className="news-section fix section-padding">
-        <div className="container">
-          <div className="section-title text-center mb-60">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+          <div className="section-title text-center! mb-[60px]!">
             <div className="sub-title">
               <Star variant="lime" />
               <span>Latest News</span>
             </div>
             <h2 className="title text-anim">
-              Check Out Latest News, <br className="d-none d-lg-block" />
+              Check Out Latest News, <br className="hidden! min-[992px]:block!" />
               Updates &amp; Articles
             </h2>
           </div>
-          <div className="row g-4">
+          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6!">
             {NEWS.map((n, i) => (
               <div
                 key={i}
-                className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-6/12! min-[768px]:w-6/12! wow fadeInUp"
                 data-wow-delay={n.delay}
               >
                 <div className="news-box-items">
@@ -384,7 +385,7 @@ export default function Home() {
                       <Link to="/blog-details">{n.title}</Link>
                     </h4>
                     <Link to="/blog-details" className="link-btn">
-                      Read More <i className="fa-regular fa-arrow-right" />
+                      Read More <InterfaceIcon name="arrow-right"  />
                     </Link>
                   </div>
                 </div>
@@ -400,12 +401,12 @@ export default function Home() {
         className="lets-project-section bg-cover"
         style={{ backgroundImage: 'url("/images/background/cta-bg1-1.jpg")' }}
       >
-        <div className="container">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="lets-wrapper">
             <h2 className="title text-anim">Let’s Build Your Growth Engine</h2>
             <Link to="/contact" className="theme-btn btn-style-one wow fadeInUp" data-wow-delay=".3s">
               <span className="btn-title">Book a Growth Consultation</span>
-              <i className="fa-solid fa-arrow-right" />
+              <InterfaceIcon name="arrow-right"  />
             </Link>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import InterfaceIcon from "../components/common/InterfaceIcon";
 import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
 import { useWeb3Forms } from "../lib/web3forms";
@@ -39,14 +40,14 @@ function CommentForm() {
       }}
     >
       <input type="hidden" name="subject" value="New blog comment from Bluepeak Solution" />
-      <div className="row">
-        <div className="col-sm-6">
-          <div className="mb-3">
+      <div className="flex! flex-wrap! -mx-3!">
+        <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
+          <div className="mb-[16px]!">
             <input name="name" className="form-control" type="text" placeholder="Enter Name" />
           </div>
         </div>
-        <div className="col-sm-6">
-          <div className="mb-3">
+        <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
+          <div className="mb-[16px]!">
             <input
               name="email"
               className="form-control required email"
@@ -57,7 +58,7 @@ function CommentForm() {
           </div>
         </div>
       </div>
-      <div className="mb-3">
+      <div className="mb-[16px]!">
         <textarea
           name="message"
           className="form-control required"
@@ -65,7 +66,7 @@ function CommentForm() {
           placeholder="Enter Message"
         />
       </div>
-      <div className="mb-3 theme-btn-main">
+      <div className="mb-[16px]! theme-btn-main">
         <input name="botcheck" className="form-control" type="hidden" value="" />
         <button
           type="submit"
@@ -97,10 +98,10 @@ export default function BlogDetails() {
     <>
       <PageTitle title="News" crumb="News" />
 
-      <section className="blog-details pt-120 pb-0">
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-8 col-lg-7">
+      <section className="blog-details pt-[120px]! pb-[0px]!">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+          <div className="flex! flex-wrap! -mx-3!">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-8/12! min-[992px]:w-7/12!">
               <div className="blog-details__left">
                 <div className="blog-details__img">
                   <div className="blog-details__date">
@@ -109,15 +110,15 @@ export default function BlogDetails() {
                   </div>
                 </div>
                 <div className="blog-details__content">
-                  <ul className="list-unstyled blog-details__meta">
+                  <ul className="list-none! pl-0! blog-details__meta">
                     <li>
                       <a href="#">
-                        <i className="fas fa-user-circle" /> Admin
+                        <InterfaceIcon name="user"  /> Admin
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <i className="fas fa-comments" /> 02 Comments
+                        <InterfaceIcon name="comments"  /> 02 Comments
                       </a>
                     </li>
                   </ul>
@@ -134,16 +135,16 @@ export default function BlogDetails() {
                   </p>
                   <div className="blog-details__social-list">
                     <a href="#">
-                      <i className="fa fa-x" />
+                      <InterfaceIcon name="x"  />
                     </a>{" "}
                     <a href="#">
-                      <i className="fab fa-facebook" />
+                      <InterfaceIcon name="facebook"  />
                     </a>{" "}
                     <a href="#">
-                      <i className="fab fa-pinterest-p" />
+                      <InterfaceIcon name="pinterest"  />
                     </a>{" "}
                     <a href="#">
-                      <i className="fab fa-instagram" />
+                      <InterfaceIcon name="instagram"  />
                     </a>
                   </div>
                 </div>
@@ -177,13 +178,13 @@ export default function BlogDetails() {
                     </div>
                   ))}
                   <div className="comment-form">
-                    <h3 className="comment-form__title mb-3">Leave a Comment</h3>
+                    <h3 className="comment-form__title mb-[16px]!">Leave a Comment</h3>
                     <CommentForm />
                   </div>
                 </div>
               </div>
             </div>
-            <div className="col-xl-4 col-lg-5">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-5/12!">
               <div className="sidebar">
                 <div className="sidebar__single sidebar__search">
                   <form
@@ -193,19 +194,19 @@ export default function BlogDetails() {
                   >
                     <input type="search" placeholder="Search here" />
                     <button type="submit">
-                      <i className="lnr-icon-search" />
+                      <InterfaceIcon name="search"  />
                     </button>
                   </form>
                 </div>
                 <div className="sidebar__single sidebar__post">
                   <h3 className="sidebar__title">Latest Posts</h3>
-                  <ul className="sidebar__post-list list-unstyled">
+                  <ul className="sidebar__post-list list-none! pl-0!">
                     {LATEST.map((p, i) => (
                       <li key={i}>
                         <div className="sidebar__post-content">
                           <h3>
                             <span className="sidebar__post-content-meta">
-                              <i className="fas fa-user-circle" />
+                              <InterfaceIcon name="user"  />
                               Admin
                             </span>{" "}
                             <a href="#">{p.title}</a>
@@ -217,12 +218,12 @@ export default function BlogDetails() {
                 </div>
                 <div className="sidebar__single sidebar__category">
                   <h3 className="sidebar__title">Categories</h3>
-                  <ul className="sidebar__category-list list-unstyled">
+                  <ul className="sidebar__category-list list-none! pl-0!">
                     {CATEGORIES.map((c, i) => (
                       <li key={i} className={i === 1 ? "active" : undefined}>
                         <a href="#">
                           {c}
-                          <span className="icon-right-arrow" />
+                          <InterfaceIcon name="arrow-right"  />
                         </a>
                       </li>
                     ))}
@@ -240,11 +241,11 @@ export default function BlogDetails() {
                 </div>
                 <div className="sidebar__single sidebar__comments">
                   <h3 className="sidebar__title">Recent Comments</h3>
-                  <ul className="sidebar__comments-list list-unstyled">
+                  <ul className="sidebar__comments-list list-none! pl-0!">
                     {[0, 1, 2, 3].map((i) => (
                       <li key={i}>
                         <div className="sidebar__comments-icon">
-                          <i className="fas fa-comments" />
+                          <InterfaceIcon name="comments"  />
                         </div>
                         <div className="sidebar__comments-text-box">
                           {i % 2 === 0 ? (

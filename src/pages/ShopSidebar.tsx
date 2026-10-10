@@ -1,3 +1,4 @@
+import InterfaceIcon from "../components/common/InterfaceIcon";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PageTitle from "../components/common/PageTitle";
@@ -27,9 +28,9 @@ export default function ShopSidebar() {
       <PageTitle title="Shop" crumb="Products" />
 
       <section className="featured-products">
-        <div className="auto-container">
-          <div className="row clearfix">
-            <div className="col-lg-3 col-md-12 col-sm-12">
+        <div className="mx-auto! w-full! max-w-[1320px]! px-[15px]!">
+          <div className="flex! flex-wrap! -mx-3! clearfix">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! min-[768px]:w-full! min-[576px]:w-full!">
               <div className="shop-sidebar">
                 <div className="sidebar-search">
                   <form
@@ -41,7 +42,7 @@ export default function ShopSidebar() {
                     <div className="form-group">
                       <input type="search" name="search-field" placeholder="Search..." required />
                       <button>
-                        <i className="lnr lnr-icon-search" />
+                        <InterfaceIcon name="search"  />
                       </button>
                     </div>
                   </form>
@@ -54,7 +55,7 @@ export default function ShopSidebar() {
                     <ul className="category-list clearfix">
                       {CATEGORIES.map((c, i) => (
                         <li key={i}>
-                          <Link to="/product-details">{c}</Link>
+                          <Link to="/product-details"><InterfaceIcon name="angle-right" className="absolute! left-0! top-[6px]! text-[10px]!" />{c}</Link>
                         </li>
                       ))}
                     </ul>
@@ -108,9 +109,9 @@ export default function ShopSidebar() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-9 col-md-12 col-sm-12 content-side">
-              <div className="mt-5 mt-lg-0">
-                <ProductGrid colClass="col-lg-4 col-md-6 col-sm-12" />
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-9/12! min-[768px]:w-full! min-[576px]:w-full! content-side">
+              <div className="mt-[48px]! min-[992px]:mt-[0px]!">
+                <ProductGrid colClass="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-4/12! min-[768px]:w-6/12! min-[576px]:w-full!" />
               </div>
             </div>
           </div>

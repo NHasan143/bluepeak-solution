@@ -76,14 +76,14 @@ export default function TemplateContactForm({
   return (
     <form id="contact_form" name="contact_form" onSubmit={onSubmit}>
       <input type="hidden" name="subject" value={subject} />
-      <div className="row">
-        <div className="col-sm-6">
-          <div className="mb-3">
+      <div className="flex! flex-wrap! -mx-3!">
+        <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
+          <div className="mb-[16px]!">
             <input name="name" className="form-control" type="text" placeholder={namePlaceholder} />
           </div>
         </div>
-        <div className="col-sm-6">
-          <div className="mb-3">
+        <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
+          <div className="mb-[16px]!">
             <input
               name="email"
               className="form-control required email"
@@ -94,9 +94,9 @@ export default function TemplateContactForm({
           </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-sm-6">
-          <div className="mb-3">
+      <div className="flex! flex-wrap! -mx-3!">
+        <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
+          <div className="mb-[16px]!">
             <input
               name="form_subject"
               className="form-control required"
@@ -105,8 +105,8 @@ export default function TemplateContactForm({
             />
           </div>
         </div>
-        <div className="col-sm-6">
-          <div className="mb-3">
+        <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
+          <div className="mb-[16px]!">
             <input
               name="form_phone"
               className="form-control"
@@ -116,7 +116,7 @@ export default function TemplateContactForm({
           </div>
         </div>
       </div>
-      <div className="mb-3">
+      <div className="mb-[16px]!">
         <textarea
           name="message"
           className="form-control required"
