@@ -1,3 +1,4 @@
+import InterfaceIcon from "../components/common/InterfaceIcon";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PageTitle from "../components/common/PageTitle";
@@ -23,7 +24,7 @@ function ReviewForm() {
       }}
     >
       <input type="hidden" name="subject" value="New product review from Bluepeak Solution" />
-      <div className="mb-3">
+      <div className="mb-[16px]!">
         <textarea
           name="message"
           className="form-control required"
@@ -31,14 +32,14 @@ function ReviewForm() {
           placeholder="Enter Message"
         />
       </div>
-      <div className="row">
-        <div className="col-sm-6">
-          <div className="mb-3">
+      <div className="flex! flex-wrap! -mx-3!">
+        <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
+          <div className="mb-[16px]!">
             <input name="name" className="form-control" type="text" placeholder="Enter Name" />
           </div>
         </div>
-        <div className="col-sm-6">
-          <div className="mb-3">
+        <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
+          <div className="mb-[16px]!">
             <input
               name="email"
               className="form-control required email"
@@ -49,19 +50,19 @@ function ReviewForm() {
           </div>
         </div>
       </div>
-      <div className="col-lg-12 col-md-12 col-sm-12 column">
+      <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-full! min-[768px]:w-full! min-[576px]:w-full! column">
         <div className="review-box clearfix">
           <p>Your Review</p>
           <ul className="rating clearfix">
             {Array.from({ length: 5 }).map((_, i) => (
               <li key={i}>
-                <i className="far fa-star" />
+                <InterfaceIcon name="star-outline"  />
               </li>
             ))}
           </ul>
         </div>
       </div>
-      <div className="col-lg-12 col-md-12 col-sm-12 column">
+      <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-full! min-[768px]:w-full! min-[576px]:w-full! column">
         <div className="form-group clearfix">
           <div className="custom-controls-stacked">
             <label className="custom-control material-checkbox">
@@ -74,7 +75,7 @@ function ReviewForm() {
           </div>
         </div>
       </div>
-      <div className="mb-3">
+      <div className="mb-[16px]!">
         <input name="botcheck" className="form-control" type="hidden" value="" />
         <button
           type="submit"
@@ -109,10 +110,10 @@ export default function ProductDetails() {
     <>
       <PageTitle title="Product Deatils" crumb="Shop" />
 
-      <section className="product-details pt-120">
-        <div className="container pb-70">
-          <div className="row">
-            <div className="col-12 product-info">
+      <section className="product-details pt-[120px]!">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]! pb-[70px]!">
+          <div className="flex! flex-wrap! -mx-3!">
+            <div className="shrink-0! px-3! [.gutter-row>&]:mt-6! w-full! product-info">
               <div className="product-details__top">
                 <h3 className="product-details__title">
                   Backpack <span>$76.00</span>
@@ -120,7 +121,7 @@ export default function ProductDetails() {
               </div>
               <div className="product-details__reveiw">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <i key={i} className="fa fa-star" />
+                  <InterfaceIcon key={i} name="star" className="min-h-[30.4px]!" />
                 ))}
                 <span>2 Customer Reviews</span>
               </div>
@@ -144,7 +145,7 @@ export default function ProductDetails() {
                     className="sub"
                     onClick={() => setQty((q) => Math.max(1, q - 1))}
                   >
-                    <i className="fa fa-minus" />
+                    <InterfaceIcon name="minus"  />
                   </button>
                   <input
                     type="number"
@@ -156,7 +157,7 @@ export default function ProductDetails() {
                     className="add"
                     onClick={() => setQty((q) => Math.min(999, q + 1))}
                   >
-                    <i className="fa fa-plus" />
+                    <InterfaceIcon name="plus"  />
                   </button>
                 </div>
               </div>
@@ -174,28 +175,28 @@ export default function ProductDetails() {
                 </div>
               </div>
               <div className="product-details__social">
-                <div className="title mt-10">
+                <div className="title mt-[10px]!">
                   <h3>Share with friends</h3>
                 </div>
                 <ul className="social-icon-one product-share">
                   <li>
                     <a href="#">
-                      <i className="fa fa-x" />
+                      <InterfaceIcon name="x"  />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i className="fab fa-facebook-f" />
+                      <InterfaceIcon name="facebook"  />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i className="fab fa-pinterest" />
+                      <InterfaceIcon name="pinterest"  />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i className="fab fa-instagram" />
+                      <InterfaceIcon name="instagram"  />
                     </a>
                   </li>
                 </ul>
@@ -206,10 +207,10 @@ export default function ProductDetails() {
       </section>
 
       <section className="product-description">
-        <div className="container pt-0 pb-90">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]! pt-[0px]! pb-[90px]!">
           <div className="product-discription">
             <div className="tabs-box">
-              <div className="tab-btn-box text-center">
+              <div className="tab-btn-box text-center!">
                 <ul className="tab-btns tab-buttons clearfix">
                   <li
                     className={`tab-btn${tab === "desc" ? " active-btn" : ""}`}
@@ -237,22 +238,22 @@ export default function ProductDetails() {
                       isn't anything embarrang hidden in the middle of text.
                     </p>
                     <div className="product-description__list">
-                      <ul className="list-unstyled">
+                      <ul className="list-none! pl-0!">
                         <li>
                           <p>
-                            <span className="fa fa-arrow-right" /> Nam at elit nec neque suscipit
+                            <InterfaceIcon name="arrow-right"  /> Nam at elit nec neque suscipit
                             gravida.
                           </p>
                         </li>
                         <li>
                           <p>
-                            <span className="fa fa-arrow-right" /> Aenean egestas orci eu maximus
+                            <InterfaceIcon name="arrow-right"  /> Aenean egestas orci eu maximus
                             tincidunt.
                           </p>
                         </li>
                         <li>
                           <p>
-                            <span className="fa fa-arrow-right" /> Curabitur vel turpis id tellus
+                            <InterfaceIcon name="arrow-right"  /> Curabitur vel turpis id tellus
                             cursus laoreet.
                           </p>
                         </li>
@@ -268,19 +269,19 @@ export default function ProductDetails() {
                 </div>
                 <div className={`tab${tab === "reviews" ? " active-tab" : ""}`} id="tab-2">
                   <div className="customer-comment">
-                    <div className="row clearfix">
+                    <div className="flex! flex-wrap! -mx-3! clearfix">
                       {[
                         { name: "Jon D. William", date: "10 Jan, 2023 . 4:00 pm" },
                         { name: "Aleesha Brown", date: "12 Feb, 2023 . 8:00 pm" },
                       ].map((c, i) => (
-                        <div key={i} className="col-lg-6 col-md-6 col-sm-12 comment-column">
+                        <div key={i} className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[768px]:w-6/12! min-[576px]:w-full! comment-column">
                           <div className="single-comment-box">
                             <div className="inner-box">
                               <div className="inner">
                                 <ul className="rating clearfix">
                                   {Array.from({ length: 5 }).map((_, j) => (
                                     <li key={j}>
-                                      <i className="fas fa-star" />
+                                      <InterfaceIcon name="star"  />
                                     </li>
                                   ))}
                                 </ul>
@@ -310,16 +311,16 @@ export default function ProductDetails() {
       </section>
 
       <section className="related-product">
-        <div className="container pt-0 pb-90">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]! pt-[0px]! pb-[90px]!">
           <h3>Related Products</h3>
-          <div className="row clearfix">
-            <div className="col">
+          <div className="flex! flex-wrap! -mx-3! clearfix">
+            <div className="flex-1! px-3!">
               <div className="mixitup-gallery">
-                <div className="filter-list row">
+                <div className="filter-list flex! flex-wrap! -mx-3!">
                   {RELATED.map((p, i) => (
                     <div
                       key={i}
-                      className={`product-block all mix ${p.tags} col-lg-3 col-md-6 col-sm-12`}
+                      className={`product-block all mix ${p.tags} w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-full!`}
                     >
                       <div className="inner-box">
                         <div className="content">
@@ -329,16 +330,16 @@ export default function ProductDetails() {
                           <span className="price">$32.00</span>
                           <span className="rating">
                             {Array.from({ length: 5 }).map((_, j) => (
-                              <i key={j} className="fa fa-star" />
+                              <InterfaceIcon key={j} name="star"  />
                             ))}
                           </span>
                         </div>
                         <div className="icon-box">
                           <Link to="/product-details" className="ui-btn like-btn">
-                            <i className="fa fa-heart" />
+                            <InterfaceIcon name="heart"  />
                           </Link>
                           <Link to="/checkout" className="ui-btn add-to-cart">
-                            <i className="fa fa-shopping-cart" />
+                            <InterfaceIcon name="cart"  />
                           </Link>
                         </div>
                       </div>

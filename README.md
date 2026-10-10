@@ -9,7 +9,7 @@ Tailwind while preserving the existing brand and functionality.
 - **React 19** + **TypeScript**
 - **Vite 7** (`@vitejs/plugin-react-swc`)
 - **React Router 7** (declarative `<Routes>`)
-- **Tailwind CSS 4** — additive only, preflight disabled (see `src/index.css`).
+- **Tailwind CSS 4** — progressive migration, preflight disabled (see `src/index.css`).
   Migrated components use Tailwind utilities. `css/style.css` and
   `css/bootstrap.min.css` still support components awaiting migration.
 - **GSAP 3** — ScrollSmoother, ScrollTrigger, SplitText, ScrollToPlugin
@@ -55,7 +55,26 @@ The unused `legacy/` archive has been removed, including its HTML, JavaScript,
 PHP handlers, SCSS and plugin files. Public font demos, unused alternate template
 stylesheets and obsolete plugin CSS have also been removed. Runtime libraries
 are managed through npm dependencies. The root `index.html` remains the Vite
-application entry; fonts, icons and styles used by current pages are retained.
+application entry. Interface icons use Lucide SVGs and brand marks use local SVGs;
+Font Awesome, Linearicons and Flaticon stylesheets and font files are removed.
+Text fonts and styles still required by current pages are retained.
+
+## Styling migration
+
+The header, Services megamenu, shared footer, page titles, About block, feature
+cards/carousel, trust band and team cards use Tailwind utilities. Responsive
+page grids and spacing also use Tailwind, preserving the original 576/768/992/
+1200/1400px breakpoints. `gutter-row` is a hook for a Tailwind direct-child variant
+that applies 24px vertical gutters without leaking into nested form rows.
+
+Use Tailwind for new styling. Keep classes used by GSAP, Swiper and route effects
+when migrating an existing section; those hooks control behavior. The `!`
+modifier is needed where the remaining template reset overrides utilities.
+
+The migration is ongoing: page-specific template styles and Bootstrap form,
+table and reset styles remain. Remove a legacy rule or dependency only after its
+consumers have been migrated and desktop/mobile behavior has been compared.
+Run `npm run lint` and `npm run build` before opening a PR.
 
 ## Lead / contact forms
 

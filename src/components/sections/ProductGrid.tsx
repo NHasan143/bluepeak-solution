@@ -1,3 +1,4 @@
+import InterfaceIcon from "../common/InterfaceIcon";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { SHOP_FILTERS, PRODUCTS, type Product } from "../../pages/shopData";
@@ -13,16 +14,16 @@ function ProductBlock({ p, colClass }: { p: Product; colClass: string }) {
           <span className="price">{p.price}</span>
           <span className="rating">
             {Array.from({ length: 5 }).map((_, i) => (
-              <i key={i} className="fa fa-star" />
+              <InterfaceIcon key={i} name="star"  />
             ))}
           </span>
         </div>
         <div className="icon-box">
           <Link to="/product-details" className="ui-btn like-btn">
-            <i className="fa fa-heart" />
+            <InterfaceIcon name="heart"  />
           </Link>
           <Link to="/checkout" className="ui-btn add-to-cart">
-            <i className="fa fa-shopping-cart" />
+            <InterfaceIcon name="cart"  />
           </Link>
         </div>
       </div>
@@ -35,7 +36,7 @@ function ProductBlock({ p, colClass }: { p: Product; colClass: string }) {
  * React state instead of the jQuery mixitup plugin.
  */
 export default function ProductGrid({
-  colClass = "col-lg-3 col-md-6 col-sm-12",
+  colClass = "w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-full!",
 }: {
   colClass?: string;
 }) {
@@ -63,7 +64,7 @@ export default function ProductGrid({
         </ul>
       </div>
 
-      <div className="filter-list row">
+      <div className="filter-list flex! flex-wrap! -mx-3!">
         {visible.map((p, i) => (
           <ProductBlock key={p.name + i} p={p} colClass={colClass} />
         ))}

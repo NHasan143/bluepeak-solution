@@ -1,3 +1,4 @@
+import InterfaceIcon from "../components/common/InterfaceIcon";
 import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
 import TemplateContactForm from "../components/forms/TemplateContactForm";
@@ -23,25 +24,25 @@ export default function TeamDetails() {
     <>
       <PageTitle title="Team Details" crumb="Team Details" />
 
-      <section className="team-details pt-120 pb-0">
-        <div className="container pb-0">
-          <div className="team-details__top pb-70">
-            <div className="row">
-              <div className="col-xl-5 col-lg-6">
+      <section className="team-details pt-[120px]! pb-[0px]!">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]! pb-[0px]!">
+          <div className="team-details__top pb-[70px]!">
+            <div className="flex! flex-wrap! -mx-3!">
+              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-5/12! min-[992px]:w-6/12!">
                 <div className="team-details__top-left">
                   <div className="team-details__top-img">
                     <div className="team-details__big-text">12 years of experience</div>
                   </div>
                 </div>
               </div>
-              <div className="col-xl-7 col-lg-6">
+              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-7/12! min-[992px]:w-6/12!">
                 <div className="team-details__top-right">
                   <div className="team-details__top-content">
                     <h3 className="team-details__top-name">
                       Sarah Lee{" "}
                       <span className="text-theme-colored1">/ Managing Director &amp; CEO</span>
                     </h3>
-                    <p className="team-details__text-1 mb-0">
+                    <p className="team-details__text-1 mb-[0px]!">
                       Web designing in a powerful way of just not an only professions, however, in a
                       passion for our Company. We have to a tendency to believe the idea that smart
                       looking of any website is the first impression on visitors.
@@ -55,7 +56,7 @@ export default function TeamDetails() {
                         {INFO_LEFT.map((it, i) => (
                           <div
                             key={i}
-                            className={`team-details-contact${i < 2 ? " mb-30" : ""}`}
+                            className={`team-details-contact${i < 2 ? " mb-[30px]!" : ""}`}
                           >
                             <h5 className="title">{it.title}</h5>
                             <div className="text">
@@ -68,7 +69,7 @@ export default function TeamDetails() {
                         {INFO_RIGHT.map((it, i) => (
                           <div
                             key={i}
-                            className={`team-details-contact${i < 2 ? " mb-30" : ""}`}
+                            className={`team-details-contact${i < 2 ? " mb-[30px]!" : ""}`}
                           >
                             <h5 className="title">{it.title}</h5>
                             <div className="text">
@@ -80,16 +81,16 @@ export default function TeamDetails() {
                     </div>
                     <div className="team-details__social">
                       <a href="#">
-                        <i className="fa fa-x" />
+                        <InterfaceIcon name="x"  />
                       </a>
                       <a href="#">
-                        <i className="fab fa-facebook" />
+                        <InterfaceIcon name="facebook"  />
                       </a>
                       <a href="#">
-                        <i className="fab fa-pinterest-p" />
+                        <InterfaceIcon name="pinterest"  />
                       </a>
                       <a href="#">
-                        <i className="fab fa-instagram" />
+                        <InterfaceIcon name="instagram"  />
                       </a>
                     </div>
                   </div>
@@ -106,8 +107,8 @@ export default function TeamDetails() {
               sit voluptatem accusa ntium doloremque laudantium totam rem aperiamea queipsa quae
               abillo inventore veritatis et quasi architecto beatae There are many variations
             </p>
-            <div className="row">
-              <div className="col-xl-6 col-lg-6">
+            <div className="flex! flex-wrap! -mx-3!">
+              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-6/12! min-[992px]:w-6/12!">
                 <div className="team-details__bottom-left">
                   <h4 className="team-details__bottom-left-title">Contact Us</h4>
                   <p className="team-details__bottom-left-text">
@@ -123,7 +124,7 @@ export default function TeamDetails() {
                   />
                 </div>
               </div>
-              <div className="col-xl-6 col-lg-6">
+              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-6/12! min-[992px]:w-6/12!">
                 <div className="team-details__bottom-right">
                   <h4 className="team-details__bottom-left-title">Expertise &amp; Skills</h4>
                   <p className="team-details__bottom-left-text">

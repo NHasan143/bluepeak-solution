@@ -17,26 +17,26 @@ export default function Faq() {
     <>
       <PageTitle title="FAQ" crumb="FAQ" />
 
-      <section className="faqs-section pt-120 pb-0">
-        <div className="auto-container">
-          <div className="row">
-            <div className="faq-column col-lg-6">
-              <div className="inner-column pt-0">
+      <section className="faqs-section pt-[120px]! pb-[0px]!">
+        <div className="mx-auto! w-full! max-w-[1320px]! px-[15px]!">
+          <div className="flex! flex-wrap! -mx-3!">
+            <div className="faq-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12!">
+              <div className="inner-column pt-[0px]!">
                 <Accordion
                   items={ITEMS}
                   defaultOpen={0}
-                  iconClass="far fa-angle-down"
+                  icon="chevron"
                   itemWow=""
-                  className="wow fadeInLeft mb-5 mb-lg-0"
+                  className="wow fadeInLeft mb-[48px]! min-[992px]:mb-[0px]!"
                 />
               </div>
             </div>
-            <div className="faq-column col-lg-6">
-              <div className="inner-column pt-0">
+            <div className="faq-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12!">
+              <div className="inner-column pt-[0px]!">
                 <Accordion
                   items={ITEMS}
                   defaultOpen={0}
-                  iconClass="far fa-angle-down"
+                  icon="chevron"
                   itemWow=""
                   className="wow fadeInLeft"
                 />

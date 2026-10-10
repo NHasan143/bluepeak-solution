@@ -1,3 +1,4 @@
+import InterfaceIcon from "../components/common/InterfaceIcon";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link, useParams } from "react-router-dom";
 import PageTitle from "../components/common/PageTitle";
@@ -24,11 +25,11 @@ export default function ServiceDetails() {
   return (
     <>
       <PageTitle title={service.title} crumb="Services" />
-      <section className="services-details pt-120 pb-0">
-        <div className="container">
-          <div className="row">
+      <section className="services-details pt-[120px]! pb-[0px]!">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+          <div className="flex! flex-wrap! -mx-3!">
             {/* Sidebar */}
-            <div className="col-xl-4 col-lg-4">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-4/12!">
               <div className="service-sidebar">
                 <div className="sidebar-widget service-sidebar-single">
                   <div className="sidebar-service-list">
@@ -36,7 +37,7 @@ export default function ServiceDetails() {
                       {SERVICES.map((item) => (
                         <li key={item.slug} className={item.slug === service.slug ? "current" : undefined}>
                           <Link to={`/service-details/${item.slug}`} className={item.slug === service.slug ? "current" : undefined}>
-                            <i className="fas fa-angle-right" />
+                            <InterfaceIcon name="angle-right"  />
                             <span>{item.title}</span>
                           </Link>
                         </li>
@@ -52,7 +53,7 @@ export default function ServiceDetails() {
                       advice
                     </h2>
                     <div className="help-icon">
-                      <span className="lnr-icon-phone-handset" />
+                      <InterfaceIcon name="phone"  />
                     </div>
                     <div className="help-contact">
                       <p>Need help? Talk to an expert</p>
@@ -63,17 +64,17 @@ export default function ServiceDetails() {
               </div>
             </div>
             {/* Content */}
-            <div className="col-xl-8 col-lg-8">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-8/12! min-[992px]:w-8/12!">
               <div className="services-details__content">
-                <h3 className="mt-4">{service.title}</h3>
+                <h3 className="mt-[24px]!">{service.title}</h3>
                 <p className="text">{service.intro}</p>
-                <div className="content mt-40">
+                <div className="content mt-[40px]!">
                   <div className="text">
                     <h3>What&apos;s included</h3>
                     <ul className="feature-list">
                       {service.included.map((item) => (
                         <li className="single-item" key={item}>
-                          <span className="icon-box fas fa-check" />
+                          <InterfaceIcon name="check" className="icon-box"  />
                           <span className="title">{item}</span>
                         </li>
                       ))}
@@ -106,8 +107,8 @@ export default function ServiceDetails() {
                     ))}
                   </Swiper>
                 </div>
-                <div className="faq-content mt-5">
-                  <h3 className="mb-3">Frequently Asked Question</h3>
+                <div className="faq-content mt-[48px]!">
+                  <h3 className="mb-[16px]!">Frequently Asked Question</h3>
                   <p className="text">
                     Lorem ipsum is simply free text used by copytyping refreshing. Neque porro est
                     qui dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae vitae
@@ -116,7 +117,7 @@ export default function ServiceDetails() {
                   <Accordion
                     items={FAQ}
                     defaultOpen={1}
-                    className="wow fadeInUp p-0 mt-40"
+                    className="wow fadeInUp p-[0px]! mt-[40px]!"
                   />
                 </div>
               </div>

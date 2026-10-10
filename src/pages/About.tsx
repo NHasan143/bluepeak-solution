@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import Star from "../components/common/Star";
 import AboutSection from "../components/sections/AboutSection";
+import ClientsSection from "../components/sections/ClientsSection";
 import FeatureSection from "../components/sections/FeatureSection";
 
 const SERVICES2 = [
@@ -69,64 +70,38 @@ export default function About() {
       <FeatureSection id="our-features" variant="static" />
 
       {/* Section 4: Trust Band */}
-      <section className="clients-section-1">
-        <div className="ellipse-1">
-          <img src="/images/icons/client1-1ellipse.png" alt="img" />
-        </div>
-        <div className="ellipse-2">
-          <img src="/images/icons/client1-2ellipse.png" alt="img" />
-        </div>
-        <div className="clients-wrapper section-bg section-padding">
-          <div className="client-shape">
-            <img src="/images/icons/client1-shape-1.png" alt="img" />
+      <ClientsSection heading={false} showObject={false}>
+        <div className="relative! text-center! mb-0!">
+          <div className="mb-[5px]! [&>svg]:text-[var(--theme-color1)]! [&>svg]:-mt-0.5! [&>svg]:mr-[5px]! [&>span]:text-white! [&>span]:text-sm! [&>span]:font-normal! [&>span]:leading-normal! [&>span]:uppercase!">
+            <Star />
+            <span>Growth Standards Built for Global Brands</span>
           </div>
-          <div className="line-shape">
-            <img src="/images/icons/client1-line-1.png" alt="img" />
-          </div>
-          <div className="container">
-            <div className="section-title text-center mb-0">
-              <div className="sub-title">
-                <Star />
-                <span>Growth Standards Built for Global Brands</span>
-              </div>
-              <h2
-                className="title text-anim"
-                style={{
-                  maxWidth: "880px",
-                  margin: "24px auto 0",
-                  fontSize: "clamp(22px, 3.2vw, 34px)",
-                  lineHeight: "1.45",
-                  fontWeight: 500,
-                  color: "#ffffff",
-                }}
-              >
-                Blupeak's team brings 6+ years of combined experience across sales, technology,
-                and search, applied in service of every client we work with.
-              </h2>
-            </div>
-          </div>
+          <h2 className="text-anim max-w-[880px]! mx-auto! mt-6! mb-0! text-[clamp(22px,3.2vw,34px)]! leading-[1.45]! font-medium! text-white! tracking-[-1.5px]!">
+            Blupeak's team brings 6+ years of combined experience across sales, technology,
+            and search, applied in service of every client we work with.
+          </h2>
         </div>
-      </section>
+      </ClientsSection>
 
       {/* Section 5: "Our Services" / Services Grid */}
-      <section className="service-section-2 fix section-bg section-padding pb-70">
+      <section className="service-section-2 fix section-bg section-padding pb-[70px]!">
         <div className="service-ellipse">
           <img src="/images/icons/service2-1ellipse.png" alt="img" />
         </div>
-        <div className="container">
-          <div className="row g-4 align-items-end">
-            <div className="col-xl-7">
-              <div className="section-title mb-0">
-                <div className="sub-title text-left">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! items-end!">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-7/12!">
+              <div className="section-title mb-[0px]!">
+                <div className="sub-title text-left!">
                   <Star variant="lime" color="#BAFF39" />
                   <span>Our Services</span>
                 </div>
                 <h2 className="title text-anim">
-                  Revenue Architecture, <span className="d-xl-block">Built In House</span>
+                  Revenue Architecture, <span className="min-[1200px]:block!">Built In House</span>
                 </h2>
               </div>
             </div>
-            <div className="col-xl-5">
+            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-5/12!">
               <p className="service-text wow fadeInUp" data-wow-delay=".3s">
                 From first outreach to closed deal to the tech and content that keep the pipeline full,
                 Blupeak runs your growth engine as one internal team, not a patchwork of vendors.
@@ -134,7 +109,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="container-fluid mt-80">
+        <div className="mx-auto! w-full! max-w-[1760px]! px-[22px]! min-[1200px]:px-[60px]! mt-[80px]!">
           {SERVICES2.map((s, i) => (
             <div
               key={i}

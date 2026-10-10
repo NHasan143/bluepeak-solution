@@ -1,3 +1,4 @@
+import InterfaceIcon from "../common/InterfaceIcon";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "../../lib/gsap";
 import { SERVICES } from "../../lib/services";
@@ -54,7 +55,7 @@ export default function GrowthServiceAccordion() {
               <span className="growth-service-number">0{index + 1}.</span>
               <span className="growth-service-title">{service.title}</span>
               <span className="growth-service-arrow" aria-hidden="true">
-                <i className="fa-solid fa-arrow-right" />
+                <InterfaceIcon name="arrow-right"  />
               </span>
             </button>
             <div

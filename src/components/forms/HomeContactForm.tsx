@@ -19,28 +19,28 @@ export default function HomeContactForm() {
         tabIndex={-1}
         autoComplete="off"
       />
-      <div className="row">
-        <div className="form-group col-lg-6 col-md-6">
+      <div className="flex! flex-wrap! -mx-3!">
+        <div className="form-group w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[768px]:w-6/12!">
           <label htmlFor="fName">Name *</label>
           <input type="text" id="fName" name="name" placeholder="Your Full Name" required />
         </div>
-        <div className="form-group col-lg-6 col-md-6">
+        <div className="form-group w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[768px]:w-6/12!">
           <label htmlFor="eAddress">Email Address *</label>
           <input type="email" id="eAddress" name="email" placeholder="Email Address" required />
         </div>
-        <div className="form-group col-lg-6 col-md-6">
+        <div className="form-group w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[768px]:w-6/12!">
           <label htmlFor="ysubject">Subject*</label>
           <input type="text" id="ysubject" name="ysubject" placeholder="Your Subject" />
         </div>
-        <div className="form-group col-lg-6 col-md-6">
+        <div className="form-group w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[768px]:w-6/12!">
           <label htmlFor="ybudget">Your Budget </label>
           <input type="text" id="ybudget" name="ybudget" placeholder="Write Your Budget Range" />
         </div>
-        <div className="form-group col-lg-12">
+        <div className="form-group w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-full!">
           <label htmlFor="yMessage">Message </label>
           <textarea name="message" id="yMessage" placeholder="Your Message" rows={2} />
         </div>
-        <div className="form-group col-lg-12">
+        <div className="form-group w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-full!">
           <button
             type="submit"
             className="theme-btn btn-style-four"
@@ -55,12 +55,12 @@ export default function HomeContactForm() {
             </span>
           </button>
           {status.state === "success" && (
-            <div className="alert alert-success mt-3" role="alert">
+            <div className="alert alert-success mt-[16px]!" role="alert">
               {status.message}
             </div>
           )}
           {status.state === "error" && (
-            <div className="alert alert-danger mt-3" role="alert">
+            <div className="alert alert-danger mt-[16px]!" role="alert">
               {status.message}
             </div>
           )}

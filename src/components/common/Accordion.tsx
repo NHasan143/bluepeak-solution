@@ -1,3 +1,4 @@
+import { ChevronDown, Minus, Plus } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 export type AccordionEntry = {
@@ -15,13 +16,13 @@ export default function Accordion({
   items,
   defaultOpen = 0,
   className = "",
-  iconClass = "fa fa-plus",
+  icon = "plus",
   itemWow = "wow fadeInUp",
 }: {
   items: AccordionEntry[];
   defaultOpen?: number;
   className?: string;
-  iconClass?: string;
+  icon?: "plus" | "chevron";
   itemWow?: string;
 }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -41,7 +42,7 @@ export default function Accordion({
               onClick={() => setOpen(isOpen ? -1 : i)}
             >
               {item.no ? <span>{item.no}</span> : null} {item.question}
-              <div className={`icon ${iconClass}`} />
+              <div className="icon inline-flex items-center justify-center">{isOpen ? <Minus width="1em" height="1em" /> : icon === "chevron" ? <ChevronDown width="1em" height="1em" /> : <Plus width="1em" height="1em" />}</div>
             </div>
             <div className={`acc-content${isOpen ? " current" : ""}`}>
               <div className="content">

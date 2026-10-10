@@ -1,3 +1,4 @@
+import InterfaceIcon from "../common/InterfaceIcon";
 import { useEffect, useState } from "react";
 import { ScrollSmoother } from "../../lib/gsap";
 
@@ -27,11 +28,11 @@ export default function BackToTop() {
   return (
     <button
       id="back-top"
-      className={`back-to-top${show ? " show" : ""}`}
+      className={`fixed! z-[999]! right-[30px]! bottom-[30px]! inline-flex! items-center! justify-center! size-[50px]! rounded-full! border-0! bg-[var(--theme-color1)]! text-black! text-lg! transition-[opacity,visibility,translate]! duration-200! motion-reduce:transition-none! ${show ? "opacity-100! visible! translate-y-0!" : "opacity-0! invisible! translate-y-5!"}`}
       onClick={toTop}
       aria-label="Back to top"
     >
-      <i className="fa-regular fa-arrow-up" />
+      <InterfaceIcon name="arrow-up"  />
     </button>
   );
 }

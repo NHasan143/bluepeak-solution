@@ -16,28 +16,28 @@ const PAYMENT: AccordionEntry[] = [
     question: "Credir Card / Debit Card",
     answer: (
       <div className="payment-info">
-        <div className="row clearfix">
-          <div className="col-lg-6 col-md-6 col-sm-12 column">
-            <div className="field-input mb-3">
+        <div className="flex! flex-wrap! -mx-3! clearfix">
+          <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[768px]:w-6/12! min-[576px]:w-full! column">
+            <div className="field-input mb-[16px]!">
               <input type="text" className="form-control" name="name" placeholder="Name on the Card" required />
             </div>
           </div>
-          <div className="col-lg-6 col-md-6 col-sm-12 column">
-            <div className="field-input mb-3">
+          <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[768px]:w-6/12! min-[576px]:w-full! column">
+            <div className="field-input mb-[16px]!">
               <input type="text" className="form-control" name="number" placeholder="Card Number" required />
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-12 column">
-            <div className="field-input mb-3">
+          <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! min-[768px]:w-6/12! min-[576px]:w-full! column">
+            <div className="field-input mb-[16px]!">
               <input type="text" className="form-control" name="date" placeholder="Expiry Date" required />
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-12 column">
-            <div className="field-input mb-3">
+          <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! min-[768px]:w-6/12! min-[576px]:w-full! column">
+            <div className="field-input mb-[16px]!">
               <input type="text" className="form-control" name="code" placeholder="Security Code" required />
             </div>
           </div>
-          <div className="col-lg-6 col-md-12 col-sm-12 column">
+          <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[768px]:w-full! min-[576px]:w-full! column">
             <div className="field-input message-btn">
               <button type="submit" className="theme-btn btn-style-one" data-loading-text="Please wait...">
                 <span className="btn-title">Make Payment</span>
@@ -61,44 +61,44 @@ export default function Checkout() {
       <PageTitle title="Checkout" crumb="Shop" />
 
       <section>
-        <div className="container pt-70 pb-100">
+        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]! pt-[70px]! pb-[100px]!">
           <div className="section-content">
             <form id="checkout-form" action="#" onSubmit={(e) => e.preventDefault()}>
-              <div className="row mt-30">
-                <div className="col-md-6">
+              <div className="flex! flex-wrap! -mx-3! mt-[30px]!">
+                <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                   <div className="billing-details">
-                    <h3 className="mb-30">Billing Details</h3>
-                    <div className="row">
-                      <div className="mb-3 col-md-6">
+                    <h3 className="mb-[30px]!">Billing Details</h3>
+                    <div className="flex! flex-wrap! -mx-3!">
+                      <div className="mb-[16px]! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                         <label htmlFor="checkuot-form-fname">First Name</label>
                         <input id="checkuot-form-fname" type="text" className="form-control" placeholder="First Name" />
                       </div>
-                      <div className="mb-3 col-md-6">
+                      <div className="mb-[16px]! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                         <label htmlFor="checkuot-form-lname">Last Name</label>
                         <input id="checkuot-form-lname" type="text" className="form-control" placeholder="Last Name" />
                       </div>
-                      <div className="col-md-12">
-                        <div className="mb-3">
+                      <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-full!">
+                        <div className="mb-[16px]!">
                           <label htmlFor="checkuot-form-cname">Company Name</label>
                           <input id="checkuot-form-cname" type="text" className="form-control" placeholder="Company Name" />
                         </div>
-                        <div className="mb-3">
+                        <div className="mb-[16px]!">
                           <label htmlFor="checkuot-form-email">Email Address</label>
                           <input id="checkuot-form-email" type="email" className="form-control" placeholder="Email Address" />
                         </div>
-                        <div className="mb-3">
+                        <div className="mb-[16px]!">
                           <label htmlFor="checkuot-form-address">Address</label>
                           <input id="checkuot-form-address" type="text" className="form-control" placeholder="Street address" />
                         </div>
-                        <div className="mb-3">
+                        <div className="mb-[16px]!">
                           <input type="text" className="form-control" placeholder="Apartment, suite, unit etc. (optional)" />
                         </div>
                       </div>
-                      <div className="mb-3 col-md-6">
+                      <div className="mb-[16px]! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                         <label htmlFor="checkuot-form-city">City</label>
                         <input id="checkuot-form-city" type="text" className="form-control" placeholder="City" />
                       </div>
-                      <div className="mb-3 col-md-6">
+                      <div className="mb-[16px]! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                         <label>State/Province</label>
                         <select className="form-control" defaultValue="Select Country">
                           {COUNTRIES.map((c) => (
@@ -106,11 +106,11 @@ export default function Checkout() {
                           ))}
                         </select>
                       </div>
-                      <div className="mb-3 col-md-6">
+                      <div className="mb-[16px]! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                         <label htmlFor="checkuot-form-zip">Zip/Postal Code</label>
                         <input id="checkuot-form-zip" type="text" className="form-control" placeholder="Zip/Postal Code" />
                       </div>
-                      <div className="mb-3 col-md-6">
+                      <div className="mb-[16px]! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                         <label>Country</label>
                         <select className="form-control" defaultValue="Select Country">
                           {COUNTRIES.map((c) => (
@@ -121,7 +121,7 @@ export default function Checkout() {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6">
+                <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                   <h3>Additional information</h3>
                   <label htmlFor="order_comments">
                     Order notes&nbsp;<span className="optional">(optional)</span>
@@ -133,7 +133,7 @@ export default function Checkout() {
                     rows={3}
                   />
                 </div>
-                <div className="col-md-12 mt-30">
+                <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-full! mt-[30px]!">
                   <h3>Your order</h3>
                   <table className="table table-striped table-bordered tbl-shopping-cart">
                     <thead>
@@ -168,13 +168,13 @@ export default function Checkout() {
                     </tbody>
                   </table>
                 </div>
-                <div className="col-md-12 mt-60">
+                <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-full! mt-[60px]!">
                   <div className="payment-method">
                     <h3>Choose a Payment Method</h3>
                     <Accordion
                       items={PAYMENT}
                       defaultOpen={0}
-                      iconClass="lnr-icon-chevron-down"
+                      icon="chevron"
                       itemWow=""
                     />
                   </div>
