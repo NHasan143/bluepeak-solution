@@ -37,7 +37,7 @@ export default function ServiceDetails() {
                     <ul>
                       {SERVICES.map((item) => (
                         <li key={item.slug} className={item.slug === service.slug ? "current" : undefined}>
-                          <Link to={`/service-details/${item.slug}`} className={item.slug === service.slug ? "current" : undefined}>
+                          <Link to={`/services/${item.slug}`} className={item.slug === service.slug ? "current" : undefined}>
                             <InterfaceIcon name="angle-right"  />
                             <span>{item.title}</span>
                           </Link>

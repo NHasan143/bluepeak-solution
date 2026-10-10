@@ -17,29 +17,29 @@ const PAYMENT: AccordionEntry[] = [
     question: "Credir Card / Debit Card",
     answer: (
       <div className="payment-info">
-        <div className="flex! flex-wrap! -mx-3! clearfix">
+        <div className={pageClasses("flex! flex-wrap! -mx-3! float-clear")}>
           <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[768px]:w-6/12! min-[576px]:w-full! column">
-            <div className="field-input mb-[16px]!">
-              <input type="text" className={pageClasses("form-control")} name="name" placeholder="Name on the Card" required />
+            <div className="payment-field mb-[16px]!">
+              <input type="text" className={pageClasses("field-input")} name="name" placeholder="Name on the Card" required />
             </div>
           </div>
           <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[768px]:w-6/12! min-[576px]:w-full! column">
-            <div className="field-input mb-[16px]!">
-              <input type="text" className={pageClasses("form-control")} name="number" placeholder="Card Number" required />
+            <div className="payment-field mb-[16px]!">
+              <input type="text" className={pageClasses("field-input")} name="number" placeholder="Card Number" required />
             </div>
           </div>
           <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! min-[768px]:w-6/12! min-[576px]:w-full! column">
-            <div className="field-input mb-[16px]!">
-              <input type="text" className={pageClasses("form-control")} name="date" placeholder="Expiry Date" required />
+            <div className="payment-field mb-[16px]!">
+              <input type="text" className={pageClasses("field-input")} name="date" placeholder="Expiry Date" required />
             </div>
           </div>
           <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! min-[768px]:w-6/12! min-[576px]:w-full! column">
-            <div className="field-input mb-[16px]!">
-              <input type="text" className={pageClasses("form-control")} name="code" placeholder="Security Code" required />
+            <div className="payment-field mb-[16px]!">
+              <input type="text" className={pageClasses("field-input")} name="code" placeholder="Security Code" required />
             </div>
           </div>
           <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[768px]:w-full! min-[576px]:w-full! column">
-            <div className="field-input message-btn">
+            <div className="payment-field message-btn">
               <button type="submit" className={pageClasses("theme-btn btn-style-one")} data-loading-text="Please wait...">
                 <span className="btn-title">Make Payment</span>
               </button>
@@ -72,36 +72,36 @@ export default function Checkout() {
                     <div className="flex! flex-wrap! -mx-3!">
                       <div className="mb-[16px]! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                         <label htmlFor="checkuot-form-fname">First Name</label>
-                        <input id="checkuot-form-fname" type="text" className={pageClasses("form-control")} placeholder="First Name" />
+                        <input id="checkuot-form-fname" type="text" className={pageClasses("field-input")} placeholder="First Name" />
                       </div>
                       <div className="mb-[16px]! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                         <label htmlFor="checkuot-form-lname">Last Name</label>
-                        <input id="checkuot-form-lname" type="text" className={pageClasses("form-control")} placeholder="Last Name" />
+                        <input id="checkuot-form-lname" type="text" className={pageClasses("field-input")} placeholder="Last Name" />
                       </div>
                       <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-full!">
                         <div className="mb-[16px]!">
                           <label htmlFor="checkuot-form-cname">Company Name</label>
-                          <input id="checkuot-form-cname" type="text" className={pageClasses("form-control")} placeholder="Company Name" />
+                          <input id="checkuot-form-cname" type="text" className={pageClasses("field-input")} placeholder="Company Name" />
                         </div>
                         <div className="mb-[16px]!">
                           <label htmlFor="checkuot-form-email">Email Address</label>
-                          <input id="checkuot-form-email" type="email" className={pageClasses("form-control")} placeholder="Email Address" />
+                          <input id="checkuot-form-email" type="email" className={pageClasses("field-input")} placeholder="Email Address" />
                         </div>
                         <div className="mb-[16px]!">
                           <label htmlFor="checkuot-form-address">Address</label>
-                          <input id="checkuot-form-address" type="text" className={pageClasses("form-control")} placeholder="Street address" />
+                          <input id="checkuot-form-address" type="text" className={pageClasses("field-input")} placeholder="Street address" />
                         </div>
                         <div className="mb-[16px]!">
-                          <input type="text" className={pageClasses("form-control")} placeholder="Apartment, suite, unit etc. (optional)" />
+                          <input type="text" className={pageClasses("field-input")} placeholder="Apartment, suite, unit etc. (optional)" />
                         </div>
                       </div>
                       <div className="mb-[16px]! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                         <label htmlFor="checkuot-form-city">City</label>
-                        <input id="checkuot-form-city" type="text" className={pageClasses("form-control")} placeholder="City" />
+                        <input id="checkuot-form-city" type="text" className={pageClasses("field-input")} placeholder="City" />
                       </div>
                       <div className="mb-[16px]! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                         <label>State/Province</label>
-                        <select className={pageClasses("form-control")} defaultValue="Select Country">
+                        <select className={pageClasses("field-input")} defaultValue="Select Country">
                           {COUNTRIES.map((c) => (
                             <option key={c}>{c}</option>
                           ))}
@@ -109,11 +109,11 @@ export default function Checkout() {
                       </div>
                       <div className="mb-[16px]! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                         <label htmlFor="checkuot-form-zip">Zip/Postal Code</label>
-                        <input id="checkuot-form-zip" type="text" className={pageClasses("form-control")} placeholder="Zip/Postal Code" />
+                        <input id="checkuot-form-zip" type="text" className={pageClasses("field-input")} placeholder="Zip/Postal Code" />
                       </div>
                       <div className="mb-[16px]! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12!">
                         <label>Country</label>
-                        <select className={pageClasses("form-control")} defaultValue="Select Country">
+                        <select className={pageClasses("field-input")} defaultValue="Select Country">
                           {COUNTRIES.map((c) => (
                             <option key={c}>{c}</option>
                           ))}
@@ -129,14 +129,14 @@ export default function Checkout() {
                   </label>
                   <textarea
                     id="order_comments"
-                    className={pageClasses("form-control")}
+                    className={pageClasses("field-input")}
                     placeholder="Notes about your order, e.g. special notes for delivery."
                     rows={3}
                   />
                 </div>
                 <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-full! mt-[30px]!">
                   <h3>Your order</h3>
-                  <table className={pageClasses("table table-striped table-bordered tbl-shopping-cart")}>
+                  <table className={pageClasses("order-table tbl-shopping-cart")}>
                     <thead>
                       <tr>
                         <th>Product Name</th>

@@ -30,7 +30,7 @@ export default function ShopSidebar() {
 
       <section className={pageClasses("featured-products")}>
         <div className="mx-auto! w-full! max-w-[1320px]! px-[15px]!">
-          <div className="flex! flex-wrap! -mx-3! clearfix">
+          <div className={pageClasses("flex! flex-wrap! -mx-3! float-clear")}>
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! min-[768px]:w-full! min-[576px]:w-full!">
               <div className={pageClasses("shop-sidebar")}>
                 <div className="sidebar-search">
@@ -53,7 +53,7 @@ export default function ShopSidebar() {
                     <h5 className="widget-title">Categories</h5>
                   </div>
                   <div className="widget-content">
-                    <ul className="category-list clearfix">
+                    <ul className={pageClasses("category-list float-clear")}>
                       {CATEGORIES.map((c, i) => (
                         <li key={i}>
                           <Link to="/product-details"><InterfaceIcon name="angle-right" className="absolute! left-0! top-[6px]! text-[10px]!" />{c}</Link>
@@ -66,7 +66,7 @@ export default function ShopSidebar() {
                   <div className="widget-title">
                     <h5 className="widget-title">Filter by Price</h5>
                   </div>
-                  <div className={pageClasses("range-slider clearfix")}>
+                  <div className={pageClasses("range-slider float-clear")}>
                     <div className="price-range-slider">
                       <input
                         type="range"
@@ -79,7 +79,7 @@ export default function ShopSidebar() {
                         className="[width:100%]!"
                       />
                     </div>
-                    <div className="clearfix">
+                    <div className={pageClasses("float-clear")}>
                       <p>Price:</p>
                       <div className={pageClasses("title")} />
                       <div className="input">

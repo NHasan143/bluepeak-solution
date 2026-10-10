@@ -224,7 +224,7 @@ export default function Home() {
                 {[".3s", ".3s", ".5s", ".7s"].map((delay, i) => (
                   <div
                     key={i}
-                    className={pageClasses(`award-list-items-items${i === 0 ? " active" : ""}${i === 3 ? " mb-0" : ""} wow fadeInUp`)}
+                    className={pageClasses(`award-list-items-items${i === 0 ? " active" : ""}${i === 3 ? " mb-0!" : ""} wow fadeInUp`)}
                     data-wow-delay={delay}
                   >
                     <div className="content-items">

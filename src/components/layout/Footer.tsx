@@ -100,19 +100,19 @@ export default function Footer({
                   </div>
                   <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-[#d9d9d9]! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:text-[#d9ef54]! [&>li>a:hover]:translate-x-1">
                     <li>
-                      <Link to="/service-details/revenue-sales-systems">Revenue &amp; Sales Systems</Link>
+                      <Link to="/services/revenue-sales-systems">Revenue &amp; Sales Systems</Link>
                     </li>
                     <li>
-                      <Link to="/service-details/brand-creative-solutions">Brand &amp; Creative Solutions</Link>
+                      <Link to="/services/brand-creative-solutions">Brand &amp; Creative Solutions</Link>
                     </li>
                     <li>
-                      <Link to="/service-details/seo-organic-growth">SEO &amp; Organic Growth</Link>
+                      <Link to="/services/seo-organic-growth">SEO &amp; Organic Growth</Link>
                     </li>
                     <li>
-                      <Link to="/service-details/custom-web-software">Custom Web &amp; Software</Link>
+                      <Link to="/services/custom-web-software">Custom Web &amp; Software</Link>
                     </li>
                     <li>
-                      <Link to="/service-details/ai-workflow-automation">AI &amp; Workflow Automation</Link>
+                      <Link to="/services/ai-workflow-automation">AI &amp; Workflow Automation</Link>
                     </li>
                   </ul>
                 </div>

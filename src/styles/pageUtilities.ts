@@ -1,6 +1,12 @@
 /** Static Tailwind utilities for section, state and animation hooks. */
 const sectionUtilities: Record<string, string> = {
-  "form-control": [
+  "order-table": String.raw`[--order-table-bg:transparent] [--order-table-accent-bg:transparent] [--order-table-striped-color:#212529] [--order-table-striped-bg:rgba(0,_0,_0,_0.05)] [--order-table-active-color:#212529] [--order-table-active-bg:rgba(0,_0,_0,_0.1)] [--order-table-hover-color:#212529] [--order-table-hover-bg:rgba(0,_0,_0,_0.075)] [width:100%] [margin-bottom:1rem] [color:#212529] [vertical-align:top] [border-color:#dee2e6] [&>:not(caption)>*>*]:[padding:.5rem_.5rem] [&>:not(caption)>*>*]:[background-color:var(--order-table-bg)] [&>:not(caption)>*>*]:[box-shadow:inset_0_0_0_9999px_var(--order-table-accent-bg)] [&>tbody]:[vertical-align:inherit] [&>thead]:[vertical-align:bottom] [&>:not(:last-child)>:last-child>*]:[border-bottom-color:currentColor] [&>:not(caption)>*]:[border-width:1px_0] [&>:not(caption)>*>*]:[border-width:0_1px] [&>tbody>tr:nth-of-type(odd)]:[--order-table-accent-bg:var(--order-table-striped-bg)] [&>tbody>tr:nth-of-type(odd)]:[color:var(--order-table-striped-color)]`,
+  "float-clear": String.raw`after:block after:clear-both after:content-['']`,
+  "form-notice": "relative p-4 mb-4 border border-solid rounded-[0.25rem]",
+  "form-notice-success": "text-[#0f5132] bg-[#d1e7dd] border-[#badbcc]",
+  "form-notice-error": "text-[#842029] bg-[#f8d7da] border-[#f5c2c7]",
+  "field-input": [
+    String.raw`[display:block] font-normal leading-[1.5] bg-clip-padding appearance-none rounded-[0.25rem] transition-[border-color,box-shadow] duration-150 ease-in-out focus:shadow-[0_0_0_0.25rem_rgba(13,110,253,0.25)] motion-reduce:transition-none disabled:opacity-100 read-only:opacity-100`,
     String.raw`[height:calc(2.25rem_+_27px)] [padding:14px_30px] [outline:0] [background-color:#f4f5f8] [border:1px_solid_#f4f5f8] [color:#686a6f] [font-size:0.9rem] [width:100%]`,
     String.raw`[&::-webkit-input-placeholder]:[color:#686a6f] [&::-webkit-input-placeholder]:[opacity:1]`,
     String.raw`[&::-moz-placeholder]:[color:#686a6f] [&::-moz-placeholder]:[opacity:1]`,
@@ -38,7 +44,7 @@ const sectionUtilities: Record<string, string> = {
     String.raw`[&_.animation-preloader_.txt-loading_.letters-loading::before]:[animation:letters-loading_4s_infinite] [&_.animation-preloader_.txt-loading_.letters-loading::before]:[color:var(--theme-color-white)] [&_.animation-preloader_.txt-loading_.letters-loading::before]:[content:attr(data-text-preloader)] [&_.animation-preloader_.txt-loading_.letters-loading::before]:[left:0] [&_.animation-preloader_.txt-loading_.letters-loading::before]:[opacity:0] [&_.animation-preloader_.txt-loading_.letters-loading::before]:[font-family:var(--heading-font-family)] [&_.animation-preloader_.txt-loading_.letters-loading::before]:absolute [&_.animation-preloader_.txt-loading_.letters-loading::before]:[top:-3px] [&_.animation-preloader_.txt-loading_.letters-loading::before]:[transform:rotateY(-90deg)]`,
     String.raw`[&_p]:[font-size:15px] [&_p]:font-semibold [&_p]:uppercase [&_p]:[letter-spacing:8px] [&_p]:[color:var(--theme-color-white)]`,
     String.raw`[&_.loader]:fixed [&_.loader]:[top:0] [&_.loader]:[left:0] [&_.loader]:[width:100%] [&_.loader]:[height:100%] [&_.loader]:[font-size:0] [&_.loader]:[z-index:1] [&_.loader]:pointer-events-none`,
-    String.raw`[&_.loader_.row]:[height:100%]`,
+    String.raw`[&_.loader_.loader-grid]:[height:100%]`,
     String.raw`[&_.loader_.loader-section]:[padding:0px]`,
     String.raw`[&_.loader_.loader-section_.bg]:[background-color:var(--body-bg)] [&_.loader_.loader-section_.bg]:[height:100%] [&_.loader_.loader-section_.bg]:[left:0] [&_.loader_.loader-section_.bg]:[width:100%] [&_.loader_.loader-section_.bg]:[transition:all_800ms_cubic-bezier(0.77,_0,_0.175,_1)]`,
     String.raw`[&.loaded_.animation-preloader]:[opacity:0] [&.loaded_.animation-preloader]:[transition:0.3s_ease-out]`,
@@ -923,12 +929,12 @@ const sectionUtilities: Record<string, string> = {
   ].join(" "),
   "comment-form": [
     String.raw`[&_.comment-form\_\_title]:[margin-top:-7px]`,
-    String.raw`[&_.form-control::-webkit-input-placeholder]:[color:var(--text-color)]`,
-    String.raw`[&_.form-control::-moz-placeholder]:[color:var(--text-color)]`,
-    String.raw`[&_.form-control:-ms-input-placeholder]:[color:var(--text-color)]`,
-    String.raw`[&_.form-control::-ms-input-placeholder]:[color:var(--text-color)]`,
-    String.raw`[&_.form-control::placeholder]:[color:var(--text-color)]`,
-    String.raw`[&_.form-control]:[color:var(--theme-color-lighter2)] [&_.form-control]:[background-color:var(--theme-color-gray)] [&_.form-control]:[border-color:rgba(255,_255,_255,_0.17)]`,
+    String.raw`[&_.field-input::-webkit-input-placeholder]:[color:var(--text-color)]`,
+    String.raw`[&_.field-input::-moz-placeholder]:[color:var(--text-color)]`,
+    String.raw`[&_.field-input:-ms-input-placeholder]:[color:var(--text-color)]`,
+    String.raw`[&_.field-input::-ms-input-placeholder]:[color:var(--text-color)]`,
+    String.raw`[&_.field-input::placeholder]:[color:var(--text-color)]`,
+    String.raw`[&_.field-input]:[color:var(--theme-color-lighter2)] [&_.field-input]:[background-color:var(--theme-color-gray)] [&_.field-input]:[border-color:rgba(255,_255,_255,_0.17)]`,
   ].join(" "),
   "team-details": [
     String.raw`relative block [background-color:var(--theme-color-gray)]`,
@@ -971,13 +977,13 @@ const sectionUtilities: Record<string, string> = {
   ].join(" "),
   "team-details__bottom": [
     String.raw`relative block`,
-    String.raw`[&_.form-control]:[background-color:#121310] [&_.form-control]:[border-color:rgba(255,_255,_255,_0.17)] [&_.form-control]:[box-shadow:none] [&_.form-control]:[color:#fff]`,
+    String.raw`[&_.field-input]:[background-color:#121310] [&_.field-input]:[border-color:rgba(255,_255,_255,_0.17)] [&_.field-input]:[box-shadow:none] [&_.field-input]:[color:#fff]`,
     String.raw`[&_input[type=text]]:[background-color:#121310] [&_input[type=text]]:[border-color:rgba(255,_255,_255,_0.17)] [&_input[type=text]]:[box-shadow:none] [&_input[type=text]]:[color:#fff]`,
     String.raw`[&_input[type=email]]:[background-color:#121310] [&_input[type=email]]:[border-color:rgba(255,_255,_255,_0.17)] [&_input[type=email]]:[box-shadow:none] [&_input[type=email]]:[color:#fff]`,
-    String.raw`[&_.form-control:focus]:[border-color:var(--theme-color1)]`,
+    String.raw`[&_.field-input:focus]:[border-color:var(--theme-color1)]`,
     String.raw`[&_input[type=text]:focus]:[border-color:var(--theme-color1)]`,
     String.raw`[&_input[type=email]:focus]:[border-color:var(--theme-color1)]`,
-    String.raw`[&_textarea]:[background-color:#121310] [&_textarea]:[border-color:rgba(255,_255,_255,_0.17)] [&_textarea.form-control]:[height:95px]`,
+    String.raw`[&_textarea]:[background-color:#121310] [&_textarea]:[border-color:rgba(255,_255,_255,_0.17)] [&_textarea.field-input]:[height:95px]`,
     String.raw`[&_button]:[width:100%] [&_button]:[border-radius:10px]`,
   ].join(" "),
   "team-details__bottom-left": [

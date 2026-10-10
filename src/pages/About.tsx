@@ -118,7 +118,7 @@ export default function About() {
               data-wow-delay={s.delay}
             >
               <h4 className={pageClasses("title")}>
-                <Link to={`/service-details/${s.slug}`}>{s.title}</Link>
+                <Link to={`/services/${s.slug}`}>{s.title}</Link>
               </h4>
 
               <p>{s.description}</p>

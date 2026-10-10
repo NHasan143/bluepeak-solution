@@ -25,7 +25,7 @@ export default function HomeServicesList() {
       <ul className="home-services-list m-0! flex! list-none! flex-col! gap-3! p-0! min-[576px]:gap-4!">
         {SERVICES.map((service, index) => (
           <li key={service.slug} className="home-service-item relative!">
-            <Link to={`/service-details/${service.slug}`} className={rowStyles} aria-label={`${service.title} - ${service.intro}`}>
+            <Link to={`/services/${service.slug}`} className={rowStyles} aria-label={`${service.title} - ${service.intro}`}>
               <span aria-hidden="true" className="home-service-indicator absolute! inset-y-0! left-0! w-1! origin-center! scale-y-0! rounded! bg-[#D9F45F]! opacity-0! transition-[opacity,transform]! duration-350! ease-[cubic-bezier(0.2,0.8,0.2,1)]! group-hover:scale-y-100! group-hover:opacity-100! group-focus-visible:scale-y-100! group-focus-visible:opacity-100! motion-reduce:transition-none!" />
 
               <div className="home-service-header col-start-1! row-start-1! flex! min-w-0! items-center! gap-3.5! min-[576px]:gap-[22px]!">

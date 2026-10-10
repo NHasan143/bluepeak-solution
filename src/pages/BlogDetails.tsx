@@ -44,14 +44,14 @@ function CommentForm() {
       <div className="flex! flex-wrap! -mx-3!">
         <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
           <div className="mb-[16px]!">
-            <input name="name" className={pageClasses("form-control")} type="text" placeholder="Enter Name" />
+            <input name="name" className={pageClasses("field-input")} type="text" placeholder="Enter Name" />
           </div>
         </div>
         <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
           <div className="mb-[16px]!">
             <input
               name="email"
-              className={pageClasses("form-control required email")}
+              className={pageClasses("field-input required email")}
               type="email"
               placeholder="Enter Email"
               required
@@ -62,13 +62,13 @@ function CommentForm() {
       <div className="mb-[16px]!">
         <textarea
           name="message"
-          className={pageClasses("form-control required")}
+          className={pageClasses("field-input required")}
           rows={5}
           placeholder="Enter Message"
         />
       </div>
       <div className={pageClasses("mb-[16px]! theme-btn-main")}>
-        <input name="botcheck" className={pageClasses("form-control")} type="hidden" value="" />
+        <input name="botcheck" className={pageClasses("field-input")} type="hidden" value="" />
         <button
           type="submit"
           className={pageClasses("theme-btn btn-style-one transform")}
@@ -81,12 +81,12 @@ function CommentForm() {
         </button>
       </div>
       {status.state === "success" && (
-        <div className="alert alert-success" role="alert">
+        <div className={pageClasses("form-notice form-notice-success")} role="alert">
           {status.message}
         </div>
       )}
       {status.state === "error" && (
-        <div className="alert alert-danger" role="alert">
+        <div className={pageClasses("form-notice form-notice-error")} role="alert">
           {status.message}
         </div>
       )}

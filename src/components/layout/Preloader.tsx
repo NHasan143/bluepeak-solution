@@ -37,17 +37,17 @@ export default function Preloader() {
         <p className="text-center">Loading</p>
       </div>
       <div className="loader">
-        <div className="row">
-          <div className="col-3 loader-section section-left">
+        <div className="loader-grid flex flex-wrap -mx-3 [&>*]:shrink-0 [&>*]:max-w-full">
+          <div className="w-1/4 flex-none loader-section section-left">
             <div className="bg" />
           </div>
-          <div className="col-3 loader-section section-left">
+          <div className="w-1/4 flex-none loader-section section-left">
             <div className="bg" />
           </div>
-          <div className="col-3 loader-section section-right">
+          <div className="w-1/4 flex-none loader-section section-right">
             <div className="bg" />
           </div>
-          <div className="col-3 loader-section section-right">
+          <div className="w-1/4 flex-none loader-section section-right">
             <div className="bg" />
           </div>
         </div>
