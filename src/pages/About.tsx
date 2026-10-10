@@ -6,6 +6,7 @@ import Star from "../components/common/Star";
 import AboutSection from "../components/sections/AboutSection";
 import ClientsSection from "../components/sections/ClientsSection";
 import FeatureSection from "../components/sections/FeatureSection";
+import { usePageMetadata } from "../hooks/usePageMetadata";
 
 const SERVICES2 = [
   {
@@ -47,6 +48,11 @@ const SERVICES2 = [
 ];
 
 export default function About() {
+  usePageMetadata(
+    "About Blupeak Solutions | Sales, Marketing & Growth Agency",
+    "Learn about Blupeak Solutions, a sales, marketing and growth agency helping businesses boost revenue with SEO, automation and proven creative strategies.",
+  );
+
   return (
     <>
       {/* Section 1 & Section 2: Hero / Intro Stats Block & Two Column Feature Highlight */}

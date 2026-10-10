@@ -1,4 +1,4 @@
-import InterfaceIcon from "../common/InterfaceIcon";
+import { InstagramIcon, LinkedinIcon, XSocialIcon } from "../common/TeamSocialIcons";
 /** The lime blob shape behind each team member photo (`.shape-style1`). */
 export default function TeamBlob() {
   return (
@@ -22,18 +22,18 @@ export function TeamSocials({ floating = false }: { floating?: boolean }) {
   return (
     <ul className={`flex! items-center! justify-center! w-full! z-[9999]! m-0! p-0! list-none! transition-all! duration-300! ${floating ? "absolute! left-0! bottom-0! opacity-0! -translate-y-2! group-hover/team:-translate-y-7! group-hover/team:opacity-100!" : "static! mt-6! opacity-100! translate-y-0!"}`}>
       <li className="mr-2.5! last:mr-0!">
-        <a href="#" className="inline-block! size-[46px]! rounded-full! bg-[#222222]! text-white! text-xl! leading-[46px]! text-center! transition-all! duration-300! hover:bg-[var(--theme-color1)]!">
-          <InterfaceIcon name="instagram"  />
+        <a href="#" aria-label="Instagram" className="inline-flex! items-center! justify-center! size-[46px]! rounded-full! bg-[#222222]! text-white! transition-all! duration-300! hover:bg-[var(--theme-color1)]! hover:text-black! focus-visible:outline-2! focus-visible:outline-[var(--theme-color1)]! focus-visible:outline-offset-2!">
+          <InstagramIcon size={20} aria-hidden="true" />
         </a>
       </li>
       <li className="mr-2.5! last:mr-0!">
-        <a href="#" className="inline-block! size-[46px]! rounded-full! bg-[#222222]! text-white! text-xl! leading-[46px]! text-center! transition-all! duration-300! hover:bg-[var(--theme-color1)]!">
-          <InterfaceIcon name="x"  />
+        <a href="#" aria-label="X" className="inline-flex! items-center! justify-center! size-[46px]! rounded-full! bg-[#222222]! text-white! transition-all! duration-300! hover:bg-[var(--theme-color1)]! hover:text-black! focus-visible:outline-2! focus-visible:outline-[var(--theme-color1)]! focus-visible:outline-offset-2!">
+          <XSocialIcon size={20} aria-hidden="true" />
         </a>
       </li>
       <li className="mr-2.5! last:mr-0!">
-        <a href="#" className="inline-block! size-[46px]! rounded-full! bg-[#222222]! text-white! text-xl! leading-[46px]! text-center! transition-all! duration-300! hover:bg-[var(--theme-color1)]!">
-          <InterfaceIcon name="linkedin"  />
+        <a href="#" aria-label="LinkedIn" className="inline-flex! items-center! justify-center! size-[46px]! rounded-full! bg-[#222222]! text-white! transition-all! duration-300! hover:bg-[var(--theme-color1)]! hover:text-black! focus-visible:outline-2! focus-visible:outline-[var(--theme-color1)]! focus-visible:outline-offset-2!">
+          <LinkedinIcon size={20} aria-hidden="true" />
         </a>
       </li>
     </ul>

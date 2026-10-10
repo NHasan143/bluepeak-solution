@@ -13,7 +13,7 @@ import TeamDetails from "./pages/TeamDetails";
 import Faq from "./pages/Faq";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
-// import Contact from "./pages/Contact";
+import Contact from "./pages/Contact";
 // import Shop from "./pages/Shop";
 // import ShopSidebar from "./pages/ShopSidebar";
 // import ProductDetails from "./pages/ProductDetails";
@@ -39,7 +39,7 @@ export default function App() {
         <Route path="faq" element={<Faq />} />
         <Route path="blog" element={<Blog />} />
         <Route path="blog-details" element={<BlogDetails />} />
-        {/* <Route path="contact" element={<Contact />} /> */}
+        <Route path="contact" element={<Contact />} />
         {/* <Route path="shop" element={<Shop />} /> */}
         {/* <Route path="shop-sidebar" element={<ShopSidebar />} /> */}
         {/* <Route path="product-details" element={<ProductDetails />} /> */}

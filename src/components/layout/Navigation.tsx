@@ -1,6 +1,6 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import {
-  ArrowRight, ArrowUpRight, ChartNoAxesCombined, ChevronDown,
+  ArrowUpRight, ChartNoAxesCombined, ChevronDown,
   CodeXml, Palette, Search, Workflow, type LucideIcon,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -126,30 +126,37 @@ export default function Navigation({ mobile = false, sticky = false }: { mobile?
     const serviceLinks = SERVICES.map((service) => {
       const active = pathname === `/services/${service.slug}`;
       const Icon = SERVICE_ICONS[service.slug] ?? Workflow;
+      const content = () => (
+        <>
+          <span className="relative! z-10! inline-flex! shrink-0!">
+            {!mobile && <span aria-hidden="true" className="service-icon-backdrop absolute! -inset-2! -z-10! rounded-[13px]! bg-[var(--theme-color1)]! opacity-0! group-hover/service:opacity-100! group-focus-visible/service:opacity-100! transition-[opacity,scale]! duration-[400ms]! ease-[cubic-bezier(0.22,0.61,0.36,1)]! motion-safe:scale-90! motion-safe:group-hover/service:scale-100! motion-safe:group-focus-visible/service:scale-100! motion-reduce:transition-none!" />}
+            <Icon className={`service-card-icon shrink-0! text-[var(--theme-color1)]! transition-colors! duration-[400ms]! motion-reduce:transition-none! ${mobile ? "w-5! h-5! mt-0.5!" : "group-hover/service:text-[#17200c]! group-focus-visible/service:text-[#17200c]!"}`} size={28} strokeWidth={1.6} aria-hidden="true" />
+          </span>
+          <span className={`flex! flex-col! min-w-0! flex-1! ${mobile ? "gap-[5px]!" : "gap-2.5!"}`}>
+            <span className={`font-semibold! tracking-[-0.02em]! ${mobile ? "text-sm!" : "text-base!"}`}>{service.title}</span>
+            <span className={`text-[#bdc6b3]! font-normal! leading-[1.55]! transition-colors! duration-200! group-hover/service:text-[#e0e6d8]! group-focus-visible/service:text-[#e0e6d8]! motion-reduce:transition-none! ${mobile ? "text-xs!" : "text-[13px]!"}`}>{SERVICE_SUMMARIES[service.slug] ?? service.intro}</span>
+          </span>
+          {!mobile && (
+            <span aria-hidden="true" className="service-arrow-window absolute! right-4! bottom-4! grid! size-8! place-items-center! overflow-hidden! rounded-full! ring-1! ring-inset! ring-white/10! text-[var(--theme-color1)]! transition-colors! duration-[400ms]! group-hover/service:bg-white/[0.07]! group-focus-visible/service:bg-white/[0.07]! motion-reduce:transition-none!">
+              <ArrowUpRight size={16} className="absolute! transition-[translate,opacity]! duration-300! ease-out! motion-safe:group-hover/service:translate-x-4! motion-safe:group-hover/service:-translate-y-4! motion-safe:group-hover/service:opacity-0! motion-safe:group-focus-visible/service:translate-x-4! motion-safe:group-focus-visible/service:-translate-y-4! motion-safe:group-focus-visible/service:opacity-0! motion-reduce:transition-none!" />
+              <ArrowUpRight size={16} className="absolute! opacity-0! motion-safe:-translate-x-4! motion-safe:translate-y-4! transition-[translate,opacity]! duration-300! ease-out! motion-safe:group-hover/service:translate-none! motion-safe:group-hover/service:opacity-100! motion-safe:group-focus-visible/service:translate-none! motion-safe:group-focus-visible/service:opacity-100! motion-reduce:transition-none!" />
+            </span>
+          )}
+        </>
+      );
       return (
         <li key={service.slug} className="flex! m-0! p-0!">
           <Link
             to={`/services/${service.slug}`}
-            className={`services-menu-link group/service relative! w-full! rounded-[10px]! text-left! normal-case! no-underline! leading-[1.45]! text-[#f5f7f0]! transition-colors! duration-[180ms]! hover:bg-[#293022]! hover:text-[var(--theme-color1)]! focus-visible:bg-[#293022]! aria-[current=page]:bg-[#293022] aria-[current=page]:text-[var(--theme-color1)]! ${focus} ${mobile ? "flex! items-start! justify-between! gap-2.5! px-3! py-[14px]!" : "grid! grid-cols-[28px_minmax(0,1fr)]! items-start! gap-4! min-h-[148px]! p-5!"}`}
+            className={`services-menu-link group/service relative! isolate! w-full! rounded-[10px]! text-left! normal-case! no-underline! leading-[1.45]! text-[#f5f7f0]! transition-colors! duration-[400ms]! aria-[current=page]:bg-[#293022] aria-[current=page]:text-[var(--theme-color1)]! ${focus} ${mobile ? "flex! items-start! justify-between! gap-2.5! px-3! py-[14px]! transition-colors! duration-200! hover:bg-[#293022]! focus-visible:bg-[#293022]!" : "grid! grid-cols-[28px_minmax(0,1fr)]! items-start! gap-4! min-h-[148px]! p-5!"}`}
             aria-current={active ? "page" : undefined}
             onClick={() => setServicesOpen(false)}
           >
-            <Icon className={`shrink-0! text-[var(--theme-color1)]! ${mobile ? "w-5! h-5! mt-0.5!" : ""}`} size={28} strokeWidth={1.6} aria-hidden="true" />
-            <span className={`flex! flex-col! min-w-0! flex-1! ${mobile ? "gap-[5px]!" : "gap-2.5!"}`}>
-              <span className={`font-semibold! tracking-[-0.02em]! ${mobile ? "text-sm!" : "text-base!"}`}>{service.title}</span>
-              <span className={`text-[#bdc6b3]! font-normal! leading-[1.55]! ${mobile ? "text-xs!" : "text-[13px]!"}`}>{SERVICE_SUMMARIES[service.slug] ?? service.intro}</span>
-            </span>
-            <ArrowUpRight className={`shrink-0! transition-[transform,color]! duration-[180ms]! group-hover/service:translate-x-[3px]! group-focus-visible/service:translate-x-[3px]! group-aria-[current=page]/service:translate-x-[3px] text-[var(--theme-color1)]! ${mobile ? "hidden!" : "absolute! right-4! bottom-4!"}`} size={16} aria-hidden="true" />
+            {content()}
           </Link>
         </li>
       );
     });
-    const catalogLink = (
-      <Link to="/services" className={`flex! items-center! justify-between! gap-4! min-h-[52px]! px-5! py-[15px]! rounded-[10px]! bg-[var(--theme-color1)]! text-[var(--body-bg)]! text-sm! leading-[1.5]! font-bold! normal-case! no-underline! transition-colors! duration-[180ms]! hover:bg-[#e7fa98]! ${focus} focus-visible:outline-[var(--body-bg)]! focus-visible:outline-offset-[-5px]!`} onClick={() => setServicesOpen(false)}>
-        <span>View all services</span>
-        <ArrowRight size={18} aria-hidden="true" />
-      </Link>
-    );
 
     return (
       <li
@@ -187,7 +194,6 @@ export default function Navigation({ mobile = false, sticky = false }: { mobile?
             </button>
             <ul id={servicesId} className="p-2! m-0! list-none! bg-[#1a1d17]! [&[hidden]]:hidden!" hidden={!servicesOpen}>
               {serviceLinks}
-              <li className="mt-2! mx-1! mb-1!">{catalogLink}</li>
             </ul>
           </>
         ) : (
@@ -211,21 +217,20 @@ export default function Navigation({ mobile = false, sticky = false }: { mobile?
               <ChevronDown size={14} className={`transition-transform! duration-[180ms]! ${servicesOpen ? "rotate-180!" : ""}`} aria-hidden="true" />
             </button>
             <div id={servicesId} className={`services-dropdown-panel absolute! top-[calc(100%+12px)]! left-[calc(50%+var(--services-panel-shift,0px))]! w-[1080px]! max-w-[calc(100vw-64px)]! max-h-[calc(100dvh-140px)]! overflow-auto! overscroll-contain! [scrollbar-width:thin] [scrollbar-color:#748164_#1a1d17] p-3! rounded-2xl! bg-[#1a1d17]! shadow-[0_18px_48px_rgba(0,0,0,0.4)]! z-[100]! -translate-x-1/2! transition-[opacity,translate,visibility]! duration-[180ms]! ease-[cubic-bezier(0.16,1,0.3,1)]! motion-reduce:transition-none! ${servicesOpen ? "opacity-100! visible! pointer-events-auto! translate-y-0!" : "opacity-0! invisible! pointer-events-none! -translate-y-1.5!"}`} inert={!servicesOpen}>
-              <div className="flex! items-center! justify-between! gap-6! px-5! pt-4! pb-6!">
-                <span className="text-[#f5f7f0]! text-[22px]! font-semibold! tracking-[-0.03em]! leading-[1.4]!">Explore our services</span>
-                <Link to="/services" className={`inline-flex! items-center! gap-2! min-h-11! text-[var(--theme-color1)]! text-[13px]! font-semibold! no-underline! hover:underline! underline-offset-[5px]! ${focus}`} onClick={() => setServicesOpen(false)}>
-                  <span>View all services</span>
-                  <ArrowUpRight size={18} aria-hidden="true" />
-                </Link>
-              </div>
               <ul className="grid! grid-cols-3! gap-2! list-none! m-0! p-2!" aria-label="Services">
                 {serviceLinks}
                 <li className="flex! m-0! p-0!">
-                  <Link to="/contact" className={`flex! flex-col! justify-between! gap-5! w-full! p-6! rounded-[10px]! bg-[var(--theme-color1)]! text-[var(--body-bg)]! transition-colors! duration-[180ms]! hover:bg-[#e7fa98]! ${focus} focus-visible:outline-[var(--body-bg)]! focus-visible:outline-offset-[-5px]!`} onClick={() => setServicesOpen(false)}>
-                    <span className="text-2xl! font-semibold! leading-[1.25]! tracking-[-0.03em]!">Let’s talk growth.</span>
-                    <span className="flex! items-center! justify-between! gap-4! text-[13px]! font-semibold! leading-[1.5]!">
+                  <Link to="/contact" className={`services-consultation-link group/consultation flex! flex-col! justify-between! gap-4! w-full! min-h-[148px]! p-5! rounded-[10px]! border! border-[#D9F45F]/30! bg-[#12160f]! text-[#f5f7f0]! transition-colors! duration-300! hover:border-[#D9F45F]! focus-visible:border-[#D9F45F]! ${focus}`} onClick={() => setServicesOpen(false)}>
+                    <span className="flex! items-start! justify-between! gap-4!">
+                      <span className="text-[26px]! font-medium! leading-[1.1]! tracking-[-0.03em]!">
+                        Let’s talk{" "}<span className="block! font-[family-name:var(--style-font)]! text-[34px]! font-normal! italic! text-[var(--theme-color1)]!">growth.</span>
+                      </span>
+                      <span aria-hidden="true" className="grid! size-11! shrink-0! place-items-center! overflow-hidden! rounded-full! bg-[var(--theme-color1)]! text-[#12160f]!">
+                        <ArrowUpRight size={22} strokeWidth={1.6} className="transition-[translate]! duration-300! ease-out! motion-safe:group-hover/consultation:translate-x-0.5! motion-safe:group-hover/consultation:-translate-y-0.5! motion-safe:group-focus-visible/consultation:translate-x-0.5! motion-safe:group-focus-visible/consultation:-translate-y-0.5! motion-reduce:translate-none! motion-reduce:transition-none!" />
+                      </span>
+                    </span>
+                    <span className="text-[13px]! font-medium! leading-[1.5]! text-[#bdc6b3]! transition-colors! duration-300! group-hover/consultation:text-[#f5f7f0]! group-focus-visible/consultation:text-[#f5f7f0]! motion-reduce:transition-none!">
                       Book a growth consultation
-                      <ArrowRight size={20} aria-hidden="true" />
                     </span>
                   </Link>
                 </li>
