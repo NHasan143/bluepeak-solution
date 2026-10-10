@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import InterfaceIcon from "../components/common/InterfaceIcon";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -27,7 +28,7 @@ function ReviewForm() {
       <div className="mb-[16px]!">
         <textarea
           name="message"
-          className="form-control required"
+          className={pageClasses("form-control required")}
           rows={7}
           placeholder="Enter Message"
         />
@@ -35,14 +36,14 @@ function ReviewForm() {
       <div className="flex! flex-wrap! -mx-3!">
         <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
           <div className="mb-[16px]!">
-            <input name="name" className="form-control" type="text" placeholder="Enter Name" />
+            <input name="name" className={pageClasses("form-control")} type="text" placeholder="Enter Name" />
           </div>
         </div>
         <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
           <div className="mb-[16px]!">
             <input
               name="email"
-              className="form-control required email"
+              className={pageClasses("form-control required email")}
               type="email"
               placeholder="Enter Email"
               required
@@ -76,10 +77,10 @@ function ReviewForm() {
         </div>
       </div>
       <div className="mb-[16px]!">
-        <input name="botcheck" className="form-control" type="hidden" value="" />
+        <input name="botcheck" className={pageClasses("form-control")} type="hidden" value="" />
         <button
           type="submit"
-          className="theme-btn btn-style-one"
+          className={pageClasses("theme-btn btn-style-one")}
           data-loading-text="Please wait..."
           disabled={status.state === "submitting"}
         >
@@ -110,12 +111,12 @@ export default function ProductDetails() {
     <>
       <PageTitle title="Product Deatils" crumb="Shop" />
 
-      <section className="product-details pt-[120px]!">
+      <section className={pageClasses("product-details pt-[120px]!")}>
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]! pb-[70px]!">
           <div className="flex! flex-wrap! -mx-3!">
             <div className="shrink-0! px-3! [.gutter-row>&]:mt-6! w-full! product-info">
               <div className="product-details__top">
-                <h3 className="product-details__title">
+                <h3 className={pageClasses("product-details__title")}>
                   Backpack <span>$76.00</span>
                 </h3>
               </div>
@@ -137,7 +138,7 @@ export default function ProductDetails() {
                 </p>
               </div>
 
-              <div className="product-details__quantity">
+              <div className={pageClasses("product-details__quantity")}>
                 <h3 className="product-details__quantity-title">Choose quantity</h3>
                 <div className="quantity-box">
                   <button
@@ -162,20 +163,20 @@ export default function ProductDetails() {
                 </div>
               </div>
 
-              <div className="product-details__buttons">
+              <div className={pageClasses("product-details__buttons")}>
                 <div className="product-details__buttons-1">
-                  <Link to="/checkout" className="theme-btn btn-style-one">
+                  <Link to="/checkout" className={pageClasses("theme-btn btn-style-one")}>
                     <span className="btn-title">Add to Cart</span>
                   </Link>
                 </div>
-                <div className="product-details__buttons-2">
-                  <Link to="/product-details" className="theme-btn btn-style-one">
+                <div className={pageClasses("product-details__buttons-2")}>
+                  <Link to="/product-details" className={pageClasses("theme-btn btn-style-one")}>
                     <span className="btn-title">Add to Wishlist</span>
                   </Link>
                 </div>
               </div>
               <div className="product-details__social">
-                <div className="title mt-[10px]!">
+                <div className={pageClasses("title mt-[10px]!")}>
                   <h3>Share with friends</h3>
                 </div>
                 <ul className="social-icon-one product-share">
@@ -208,8 +209,8 @@ export default function ProductDetails() {
 
       <section className="product-description">
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]! pt-[0px]! pb-[90px]!">
-          <div className="product-discription">
-            <div className="tabs-box">
+          <div className={pageClasses("product-discription")}>
+            <div className={pageClasses("tabs-box")}>
               <div className="tab-btn-box text-center!">
                 <ul className="tab-btns tab-buttons clearfix">
                   <li
@@ -310,7 +311,7 @@ export default function ProductDetails() {
         </div>
       </section>
 
-      <section className="related-product">
+      <section className={pageClasses("related-product")}>
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]! pt-[0px]! pb-[90px]!">
           <h3>Related Products</h3>
           <div className="flex! flex-wrap! -mx-3! clearfix">
@@ -320,7 +321,7 @@ export default function ProductDetails() {
                   {RELATED.map((p, i) => (
                     <div
                       key={i}
-                      className={`product-block all mix ${p.tags} w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-full!`}
+                      className={pageClasses(`product-block all mix ${p.tags} w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[768px]:w-6/12! w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-full!`)}
                     >
                       <div className="inner-box">
                         <div className="content">

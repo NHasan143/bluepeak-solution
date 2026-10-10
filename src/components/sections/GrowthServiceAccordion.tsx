@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import InterfaceIcon from "../common/InterfaceIcon";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "../../lib/gsap";
@@ -38,23 +39,23 @@ export default function GrowthServiceAccordion() {
   }, [openIndex]);
 
   return (
-    <div className="growth-services" aria-label="Growth services">
+    <div className={pageClasses("growth-services")} aria-label="Growth services">
       {SERVICES.map((service, index) => {
         const isOpen = openIndex === index;
         const contentId = `growth-service-content-${index}`;
 
         return (
-          <article className={`growth-service${isOpen ? " is-open" : ""}`} key={service.title}>
+          <article className={pageClasses(`growth-service${isOpen ? " is-open" : ""}`)} key={service.title}>
             <button
               type="button"
-              className="growth-service-toggle"
+              className={pageClasses("growth-service-toggle")}
               aria-expanded={isOpen}
               aria-controls={contentId}
               onClick={() => setOpenIndex(isOpen ? null : index)}
             >
-              <span className="growth-service-number">0{index + 1}.</span>
-              <span className="growth-service-title">{service.title}</span>
-              <span className="growth-service-arrow" aria-hidden="true">
+              <span className={pageClasses("growth-service-number")}>0{index + 1}.</span>
+              <span className={pageClasses("growth-service-title")}>{service.title}</span>
+              <span className={pageClasses("growth-service-arrow")} aria-hidden="true">
                 <InterfaceIcon name="arrow-right"  />
               </span>
             </button>
@@ -63,12 +64,12 @@ export default function GrowthServiceAccordion() {
               ref={(element) => {
                 contentRefs.current[index] = element;
               }}
-              className="growth-service-content"
+              className={pageClasses("growth-service-content")}
               aria-hidden={!isOpen}
             >
-              <div className="growth-service-content-inner">
+              <div className={pageClasses("growth-service-content-inner")}>
                 <p>{service.intro}</p>
-                <div className="growth-service-columns">
+                <div className={pageClasses("growth-service-columns")}>
                   <div>
                     <h3>What's included</h3>
                     <ul>
@@ -77,7 +78,7 @@ export default function GrowthServiceAccordion() {
                       ))}
                     </ul>
                   </div>
-                  <div className="growth-service-outcome">
+                  <div className={pageClasses("growth-service-outcome")}>
                     <h3>What you get</h3>
                     <p>{service.outcome}</p>
                   </div>

@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import InterfaceIcon from "../components/common/InterfaceIcon";
 import { Link } from "react-router-dom";
 import PageTitle from "../components/common/PageTitle";
@@ -22,7 +23,7 @@ export default function Pricing() {
     <>
       <PageTitle title="Pricing" crumb="Pricing" />
 
-      <section className="pricing-section section-padding fix">
+      <section className={pageClasses("pricing-section section-padding fix")}>
         <div className="pricing-1ellipse hidden! min-[1400px]:block!">
           <img src="/images/icons/pricing2-1ellipse.png" alt="" />
         </div>
@@ -30,7 +31,7 @@ export default function Pricing() {
           <div className="flex! flex-wrap! -mx-3!">
             {PLANS.map((plan, i) => (
               <div key={i} className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-6/12! min-[768px]:w-6/12! ks_fade_anim" data-delay=".3">
-                <div className={`pricing-block${plan.recommended ? " style-2 active" : ""}`}>
+                <div className={pageClasses(`pricing-block${plan.recommended ? " style-2 active" : ""}`)}>
                   {plan.recommended && <div className="recommend">Recommended</div>}
                   <div className="price">
                     <sup>$</sup>
@@ -45,7 +46,7 @@ export default function Pricing() {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/pricing" rel="nofollow" className="theme-btn-two large-btn">
+                  <Link to="/pricing" rel="nofollow" className={pageClasses("theme-btn-two large-btn")}>
                     <span>
                       <span className="text-1"> Get Started</span>
                       <span className="text-2"> Get Started</span>
@@ -57,7 +58,7 @@ export default function Pricing() {
           </div>
           <div className="inner">
             <div className="text-center!">
-              <div className="get-in-touch justify-center!">
+              <div className={pageClasses("get-in-touch justify-center!")}>
                 Ready to Take the Next Step? Let’s Create Something Amazing Together.
                 <Link to="/contact">Get in Touch</Link>
               </div>

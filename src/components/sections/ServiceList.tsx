@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { SERVICES } from "../../lib/services";
@@ -21,12 +22,12 @@ export default function ServiceList({
       {items.map((s, i) => (
         <div
           key={i}
-          className={`service-items${i === 0 ? " active" : ""} wow fadeInUp`}
+          className={pageClasses(`service-items${i === 0 ? " active" : ""} wow fadeInUp`)}
           data-wow-delay={s.delay}
         >
           <div className="content">
             <span>0{i + 1}.</span>
-            <h4 className="title">
+            <h4 className={pageClasses("title")}>
               <Link to={`/service-details/${s.slug ?? "b2b-outbound-sales"}`}>{s.title}</Link>
             </h4>
           </div>

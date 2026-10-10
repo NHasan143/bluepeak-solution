@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import { useEffect, useState } from "react";
 
 const LETTERS = ["B", "L", "U", "E", "P", "E", "A", "K"];
@@ -21,8 +22,7 @@ export default function Preloader() {
   return (
     <div
       id="preloader"
-      className={`preloader${loaded ? " loaded" : ""}`}
-      style={loaded ? { transition: "opacity .6s", opacity: 0 } : undefined}
+      className={pageClasses(`preloader${loaded ? " loaded transition-opacity! duration-[600ms]! opacity-0!" : ""}`)}
     >
       <div className="animation-preloader">
         <div className="spinner" />

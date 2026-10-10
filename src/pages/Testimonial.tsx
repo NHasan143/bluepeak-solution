@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import InterfaceIcon from "../components/common/InterfaceIcon";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
@@ -18,14 +19,14 @@ export default function Testimonial() {
     <>
       <PageTitle title="Testimonial" crumb="Testimonial" />
 
-      <section className="testimonial-wrapper testimonial-one section-padding pb-[10px]!">
+      <section className={pageClasses("testimonial-wrapper testimonial-one section-padding pb-[10px]!")}>
         <div className="bg-shape hidden! min-[1400px]:block!">
           <img src="/images/icons/testi-bg.png" alt="" />
         </div>
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="flex! flex-wrap! -mx-3!">
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-3/12! min-[992px]:w-4/12! min-[768px]:w-full!">
-              <div className="testimonial-one__clints-box mt-[0px]! mb-[24px]! min-[992px]:mb-[0px]!">
+              <div className={pageClasses("testimonial-one__clints-box mt-[0px]! mb-[24px]! min-[992px]:mb-[0px]!")}>
                 <div className="image">
                   <img className="shape-1" src="/images/icons/testi2-shape1.png" alt="" />
                 </div>
@@ -46,7 +47,7 @@ export default function Testimonial() {
               </div>
             </div>
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-9/12! min-[992px]:w-8/12! min-[768px]:w-full!">
-              <div className="testimonial-one__slider-box mt-[0px]!">
+              <div className={pageClasses("testimonial-one__slider-box mt-[0px]!")}>
                 <div className="testi-shape">
                   <img src="/images/icons/testi2-shape2.png" alt="" />
                 </div>
@@ -61,7 +62,7 @@ export default function Testimonial() {
                 >
                   {SLIDES.map((s, i) => (
                     <SwiperSlide key={i}>
-                      <div className="testimonial-one__single-card">
+                      <div className={pageClasses("testimonial-one__single-card")}>
                         <div className="quata">
                           <img src="/images/icons/quote-icon2.png" alt="" />
                         </div>
@@ -74,7 +75,7 @@ export default function Testimonial() {
                     </SwiperSlide>
                   ))}
                 </Swiper>
-                <div className="array-button">
+                <div className={pageClasses("array-button")}>
                   <button className="array-prev">
                     <InterfaceIcon name="arrow-left"  />
                   </button>

@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import { useWeb3Forms } from "../../lib/web3forms";
 
 export default function HomeContactForm() {
@@ -14,8 +15,8 @@ export default function HomeContactForm() {
       <input
         type="checkbox"
         name="botcheck"
-        className="hidden"
-        style={{ display: "none" }}
+        className="hidden!"
+
         tabIndex={-1}
         autoComplete="off"
       />
@@ -43,7 +44,7 @@ export default function HomeContactForm() {
         <div className="form-group w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-full!">
           <button
             type="submit"
-            className="theme-btn btn-style-four"
+            className={pageClasses("theme-btn btn-style-four")}
             name="submit-form"
             disabled={status.state === "submitting"}
           >

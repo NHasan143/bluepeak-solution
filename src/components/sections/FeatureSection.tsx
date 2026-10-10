@@ -1,3 +1,4 @@
+import { pageClasses } from "../../styles/pageUtilities";
 import InterfaceIcon from "../common/InterfaceIcon";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -201,7 +202,7 @@ export default function FeatureSection({
           )}
         </div>
         <div className="relative! z-[99]! max-w-[180px]! mx-auto! mt-0! mb-[-180px]! min-[1500px]:-mt-[60px]! text-center!">
-          <Link to={ctaLink} className="group/circle relative! flex! items-center! justify-center! size-[180px]! min-w-[180px]! rounded-full! bg-[#1B1919]! text-[#d9d9d9]! text-base! font-semibold! text-center! mt-[50px]! before:absolute! before:left-1/2! before:top-1/2! before:size-2.5! before:rounded-full! before:bg-[rgba(217,244,95,0.35)]! before:-translate-x-1/2! before:-translate-y-1/2! before:opacity-0! before:transition-all! before:duration-500! hover:before:w-full! hover:before:h-full! hover:before:opacity-100! after:absolute! after:left-1/2! after:top-1/2! after:size-[50px]! after:rounded-full! after:bg-[var(--theme-color1)]! after:-translate-x-1/2! after:-translate-y-1/2! after:opacity-0! after:transition-all! after:duration-[1800ms]! hover:after:w-full! hover:after:h-full! hover:after:opacity-100! wow fadeInUp" data-wow-delay=".5s">
+          <Link to={ctaLink} className={pageClasses("group/circle relative! flex! items-center! justify-center! size-[180px]! min-w-[180px]! rounded-full! bg-[#1B1919]! text-[#d9d9d9]! text-base! font-semibold! text-center! mt-[50px]! before:absolute! before:left-1/2! before:top-1/2! before:size-2.5! before:rounded-full! before:bg-[rgba(217,244,95,0.35)]! before:-translate-x-1/2! before:-translate-y-1/2! before:opacity-0! before:transition-all! before:duration-500! hover:before:w-full! hover:before:h-full! hover:before:opacity-100! after:absolute! after:left-1/2! after:top-1/2! after:size-[50px]! after:rounded-full! after:bg-[var(--theme-color1)]! after:-translate-x-1/2! after:-translate-y-1/2! after:opacity-0! after:transition-all! after:duration-[1800ms]! hover:after:w-full! hover:after:h-full! hover:after:opacity-100! wow fadeInUp")} data-wow-delay=".5s">
             <span className="relative! z-[9]! group-hover/circle:text-[var(--headings-color)]!">
               <InterfaceIcon name="arrow-right" className="block! text-[22px]! -rotate-45!" /> {ctaText === "More Features" ? (
                 <>

@@ -1,3 +1,4 @@
+import { pageClasses } from "../styles/pageUtilities";
 import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/layout/Footer";
@@ -84,25 +85,25 @@ export default function About() {
       </ClientsSection>
 
       {/* Section 5: "Our Services" / Services Grid */}
-      <section className="service-section-2 fix section-bg section-padding pb-[70px]!">
+      <section className={pageClasses("service-section-2 fix section-bg section-padding pb-[70px]!")}>
         <div className="service-ellipse">
           <img src="/images/icons/service2-1ellipse.png" alt="img" />
         </div>
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! items-end!">
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-7/12!">
-              <div className="section-title mb-[0px]!">
+              <div className={pageClasses("section-title mb-[0px]!")}>
                 <div className="sub-title text-left!">
                   <Star variant="lime" color="#BAFF39" />
                   <span>Our Services</span>
                 </div>
-                <h2 className="title text-anim">
+                <h2 className={pageClasses("title text-anim")}>
                   Revenue Architecture, <span className="min-[1200px]:block!">Built In House</span>
                 </h2>
               </div>
             </div>
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-5/12!">
-              <p className="service-text wow fadeInUp" data-wow-delay=".3s">
+              <p className={pageClasses("service-text wow fadeInUp")} data-wow-delay=".3s">
                 From first outreach to closed deal to the tech and content that keep the pipeline full,
                 Blupeak runs your growth engine as one internal team, not a patchwork of vendors.
               </p>
@@ -113,10 +114,10 @@ export default function About() {
           {SERVICES2.map((s, i) => (
             <div
               key={i}
-              className={`service-list-style1${s.active ? " active" : ""} wow fadeInUp`}
+              className={pageClasses(`service-list-style1${s.active ? " active" : ""} wow fadeInUp`)}
               data-wow-delay={s.delay}
             >
-              <h4 className="title">
+              <h4 className={pageClasses("title")}>
                 <Link to={`/service-details/${s.slug}`}>{s.title}</Link>
               </h4>
 
