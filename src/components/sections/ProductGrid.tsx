@@ -49,8 +49,8 @@ export default function ProductGrid({
 
   return (
     <div className="mixitup-gallery">
-      <div className="filters clearfix">
-        <ul className="filter-tabs filter-btns clearfix">
+      <div className={pageClasses("filters float-clear")}>
+        <ul className={pageClasses("filter-tabs filter-btns float-clear")}>
           {SHOP_FILTERS.map((f) => (
             <li
               key={f.key}

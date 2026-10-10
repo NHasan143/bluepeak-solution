@@ -28,10 +28,10 @@ export default function ServiceList({
           <div className="content">
             <span>0{i + 1}.</span>
             <h4 className={pageClasses("title")}>
-              <Link to={`/service-details/${s.slug ?? "b2b-outbound-sales"}`}>{s.title}</Link>
+              <Link to={`/services/${s.slug ?? "b2b-outbound-sales"}`}>{s.title}</Link>
             </h4>
           </div>
-          <Link to={`/service-details/${s.slug ?? "b2b-outbound-sales"}`} className="icon">
+          <Link to={`/services/${s.slug ?? "b2b-outbound-sales"}`} className="icon">
             <ArrowUpRight size={32} aria-hidden="true" />
           </Link>
         </div>

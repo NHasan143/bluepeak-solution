@@ -28,7 +28,7 @@ function ReviewForm() {
       <div className="mb-[16px]!">
         <textarea
           name="message"
-          className={pageClasses("form-control required")}
+          className={pageClasses("field-input required")}
           rows={7}
           placeholder="Enter Message"
         />
@@ -36,14 +36,14 @@ function ReviewForm() {
       <div className="flex! flex-wrap! -mx-3!">
         <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
           <div className="mb-[16px]!">
-            <input name="name" className={pageClasses("form-control")} type="text" placeholder="Enter Name" />
+            <input name="name" className={pageClasses("field-input")} type="text" placeholder="Enter Name" />
           </div>
         </div>
         <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[576px]:w-6/12!">
           <div className="mb-[16px]!">
             <input
               name="email"
-              className={pageClasses("form-control required email")}
+              className={pageClasses("field-input required email")}
               type="email"
               placeholder="Enter Email"
               required
@@ -52,9 +52,9 @@ function ReviewForm() {
         </div>
       </div>
       <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-full! min-[768px]:w-full! min-[576px]:w-full! column">
-        <div className="review-box clearfix">
+        <div className={pageClasses("review-box float-clear")}>
           <p>Your Review</p>
-          <ul className="rating clearfix">
+          <ul className={pageClasses("rating float-clear")}>
             {Array.from({ length: 5 }).map((_, i) => (
               <li key={i}>
                 <InterfaceIcon name="star-outline"  />
@@ -64,7 +64,7 @@ function ReviewForm() {
         </div>
       </div>
       <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-full! min-[768px]:w-full! min-[576px]:w-full! column">
-        <div className="form-group clearfix">
+        <div className={pageClasses("form-group float-clear")}>
           <div className="custom-controls-stacked">
             <label className="custom-control material-checkbox">
               <input type="checkbox" className="material-control-input" />
@@ -77,7 +77,7 @@ function ReviewForm() {
         </div>
       </div>
       <div className="mb-[16px]!">
-        <input name="botcheck" className={pageClasses("form-control")} type="hidden" value="" />
+        <input name="botcheck" className={pageClasses("field-input")} type="hidden" value="" />
         <button
           type="submit"
           className={pageClasses("theme-btn btn-style-one")}
@@ -90,12 +90,12 @@ function ReviewForm() {
         </button>
       </div>
       {status.state === "success" && (
-        <div className="alert alert-success" role="alert">
+        <div className={pageClasses("form-notice form-notice-success")} role="alert">
           {status.message}
         </div>
       )}
       {status.state === "error" && (
-        <div className="alert alert-danger" role="alert">
+        <div className={pageClasses("form-notice form-notice-error")} role="alert">
           {status.message}
         </div>
       )}
@@ -212,7 +212,7 @@ export default function ProductDetails() {
           <div className={pageClasses("product-discription")}>
             <div className={pageClasses("tabs-box")}>
               <div className="tab-btn-box text-center!">
-                <ul className="tab-btns tab-buttons clearfix">
+                <ul className={pageClasses("tab-btns tab-buttons float-clear")}>
                   <li
                     className={`tab-btn${tab === "desc" ? " active-btn" : ""}`}
                     onClick={() => setTab("desc")}
@@ -270,7 +270,7 @@ export default function ProductDetails() {
                 </div>
                 <div className={`tab${tab === "reviews" ? " active-tab" : ""}`} id="tab-2">
                   <div className="customer-comment">
-                    <div className="flex! flex-wrap! -mx-3! clearfix">
+                    <div className={pageClasses("flex! flex-wrap! -mx-3! float-clear")}>
                       {[
                         { name: "Jon D. William", date: "10 Jan, 2023 . 4:00 pm" },
                         { name: "Aleesha Brown", date: "12 Feb, 2023 . 8:00 pm" },
@@ -279,7 +279,7 @@ export default function ProductDetails() {
                           <div className="single-comment-box">
                             <div className="inner-box">
                               <div className="inner">
-                                <ul className="rating clearfix">
+                                <ul className={pageClasses("rating float-clear")}>
                                   {Array.from({ length: 5 }).map((_, j) => (
                                     <li key={j}>
                                       <InterfaceIcon name="star"  />
@@ -314,7 +314,7 @@ export default function ProductDetails() {
       <section className={pageClasses("related-product")}>
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]! pt-[0px]! pb-[90px]!">
           <h3>Related Products</h3>
-          <div className="flex! flex-wrap! -mx-3! clearfix">
+          <div className={pageClasses("flex! flex-wrap! -mx-3! float-clear")}>
             <div className="flex-1! px-3!">
               <div className="mixitup-gallery">
                 <div className="filter-list flex! flex-wrap! -mx-3!">

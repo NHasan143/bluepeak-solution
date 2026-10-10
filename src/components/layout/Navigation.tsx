@@ -101,7 +101,7 @@ export default function Navigation({ mobile = false, sticky = false }: { mobile?
 
   const isCurrent = (n: Leaf | Node): boolean => {
     if ("isServicesMenu" in n && n.isServicesMenu) {
-      return pathname === "/services" || pathname.startsWith("/service-details");
+      return pathname === "/services" || pathname.startsWith("/services/");
     }
     if ("to" in n && n.to) {
       if (n.to === "/") return pathname === "/";
@@ -124,12 +124,12 @@ export default function Navigation({ mobile = false, sticky = false }: { mobile?
   const renderServicesDropdown = (key: string) => {
     const isServicesActive = isCurrent({ label: "Services", isServicesMenu: true });
     const serviceLinks = SERVICES.map((service) => {
-      const active = pathname === `/service-details/${service.slug}`;
+      const active = pathname === `/services/${service.slug}`;
       const Icon = SERVICE_ICONS[service.slug] ?? Workflow;
       return (
         <li key={service.slug} className="flex! m-0! p-0!">
           <Link
-            to={`/service-details/${service.slug}`}
+            to={`/services/${service.slug}`}
             className={`services-menu-link group/service relative! w-full! rounded-[10px]! text-left! normal-case! no-underline! leading-[1.45]! text-[#f5f7f0]! transition-colors! duration-[180ms]! hover:bg-[#293022]! hover:text-[var(--theme-color1)]! focus-visible:bg-[#293022]! aria-[current=page]:bg-[#293022] aria-[current=page]:text-[var(--theme-color1)]! ${focus} ${mobile ? "flex! items-start! justify-between! gap-2.5! px-3! py-[14px]!" : "grid! grid-cols-[28px_minmax(0,1fr)]! items-start! gap-4! min-h-[148px]! p-5!"}`}
             aria-current={active ? "page" : undefined}
             onClick={() => setServicesOpen(false)}

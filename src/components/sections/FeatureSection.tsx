@@ -85,7 +85,7 @@ function Card({ card, isStatic = false }: { card: FeatureCardItem; isStatic?: bo
       <div className={`mt-[35px]! ${isStatic ? "flex! flex-col! flex-1!" : ""}`}>
         <h4 className="mb-[15px]! max-w-[200px]! font-medium! group-[.active]/feature:text-[#0F0B19]!">{card.title}</h4>
         <p className={`text-[#d9d9d9]! group-[.active]/feature:text-[#0F0B19]! ${isStatic ? "flex-1!" : ""}`}>{card.description}</p>
-        <Link to={`/service-details/${card.slug}`} className="inline-block! size-[45px]! rounded-full! leading-10! bg-transparent! text-[var(--theme-color1)]! text-center! border! border-[rgba(225,219,209,0.25)]! mt-[30px]! group-[.active]/feature:border-[#0F0B19]! [&>svg]:-rotate-45! [&>svg]:transition-transform! [&>svg]:duration-[400ms]! hover:[&>svg]:rotate-0! [&_path]:fill-[var(--theme-color1)]! group-[.active]/feature:[&_path]:fill-[#090401]!">
+        <Link to={`/services/${card.slug}`} className="inline-block! size-[45px]! rounded-full! leading-10! bg-transparent! text-[var(--theme-color1)]! text-center! border! border-[rgba(225,219,209,0.25)]! mt-[30px]! group-[.active]/feature:border-[#0F0B19]! [&>svg]:-rotate-45! [&>svg]:transition-transform! [&>svg]:duration-[400ms]! hover:[&>svg]:rotate-0! [&_path]:fill-[var(--theme-color1)]! group-[.active]/feature:[&_path]:fill-[#090401]!">
           {ArrowIcon}
         </Link>
       </div>

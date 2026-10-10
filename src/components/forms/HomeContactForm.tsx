@@ -56,12 +56,12 @@ export default function HomeContactForm() {
             </span>
           </button>
           {status.state === "success" && (
-            <div className="alert alert-success mt-[16px]!" role="alert">
+            <div className={pageClasses("form-notice form-notice-success mt-[16px]!")} role="alert">
               {status.message}
             </div>
           )}
           {status.state === "error" && (
-            <div className="alert alert-danger mt-[16px]!" role="alert">
+            <div className={pageClasses("form-notice form-notice-error mt-[16px]!")} role="alert">
               {status.message}
             </div>
           )}

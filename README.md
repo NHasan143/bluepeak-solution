@@ -9,9 +9,9 @@ Tailwind while preserving the existing brand and functionality.
 - **React 19** + **TypeScript**
 - **Vite 7** (`@vitejs/plugin-react-swc`)
 - **React Router 7** (declarative `<Routes>`)
-- **Tailwind CSS 4** — progressive migration, preflight disabled (see `src/index.css`).
-  Migrated components use Tailwind utilities. `css/style.css` and
-  `css/bootstrap.min.css` still support components awaiting migration.
+- **Tailwind CSS 4** — component and page presentation uses Tailwind utilities.
+  Preflight stays disabled to preserve the existing browser defaults in
+  `css/style.css`, alongside brand fonts, tokens and animation keyframes.
 - **GSAP 3** — ScrollSmoother, ScrollTrigger, SplitText, ScrollToPlugin
   (all free in GSAP ≥ 3.13, so no vendored Club plugins).
 - **Swiper 14** for every carousel.
@@ -72,10 +72,12 @@ existing markup. Page grids retain the original 576/768/992/1200/1400px
 breakpoints; `gutter-row` applies 24px gutters only to direct children.
 
 The template's page rules have been removed. `public/css/style.css` now holds
-only global tokens, fonts, element defaults and animation keyframes. Bootstrap
-is still loaded in the base layer for its remaining form, table and reset
-consumers; removing it is a separate migration step. Tailwind preflight remains
-disabled until that step is verified. Libraries keep their own styles.
+only global tokens, fonts, element defaults and retained animation keyframes.
+Unreferenced template keyframes have also been removed; keep definitions used
+by Tailwind recipes and animation libraries. Bootstrap CSS has been removed;
+forms, checkout tables, status messages and the preloader use Tailwind recipes.
+The small browser foundation preserves the existing element defaults without
+loading a framework reset. Libraries keep their own styles.
 
 Run `npm run lint` and `npm run build` before opening a PR, and compare migrated
 sections at desktop and mobile widths.
@@ -113,13 +115,15 @@ The production deployment workflow remains separate and runs on `main`.
 
 ## Routes
 
-`/` `/about` `/services` `/service-details` `/projects` `/project-details`
-`/team` `/team-details` `/testimonial` `/pricing` `/faq` `/blog` `/blog-details`
-`/contact` `/shop` `/shop-sidebar` `/product-details` `/checkout`
+`/` `/about` `/services` `/services/:slug`
+`/team` `/team-details` `/faq` `/blog` `/blog-details`
 `/404` (+ catch-all).
 
-The shop pages are not in the header nav (they weren't in the original template
-either) but are reachable by URL.
+Old `/service-details/:slug` URLs redirect to `/services/:slug` on hosting.
+The routes for projects, project details, testimonials, pricing, contact, shop,
+shop sidebar, product details, checkout and bare `/service-details` are commented
+out. Hosting returns 404 for those exact paths; the app's fallback uses `noindex`.
+Restore the routes and their matching hosting rules together when re-enabling.
 
 ## Automatic deployment to Namecheap
 

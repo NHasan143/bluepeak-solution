@@ -1,8 +1,24 @@
 import { pageClasses } from "../styles/pageUtilities";
 import InterfaceIcon from "../components/common/InterfaceIcon";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function NotFound() {
+  useEffect(() => {
+    const existing = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    const robots = existing ?? document.createElement("meta");
+    const previous = robots.getAttribute("content");
+    robots.name = "robots";
+    robots.content = "noindex";
+    if (!existing) document.head.append(robots);
+
+    return () => {
+      if (!existing) robots.remove();
+      else if (previous === null) robots.removeAttribute("content");
+      else robots.content = previous;
+    };
+  }, []);
+
   return (
     <section className="">
       <div className="mx-auto! w-full! max-w-[1320px]! px-[15px]! pt-[70px]! pb-[100px]!">
@@ -24,7 +40,7 @@ export default function NotFound() {
                 onSubmit={(e) => e.preventDefault()}
               >
                 <div className="error-page__form-input">
-                  <label htmlFor="error-search" className="visually-hidden">
+                  <label htmlFor="error-search" className="sr-only!">
                     Search
                   </label>
                   <input

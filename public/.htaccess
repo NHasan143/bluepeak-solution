@@ -2,6 +2,13 @@ DirectoryIndex index.html
 Options -MultiViews
 
 RewriteEngine On
+# Preserve existing service links when moving detail pages under /services.
+RewriteRule ^service-details/([^/]+)/?$ /services/$1 [R=301,L]
+
+# Disabled pages must return a real 404 before the SPA fallback.
+# Match exact paths only; /services/:slug remains available.
+RewriteRule ^(projects|project-details|testimonial|pricing|contact|shop|shop-sidebar|product-details|checkout|service-details)/?$ - [R=404,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [L]

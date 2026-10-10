@@ -121,7 +121,7 @@ export default function TeamDetails() {
                     phonePlaceholder="Your Budget"
                     messageRows={5}
                     buttonLabel="Send Message"
-                    buttonWrapClass="mb-3 theme-btn-main text-center"
+                    buttonWrapClass="mb-4! theme-btn-main text-center!"
                   />
                 </div>
               </div>
