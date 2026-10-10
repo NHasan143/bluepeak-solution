@@ -42,6 +42,7 @@ const COUNTERS = [
   { stop: "95", start: "0", suffix: "%+", label: "Client-Focused Growth & Retention Commitment" },
 ];
 
+/* Banner rendering is disabled below; keep its content inactive as well.
 const marqueeGroup = (
   <div className="marquee-group">
     <div className="text">B2B GROWTH AGENCY</div>
@@ -52,6 +53,7 @@ const marqueeGroup = (
     <div className="text">CRM AUTOMATION</div>
   </div>
 );
+*/
 
 export default function Home() {
   useEffect(() => {

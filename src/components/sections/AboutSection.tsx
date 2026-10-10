@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import Star from "../common/Star";
+import PageEyebrow from "../common/PageEyebrow";
 
 export interface AboutSectionProps {
   id?: string;
   eyebrow?: string;
   title?: React.ReactNode;
+  pageHeader?: React.ReactNode;
   stat1Label?: string;
   stat1Value?: string;
   stat2Label?: string;
@@ -27,6 +29,7 @@ export default function AboutSection({
   id,
   eyebrow = "About Blupeak",
   title,
+  pageHeader,
   stat1Label = "Combined Team Experience",
   stat1Value = "6+ Years",
   stat2Label = "Core Service Pillars",
@@ -44,6 +47,8 @@ export default function AboutSection({
   ctaLink,
 }: AboutSectionProps = {}) {
   const isHome = id === "home-about";
+  const isPageHeader = Boolean(pageHeader);
+  const Heading = isPageHeader ? "h1" : "h2";
   const resolvedTitle =
     title ??
     (isHome ? (
@@ -59,41 +64,60 @@ export default function AboutSection({
   const resolvedCtaLink = ctaLink ?? (isHome ? "/about" : "#our-features");
 
   return (
-    <section id={id} className="about-section fix section-padding">
+    <section id={id} className={`about-section fix section-padding${isPageHeader ? " bg-[#000000]! pt-0!" : ""}`}>
       <div className="about-shape1 tm-gsap-animate-circle d-none d-xxl-block">
         <img src="/images/icons/about-shape1-1.png" alt="img" />
       </div>
-      <div className="container">
-        <div className="row g-4 mb-60">
-          <div className="col-xl-8 col-lg-7">
-            <div className="section-title mb-0">
-              <div className="sub-title text-left">
-                <Star variant="lime" />
-                <span>{eyebrow}</span>
+      <div
+        className={isPageHeader ? "bg-[#000000]! pt-32! pb-12! sm:pt-40! sm:pb-16! lg:pt-44!" : undefined}
+        data-about-page-header={isPageHeader ? "" : undefined}
+        aria-labelledby={isPageHeader ? "about-page-title" : undefined}
+      >
+        <div className={isPageHeader ? "mx-auto! max-w-[1424px]! px-5! sm:px-8! lg:px-16!" : "container"}>
+          {pageHeader}
+          <div className={`row g-4${isPageHeader ? "" : " mb-60"}`}>
+            <div className="col-xl-8 col-lg-7">
+              <div className={`section-title mb-0${isPageHeader ? " text-left!" : ""}`}>
+                {isPageHeader ? (
+                  <PageEyebrow>{eyebrow}</PageEyebrow>
+                ) : (
+                  <div className="sub-title text-left">
+                    <Star variant="lime" />
+                    <span>{eyebrow}</span>
+                  </div>
+                )}
+                <Heading
+                  id={isPageHeader ? "about-page-title" : undefined}
+                  className={isPageHeader
+                    ? "title text-anim m-0! text-left! font-[family-name:var(--heading-font-family)]! text-[35px]! leading-[40px]! font-normal! tracking-[-1.5px]! text-white! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]!"
+                    : "title text-anim"}
+                  data-reveal-on={isHome ? "desktop" : undefined}
+                >
+                  {resolvedTitle}
+                </Heading>
               </div>
-              <h2 className="title text-anim" data-reveal-on={isHome ? "desktop" : undefined}>
-                {resolvedTitle}
-              </h2>
             </div>
-          </div>
-          <div className="col-xl-4 col-lg-5 wow fadeInUp" data-wow-delay=".3s">
-            <div className="about-top-counter">
-              <div className="year-box">
-                <p>{stat1Label}</p>
-                <h2 className="year-title">{stat1Value}</h2>
-              </div>
-              <div className="count-box">
-                <p>{stat2Label}</p>
-                <h2 className="title">
-                  <span className="count-text" data-speed="3000" data-stop={stat2Value} data-lag="0">
-                    {stat2Value}
-                  </span>
-                </h2>
-                {stat2Sub && <span className="stat-sub-text">{stat2Sub}</span>}
+            <div className="col-xl-4 col-lg-5 wow fadeInUp" data-wow-delay=".3s">
+              <div className="about-top-counter">
+                <div className="year-box">
+                  <p>{stat1Label}</p>
+                  <h2 className="year-title">{stat1Value}</h2>
+                </div>
+                <div className="count-box">
+                  <p>{stat2Label}</p>
+                  <h2 className="title">
+                    <span className="count-text" data-speed="3000" data-stop={stat2Value} data-lag="0">
+                      {stat2Value}
+                    </span>
+                  </h2>
+                  {stat2Sub && <span className="stat-sub-text">{stat2Sub}</span>}
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div className="container">
         <div className="row g-4 align-items-center">
           <div className="col-lg-3 wow fadeInUp" data-wow-delay=".3s">
             <div className="about-left-style-1">
