@@ -6,6 +6,7 @@ import PageTitle from "../components/common/PageTitle";
 import Footer from "../components/layout/Footer";
 import Accordion, { type AccordionEntry } from "../components/common/Accordion";
 import { getService, SERVICES } from "../lib/services";
+import { usePageMetadata } from "../hooks/usePageMetadata";
 
 const SLIDER = [0, 1, 2];
 
@@ -22,6 +23,7 @@ const FAQ: AccordionEntry[] = [
 export default function ServiceDetails() {
   const { slug } = useParams();
   const service = getService(slug);
+  usePageMetadata(service.metaTitle, service.metaDescription);
 
   return (
     <>
