@@ -1,6 +1,8 @@
 export type Service = {
   slug: string;
   title: string;
+  metaTitle: string;
+  metaDescription: string;
   intro: string;
   included: string[];
   outcome: string;
@@ -10,6 +12,9 @@ export const SERVICES: Service[] = [
   {
     slug: "revenue-sales-systems",
     title: "Revenue & Sales Systems",
+    metaTitle: "Revenue & Sales Systems That Scale Fast | Blupeak Solutions",
+    metaDescription:
+      "Turn your sales process into a scalable revenue system. Blupeak Solutions helps you attract, convert and retain more customers with proven strategies.",
     intro:
       "Turn your sales process into a scalable system designed to attract, convert, and retain more customers.",
     included: [
@@ -24,6 +29,9 @@ export const SERVICES: Service[] = [
   {
     slug: "brand-creative-solutions",
     title: "Brand & Creative Solutions",
+    metaTitle: "Brand Identity & Creative Strategies | Blupeak Solutions",
+    metaDescription:
+      "Create a memorable brand with creative strategy and design. Blupeak Solutions helps your business look professional, build trust and become market-ready.",
     intro:
       "Build a distinctive brand identity with creative strategies that make your business memorable and market-ready.",
     included: [
@@ -38,6 +46,9 @@ export const SERVICES: Service[] = [
   {
     slug: "seo-organic-growth",
     title: "SEO & Organic Growth",
+    metaTitle: "Data-Driven SEO & Organic Growth Agency | Blupeak Solutions",
+    metaDescription:
+      "Boost your search visibility and attract qualified traffic. Blupeak Solutions delivers data-driven SEO that builds lasting organic growth for your brand.",
     intro:
       "Grow your search visibility, attract qualified traffic, and build sustainable organic growth with data-driven SEO.",
     included: [
@@ -52,6 +63,9 @@ export const SERVICES: Service[] = [
   {
     slug: "custom-web-software",
     title: "Custom Web & Software Solutions",
+    metaTitle: "Custom Website & Software Development | Blupeak Solutions",
+    metaDescription:
+      "Get powerful websites and custom software built around your goals. Blupeak Solutions creates solutions that fit your business and your customers' needs.",
     intro:
       "Create powerful websites and custom software solutions built around your business goals and customer needs.",
     included: [
@@ -66,6 +80,9 @@ export const SERVICES: Service[] = [
   {
     slug: "ai-workflow-automation",
     title: "AI & Workflow Automation",
+    metaTitle: "AI Automation & Workflow Integration | Blupeak Solutions",
+    metaDescription:
+      "Automate repetitive workflows and integrate AI to save time. Blupeak Solutions helps your business improve efficiency and scale smarter with automation.",
     intro:
       "Automate repetitive workflows and integrate AI solutions to save time, improve efficiency, and scale smarter.",
     included: [
