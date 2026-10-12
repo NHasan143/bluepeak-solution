@@ -51,8 +51,8 @@ export default function Footer({
               >
                 <div className="m-0!">
                   <div className="mb-[30px]!">
-                    <Link to="/" aria-label="Blupeak home">
-                      <img src="/images/logo.png" alt="Blupeak" className="max-w-[155px]!" />
+                    <Link to="/" aria-label="Blupeak home" className="inline-flex! items-center!">
+                      <img src="/images/blupeak-light-full.png" alt="Blupeak" className="w-[180px]! h-[36px]! object-cover! object-center!" />
                     </Link>
                   </div>
                   <div className="max-w-[315px]!">
@@ -68,7 +68,7 @@ export default function Footer({
                   <div className="mb-[30px]!">
                     <h4 className="text-[15px]! leading-[21px]! font-bold! tracking-[0.08em]! uppercase! text-[#f3f5ed]!">Quick Links</h4>
                   </div>
-                  <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-[#d9d9d9]! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:text-[#d9ef54]! [&>li>a:hover]:translate-x-1">
+                  <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-[#d9d9d9]! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:text-[#FF593E]! [&>li>a:hover]:translate-x-1">
                     <li>
                       <Link to="/">Home</Link>
                     </li>
@@ -98,7 +98,7 @@ export default function Footer({
                   <div className="mb-[30px]!">
                     <h4 className="text-[15px]! leading-[21px]! font-bold! tracking-[0.08em]! uppercase! text-[#f3f5ed]!">Our Services</h4>
                   </div>
-                  <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-[#d9d9d9]! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:text-[#d9ef54]! [&>li>a:hover]:translate-x-1">
+                  <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-[#d9d9d9]! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:text-[#FF593E]! [&>li>a:hover]:translate-x-1">
                     <li>
                       <Link to="/services/revenue-sales-systems">Revenue &amp; Sales Systems</Link>
                     </li>
@@ -125,7 +125,7 @@ export default function Footer({
                   <div className="mb-[30px]!">
                     <h4 className="text-[15px]! leading-[21px]! font-bold! tracking-[0.08em]! uppercase! text-[#f3f5ed]!">Legal</h4>
                   </div>
-                  <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-[#d9d9d9]! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:text-[#d9ef54]! [&>li>a:hover]:translate-x-1">
+                  <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-[#d9d9d9]! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:text-[#FF593E]! [&>li>a:hover]:translate-x-1">
                     <li>
                       <Link to="/privacy-policy">Privacy Policy</Link>
                     </li>
@@ -146,12 +146,12 @@ export default function Footer({
               </p>
               <ul className={pageClasses("flex! gap-4! list-none! p-0! m-0! wow fadeInRight")} data-wow-delay=".5s">
                 <li>
-                  <a href="#" aria-label="Facebook" className="text-[#a9afa4]! hover:text-[#d9ef54]! transition-colors! duration-200!">
+                  <a href="#" aria-label="Facebook" className="text-[#a9afa4]! hover:text-[#FF593E]! transition-colors! duration-200!">
                     <FacebookIcon size={24} />
                   </a>
                 </li>
                 <li>
-                  <a href="#" aria-label="LinkedIn" className="text-[#a9afa4]! hover:text-[#d9ef54]! transition-colors! duration-200!">
+                  <a href="#" aria-label="LinkedIn" className="text-[#a9afa4]! hover:text-[#FF593E]! transition-colors! duration-200!">
                     <LinkedinIcon size={24} />
                   </a>
                 </li>

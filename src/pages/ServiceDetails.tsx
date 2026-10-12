@@ -60,7 +60,7 @@ export default function ServiceDetails() {
                     </div>
                     <div className={pageClasses("help-contact")}>
                       <p>Need help? Talk to an expert</p>
-                      <a href="tel:01849415421">018-4941-5421</a>
+                      <a href="tel:01849415421">01849-415421</a>
                     </div>
                   </div>
                 </div>

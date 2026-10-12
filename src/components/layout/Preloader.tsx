@@ -1,7 +1,7 @@
 import { pageClasses } from "../../styles/pageUtilities";
 import { useEffect, useState } from "react";
 
-const LETTERS = ["B", "L", "U", "E", "P", "E", "A", "K"];
+const LETTERS = ["B", "L", "U", "P", "E", "A", "K"];
 
 export default function Preloader() {
   const [loaded, setLoaded] = useState(false);

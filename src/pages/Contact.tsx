@@ -6,11 +6,11 @@ import TextReveal from "../components/common/TextReveal";
 import PageEyebrow from "../components/common/PageEyebrow";
 import TemplateContactForm from "../components/forms/TemplateContactForm";
 
-const focusRing = "focus-visible:outline-2! focus-visible:outline-solid! focus-visible:outline-[#D9F45F]! focus-visible:outline-offset-4!";
+const focusRing = "focus-visible:outline-2! focus-visible:outline-solid! focus-visible:outline-[#FF593E]! focus-visible:outline-offset-4!";
 const contactDetails = [
-  { icon: Phone, title: "Have any question?", text: "018-4941-5421", href: "tel:01849415421" },
-  { icon: Mail, title: "Write email", text: "info@blupeaksolutions.com", href: "mailto:info@blupeaksolutions.com" },
-  { icon: MapPin, title: "Visit anytime", text: "66 broklyn golden street. New York" },
+  { icon: Phone, title: "Have any question?", text: "01849-415421", href: "tel:01849415421" },
+  { icon: Mail, title: "Write email", text: "contact@blupeaksolutions.com", href: "mailto:contact@blupeaksolutions.com" },
+  { icon: MapPin, title: "Visit anytime", text: "" },
 ];
 
 export default function Contact() {
@@ -21,20 +21,20 @@ export default function Contact() {
 
   return (
     <>
-      <main className="bg-[#000000]! text-white! selection:bg-[#D9F45F]! selection:text-[#111310]!" data-contact-page>
+      <main className="bg-[#000000]! text-white! selection:bg-[#064C44]! selection:text-white!" data-contact-page>
         <section aria-labelledby="contact-title" className="mx-auto! max-w-[1424px]! px-5! pt-32! pb-12! sm:px-8! sm:pt-40! sm:pb-16! lg:px-16! lg:pt-44!">
           <nav aria-label="Breadcrumb" className="mb-8! sm:mb-12!">
             <ol className="m-0! flex! list-none! items-center! gap-3! p-0! text-sm!">
               <li>
-                <Link to="/" className={`text-[#b9beb6]! underline-offset-4! hover:text-[#D9F45F]! hover:underline! ${focusRing}`}>Home</Link>
+                <Link to="/" className={`text-[#b9beb6]! underline-offset-4! hover:text-[#FF593E]! hover:underline! ${focusRing}`}>Home</Link>
               </li>
               <li aria-hidden="true"><ChevronRight size={14} className="text-[#747c6e]!" /></li>
-              <li aria-current="page" className="text-[#D9F45F]!">Contact</li>
+              <li aria-current="page" className="text-[#FF593E]!">Contact</li>
             </ol>
           </nav>
           <PageEyebrow>Send us email</PageEyebrow>
           <h1 id="contact-title" className="m-0! font-[family-name:var(--heading-font-family)]! text-[35px]! leading-[40px]! font-normal! tracking-[-1.5px]! text-white! text-balance! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]!">
-            <TextReveal text="Feel free to write" emphasis={{ text: "write", className: "font-[family-name:var(--style-font)]! font-normal! text-[#D9F45F]! italic!" }} />
+            <TextReveal text="Feel free to write" emphasis={{ text: "write", className: "font-[family-name:var(--style-font)]! font-normal! text-[#FF593E]! italic!" }} />
           </h1>
         </section>
 
@@ -51,13 +51,13 @@ export default function Contact() {
             <ul className="mt-8! mb-0! grid! list-none! gap-6! p-0!">
               {contactDetails.map(({ icon: Icon, title, text, href }) => (
                 <li key={title} className="flex! items-start! gap-4! sm:gap-5!">
-                  <div className="flex! size-14! shrink-0! items-center! justify-center! rounded-full! bg-[#D9F45F]! text-black!">
+                  <div className="flex! size-14! shrink-0! items-center! justify-center! rounded-full! bg-[#064C44]! text-[#FF593E]! border! border-[#064C44]/50!">
                     <Icon size={24} strokeWidth={1.75} aria-hidden="true" />
                   </div>
                   <div className="min-w-0!">
                     <h3 className="mt-0! mb-1! text-lg! leading-[1.4]! font-medium! text-white!">{title}</h3>
                     {href ? (
-                      <a href={href} className={`inline-flex! min-h-11! max-w-full! items-center! text-base! leading-[1.6]! text-[#b9beb6]! wrap-anywhere! underline-offset-4! hover:text-[#D9F45F]! hover:underline! ${focusRing}`}>{text}</a>
+                      <a href={href} className={`inline-flex! min-h-11! max-w-full! items-center! text-base! leading-[1.6]! text-[#b9beb6]! wrap-anywhere! underline-offset-4! hover:text-[#FF593E]! hover:underline! ${focusRing}`}>{text}</a>
                     ) : (
                       <p className="m-0! text-base! leading-[1.75]! text-[#b9beb6]!">{text}</p>
                     )}

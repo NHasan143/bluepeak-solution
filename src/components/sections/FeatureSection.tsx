@@ -78,14 +78,14 @@ const ArrowIcon = (
 
 function Card({ card, isStatic = false }: { card: FeatureCardItem; isStatic?: boolean }) {
   return (
-    <div className={`feature-card group/feature ${card.cls}${card.active ? " active" : ""} relative! z-[99]! max-w-[340px]! overflow-hidden! rounded-[26px]! border! border-white/24! bg-[#1B1919]! p-[30px]! min-[1700px]:p-10! transition-all! duration-[400ms]! ease-out! before:absolute! before:inset-0! before:rounded-[26px]! before:bg-[var(--theme-color1)]! before:-z-[1]! before:scale-y-0! before:origin-bottom! before:transition-transform! before:duration-500! [&.active]:before:scale-y-100! [&.active]:before:origin-top! motion-reduce:transition-none! ${isStatic ? "flex! flex-col! flex-[0_1_320px]! mb-0!" : "flex! flex-col! w-full! h-full! mx-auto! mb-[30px]!"} ${card.cls === "card-3" ? "min-[1499px]:z-[5]!" : card.cls === "card-2" || card.cls === "card-4" ? "min-[1499px]:z-[2]!" : "min-[1499px]:z-[1]!"}`}>
+    <div className={`feature-card group/feature ${card.cls}${card.active ? " active" : ""} relative! z-[99]! max-w-[340px]! overflow-hidden! rounded-[26px]! border! border-white/24! bg-[#1B1919]! p-[30px]! min-[1700px]:p-10! transition-all! duration-[400ms]! ease-out! before:absolute! before:inset-0! before:rounded-[26px]! before:bg-[#064C44]! before:-z-[1]! before:scale-y-0! before:origin-bottom! before:transition-transform! before:duration-500! [&.active]:before:scale-y-100! [&.active]:before:origin-top! motion-reduce:transition-none! ${isStatic ? "flex! flex-col! flex-[0_1_320px]! mb-0!" : "flex! flex-col! w-full! h-full! mx-auto! mb-[30px]!"} ${card.cls === "card-3" ? "min-[1499px]:z-[5]!" : card.cls === "card-2" || card.cls === "card-4" ? "min-[1499px]:z-[2]!" : "min-[1499px]:z-[1]!"}`}>
       <div className="size-[103px]! leading-[103px]! text-center! rounded-full! bg-white/8! group-[.active]/feature:bg-[#121419]! [&>svg]:mb-5! group-hover/feature:[&>svg]:animate-[wobble_1.5s_ease-in-out]!">
         <card.icon size={48} strokeWidth={1} />
       </div>
       <div className={`mt-[35px]! ${isStatic ? "flex! flex-col! flex-1!" : ""}`}>
-        <h4 className="mb-[15px]! max-w-[200px]! font-medium! group-[.active]/feature:text-[#0F0B19]!">{card.title}</h4>
-        <p className={`text-[#d9d9d9]! group-[.active]/feature:text-[#0F0B19]! ${isStatic ? "flex-1!" : ""}`}>{card.description}</p>
-        <Link to={`/services/${card.slug}`} className="inline-block! size-[45px]! rounded-full! leading-10! bg-transparent! text-[var(--theme-color1)]! text-center! border! border-[rgba(225,219,209,0.25)]! mt-[30px]! group-[.active]/feature:border-[#0F0B19]! [&>svg]:-rotate-45! [&>svg]:transition-transform! [&>svg]:duration-[400ms]! hover:[&>svg]:rotate-0! [&_path]:fill-[var(--theme-color1)]! group-[.active]/feature:[&_path]:fill-[#090401]!">
+        <h4 className="mb-[15px]! max-w-[200px]! font-medium! group-[.active]/feature:text-white!">{card.title}</h4>
+        <p className={`text-[#d9d9d9]! group-[.active]/feature:text-white/85! ${isStatic ? "flex-1!" : ""}`}>{card.description}</p>
+        <Link to={`/services/${card.slug}`} className="inline-block! size-[45px]! rounded-full! leading-10! bg-transparent! text-[#FF593E]! text-center! border! border-[rgba(225,219,209,0.25)]! mt-[30px]! group-[.active]/feature:border-white/30! [&>svg]:-rotate-45! [&>svg]:transition-transform! [&>svg]:duration-[400ms]! hover:[&>svg]:rotate-0! [&_path]:fill-[#FF593E]! group-[.active]/feature:[&_path]:fill-[#FF593E]!">
           {ArrowIcon}
         </Link>
       </div>
@@ -149,7 +149,7 @@ export default function FeatureSection({
     >
       <div className="absolute! right-0! top-0! hidden! min-[1400px]:block!">
         <svg width="1920" height="1158" viewBox="0 0 1919 1158" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-1 110.832C733.864 -37.7086 1154.2 -36.6358 1919 112.217V1146H-1V110.832Z" fill="#D9F45F" />
+          <path d="M-1 110.832C733.864 -37.7086 1154.2 -36.6358 1919 112.217V1146H-1V110.832Z" fill="#064C44" />
           <path d="M-1 118.703C733.864 -31.41 1154.2 -31.7253 1919 118.703V1158H-1V118.703Z" fill="#131212" />
         </svg>
       </div>
@@ -158,11 +158,11 @@ export default function FeatureSection({
         <div className="flex! flex-wrap! -mx-3! justify-center! mb-[60px]!">
           <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-8/12! min-[992px]:w-9/12!">
             <div className="relative! text-center!">
-              <div className="mb-[5px]! [&>svg]:text-[var(--theme-color1)]! [&>svg]:-mt-0.5! [&>svg]:mr-[5px]! [&>span]:text-white! [&>span]:text-sm! [&>span]:font-normal! [&>span]:leading-normal! [&>span]:uppercase!">
+              <div className="mb-[5px]! [&>svg]:text-[#FF593E]! [&>svg]:-mt-0.5! [&>svg]:mr-[5px]! [&>span]:text-white! [&>span]:text-sm! [&>span]:font-normal! [&>span]:leading-normal! [&>span]:uppercase!">
                 <Star />
                 <span>{eyebrow}</span>
               </div>
-              <h2 className="text-anim text-white! text-[35px]! leading-[40px]! tracking-[-1.5px]! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]! [&>span]:text-[var(--theme-color1)]! [&>span]:font-normal! [&>span]:italic! [&>span]:font-[family-name:var(--style-font)]!">
+              <h2 className="text-anim text-white! text-[35px]! leading-[40px]! tracking-[-1.5px]! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]! [&>span]:text-[#FF593E]! [&>span]:font-normal! [&>span]:italic! [&>span]:font-[family-name:var(--style-font)]!">
                 {resolvedTitle}
               </h2>
               {resolvedDescription && (
@@ -202,8 +202,8 @@ export default function FeatureSection({
           )}
         </div>
         <div className="relative! z-[99]! max-w-[180px]! mx-auto! mt-0! mb-[-180px]! min-[1500px]:-mt-[60px]! text-center!">
-          <Link to={ctaLink} className={pageClasses("group/circle relative! flex! items-center! justify-center! size-[180px]! min-w-[180px]! rounded-full! bg-[#1B1919]! text-[#d9d9d9]! text-base! font-semibold! text-center! mt-[50px]! before:absolute! before:left-1/2! before:top-1/2! before:size-2.5! before:rounded-full! before:bg-[rgba(217,244,95,0.35)]! before:-translate-x-1/2! before:-translate-y-1/2! before:opacity-0! before:transition-all! before:duration-500! hover:before:w-full! hover:before:h-full! hover:before:opacity-100! after:absolute! after:left-1/2! after:top-1/2! after:size-[50px]! after:rounded-full! after:bg-[var(--theme-color1)]! after:-translate-x-1/2! after:-translate-y-1/2! after:opacity-0! after:transition-all! after:duration-[1800ms]! hover:after:w-full! hover:after:h-full! hover:after:opacity-100! wow fadeInUp")} data-wow-delay=".5s">
-            <span className="relative! z-[9]! group-hover/circle:text-[var(--headings-color)]!">
+          <Link to={ctaLink} className={pageClasses("group/circle relative! flex! items-center! justify-center! size-[180px]! min-w-[180px]! rounded-full! bg-[#1B1919]! text-[#d9d9d9]! text-base! font-semibold! text-center! mt-[50px]! before:absolute! before:left-1/2! before:top-1/2! before:size-2.5! before:rounded-full! before:bg-[rgba(255,89,62,0.35)]! before:-translate-x-1/2! before:-translate-y-1/2! before:opacity-0! before:transition-all! before:duration-500! hover:before:w-full! hover:before:h-full! hover:before:opacity-100! after:absolute! after:left-1/2! after:top-1/2! after:size-[50px]! after:rounded-full! after:bg-[#064C44]! after:-translate-x-1/2! after:-translate-y-1/2! after:opacity-0! after:transition-all! after:duration-[1800ms]! hover:after:w-full! hover:after:h-full! hover:after:opacity-100! wow fadeInUp")} data-wow-delay=".5s">
+            <span className="relative! z-[9]! group-hover/circle:text-white!">
               <InterfaceIcon name="arrow-right" className="block! text-[22px]! -rotate-45!" /> {ctaText === "More Features" ? (
                 <>
                   More <br className="block!" />

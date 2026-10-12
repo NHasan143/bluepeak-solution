@@ -13,7 +13,7 @@ export default function ClientsSection({ heading = true, showObject = true, chil
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           {children ?? (heading && <div className="relative! mb-0! text-center!">
             <h2 className="text-anim text-white! text-[35px]! leading-[40px]! tracking-[-1.5px]! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]!">
-              Powering Growth for <span className="text-[var(--theme-color1)]! font-normal! italic! font-[family-name:var(--style-font)]!">Businesses Across Industries</span>
+              Powering Growth for <span className="text-[var(--theme-color-coral)]! font-normal! italic! font-[family-name:var(--style-font)]!">Businesses Across Industries</span>
             </h2>
           </div>)}
         </div>

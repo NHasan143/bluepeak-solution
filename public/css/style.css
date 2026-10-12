@@ -29,13 +29,19 @@ fieldset { min-width: 0; padding: 0; margin: 0; border: 0; }
 [hidden] { display: none !important; }
 
 :root {
-  --theme-color1: #D9F45F;
+  --theme-color-teal: #064C44;
+  --theme-color-teal-rgb: 6, 76, 68;
+  --theme-color-coral: #FF593E;
+  --theme-color-coral-rgb: 255, 89, 62;
+  --theme-color1: #064C44;
   --theme-color2: #0D0D0D;
   --theme-color3: #161616;
-  --theme-color1-rgb: 217, 244, 95;
+  --theme-color1-rgb: 6, 76, 68;
   --theme-color2-rgb: 13, 13, 13;
   --theme-color3-rgb: 22, 22, 22;
-  --theme-color1-text-color: rgba(255, 255, 255, 0.6);
+  --theme-color-accent: #FF593E;
+  --theme-color-accent-rgb: 255, 89, 62;
+  --theme-color1-text-color: #FFFFFF;
   --theme-color2-text-color: #fff;
   --theme-color3-text-color: #0F0B19;
   --body-bg: #0D0D0D;
@@ -47,12 +53,12 @@ fieldset { min-width: 0; padding: 0; margin: 0; border: 0; }
   --bg-theme-color1: var(--theme-color1);
   --bg-theme-color2: var(--theme-color2);
   --bg-theme-color3: var(--theme-color3);
-  --border-color1-rgba: rgba(255, 255, 255, 0.2);
+  --border-color1-rgba: rgba(6, 76, 68, 0.35);
   --border-color2-rgba: rgba(255, 255, 255, 0.13);
-  --text-color: rgba(255, 255, 255, 0.6);
-  --headings-color: #151515;
-  --link-color: var(--theme-color1);
-  --link-hover-color: var(--theme-color2);
+  --text-color: rgba(255, 255, 255, 0.65);
+  --headings-color: #064C44;
+  --link-color: #FF593E;
+  --link-hover-color: #064C44;
   --body-font-family: "Manrope";
   --heading-font-family: 'CreatoDisplay', sans-serif;
   --style-font: "Playfair Display", serif;
@@ -86,7 +92,7 @@ fieldset { min-width: 0; padding: 0; margin: 0; border: 0; }
   --large-container-width: 1550px;
   --container-pt: 120px;
   --container-pb: 120px;
-  --gradient-1: linear-gradient(90deg, #88ff2a 0%, #fff 100%);
+  --gradient-1: linear-gradient(90deg, #064C44 0%, #FF593E 100%);
 }
 @font-face {
   font-family: "CreatoDisplay";
@@ -132,24 +138,18 @@ fieldset { min-width: 0; padding: 0; margin: 0; border: 0; }
 }
 ::-moz-selection {
   background: var(--theme-color1);
-  color: var(--theme-color3-text-color);
+  color: #ffffff;
   text-shadow: none;
 }
 ::selection {
   background: var(--theme-color1);
-  color: var(--theme-color3-text-color);
-  text-shadow: none;
-}
-
-::-moz-selection {
-  background: var(--theme-color1);
-  color: var(--theme-color3-text-color);
+  color: #ffffff;
   text-shadow: none;
 }
 
 ::-webkit-selection {
   background: var(--theme-color1);
-  color: var(--theme-color3-text-color);
+  color: #ffffff;
   text-shadow: none;
 }
 
