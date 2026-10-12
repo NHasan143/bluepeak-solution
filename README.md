@@ -116,14 +116,29 @@ The production deployment workflow remains separate and runs on `main`.
 ## Routes
 
 `/` `/about` `/services` `/services/:slug`
-`/team` `/team-details` `/faq` `/blog` `/blog-details` `/contact`
+`/team` `/team-details` `/contact`
 `/404` (+ catch-all).
 
 Old `/service-details/:slug` URLs redirect to `/services/:slug` on hosting.
-The routes for projects, project details, testimonials, pricing, shop,
+The routes for projects, project details, testimonials, pricing, FAQ, blog, blog details, shop,
 shop sidebar, product details, checkout and bare `/service-details` are commented
 out. Hosting returns 404 for those exact paths; the app's fallback uses `noindex`.
 Restore the routes and their matching hosting rules together when re-enabling.
+
+## Sitemap and crawler discovery
+
+`public/sitemap.xml` lists the 11 active public URLs on
+`https://blupeaksolutions.com`, including all five `/services/:slug` pages.
+Disabled routes, `/404`, wildcard URLs, and old service aliases are excluded.
+`public/robots.txt` allows crawling and advertises the sitemap.
+Vite copies both files into `dist/` for deployment without JavaScript.
+
+Update the sitemap when enabling, disabling, or renaming routes or adding
+services. Only add `lastmod` values when the significant content update date
+is known; do not replace them with the deployment date.
+
+After deployment, submit `https://blupeaksolutions.com/sitemap.xml` in
+Google Search Console's **Sitemaps** report.
 
 ## Automatic deployment to Namecheap
 

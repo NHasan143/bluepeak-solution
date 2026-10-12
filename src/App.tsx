@@ -10,9 +10,9 @@ import Team from "./pages/Team";
 import TeamDetails from "./pages/TeamDetails";
 // import Testimonial from "./pages/Testimonial";
 // import Pricing from "./pages/Pricing";
-import Faq from "./pages/Faq";
-import Blog from "./pages/Blog";
-import BlogDetails from "./pages/BlogDetails";
+// import Faq from "./pages/Faq";
+// import Blog from "./pages/Blog";
+// import BlogDetails from "./pages/BlogDetails";
 import Contact from "./pages/Contact";
 // import Shop from "./pages/Shop";
 // import ShopSidebar from "./pages/ShopSidebar";
@@ -36,9 +36,9 @@ export default function App() {
         <Route path="team-details" element={<TeamDetails />} />
         {/* <Route path="testimonial" element={<Testimonial />} /> */}
         {/* <Route path="pricing" element={<Pricing />} /> */}
-        <Route path="faq" element={<Faq />} />
-        <Route path="blog" element={<Blog />} />
-        <Route path="blog-details" element={<BlogDetails />} />
+        {/* <Route path="faq" element={<Faq />} /> */}
+        {/* <Route path="blog" element={<Blog />} /> */}
+        {/* <Route path="blog-details" element={<BlogDetails />} /> */}
         <Route path="contact" element={<Contact />} />
         {/* <Route path="shop" element={<Shop />} /> */}
         {/* <Route path="shop-sidebar" element={<ShopSidebar />} /> */}

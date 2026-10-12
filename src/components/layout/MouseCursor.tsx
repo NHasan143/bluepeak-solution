@@ -11,6 +11,9 @@ export default function MouseCursor() {
     let hidden = false;
 
     const onMove = (e: MouseEvent) => {
+      const nativeCursor = e.target instanceof Element && e.target.closest("[data-native-cursor]");
+      inner.style.display = nativeCursor ? "none" : "";
+      outer.style.display = nativeCursor ? "none" : "";
       if (!hidden) {
         outer.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
       }

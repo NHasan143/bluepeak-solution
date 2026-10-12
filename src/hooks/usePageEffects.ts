@@ -264,7 +264,6 @@ export function usePageEffects() {
       ".service-items",
       ".work-block-active",
       ".feature-signle-box-area",
-      ".feature-card",
       ".counter-card-item",
       ".feature-block-one",
       ".ks-mouseenter",

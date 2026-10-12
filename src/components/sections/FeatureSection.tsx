@@ -3,25 +3,24 @@ import InterfaceIcon from "../common/InterfaceIcon";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Star from "../common/Star";
-import { Megaphone, Handshake, Database, TrendingUp, MonitorPlay, Code, Users, Workflow, Search, Palette, Rocket } from "lucide-react";
+import { Send, Handshake, Database, ChartNoAxesCombined, Clapperboard, CodeXml, UsersRound, Workflow, Search, Palette, Rocket, ArrowUpRight, type LucideIcon } from "lucide-react";
 
 export interface FeatureCardItem {
   cls: string;
-  icon: React.ElementType;
+  icon: LucideIcon;
   title: string;
   description: string;
   slug: string;
-  active?: boolean;
 }
 
 const DEFAULT_SLIDER_CARDS: FeatureCardItem[] = [
-  { cls: "card-1", icon: Megaphone, title: "Outbound Sales Infrastructure", description: "Multi-channel outreach systems built to consistently fill your pipeline with qualified decision-makers.", slug: "b2b-outbound-sales" },
+  { cls: "card-1", icon: Send, title: "Outbound Sales Infrastructure", description: "Multi-channel outreach systems built to consistently fill your pipeline with qualified decision-makers.", slug: "b2b-outbound-sales" },
   { cls: "card-2", icon: Handshake, title: "Full-Cycle Deal Closing", description: "In-house consultants who own the sales conversation from first call to signed contract.", slug: "full-cycle-deal-closing" },
-  { cls: "card-3", icon: Database, title: "CRM Architecture & Automation", description: "Purpose-built systems that remove manual work and keep every lead moving.", slug: "crm-architecture", active: true },
-  { cls: "card-4", icon: TrendingUp, title: "SEO & Content Growth", description: "Organic strategies engineered for compounding, long-term pipeline.", slug: "seo-organic-growth" },
-  { cls: "card-5", icon: MonitorPlay, title: "Paid Media & Creative", description: "Ad campaigns and creative assets built and edited by our in-house design team.", slug: "brand-creative-solutions" },
-  { cls: "card-6", icon: Code, title: "Website Design & Development", description: "Build a High-Performing Website That Turns Visitors Into Customers", slug: "custom-web-software" },
-  { cls: "card-7", icon: Users, title: "One Accountable Growth Team", description: "Sales, tech and creative under one roof, with no hand-offs between vendors.", slug: "revenue-sales-systems" },
+  { cls: "card-3", icon: Workflow, title: "CRM Architecture & Automation", description: "Purpose-built systems that remove manual work and keep every lead moving.", slug: "crm-architecture" },
+  { cls: "card-4", icon: ChartNoAxesCombined, title: "SEO & Content Growth", description: "Organic strategies engineered for compounding, long-term pipeline.", slug: "seo-organic-growth" },
+  { cls: "card-5", icon: Clapperboard, title: "Paid Media & Creative", description: "Ad campaigns and creative assets built and edited by our in-house design team.", slug: "brand-creative-solutions" },
+  { cls: "card-6", icon: CodeXml, title: "Website Design & Development", description: "Build a High-Performing Website That Turns Visitors Into Customers", slug: "custom-web-software" },
+  { cls: "card-7", icon: UsersRound, title: "One Accountable Growth Team", description: "Sales, tech and creative under one roof, with no hand-offs between vendors.", slug: "revenue-sales-systems" },
 ];
 
 const ABOUT_FEATURE_CARDS: FeatureCardItem[] = [
@@ -48,7 +47,6 @@ const ABOUT_FEATURE_CARDS: FeatureCardItem[] = [
     description:
       "Our in house engineering team builds the backend systems that keep the sales floor fast, data accurate, and scalable as client volume grows.",
     slug: "crm-architecture",
-    active: true,
   },
   {
     cls: "card-4",
@@ -68,26 +66,23 @@ const ABOUT_FEATURE_CARDS: FeatureCardItem[] = [
   },
 ];
 
-const ArrowIcon = (
-  <svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fillRule="evenodd" clipRule="evenodd" d="M16.2483 6.64957L0 6.64957L0 5.25684L16.2483 5.25684V6.64957Z" fill="#0F0B19" />
-    <path fillRule="evenodd" clipRule="evenodd" d="M15.5522 5.25635C12.2769 5.25635 9.60059 8.13661 9.60059 11.2079V11.9043H10.9933V11.2079C10.9933 8.87605 13.0755 6.64908 15.5522 6.64908H16.2482V5.25635H15.5522Z" fill="#0F0B19" />
-    <path fillRule="evenodd" clipRule="evenodd" d="M15.5512 6.64802C12.276 6.64802 9.59961 3.76772 9.59961 0.696366V0L10.9923 0V0.696366C10.9923 3.02834 13.0746 5.25529 15.5512 5.25529H16.2472V6.64802H15.5512Z" fill="#0F0B19" />
-  </svg>
-);
-
 function Card({ card, isStatic = false }: { card: FeatureCardItem; isStatic?: boolean }) {
   return (
-    <div className={`feature-card group/feature ${card.cls}${card.active ? " active" : ""} relative! z-[99]! max-w-[340px]! overflow-hidden! rounded-[26px]! border! border-white/24! bg-[#1B1919]! p-[30px]! min-[1700px]:p-10! transition-all! duration-[400ms]! ease-out! before:absolute! before:inset-0! before:rounded-[26px]! before:bg-[#064C44]! before:-z-[1]! before:scale-y-0! before:origin-bottom! before:transition-transform! before:duration-500! [&.active]:before:scale-y-100! [&.active]:before:origin-top! motion-reduce:transition-none! ${isStatic ? "flex! flex-col! flex-[0_1_320px]! mb-0!" : "flex! flex-col! w-full! h-full! mx-auto! mb-[30px]!"} ${card.cls === "card-3" ? "min-[1499px]:z-[5]!" : card.cls === "card-2" || card.cls === "card-4" ? "min-[1499px]:z-[2]!" : "min-[1499px]:z-[1]!"}`}>
-      <div className="size-[103px]! leading-[103px]! text-center! rounded-full! bg-white/8! group-[.active]/feature:bg-[#121419]! [&>svg]:mb-5! group-hover/feature:[&>svg]:animate-[wobble_1.5s_ease-in-out]!">
-        <card.icon size={48} strokeWidth={1} />
+    <div
+      className={`feature-card group/feature ${card.cls} relative! isolate! z-[99]! flex! flex-col! max-w-[340px]! overflow-hidden! rounded-2xl! border! border-white/12! bg-[#1B1919]! px-[30px]! py-6! min-[1700px]:px-10! min-[1700px]:py-8! transition-[translate,box-shadow,border-color]! duration-300! ease-[cubic-bezier(0.16,1,0.3,1)]! hover:border-[var(--theme-color-coral)]! focus-within:border-[var(--theme-color-coral)]! motion-safe:hover:-translate-y-1! hover:shadow-[0_12px_24px_rgba(0,0,0,0.32)]! motion-safe:focus-within:-translate-y-1! focus-within:shadow-[0_12px_24px_rgba(0,0,0,0.32)]! motion-reduce:translate-y-0! motion-reduce:transition-none! ${isStatic ? "flex-[0_1_320px]! mb-0!" : "w-full! h-full! mx-auto! mb-[30px]!"}`}
+    >
+      <div className="feature-icon relative! z-[1]! grid! size-[72px]! shrink-0! place-items-center! rounded-2xl! border! border-[rgba(255,89,62,0.22)]! bg-[#241c1a]! text-[var(--theme-color-coral)]!" aria-hidden="true">
+        <card.icon size={32} strokeWidth={1.75} />
       </div>
-      <div className={`mt-[35px]! ${isStatic ? "flex! flex-col! flex-1!" : ""}`}>
-        <h4 className="mb-[15px]! max-w-[200px]! font-medium! group-[.active]/feature:text-white!">{card.title}</h4>
-        <p className={`text-[#d9d9d9]! group-[.active]/feature:text-white/85! ${isStatic ? "flex-1!" : ""}`}>{card.description}</p>
-        <Link to={`/services/${card.slug}`} className="inline-block! size-[45px]! rounded-full! leading-10! bg-transparent! text-[#FF593E]! text-center! border! border-[rgba(225,219,209,0.25)]! mt-[30px]! group-[.active]/feature:border-white/30! [&>svg]:-rotate-45! [&>svg]:transition-transform! [&>svg]:duration-[400ms]! hover:[&>svg]:rotate-0! [&_path]:fill-[#FF593E]! group-[.active]/feature:[&_path]:fill-[#FF593E]!">
-          {ArrowIcon}
-        </Link>
+      <div className="relative! z-[1]! mt-6! flex! flex-col! flex-1! min-w-0!">
+        <h4 className="mb-3! max-w-[200px]! font-medium! text-white!">{card.title}</h4>
+        <p className="m-0! flex-1! text-[#d9d9d9]!">{card.description}</p>
+        <div className="mt-5! pt-3! border-t! border-white/10!">
+          <Link to={`/services/${card.slug}`} aria-label={`Explore ${card.title}`} className="flex! items-center! justify-between! gap-4! min-h-11! text-sm! font-medium! text-white! rounded-sm! focus-visible:outline-2! focus-visible:outline-[var(--theme-color-coral)]! focus-visible:outline-offset-4!">
+            <span>Explore service</span>
+            <ArrowUpRight size={20} strokeWidth={1.75} className="shrink-0! text-[var(--theme-color-coral)]!" aria-hidden="true" />
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -145,6 +140,7 @@ export default function FeatureSection({
   return (
     <section
       id={resolvedId}
+      data-native-cursor
       className={`relative! bg-[#131212]! pt-20! min-[992px]:pt-[100px]! min-[1200px]:pt-[130px]! pb-[300px]! max-[575px]:px-3! before:absolute! before:top-[57%]! before:left-1/2! before:size-[455px]! before:bg-[var(--theme-color1)]! before:blur-[127.85px]! before:-translate-x-1/2! before:-translate-y-1/2! before:z-[1]! before:opacity-30! ${isStatic ? "overflow-hidden!" : ""}`}
     >
       <div className="absolute! right-0! top-0! hidden! min-[1400px]:block!">
@@ -178,7 +174,7 @@ export default function FeatureSection({
         <div className={`relative! flex! justify-center! ${isStatic ? "flex-wrap! items-stretch! gap-6! mt-10!" : "items-center! flex-wrap! gap-[30px]! mt-0! min-[1500px]:flex-nowrap! min-[1500px]:gap-0! min-[1500px]:mt-[170px]!"}`}>
           {variant === "slider" ? (
             <Swiper
-              className="feature-slider-home1 w-full! [&_.swiper-wrapper]:items-stretch! [&_.swiper-slide]:flex! [&_.swiper-slide]:justify-center! [&_.swiper-slide]:items-stretch! [&_.swiper-slide]:h-auto!"
+              className="feature-slider-home1 w-full! box-border! px-3! py-6! min-[576px]:px-4! [&_.swiper-wrapper]:items-stretch! [&_.swiper-slide]:flex! [&_.swiper-slide]:justify-center! [&_.swiper-slide]:items-stretch! [&_.swiper-slide]:h-auto!"
               slidesPerView={5}
               spaceBetween={20}
               speed={600}
@@ -191,7 +187,7 @@ export default function FeatureSection({
                 1440: { slidesPerView: 5 },
               }}
             >
-              {[...resolvedCards, resolvedCards[0], resolvedCards[1]].map((card, i) => (
+              {resolvedCards.map((card, i) => (
                 <SwiperSlide key={i}>
                   <Card card={card} />
                 </SwiperSlide>
