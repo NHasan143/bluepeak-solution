@@ -331,18 +331,22 @@ export default function Home() {
                     </h2>
                   </div>
                   <div className={pageClasses("contact-info wow fadeInUp")} data-wow-delay=".3s">
-                    <h6 className="email"><a href="mailto:info@blupeaksolutions.com">info@blupeaksolutions.com</a></h6>
-                    <h3 className="phone"><a href="tel:01849415421">018-4941-5421</a></h3>
+                    <h6 className="email"><a href="mailto:contact@blupeaksolutions.com">contact@blupeaksolutions.com</a></h6>
+                    <h3 className="phone"><a href="tel:01849415421">01849-415421</a></h3>
                   </div>
                 </div>
               </div>
               <div className="form-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[1200px]:w-6/12!">
                 <div className="inner-column">
-                  <div className={pageClasses("contact-form wow fadeInUp")} data-wow-delay=".5s">
-                    <div className="contact-line">
+                  <div className="relative! rounded-[28px]! bg-[#064C44]! p-8! sm:p-12! border! border-white/15! shadow-[0_25px_60px_rgba(0,0,0,0.45)]! overflow-hidden! wow fadeInUp" data-wow-delay=".5s">
+                    <div className="absolute! top-0! -left-1/3! pointer-events-none! opacity-20!">
                       <img src="/images/icons/contact-line.png" alt="" />
                     </div>
-                    <h3 className="get-title">Get In Touch</h3>
+                    <div className="relative! z-10! mb-8!">
+                      <span className="block! text-xs! font-bold! uppercase! tracking-[0.14em]! text-[#FF593E]! mb-2!">Let’s Connect</span>
+                      <h3 className="m-0! text-[clamp(1.8rem,3vw,2.4rem)]! font-bold! leading-tight! text-white!">Get In Touch</h3>
+                      <p className="mt-2! mb-0! text-sm! text-white/70! leading-relaxed!">Tell us about your project or growth goals. We’ll respond within 24 hours.</p>
+                    </div>
                     <HomeContactForm />
                   </div>
                 </div>
@@ -398,16 +402,19 @@ export default function Home() {
       */}
 
       {/* Final CTA */}
-      <section
-        className={(pageClasses("lets-project-section bg-cover") ?? "") + " [background-image:url(/images/background/cta-bg1-1.jpg)]!"}
-
-      >
-        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-          <div className={pageClasses("lets-wrapper")}>
-            <h2 className={pageClasses("title text-anim")}>Let’s Build Your Growth Engine</h2>
-            <Link to="/contact" className={pageClasses("theme-btn btn-style-one wow fadeInUp")} data-wow-delay=".3s">
-              <span className="btn-title">Book a Growth Consultation</span>
-              <InterfaceIcon name="arrow-right"  />
+      <section className="relative! z-[99]! mx-5! min-[1200px]:mx-10! min-[1700px]:mx-[100px]! rounded-t-[30px]! bg-[#064C44]! py-16! px-6! sm:px-12!">
+        <div className="mx-auto! w-full! max-w-[1320px]!">
+          <div className="flex! flex-col! items-center! justify-between! gap-6! text-center! min-[992px]:flex-row! min-[992px]:text-left!">
+            <h2 className="m-0! text-[clamp(2.2rem,4.5vw,4.5rem)]! font-medium! leading-[1.1]! tracking-[-0.03em]! text-white!">
+              Let’s Build Your Growth Engine
+            </h2>
+            <Link
+              to="/contact"
+              className="inline-flex! shrink-0! items-center! justify-center! gap-3! rounded-full! bg-white! px-8! py-4! text-base! font-semibold! text-[#064C44]! transition-all! duration-300! hover:bg-[#FF593E]! hover:text-white! focus-visible:outline-2! focus-visible:outline-white! focus-visible:outline-offset-4! wow fadeInUp"
+              data-wow-delay=".3s"
+            >
+              <span>Book a Growth Consultation</span>
+              <InterfaceIcon name="arrow-right" />
             </Link>
           </div>
         </div>

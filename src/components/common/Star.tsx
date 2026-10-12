@@ -1,16 +1,15 @@
 /**
- * The little sparkle that precedes every section sub-title.
- * The template ships two near-identical variants; `lime` is the filled
- * #D9F45F version used on dark sections, `current` inherits `currentColor`.
+ * The sparkle that precedes section sub-titles and eyebrows.
+ * Default color is the brand Coral accent (#FF593E).
  */
 export default function Star({
   variant = "current",
-  color = "#D9F45F",
+  color = "#FF593E",
 }: {
-  variant?: "lime" | "current";
+  variant?: "lime" | "coral" | "current";
   color?: string;
 }) {
-  if (variant === "lime") {
+  if (variant === "lime" || variant === "coral") {
     return (
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
         <path

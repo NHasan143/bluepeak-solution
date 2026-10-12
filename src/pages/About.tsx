@@ -62,12 +62,12 @@ export default function About() {
           <nav aria-label="Breadcrumb" className="mb-8! text-left! sm:mb-12!">
             <ol className="m-0! flex! list-none! items-center! gap-3! p-0! text-sm!">
               <li>
-                <Link to="/" className="text-[#b9beb6]! underline-offset-4! hover:text-[#D9F45F]! hover:underline! focus-visible:outline-2! focus-visible:outline-solid! focus-visible:outline-[#D9F45F]! focus-visible:outline-offset-4!">
+                <Link to="/" className="text-[#b9beb6]! underline-offset-4! hover:text-[#FF593E]! hover:underline! focus-visible:outline-2! focus-visible:outline-solid! focus-visible:outline-[#FF593E]! focus-visible:outline-offset-4!">
                   Home
                 </Link>
               </li>
               <li aria-hidden="true"><ChevronRight size={14} className="text-[#747c6e]!" /></li>
-              <li aria-current="page" className="text-[#D9F45F]!">About Us</li>
+              <li aria-current="page" className="text-[#FF593E]!">About Us</li>
             </ol>
           </nav>
         }

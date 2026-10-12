@@ -109,8 +109,8 @@ export default function ShopFooter() {
                     <h5 className="widget-title">Support</h5>
                     <div className="widget-content">
                       <div className="text">
-                        <a href="mailto:info@blupeaksolutions.com">info@blupeaksolutions.com</a> <br className="hidden! min-[992px]:block!" />
-                        <a href="tel:01849415421">018-4941-5421</a>
+                        <a href="mailto:contact@blupeaksolutions.com">contact@blupeaksolutions.com</a> <br className="hidden! min-[992px]:block!" />
+                        <a href="tel:01849415421">01849-415421</a>
                       </div>
                     </div>
                   </div>

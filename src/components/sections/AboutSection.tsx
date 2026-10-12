@@ -90,8 +90,8 @@ export default function AboutSection({
                 <Heading
                   id={isPageHeader ? "about-page-title" : undefined}
                   className={isPageHeader
-                    ? "text-anim text-[35px]! leading-[40px]! font-normal! tracking-[-1.5px]! text-white! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]! [&>span]:text-[var(--theme-color1)]! [&>span]:font-normal! [&>span]:italic! [&>span]:font-[family-name:var(--style-font)]! m-0! text-left!"
-                    : "text-anim text-[35px]! leading-[40px]! font-normal! tracking-[-1.5px]! text-white! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]! [&>span]:text-[var(--theme-color1)]! [&>span]:font-normal! [&>span]:italic! [&>span]:font-[family-name:var(--style-font)]! max-[991px]:text-center! max-[991px]:mx-auto!"}
+                    ? "text-anim text-[35px]! leading-[40px]! font-normal! tracking-[-1.5px]! text-white! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]! [&>span]:text-[#FF593E]! [&>span]:font-normal! [&>span]:italic! [&>span]:font-[family-name:var(--style-font)]! m-0! text-left!"
+                    : "text-anim text-[35px]! leading-[40px]! font-normal! tracking-[-1.5px]! text-white! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]! [&>span]:text-[#FF593E]! [&>span]:font-normal! [&>span]:italic! [&>span]:font-[family-name:var(--style-font)]! max-[991px]:text-center! max-[991px]:mx-auto!"}
                   data-reveal-on={isHome ? "desktop" : undefined}
                 >
                   {resolvedTitle}
@@ -105,13 +105,13 @@ export default function AboutSection({
                   <h2 className="text-2xl! min-[576px]:text-[32px]! font-bold! text-white! leading-none!">{stat1Value}</h2>
                 </div>
                 <div className="relative! z-[2]! flex! flex-col! items-center! justify-center! size-[155px]! min-[576px]:size-[205px]! shrink-0! rounded-full! bg-[var(--theme-color1)]! px-2.5! min-[576px]:px-[15px]! -ml-5! min-[576px]:-ml-[35px]! shadow-[-10px_0_25px_rgba(0,0,0,0.35)]!">
-                  <p className="text-xs! min-[576px]:text-[15px]! font-semibold! text-black! mb-0.5! min-[576px]:mb-1! text-center! leading-[1.2]!">{stat2Label}</p>
-                  <h2 className="text-[34px]! min-[576px]:text-[52px]! font-bold! text-black! leading-none!">
+                  <p className="text-xs! min-[576px]:text-[15px]! font-semibold! text-white! mb-0.5! min-[576px]:mb-1! text-center! leading-[1.2]!">{stat2Label}</p>
+                  <h2 className="text-[34px]! min-[576px]:text-[52px]! font-bold! text-white! leading-none!">
                     <span className="count-text" data-speed="3000" data-stop={stat2Value} data-lag="0">
                       {stat2Value}
                     </span>
                   </h2>
-                  {stat2Sub && <span className="text-[10px]! min-[576px]:text-[11px]! font-semibold! text-black! text-center! leading-[1.2]! mt-0.5!">{stat2Sub}</span>}
+                  {stat2Sub && <span className="text-[10px]! min-[576px]:text-[11px]! font-semibold! text-white/90! text-center! leading-[1.2]! mt-0.5!">{stat2Sub}</span>}
                 </div>
               </div>
             </div>
@@ -133,7 +133,7 @@ export default function AboutSection({
                   </h2>
                   <p className="text-white! max-w-[75px]! min-[1400px]:max-w-[95px]!">{stat3Label}</p>
                 </div>
-                <div className="w-[303px]! h-0.5! bg-[linear-gradient(90deg,rgba(217,244,95,0.17)_3.24%,#D9F45F_48.44%,#0D0D0D_100%)]! max-[991px]:mx-auto!" />
+                <div className="w-[303px]! h-0.5! bg-[linear-gradient(90deg,rgba(6,76,68,0.2)_0%,#064C44_50%,#FF593E_100%)]! max-[991px]:mx-auto!" />
               </div>
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function AboutSection({
                 <div className="icon">
                   <img src="/images/icons/quote-icon.png" alt="img" />
                 </div>
-                <p className="text-[var(--headings-color)]! font-medium! mt-[15px]!">{pullQuote}</p>
+                <p className="text-white! font-medium! mt-[15px]!">{pullQuote}</p>
               </div>
             </div>
           </div>
