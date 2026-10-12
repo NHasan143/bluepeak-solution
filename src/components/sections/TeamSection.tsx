@@ -49,7 +49,7 @@ export default function TeamSection({
               <Star variant="lime" />
               <span>{eyebrow}</span>
             </div>
-            <h2 className="text-anim text-white! text-[35px]! leading-[40px]! tracking-[-1.5px]! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]! [&>span]:text-[var(--theme-color1)]! [&>span]:font-normal! [&>span]:italic! [&>span]:font-[family-name:var(--style-font)]!">{title}</h2>
+            <h2 className="text-anim text-white! text-[35px]! leading-[40px]! tracking-[-1.5px]! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]! [&>span]:text-[var(--theme-color-coral)]! [&>span]:font-normal! [&>span]:italic! [&>span]:font-[family-name:var(--style-font)]!">{title}</h2>
           </div>
         )}
         <div className="outer-box">
