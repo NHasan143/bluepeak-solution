@@ -116,18 +116,18 @@ The production deployment workflow remains separate and runs on `main`.
 ## Routes
 
 `/` `/about` `/services` `/services/:slug`
-`/team` `/team-details` `/contact`
+`/team` `/contact`
 `/404` (+ catch-all).
 
 Old `/service-details/:slug` URLs redirect to `/services/:slug` on hosting.
-The routes for projects, project details, testimonials, pricing, FAQ, blog, blog details, shop,
+The routes for projects, project details, team details, testimonials, pricing, FAQ, blog, blog details, shop,
 shop sidebar, product details, checkout and bare `/service-details` are commented
 out. Hosting returns 404 for those exact paths; the app's fallback uses `noindex`.
 Restore the routes and their matching hosting rules together when re-enabling.
 
 ## Sitemap and crawler discovery
 
-`public/sitemap.xml` lists the 11 active public URLs on
+`public/sitemap.xml` lists the 10 active public URLs on
 `https://blupeaksolutions.com`, including all five `/services/:slug` pages.
 Disabled routes, `/404`, wildcard URLs, and old service aliases are excluded.
 `public/robots.txt` allows crawling and advertises the sitemap.

@@ -4,6 +4,7 @@ import { lazy, Suspense, useEffect, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { ScrollSmoother } from "../lib/gsap";
 import Star from "../components/common/Star";
+import HeroGrowthText from "../components/common/HeroGrowthText";
 import Accordion, { type AccordionEntry } from "../components/common/Accordion";
 import Footer from "../components/layout/Footer";
 import HomeContactForm from "../components/forms/HomeContactForm";
@@ -100,7 +101,7 @@ export default function Home() {
           <div className="hero-content">
             <div className={pageClasses("sub-title hero-eyebrow")}><Star /><span>AI-Accelerated Growth Execution</span></div>
             <h1 className="hero-title">
-              Build a Smarter <span>Growth Strategy</span><br />
+              Build a Smarter <HeroGrowthText /><br />
               With Blupeak Solutions
             </h1>
             <p className={pageClasses("hero-description")}>Blupeak Solutions builds end-to-end B2B growth engines that turn cold outreach into qualified leads, closed deals, and scalable revenue.</p>
@@ -172,14 +173,7 @@ export default function Home() {
       </section> */}
 
       {/* Team Section (Instead of Tech Stack) */}
-      <TeamSection
-        eyebrow="Our Expert Team"
-        title={
-          <>
-            Meet the Team Behind <span>Your Digital Success</span>
-          </>
-        }
-      />
+      <TeamSection />
 
       <FeatureSection variant="slider" />
 

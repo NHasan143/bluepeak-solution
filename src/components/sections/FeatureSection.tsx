@@ -93,6 +93,9 @@ export interface FeatureSectionProps {
   variant?: "slider" | "static";
   eyebrow?: string;
   title?: React.ReactNode;
+  animateTitle?: boolean;
+  animateDescription?: boolean;
+  showEyebrow?: boolean;
   description?: string;
   cards?: FeatureCardItem[];
   ctaText?: string;
@@ -109,6 +112,9 @@ export default function FeatureSection({
   variant = "slider",
   eyebrow = "Our Features",
   title,
+  animateTitle = true,
+  animateDescription = true,
+  showEyebrow = true,
   description,
   cards,
   ctaText = "More Features",
@@ -140,7 +146,6 @@ export default function FeatureSection({
   return (
     <section
       id={resolvedId}
-      data-native-cursor
       className={`relative! bg-[#131212]! pt-20! min-[992px]:pt-[100px]! min-[1200px]:pt-[130px]! pb-[300px]! max-[575px]:px-3! before:absolute! before:top-[57%]! before:left-1/2! before:size-[455px]! before:bg-[var(--theme-color1)]! before:blur-[127.85px]! before:-translate-x-1/2! before:-translate-y-1/2! before:z-[1]! before:opacity-30! ${isStatic ? "overflow-hidden!" : ""}`}
     >
       <div className="absolute! right-0! top-0! hidden! min-[1400px]:block!">
@@ -154,15 +159,15 @@ export default function FeatureSection({
         <div className="flex! flex-wrap! -mx-3! justify-center! mb-[60px]!">
           <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-8/12! min-[992px]:w-9/12!">
             <div className="relative! text-center!">
-              <div className="mb-[5px]! [&>svg]:text-[#FF593E]! [&>svg]:-mt-0.5! [&>svg]:mr-[5px]! [&>span]:text-white! [&>span]:text-sm! [&>span]:font-normal! [&>span]:leading-normal! [&>span]:uppercase!">
+              {showEyebrow && <div className="mb-[5px]! [&>svg]:text-[#FF593E]! [&>svg]:-mt-0.5! [&>svg]:mr-[5px]! [&>span]:text-white! [&>span]:text-sm! [&>span]:font-normal! [&>span]:leading-normal! [&>span]:uppercase!">
                 <Star />
                 <span>{eyebrow}</span>
-              </div>
-              <h2 className="text-anim text-white! text-[35px]! leading-[40px]! tracking-[-1.5px]! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]! [&>span]:text-[#FF593E]! [&>span]:font-normal! [&>span]:italic! [&>span]:font-[family-name:var(--style-font)]!">
+              </div>}
+              <h2 className={`${animateTitle ? "text-anim " : ""}text-white! text-[35px]! leading-[40px]! tracking-[-1.5px]! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]! [&>span]:text-[#FF593E]! [&>span]:font-normal! [&>span]:italic! [&>span]:font-[family-name:var(--style-font)]!`}>
                 {resolvedTitle}
               </h2>
               {resolvedDescription && (
-                <p className="text-anim max-w-[760px]! mx-auto! mt-[18px]! mb-0! text-base! leading-[1.7]! text-[#a0a6a0]! text-center!">
+                <p className={`${animateDescription ? "text-anim " : ""}max-w-[760px]! mx-auto! mt-[18px]! mb-0! text-base! leading-[1.7]! text-[#a0a6a0]! text-center!`}>
                   {resolvedDescription}
                 </p>
               )}

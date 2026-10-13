@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T10:12:23.561Z",
+  "title": "Design System: Blupeak Solutions",
+  "extensions": {
+    "colorMeta": {
+      "coral": {
+        "role": "primary",
+        "displayName": "Coral"
+      },
+      "coral-readable": {
+        "role": "primary",
+        "displayName": "Readable coral"
+      },
+      "consultation-green": {
+        "role": "secondary",
+        "displayName": "Consultation green"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Services desktop hero ramp; responsive and Contact differences are recorded in DESIGN.md."
+      },
+      "accent": {
+        "displayName": "Italic phrase emphasis",
+        "purpose": "Playfair Display inherits the surrounding heading size and is italic in use."
+      }
+    },
+    "shadows": [
+      {
+        "name": "dark-service-hover",
+        "value": "0 16px 36px -12px rgba(0,0,0,0.45), 0 0 24px -6px rgba(6,76,68,0.25)",
+        "purpose": "Existing dark homepage service rows only; light rows have no shadow."
+      }
+    ],
+    "motion": [
+      {
+        "name": "heading-reveal",
+        "value": "1000ms cubic-bezier(0.215,0.61,0.355,1)",
+        "purpose": "One-time opacity/translation reveal, 100ms starting delay and 30ms letter stagger; reduced motion settles ordinary text."
+      },
+      {
+        "name": "light-row-state",
+        "value": "300ms cubic-bezier(0.4,0,0.2,1)",
+        "purpose": "Light Services row fill/border transitions."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "hero-and-facts",
+        "value": "470px"
+      },
+      {
+        "name": "services-row-type",
+        "value": "576px"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "hero-desktop-type",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "header-telephone",
+        "value": "1400px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Services/Contact primary action; consultation panels use a white focus outline.",
+      "html": "<a class=\"ds-primary\" href=\"/services\">Explore Our Services<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-primary{display:inline-flex;min-height:56px;align-items:center;justify-content:center;gap:12px;border-radius:9999px;background:var(--theme-color-coral,#FF593E);color:#261d1a;padding:16px 28px;text-decoration:none;font-family:var(--body-font-family,\"Manrope\");font-size:16px;font-weight:600;transition:background-color 150ms cubic-bezier(.4,0,.2,1)}.ds-primary:hover{background:#f24c32}.ds-primary:focus-visible{outline:2px solid #C3422A;outline-offset:4px;}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "Contact submit",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Contact submit control, including its observed disabled submitting state.",
+      "html": "<button class=\"ds-submit\" type=\"submit\">Send message</button>",
+      "css": ".ds-submit{display:inline-flex;min-height:56px;align-items:center;justify-content:center;border:0;border-radius:9999px;background:var(--theme-color-coral,#FF593E);color:#261d1a;padding:16px 32px;font-family:var(--body-font-family,\"Manrope\");font-size:16px;font-weight:600;transition:background-color 150ms cubic-bezier(.4,0,.2,1)}.ds-submit:hover{background:#f24c32}.ds-submit:focus-visible{outline:2px solid #C3422A;outline-offset:2px}.ds-submit:disabled{cursor:wait;opacity:.6}@media(prefers-reduced-motion:reduce){.ds-submit{transition:none}}"
+    },
+    {
+      "name": "Reset action",
+      "kind": "button",
+      "refersTo": "button-reset",
+      "description": "Contact outlined reset action.",
+      "html": "<button class=\"ds-reset\" type=\"reset\">Reset</button>",
+      "css": ".ds-reset{display:inline-flex;min-height:56px;align-items:center;justify-content:center;border:1px solid #C3422A;border-radius:9999px;background:transparent;color:#C3422A;padding:16px 32px;font-family:var(--body-font-family,\"Manrope\");font-size:16px;font-weight:600;transition:background-color 150ms cubic-bezier(.4,0,.2,1)}.ds-reset:hover{background:#fff1ed}.ds-reset:focus-visible{outline:2px solid #C3422A;outline-offset:2px}@media(prefers-reduced-motion:reduce){.ds-reset{transition:none}}"
+    },
+    {
+      "name": "Contact field",
+      "kind": "input",
+      "refersTo": "field-light",
+      "description": "Labelled light contact input with hover and keyboard focus.",
+      "html": "<label class=\"ds-label\" for=\"ds-name\">Name <span aria-hidden=\"true\">*</span></label><input class=\"ds-field\" id=\"ds-name\" name=\"name\" placeholder=\"Enter Name\" autocomplete=\"name\" required>",
+      "css": ".ds-label{display:block;margin-bottom:8px;color:#261d1a;font-family:var(--body-font-family,\"Manrope\");font-size:14px;font-weight:500}.ds-label span{color:#C3422A}.ds-field{display:block;min-height:56px;width:100%;border-radius:12px;border:1px solid #94837c;background:#faf8f7;color:#261d1a;caret-color:#C3422A;padding:16px 20px;font-family:var(--body-font-family,\"Manrope\");font-size:16px;line-height:24px;box-shadow:none;transition:color 150ms,border-color 150ms,background-color 150ms}.ds-field::placeholder{color:#66544e}.ds-field:hover,.ds-field:focus{border-color:#C3422A}.ds-field:focus{background:#ffffff}.ds-field:focus-visible{outline:2px solid #C3422A;outline-offset:2px}@media(prefers-reduced-motion:reduce){.ds-field{transition:none}}"
+    },
+    {
+      "name": "Light desktop navigation",
+      "kind": "nav",
+      "refersTo": "navigation-light",
+      "description": "Static links from the light navigation capsule; expandable Services behavior remains in the application.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"/\">Home</a><a href=\"/about\">About</a><a href=\"/contact\">Contact</a></nav>",
+      "css": ".ds-nav{display:flex;gap:28px;border-radius:38.5px;background:#faf5f3;padding:0 50px}.ds-nav a{display:flex;padding:18px 0;color:#261d1a;text-decoration:none;font-family:var(--body-font-family,\"Manrope\");font-size:15px;line-height:30px;font-weight:500;transition:color 300ms}.ds-nav a:hover{color:#C3422A}.ds-nav a:focus-visible{outline:2px solid #C3422A;outline-offset:-2px}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none}}"
+    },
+    {
+      "name": "Consultation close",
+      "kind": "card",
+      "refersTo": "consultation-panel",
+      "description": "Green close used by Services with a coral action.",
+      "html": "<section class=\"ds-close\"><h2>Let\u2019s talk growth.</h2><a href=\"/contact\">Book a Growth Consultation<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a></section>",
+      "css": ".ds-close{display:flex;flex-direction:column;align-items:flex-start;gap:24px;border-radius:16px;background:var(--theme-color-teal,#064C44);padding:28px}.ds-close h2{margin:0;font-family:var(--heading-font-family,\"CreatoDisplay\",sans-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.12;letter-spacing:-.03em;color:white}.ds-close a{display:inline-flex;min-height:56px;align-items:center;justify-content:center;gap:12px;border-radius:9999px;background:var(--theme-color-coral,#FF593E);padding:16px 28px;color:#261d1a;text-decoration:none;font-family:var(--body-font-family,\"Manrope\");font-size:16px;font-weight:600;transition:background-color 150ms}.ds-close a:hover{background:#f24c32}.ds-close a:focus-visible{outline:2px solid white;outline-offset:4px}@media(min-width:640px){.ds-close{padding:40px}}@media(min-width:1024px){.ds-close{flex-direction:row;align-items:center;justify-content:space-between;padding:48px}}@media(prefers-reduced-motion:reduce){.ds-close a{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "overview": "This records the Services and Contact visual system and shared light header. About adopts its palette and font families while preserving its original structure; its page-specific styles are in `src/styles/aboutPage.css`. The user selected consistency with Services and Contact: a white background, warm text, coral buttons and icons, CreatoDisplay headings and Playfair Display italic emphasis. It documents an inherited system; no new brand persona or creative metaphor was chosen.\n\nThe homepage, shared footer, mobile navigation drawer and Services megamenu retain their existing dark contexts. The light page palette does not replace those contexts or the global stylesheet defaults. Sources are `src/pages/{About,Services,Contact}.tsx`, `src/components/layout/{Header,Navigation,Footer}.tsx`, `TemplateContactForm.tsx`, `HomeServicesList.tsx`, `DotLink.tsx`, `TextReveal.tsx` and `public/css/style.css`.",
+    "keyCharacteristics": [
+      "White inner-page canvases with warm ink and secondary body text.",
+      "Coral pill actions with dark labels; darker coral for readable links and focus.",
+      "Sans-serif headings with italic serif phrase emphasis.",
+      "Flat warm panels, fine separators and a green consultation close.",
+      "Stacked mobile content that becomes paired columns at desktop widths."
+    ],
+    "rules": [
+      {
+        "name": "The Context Rule",
+        "body": "Apply light-page colors explicitly within a light surface; preserve the existing dark shell and its light logo variant.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "**Do** use the documented light palette and typography when extending About, Services or Contact.",
+      "**Do** retain warm-ink labels on coral primary actions and visible contextual keyboard focus.",
+      "**Do** preserve stacked mobile layouts, readable body measures and reduced-motion behavior.",
+      "**Do** preserve existing asset provenance and supplied company content."
+    ],
+    "donts": [
+      "**Don't** apply the white inner-page canvas universally to the dark homepage, footer or navigation panels.",
+      "**Don't** treat large-heading coral as the default color for small text links; use readable coral in the observed light context.",
+      "**Don't** describe the analytics photograph as the team or as newly generated imagery.",
+      "**Don't** invent selected, error or interaction states absent from the source."
+    ]
+  }
+}

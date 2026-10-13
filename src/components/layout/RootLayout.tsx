@@ -5,11 +5,10 @@ import { ScrollSmoother, ScrollTrigger } from "../../lib/gsap";
 import { usePageEffects } from "../../hooks/usePageEffects";
 import Preloader from "./Preloader";
 import BackToTop from "./BackToTop";
-import MouseCursor from "./MouseCursor";
 import Header from "./Header";
 
 /**
- * Shared shell for every route: preloader, custom cursor, ScrollSmoother
+ * Shared shell for every route: preloader, ScrollSmoother
  * wrapper and the per-page animation orchestration.
  *
  * `bare` drops the header / back-to-top (the original page-404.html has no
@@ -62,8 +61,7 @@ export default function RootLayout({ bare = false }: { bare?: boolean }) {
       {!bare && (
         <>
           <BackToTop />
-          <MouseCursor />
-          <Header />
+          <Header light={["/about", "/contact", "/services", "/team"].includes(pathname.replace(/\/$/, ""))} />
         </>
       )}
 

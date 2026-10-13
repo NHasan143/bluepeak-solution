@@ -1,4 +1,4 @@
-import { Fragment, useLayoutEffect, useRef } from "react";
+import { Fragment, useLayoutEffect, useRef, useState } from "react";
 
 // Literal utilities let Tailwind generate every stagger without inline styles.
 const STAGGER_DELAYS = [
@@ -20,19 +20,26 @@ export default function TextReveal({
   text,
   className = "",
   emphasis,
+  lineBreakBefore,
 }: {
   text: string;
   className?: string;
   emphasis?: { text: string; className: string };
+  lineBreakBefore?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
+  const [settledText, setSettledText] = useState<string | null>(null);
+  const settled = settledText === text;
 
   useLayoutEffect(() => {
     const element = ref.current;
     if (!element) return;
 
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (motion.matches || !("IntersectionObserver" in window)) return;
+    if (motion.matches || !("IntersectionObserver" in window)) {
+      const frame = requestAnimationFrame(() => setSettledText(text));
+      return () => cancelAnimationFrame(frame);
+    }
 
     let disposed = false;
     let visible = false;
@@ -40,6 +47,23 @@ export default function TextReveal({
     let started = false;
     let firstFrame = 0;
     let secondFrame = 0;
+    let completionTimer = 0;
+    let completed = false;
+
+    // Restore ordinary text after the reveal so selection, copying and
+    // assistive technology use the actual words rather than animation spans.
+    const finish = () => {
+      if (disposed || completed) return;
+      completed = true;
+      clearTimeout(completionTimer);
+      element.dataset.reveal = "visible";
+      setSettledText(text);
+    };
+    const lastLetter = [...element.querySelectorAll("[data-reveal-letter]")].at(-1);
+    const onTransitionEnd = (event: TransitionEvent) => {
+      if (event.target === lastLetter && event.propertyName === "opacity") finish();
+    };
+    element.addEventListener("transitionend", onTransitionEnd);
 
     // Visible without enhancement. Prepare before paint; reveal once the text
     // is in view, its fonts are ready, and the shared preloader has finished.
@@ -52,6 +76,9 @@ export default function TextReveal({
       firstFrame = requestAnimationFrame(() => {
         secondFrame = requestAnimationFrame(() => {
           element.dataset.reveal = "visible";
+          // Covers interrupted transitions; the longest stagger plus its
+          // duration is 2.39 seconds.
+          completionTimer = window.setTimeout(finish, 2500);
         });
       });
     };
@@ -75,7 +102,7 @@ export default function TextReveal({
       started = true;
       intersection.disconnect();
       loader.disconnect();
-      element.dataset.reveal = "visible";
+      finish();
     };
     motion.addEventListener("change", onMotionChange);
 
@@ -84,6 +111,8 @@ export default function TextReveal({
       intersection.disconnect();
       loader.disconnect();
       motion.removeEventListener("change", onMotionChange);
+      element.removeEventListener("transitionend", onTransitionEnd);
+      clearTimeout(completionTimer);
       cancelAnimationFrame(firstFrame);
       cancelAnimationFrame(secondFrame);
       delete element.dataset.reveal;
@@ -93,11 +122,12 @@ export default function TextReveal({
   const words = text.split(" ");
   const emphasisStart = emphasis ? text.indexOf(emphasis.text) : -1;
   const emphasisEnd = emphasisStart + (emphasis?.text.length ?? 0);
+  const lineBreakStart = lineBreakBefore ? text.indexOf(lineBreakBefore) : -1;
 
   return (
     <span ref={ref} className={`group/reveal ${className}`} data-text-reveal>
-      <span className="sr-only!">{text}</span>
-      <span aria-hidden="true">
+      {!settled && <span className="sr-only! select-none!">{text}</span>}
+      <span aria-hidden={settled ? undefined : true}>
         {words.map((word, wordIndex) => {
           const precedingText = words.slice(0, wordIndex).join(" ");
           const textIndex = wordIndex === 0 ? 0 : precedingText.length + 1;
@@ -105,9 +135,9 @@ export default function TextReveal({
           const emphasized = emphasisStart >= 0 && textIndex >= emphasisStart && textIndex + word.length <= emphasisEnd;
           return (
             <Fragment key={`${wordIndex}-${word}`}>
-              {wordIndex > 0 && " "}
+              {wordIndex > 0 && (textIndex === lineBreakStart ? <br className="block!" /> : " ")}
               <span className={`inline-block! whitespace-nowrap! ${emphasized ? emphasis?.className : ""}`}>
-                {Array.from(word).map((letter, index) => {
+                {settled ? word : Array.from(word).map((letter, index) => {
                   const delay = STAGGER_DELAYS[Math.min(letterIndex + index, STAGGER_DELAYS.length - 1)];
                   return (
                     <span key={index} data-reveal-letter className={`inline-block! translate-x-0! opacity-100! transition-[opacity,translate]! duration-1000! ease-[cubic-bezier(0.215,0.61,0.355,1)]! group-data-[reveal=pending]/reveal:translate-x-5! group-data-[reveal=pending]/reveal:opacity-0! motion-reduce:transition-none! motion-reduce:group-data-[reveal=pending]/reveal:translate-x-0! motion-reduce:group-data-[reveal=pending]/reveal:opacity-100! ${delay}`}>

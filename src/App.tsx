@@ -7,7 +7,7 @@ import ServiceDetails from "./pages/ServiceDetails";
 // import Projects from "./pages/Projects";
 // import ProjectDetails from "./pages/ProjectDetails";
 import Team from "./pages/Team";
-import TeamDetails from "./pages/TeamDetails";
+// import TeamDetails from "./pages/TeamDetails";
 // import Testimonial from "./pages/Testimonial";
 // import Pricing from "./pages/Pricing";
 // import Faq from "./pages/Faq";
@@ -33,7 +33,7 @@ export default function App() {
         {/* <Route path="projects" element={<Projects />} /> */}
         {/* <Route path="project-details" element={<ProjectDetails />} /> */}
         <Route path="team" element={<Team />} />
-        <Route path="team-details" element={<TeamDetails />} />
+        {/* <Route path="team-details" element={<TeamDetails />} /> */}
         {/* <Route path="testimonial" element={<Testimonial />} /> */}
         {/* <Route path="pricing" element={<Pricing />} /> */}
         {/* <Route path="faq" element={<Faq />} /> */}
