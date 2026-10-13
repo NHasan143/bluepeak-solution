@@ -89,330 +89,280 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero */}
-      <section className={pageClasses("hero-section hero-1 hero-rings")}>
-        <div className={pageClasses("hero-rings-background")} aria-hidden="true">
-          <Suspense fallback={null}>
-            <MagicRings speed={0.65} noiseAmount={0.025} followMouse
-              mouseInfluence={0.08} parallax={0.015} hoverScale={1.04} />
-          </Suspense>
-        </div>
-        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-          <div className="hero-content">
-            <div className={pageClasses("sub-title hero-eyebrow")}><Star /><span>AI-Accelerated Growth Execution</span></div>
-            <h1 className="hero-title">
-              Build a Smarter <HeroGrowthText /><br />
-              With Blupeak Solutions
-            </h1>
-            <p className={pageClasses("hero-description")}>Blupeak Solutions builds end-to-end B2B growth engines that turn cold outreach into qualified leads, closed deals, and scalable revenue.</p>
-            <div className={pageClasses("hero-actions")}>
-              <Link to="/contact" className={pageClasses("theme-btn btn-style-one")}><span className="btn-title">Book a Growth Consultation</span><InterfaceIcon name="arrow-right"  /></Link>
-              <Link to="/services" className={pageClasses("hero-secondary-link")}>See What We Do <InterfaceIcon name="arrow-right"  /></Link>
-            </div>
+      <main data-home-page className={pageClasses("home-page")}>
+        {/* Hero */}
+        <section className={pageClasses("hero-section hero-1 hero-rings")}>
+          <div className={pageClasses("hero-rings-background")} aria-hidden="true">
+            <Suspense fallback={null}>
+              <MagicRings speed={0.65} noiseAmount={0.025} followMouse
+                mouseInfluence={0.08} parallax={0.015} hoverScale={1.04} />
+            </Suspense>
           </div>
-          <div className="text-circle">
-            <a href="#home-about" onClick={scrollToAbout} className="down-icon" aria-label="Explore About Us">
-              <InterfaceIcon name="arrow-down"  />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <AboutSection id="home-about" bodyParagraph="Blupeak Solutions unifies sales, marketing, engineering, SEO and automation into one growth engine built to accelerate revenue." />
-
-      {/* Services */}
-      <section className={pageClasses("service-section fix section-padding section-bg")}>
-        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! mb-[60px]! justify-between!">
-            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-8/12!">
-              <div className={pageClasses("section-title mb-[0px]!")}>
-                <div className="sub-title text-left">
-                  <Star variant="lime" />
-                  <span>Our Services</span>
-                </div>
-                <h2 className={pageClasses("title text-anim")}>
-                  B2B Growth Services Built Around <span>Your Revenue Goals</span>
-                </h2>
-                <p className={pageClasses("growth-services-intro")}>
-                  End-to-end revenue systems, brand creative, SEO, custom web, and AI automation built and run under one roof.
-                </p>
-              </div>
-            </div>
-            <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! wow fadeInUp")} data-wow-delay=".3s">
-              <div className="circle-area flex! justify-end!">
-                <Link to="/services" className={pageClasses("circle-box")}>
-                  <span>
-                    More Services
-                    <InterfaceIcon name="arrow-right"  />
-                  </span>
+          <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+            <div className="hero-content">
+              <div className={pageClasses("sub-title hero-eyebrow")}><Star /><span>AI-Accelerated Growth Execution</span></div>
+              <h1 className="hero-title">
+                Build a Smarter <HeroGrowthText /><br />
+                With Blupeak Solutions
+              </h1>
+              <p className={pageClasses("hero-description")}>
+                Blupeak Solutions builds end-to-end B2B growth engines that turn cold outreach into qualified leads, closed deals, and scalable revenue.
+              </p>
+              <div className={pageClasses("hero-actions")}>
+                <Link to="/contact" className={pageClasses("theme-btn btn-style-one")}>
+                  <span className="btn-title">Book a Growth Consultation</span>
+                  <InterfaceIcon name="arrow-right" />
+                </Link>
+                <Link to="/services" className={pageClasses("hero-secondary-link")}>
+                  See What We Do <InterfaceIcon name="arrow-right" />
                 </Link>
               </div>
             </div>
-          </div>
-
-          <HomeServicesList />
-          <div className={pageClasses("growth-services-cta")}>
-            <Link to="/contact" className={pageClasses("theme-btn btn-style-one")}>
-              <span className="btn-title">Book a Growth Consultation</span>
-              <InterfaceIcon name="arrow-right" aria-hidden="true"  />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Marquee Banner */}
-{/*       <section className="work-section">
-        <div className="marquee anim-fade-move">
-          {marqueeGroup}
-          {marqueeGroup}
-          {marqueeGroup}
-          {marqueeGroup}
-          {marqueeGroup}
-          {marqueeGroup}
-        </div>
-      </section> */}
-
-      {/* Team Section (Instead of Tech Stack) */}
-      <TeamSection />
-
-      <FeatureSection variant="slider" />
-
-      {/* Recognition / Milestones */}
-      <section className={pageClasses("award-section1 section-padding")}>
-        <div className="award1-ellipse1">
-          <img src="/images/icons/award1-ellipse1.png" alt="img" />
-        </div>
-        <div className="shape1 hidden! min-[1400px]:block!">
-          <img src="/images/icons/shape1-1.png" alt="" />
-        </div>
-        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! mb-[60px]! justify-between! items-center!">
-            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-6/12! min-[992px]:w-8/12!">
-              <div className={pageClasses("section-title")}>
-                <div className="sub-title">
-                  <Star />
-                  <span>Our Foundation</span>
-                </div>
-                <h2 className={pageClasses("title text-anim")}>
-                  Built on Real Experience, <span>Not Empty Promises</span>
-                </h2>
-              </div>
-            </div>
-            <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-4/12! wow fadeInUp")} data-wow-delay=".3s">
-              <p>
-                Blupeak is a young agency, but the team behind it isn’t. Here is what actually backs that up.
-              </p>
+            <div className="text-circle">
+              <a href="#home-about" onClick={scrollToAbout} className="down-icon" aria-label="Explore About Us">
+                <InterfaceIcon name="arrow-down" />
+              </a>
             </div>
           </div>
-          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! items-end!">
-            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-5/12!">
-              <div className="flex! flex-col! justify-center! h-full! min-[992px]:px-[24px]! min-h-[300px]!" >
-                <h2 className="[font-size:clamp(80px,_8vw,_120px)]! [line-height:1]! [color:#BAFF39]! [font-weight:800]! [margin-bottom:16px]! [letter-spacing:-2px]!" >6+</h2>
-                <h4 className="[font-size:clamp(24px,_3vw,_36px)]! [color:#FFFFFF]! [font-weight:300]! [line-height:1.2]! [letter-spacing:0.5px]!" >
-                  Years of combined, <br />hands-on experience
-                </h4>
-              </div>
-            </div>
-            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-7/12!">
-              <div className={pageClasses("award-list-items-area")}>
-                {[".3s", ".3s", ".5s", ".7s"].map((delay, i) => (
-                  <div
-                    key={i}
-                    className={pageClasses(`award-list-items-items${i === 0 ? " active" : ""}${i === 3 ? " mb-0!" : ""} wow fadeInUp`)}
-                    data-wow-delay={delay}
-                  >
-                    <div className="content-items">
-                      <div className="content">
+        </section>
 
-                        <h4 className={pageClasses("title")}>
-                          {[
-                            "6+ years of combined, hands-on experience across our sales, tech and creative team",
-                            "A team built from people who have run outbound, closing and CRM systems for growing B2B companies before",
-                            "Every project handled by our own in-house specialists, never subcontracted out",
-                            "One accountable team covering strategy, execution and reporting for each client, start to finish",
-                          ][i]}
-                        </h4>
-                      </div>
-                      <img
-                        className="foundation-image"
-                        src="/images/resource/about-3-2.jpg"
-                        alt="Blupeak team"
-                      />
-                    </div>
-                    <div
-                      className={(pageClasses("hover-image hidden! min-[768px]:block! bg-cover") ?? "") + " [background-image:url(/images/resource/about-1-5.jpg)]!"}
+        <AboutSection
+          id="home-about"
+          tone="light"
+          bodyParagraph="Blupeak Solutions unifies sales, marketing, engineering, SEO and automation into one growth engine built to accelerate revenue."
+        />
 
-                    />
-                    <Link to="/about" className="arrow-icon">
-                      <InterfaceIcon name="arrow-right"  />
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <ClientsSection />
-
-      {/* Counters */}
-      <section className={pageClasses("counter-section section-padding")}>
-        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! advance-wrap">
-            {COUNTERS.map((c, i) => (
-              <div key={i} className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-3/12! min-[992px]:w-3/12! min-[768px]:w-6/12! min-[576px]:w-6/12!">
-                <div className={pageClasses(`counter-card-item${c.rotate ? " ratote-2" : ""} advance-item`)}>
-                  <div className="count-box">
-                    <h2 className={pageClasses("title")}>
-                      <span className="count-text" data-speed="3000" data-stop={c.stop}>{c.start}</span>
-                      {c.suffix}
-                    </h2>
-                    <p>{c.label}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className={pageClasses("faq-section fix section-bg-3 section-padding pt-[0px]!")}>
-        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-          <div className={pageClasses("section-title text-center! mb-[60px]!")}>
-            <div className="sub-title">
-              <Star />
-              <span>FAQS</span>
-            </div>
-            <h2 className={pageClasses("title text-anim")}>
-              Have Questions in Your Mind? <br className="hidden! min-[992px]:block!" />
-              Get the <span>Answers Now</span>
-            </h2>
-          </div>
-          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6!">
-            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12!">
-              <div className={pageClasses("faq-box-style-1")}>
-                <Accordion items={FAQ_LEFT} defaultOpen={0} />
-              </div>
-            </div>
-            <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12!">
-              <div className={pageClasses("faq-box-style-1")}>
-                <Accordion items={FAQ_RIGHT} defaultOpen={-1} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section
-        className={(pageClasses("contact-section style-four bg-cover") ?? "") + " [background-image:url(/images/background/contact-bg1-1.jpg)]!"}
-
-      >
-        <div className="outer-box">
+        {/* Services */}
+        <section className={pageClasses("service-section fix section-padding section-bg bg-white!")}>
           <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-            <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! justify-between!">
-              <div className="content-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[1200px]:w-5/12!">
-                <div className="inner-column">
-                  <div className={pageClasses("section-title")}>
-                    <div className="sub-title">
-                      <Star />
-                      <span>Get in touch</span>
-                    </div>
-                    <h2 className={pageClasses("title text-anim")}>
-                      Success Is a Team Effort. <span>Let’s Achieve It Together</span>
-                    </h2>
+            <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! mb-[60px]! justify-between!">
+              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-8/12!">
+                <div className={pageClasses("section-title mb-[0px]!")}>
+                  <div className="sub-title text-left">
+                    <Star variant="coral" />
+                    <span>Our Services</span>
                   </div>
-                  <div className={pageClasses("contact-info wow fadeInUp")} data-wow-delay=".3s">
-                    <h6 className="email"><a href="mailto:contact@blupeaksolutions.com">contact@blupeaksolutions.com</a></h6>
-                    <h3 className="phone"><a href="tel:01849415421">01849-415421</a></h3>
-                  </div>
+                  <h2 className={pageClasses("title text-anim text-[#261d1a]!")}>
+                    B2B Growth Services Built Around <span>Your Revenue Goals</span>
+                  </h2>
+                  <p className={pageClasses("growth-services-intro")}>
+                    End-to-end revenue systems, brand creative, SEO, custom web, and AI automation built and run under one roof.
+                  </p>
                 </div>
               </div>
-              <div className="form-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[1200px]:w-6/12!">
-                <div className="inner-column">
-                  <div className="relative! rounded-[28px]! bg-[#064C44]! p-8! sm:p-12! border! border-white/15! shadow-[0_25px_60px_rgba(0,0,0,0.45)]! overflow-hidden! wow fadeInUp" data-wow-delay=".5s">
-                    <div className="absolute! top-0! -left-1/3! pointer-events-none! opacity-20!">
-                      <img src="/images/icons/contact-line.png" alt="" />
-                    </div>
-                    <div className="relative! z-10! mb-8!">
-                      <span className="block! text-xs! font-bold! uppercase! tracking-[0.14em]! text-[#FF593E]! mb-2!">Let’s Connect</span>
-                      <h3 className="m-0! text-[clamp(1.8rem,3vw,2.4rem)]! font-bold! leading-tight! text-white!">Get In Touch</h3>
-                      <p className="mt-2! mb-0! text-sm! text-white/70! leading-relaxed!">Tell us about your project or growth goals. We’ll respond within 24 hours.</p>
-                    </div>
-                    <HomeContactForm />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Latest News - Commented out per request */}
-      {/*
-      <section className="news-section fix section-padding">
-        <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-          <div className="section-title text-center! mb-[60px]!">
-            <div className="sub-title">
-              <Star variant="lime" />
-              <span>Latest News</span>
-            </div>
-            <h2 className="title text-anim">
-              Check Out Latest News, <br className="hidden! min-[992px]:block!" />
-              Updates &amp; Articles
-            </h2>
-          </div>
-          <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6!">
-            {NEWS.map((n, i) => (
-              <div
-                key={i}
-                className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-6/12! min-[768px]:w-6/12! wow fadeInUp"
-                data-wow-delay={n.delay}
-              >
-                <div className="news-box-items">
-                  <div className="thumb">
-                    <img src={`/images/resource/${n.img}`} alt="img" />
-                    <img src={`/images/resource/${n.img}`} alt="img" />
-                    <span className="user-box">
-                      <span>B2B Growth</span> / Blupeak
+              <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! wow fadeInUp")} data-wow-delay=".3s">
+                <div className="circle-area flex! justify-end!">
+                  <Link to="/services" className={pageClasses("circle-box")}>
+                    <span>
+                      More Services
+                      <InterfaceIcon name="arrow-right" />
                     </span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <HomeServicesList tone="light" />
+            <div className={`${pageClasses("growth-services-cta")} max-[767.98px]:justify-center!`}>
+              <Link to="/contact" className={pageClasses("theme-btn btn-style-one")}>
+                <span className="btn-title">Book a Growth Consultation</span>
+                <InterfaceIcon name="arrow-right" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Team Section */}
+        <TeamSection tone="light" />
+
+        {/* Feature Section */}
+        <FeatureSection variant="slider" tone="light" />
+
+        {/* Recognition / Milestones */}
+        <section className={pageClasses("award-section1 section-padding bg-[#faf8f7]!")}>
+          <div className="award1-ellipse1">
+            <img src="/images/icons/award1-ellipse1.png" alt="img" />
+          </div>
+          <div className="shape1 hidden! min-[1400px]:block!">
+            <img src="/images/icons/shape1-1.png" alt="" />
+          </div>
+          <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+            <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! mb-[60px]! justify-between! items-center!">
+              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-6/12! min-[992px]:w-8/12!">
+                <div className={pageClasses("section-title")}>
+                  <div className="sub-title">
+                    <Star variant="coral" />
+                    <span>Our Foundation</span>
                   </div>
-                  <div className="content">
-                    <h4 className="title">
-                      <Link to="/blog-details">{n.title}</Link>
-                    </h4>
-                    <Link to="/blog-details" className="link-btn">
-                      Read More <InterfaceIcon name="arrow-right"  />
-                    </Link>
+                  <h2 className={pageClasses("title text-anim text-[#261d1a]!")}>
+                    Built on Real Experience, <span>Not Empty Promises</span>
+                  </h2>
+                </div>
+              </div>
+              <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-4/12! wow fadeInUp")} data-wow-delay=".3s">
+                <p className="text-[#66544e]!">
+                  Blupeak is a young agency, but the team behind it isn’t. Here is what actually backs that up.
+                </p>
+              </div>
+            </div>
+            <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! items-end!">
+              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-5/12!">
+                <div className="flex! flex-col! justify-center! h-full! min-[992px]:px-[24px]! min-h-[300px]!">
+                  <h2 className="[font-size:clamp(80px,_8vw,_120px)]! [line-height:1]! text-[#064C44]! [font-weight:800]! [margin-bottom:16px]! [letter-spacing:-2px]!">6+</h2>
+                  <h4 className="[font-size:clamp(24px,_3vw,_36px)]! text-[#261d1a]! [font-weight:300]! [line-height:1.2]! [letter-spacing:0.5px]!">
+                    Years of combined, <br />hands-on experience
+                  </h4>
+                </div>
+              </div>
+              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-7/12!">
+                <div className={pageClasses("award-list-items-area")}>
+                  {[".3s", ".3s", ".5s", ".7s"].map((delay, i) => (
+                    <div
+                      key={i}
+                      className={pageClasses(`award-list-items-items${i === 0 ? " active" : ""}${i === 3 ? " mb-0!" : ""} wow fadeInUp`)}
+                      data-wow-delay={delay}
+                    >
+                      <div className="content-items">
+                        <div className="content">
+                          <h4 className={pageClasses("title text-[#261d1a]!")}>
+                            {[
+                              "6+ years of combined, hands-on experience across our sales, tech and creative team",
+                              "A team built from people who have run outbound, closing and CRM systems for growing B2B companies before",
+                              "Every project handled by our own in-house specialists, never subcontracted out",
+                              "One accountable team covering strategy, execution and reporting for each client, start to finish",
+                            ][i]}
+                          </h4>
+                        </div>
+                        <img
+                          className="foundation-image"
+                          src="/images/about/about-1-5.jpg"
+                          alt="Blupeak team"
+                        />
+                      </div>
+
+                      <Link to="/about" className="arrow-icon">
+                        <InterfaceIcon name="arrow-right" />
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <ClientsSection tone="light" />
+
+        {/* Counters */}
+        <section className={pageClasses("counter-section section-padding bg-white!")}>
+          <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+            <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! advance-wrap">
+              {COUNTERS.map((c, i) => (
+                <div key={i} className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-3/12! min-[992px]:w-3/12! min-[768px]:w-6/12! min-[576px]:w-6/12!">
+                  <div className={pageClasses(`counter-card-item${c.rotate ? " ratote-2" : ""} advance-item`)}>
+                    <div className="count-box">
+                      <h2 className={pageClasses("title")}>
+                        <span className="count-text" data-speed="3000" data-stop={c.stop}>{c.start}</span>
+                        {c.suffix}
+                      </h2>
+                      <p>{c.label}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className={pageClasses("faq-section fix section-bg-3 section-padding pt-[0px]! bg-white!")}>
+          <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+            <div className={pageClasses("section-title text-center! mb-[60px]!")}>
+              <div className="sub-title">
+                <Star variant="coral" />
+                <span>FAQS</span>
+              </div>
+              <h2 className={pageClasses("title text-anim text-[#261d1a]!")}>
+                Have Questions in Your Mind? <br className="hidden! min-[992px]:block!" />
+                Get the <span>Answers Now</span>
+              </h2>
+            </div>
+            <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6!">
+              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12!">
+                <div className={pageClasses("faq-box-style-1")}>
+                  <Accordion items={FAQ_LEFT} defaultOpen={0} />
+                </div>
+              </div>
+              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12!">
+                <div className={pageClasses("faq-box-style-1")}>
+                  <Accordion items={FAQ_RIGHT} defaultOpen={-1} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section className={pageClasses("contact-section style-four bg-white!")}>
+          <div className="outer-box">
+            <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
+              <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! justify-between!">
+                <div className="content-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[1200px]:w-5/12!">
+                  <div className="inner-column">
+                    <div className={pageClasses("section-title")}>
+                      <div className="sub-title">
+                        <Star variant="coral" />
+                        <span>Get in touch</span>
+                      </div>
+                      <h2 className={pageClasses("title text-anim text-[#261d1a]!")}>
+                        Success Is a Team Effort. <span>Let’s Achieve It Together</span>
+                      </h2>
+                    </div>
+                    <div className={pageClasses("contact-info wow fadeInUp")} data-wow-delay=".3s">
+                      <h6 className="email"><a href="mailto:contact@blupeaksolutions.com">contact@blupeaksolutions.com</a></h6>
+                      <h3 className="phone"><a href="tel:01849415421">01849-415421</a></h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="form-column w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-6/12! min-[1200px]:w-6/12!">
+                  <div className="inner-column">
+                    <div className="relative! rounded-[28px]! bg-[#064C44]! p-8! sm:p-12! border! border-[#064C44]/20! shadow-[0_25px_60px_rgba(6,76,68,0.25)]! overflow-hidden! wow fadeInUp" data-wow-delay=".5s">
+                      <div className="absolute! top-0! -left-1/3! pointer-events-none! opacity-20!">
+                        <img src="/images/icons/contact-line.png" alt="" />
+                      </div>
+                      <div className="relative! z-10! mb-8!">
+                        <span className="block! text-xs! font-bold! uppercase! tracking-[0.14em]! text-[var(--theme-color-coral)]! mb-2!">Let’s Connect</span>
+                        <h3 className="m-0! text-[clamp(1.8rem,3vw,2.4rem)]! font-bold! leading-tight! text-white!">Get In Touch</h3>
+                        <p className="mt-2! mb-0! text-sm! text-white! leading-relaxed!">Tell us about your project or growth goals. We’ll respond within 24 hours.</p>
+                      </div>
+                      <HomeContactForm />
+                    </div>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
-      */}
+        </section>
 
-      {/* Final CTA */}
-      <section className="relative! z-[99]! mx-5! min-[1200px]:mx-10! min-[1700px]:mx-[100px]! rounded-t-[30px]! bg-[#064C44]! py-16! px-6! sm:px-12!">
-        <div className="mx-auto! w-full! max-w-[1320px]!">
-          <div className="flex! flex-col! items-center! justify-between! gap-6! text-center! min-[992px]:flex-row! min-[992px]:text-left!">
-            <h2 className="m-0! text-[clamp(2.2rem,4.5vw,4.5rem)]! font-medium! leading-[1.1]! tracking-[-0.03em]! text-white!">
-              Let’s Build Your Growth Engine
-            </h2>
-            <Link
-              to="/contact"
-              className="inline-flex! shrink-0! items-center! justify-center! gap-3! rounded-full! bg-white! px-8! py-4! text-base! font-semibold! text-[#064C44]! transition-all! duration-300! hover:bg-[#FF593E]! hover:text-white! focus-visible:outline-2! focus-visible:outline-white! focus-visible:outline-offset-4! wow fadeInUp"
-              data-wow-delay=".3s"
-            >
-              <span>Book a Growth Consultation</span>
-              <InterfaceIcon name="arrow-right" />
-            </Link>
+        {/* Final CTA */}
+        <section data-home-final-cta className="relative! z-[99]! mx-5! min-[1200px]:mx-10! min-[1700px]:mx-[100px]! rounded-[28px]! bg-[#064C44]! py-16! px-6! sm:px-12! mb-16! shadow-[0_20px_50px_rgba(6,76,68,0.25)]!">
+          <div className="mx-auto! w-full! max-w-[1320px]!">
+            <div className="flex! flex-col! items-center! justify-between! gap-6! text-center! min-[992px]:flex-row! min-[992px]:text-left!">
+              <h2 className="m-0! text-[clamp(2.2rem,4.5vw,4.5rem)]! font-medium! leading-[1.1]! tracking-[-0.03em]! text-white!">
+                Let’s Build Your Growth Engine
+              </h2>
+              <Link
+                to="/contact"
+                className="inline-flex! shrink-0! items-center! justify-center! gap-3! rounded-full! bg-[var(--theme-color-coral)]! px-8! py-4! text-base! font-semibold! text-[#261d1a]! transition-all! duration-300! hover:bg-[#f24c32]! focus-visible:outline-2! focus-visible:outline-white! focus-visible:outline-offset-4! wow fadeInUp"
+                data-wow-delay=".3s"
+              >
+                <span>Book a Growth Consultation</span>
+                <InterfaceIcon name="arrow-right" />
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </>

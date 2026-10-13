@@ -32,6 +32,85 @@ const sectionUtilities: Record<string, string> = {
     String.raw`[&_a:focus-visible]:outline-2! [&_a:focus-visible]:outline-solid! [&_a:focus-visible]:outline-[#C3422A]! [&_a:focus-visible]:outline-offset-4!`,
     String.raw`selection:bg-[var(--theme-color-coral)] selection:text-[#261d1a]`,
   ].join(" "),
+  "home-page": [
+    String.raw`[--text-color:#66544e] [--headings-color:#261d1a] [--theme-color2:#faf8f7] [--theme-color3:#faf8f7] bg-white text-[#261d1a] font-[family-name:var(--body-font-family)]`,
+    String.raw`[&>section:not([data-home-final-cta],.hero-section)]:bg-white!`,
+    String.raw`[&>section:not(.hero-section,[data-home-final-cta])_:is(h1,h2,h3,h4)]:text-[#261d1a]! [&>section:not(.hero-section,[data-home-final-cta])_:is(h1,h2,h3,h4)]:font-[family-name:var(--heading-font-family)] [&>section:not(.hero-section,[data-home-final-cta])_:is(h1,h2,h3,h4)]:font-normal! [&>section:not(.hero-section,[data-home-final-cta])_:is(h1,h2,h3,h4)]:tracking-[-0.03em]!`,
+    String.raw`[&>section:not(.hero-section,[data-home-final-cta])_h1>span]:text-[var(--theme-color-coral)]! [&>section:not(.hero-section,[data-home-final-cta])_h1>span]:font-[family-name:var(--style-font)]! [&>section:not(.hero-section,[data-home-final-cta])_h1>span]:font-normal! [&>section:not(.hero-section,[data-home-final-cta])_h1>span]:italic!`,
+    String.raw`[&_.section-title_.title>span]:text-[var(--theme-color-coral)]! [&_.section-title_.title>span]:font-[family-name:var(--style-font)]! [&_.section-title_.title>span]:font-normal! [&_.section-title_.title>span]:italic!`,
+    String.raw`[&>section:not(.hero-section,[data-home-final-cta])_:is(p:not(.form-column *),[data-page-eyebrow],nav,nav_a,.sub-title>span)]:text-[#66544e]! [&>section:not(.hero-section,[data-home-final-cta])_div[class*="uppercase"]>span]:text-[#66544e]!`,
+    String.raw`[&>section:not(.hero-section)_.sub-title_svg]:text-[var(--theme-color-coral)]!`,
+    String.raw`[&_.hero-section]:text-white! [&_.hero-content_h1]:text-white!`,
+
+    // About Section on Home
+    String.raw`[&_#home-about_[data-about-color-panel]_:is(h2,p,span)]:text-white!`,
+    String.raw`[&_#home-about_[data-about-experience-stat]]:bg-[#faf8f7]! [&_#home-about_[data-about-experience-stat]]:border-[#eaded9]! [&_#home-about_[data-about-experience-stat]_h2]:text-[#261d1a]! [&_#home-about_[data-about-experience-stat]_p]:text-[#66544e]!`,
+    String.raw`[&_#home-about_[data-delivery-stat]>h2]:text-[#261d1a]! [&_#home-about_[data-delivery-label]]:text-[#66544e]!`,
+    String.raw`[&_#home-about_[data-about-feature]]:border-[#eaded9]! [&_#home-about_[data-about-feature]>div:first-child]:bg-[#fff1ed]! [&_#home-about_[data-about-feature]>div:first-child]:text-[var(--theme-color-coral)]!`,
+    String.raw`[&_#home-about_[data-about-feature]_h4]:text-[#261d1a]! [&_#home-about_[data-about-feature]_p]:text-[#66544e]!`,
+
+    // Services Section on Home
+    String.raw`[&_.growth-services-intro]:text-[#66544e]!`,
+    String.raw`[&_.circle-box]:bg-[#faf8f7]! [&_.circle-box]:border! [&_.circle-box]:border-[#eaded9]! [&_.circle-box]:text-[#261d1a]! [&_.circle-box_i]:text-[var(--theme-color-coral)]!`,
+    String.raw`[&_.circle-box:hover]:border-[var(--theme-color-coral)]! [&_.circle-box:hover_span]:text-white!`,
+
+    // Features Section
+    String.raw`[&_.feature-card]:bg-[#faf8f7]! [&_.feature-card]:border-[#eaded9]! [&_.feature-card_:is(h4,a)]:text-[#261d1a]! [&_.feature-card_p]:text-[#66544e]!`,
+    String.raw`[&_.feature-card_.feature-icon]:bg-[#fff1ed]! [&_.feature-card_.feature-icon]:text-[var(--theme-color-coral)]! [&_.feature-card_[class*="border-t"]]:border-[#eaded9]!`,
+    String.raw`[&_.feature-card:is(:hover,:focus-within)]:border-[var(--theme-color-coral)]! [&_.feature-card:is(:hover,:focus-within)]:shadow-[0_12px_24px_rgba(38,29,26,0.08)]!`,
+    String.raw`[&_section:has(.feature-slider-home1)]:bg-white!`,
+    String.raw`[&_section:has(.feature-slider-home1)>div>svg>path:last-child]:fill-white!`,
+    String.raw`[&_.group\/circle]:bg-[#faf8f7]! [&_.group\/circle]:border! [&_.group\/circle]:border-[#eaded9]! [&_.group\/circle]:text-[#261d1a]! [&_.group\/circle_i]:text-[var(--theme-color-coral)]!`,
+    String.raw`[&_.group\/circle:hover>span]:text-white!`,
+
+    // Award / Milestones Foundation Section
+    String.raw`[&_.award-section1]:bg-[#faf8f7]!`,
+    String.raw`[&_.award1-ellipse1]:hidden!`,
+    String.raw`[&_.award-list-items-items]:border-[#eaded9]!`,
+    String.raw`[&_.award-list-items-items_.content_.title]:text-[#261d1a]!`,
+    String.raw`[&_.award-list-items-items_.arrow-icon]:bg-white! [&_.award-list-items-items_.arrow-icon]:border! [&_.award-list-items-items_.arrow-icon]:border-[#eaded9]! [&_.award-list-items-items_.arrow-icon]:text-[#261d1a]!`,
+    String.raw`[&_.award-list-items-items:hover_.content_.title]:text-[var(--theme-color-coral)]!`,
+    String.raw`[&_.award-list-items-items:hover_.arrow-icon]:bg-[var(--theme-color-coral)]! [&_.award-list-items-items:hover_.arrow-icon]:border-[var(--theme-color-coral)]! [&_.award-list-items-items:hover_.arrow-icon]:text-[#261d1a]!`,
+    String.raw`[&_.award-list-items-items.active_.content_.title]:text-[var(--theme-color-coral)]!`,
+    String.raw`[&_.award-list-items-items.active_.arrow-icon]:bg-[var(--theme-color-coral)]! [&_.award-list-items-items.active_.arrow-icon]:border-[var(--theme-color-coral)]! [&_.award-list-items-items.active_.arrow-icon]:text-[#261d1a]!`,
+
+    // Clients Section Panel
+    String.raw`[&_[data-clients-panel]]:bg-[#faf8f7]! [&_[data-clients-panel]]:border! [&_[data-clients-panel]]:border-[#eaded9]!`,
+    String.raw`[&_[data-clients-panel]_h2]:text-[#261d1a]!`,
+
+    // Counter Cards
+    String.raw`[&_.counter-card-item]:[background:#faf8f7]! [&_.counter-card-item]:[background-image:none]! [&_.counter-card-item]:border-[#eaded9]! [&_.counter-card-item]:shadow-[0_10px_30px_rgba(38,29,26,0.05)]!`,
+    String.raw`[&_.counter-card-item::before]:hidden!`,
+    String.raw`[&_.counter-card-item_.title]:text-[#064C44]!`,
+    String.raw`[&_.counter-card-item_p]:text-[#66544e]!`,
+    String.raw`[&_.counter-card-item:hover]:border-[var(--theme-color-coral)]! [&_.counter-card-item:hover]:shadow-[0_14px_36px_rgba(38,29,26,0.1)]!`,
+
+    // FAQ Section
+    String.raw`[&_.faq-section]:bg-white!`,
+    String.raw`[&_.faq-box-style-1_.accordion-box_.block]:bg-[#faf8f7]! [&_.faq-box-style-1_.accordion-box_.block]:border-[#eaded9]!`,
+    String.raw`[&_.faq-box-style-1_.accordion-box_.block_.acc-btn]:text-[#261d1a]!`,
+    String.raw`[&_.faq-box-style-1_.accordion-box_.block_.acc-btn_span]:text-[var(--theme-color-coral)]!`,
+    String.raw`[&_.faq-box-style-1_.accordion-box_.block_.acc-btn_.icon]:bg-white! [&_.faq-box-style-1_.accordion-box_.block_.acc-btn_.icon]:border! [&_.faq-box-style-1_.accordion-box_.block_.acc-btn_.icon]:border-[#eaded9]! [&_.faq-box-style-1_.accordion-box_.block_.acc-btn_.icon]:text-[#261d1a]!`,
+    String.raw`[&_.faq-box-style-1_.accordion-box_.block_.acc-content_.content_.text]:text-[#66544e]!`,
+    String.raw`[&_.faq-box-style-1_.accordion-box_.block.active-block]:[background:#fff1ed]! [&_.faq-box-style-1_.accordion-box_.block.active-block]:[background-image:none]! [&_.faq-box-style-1_.accordion-box_.block.active-block]:border-[var(--theme-color-coral)]!`,
+    String.raw`[&_.faq-box-style-1_.accordion-box_.block.active-block]:text-[#261d1a]! [&_.faq-box-style-1_.accordion-box_.block.active-block_.acc-btn]:text-[#261d1a]!`,
+    String.raw`[&_.faq-box-style-1_.accordion-box_.block.active-block_.acc-btn_span]:text-[var(--theme-color-coral)]!`,
+    String.raw`[&_.faq-box-style-1_.accordion-box_.block.active-block_.acc-content_.content_.text]:text-[#66544e]!`,
+    String.raw`[&_.faq-box-style-1_.accordion-box_.block.active-block_.icon]:bg-[var(--theme-color-coral)]! [&_.faq-box-style-1_.accordion-box_.block.active-block_.icon]:border-[var(--theme-color-coral)]! [&_.faq-box-style-1_.accordion-box_.block.active-block_.icon]:text-white!`,
+
+    // Contact Section
+    String.raw`[&_.contact-section]:bg-white! [&_.contact-section::before]:hidden!`,
+    String.raw`[&_.contact-info_.email_a]:text-[#66544e]! [&_.contact-info_.email_a:hover]:text-[var(--theme-color-coral)]!`,
+    String.raw`[&_.contact-info_.phone_a]:text-[#261d1a]! [&_.contact-info_.phone_a:hover]:text-[var(--theme-color-coral)]!`,
+    String.raw`[&_.contact-section_.form-column_h3]:text-white! [&_.contact-section_.form-column_p]:text-white! [&_.contact-section_.form-column_p]:opacity-100!`,
+
+    // Final CTA Section
+    String.raw`[&_[data-home-final-cta]]:bg-[#064C44]! [&_[data-home-final-cta]_h2]:text-white!`,
+
+    // Focus rings and selection
+    String.raw`[&_a:focus-visible]:outline-2! [&_a:focus-visible]:outline-solid! [&_a:focus-visible]:outline-[#C3422A]! [&_a:focus-visible]:outline-offset-4!`,
+    String.raw`selection:bg-[var(--theme-color-coral)] selection:text-[#261d1a]`,
+  ].join(" "),
   "order-table": String.raw`[--order-table-bg:transparent] [--order-table-accent-bg:transparent] [--order-table-striped-color:#212529] [--order-table-striped-bg:rgba(0,_0,_0,_0.05)] [--order-table-active-color:#212529] [--order-table-active-bg:rgba(0,_0,_0,_0.1)] [--order-table-hover-color:#212529] [--order-table-hover-bg:rgba(0,_0,_0,_0.075)] [width:100%] [margin-bottom:1rem] [color:#212529] [vertical-align:top] [border-color:#dee2e6] [&>:not(caption)>*>*]:[padding:.5rem_.5rem] [&>:not(caption)>*>*]:[background-color:var(--order-table-bg)] [&>:not(caption)>*>*]:[box-shadow:inset_0_0_0_9999px_var(--order-table-accent-bg)] [&>tbody]:[vertical-align:inherit] [&>thead]:[vertical-align:bottom] [&>:not(:last-child)>:last-child>*]:[border-bottom-color:currentColor] [&>:not(caption)>*]:[border-width:1px_0] [&>:not(caption)>*>*]:[border-width:0_1px] [&>tbody>tr:nth-of-type(odd)]:[--order-table-accent-bg:var(--order-table-striped-bg)] [&>tbody>tr:nth-of-type(odd)]:[color:var(--order-table-striped-color)]`,
   "float-clear": String.raw`after:block after:clear-both after:content-['']`,
   "form-notice": "relative p-4 mb-4 border border-solid rounded-[0.25rem]",
@@ -1128,7 +1207,7 @@ const sectionUtilities: Record<string, string> = {
     String.raw`[&_.theme-btn]:inline-flex [&_.theme-btn]:items-center [&_.theme-btn]:[gap:18px]`,
     String.raw`[&_.theme-btn_i]:[transition:transform_300ms_ease]`,
     String.raw`[&_.theme-btn:hover_i]:[transform:translateX(4px)]`,
-    String.raw`max-[767.98px]:justify-start`,
+    String.raw`max-[767.98px]:justify-center`,
   ].join(" "),
   "tbl-shopping-cart": [
     String.raw`[&:is(table)_img]:[width:64px] [&:is(table)_img]:[-webkit-box-shadow:none] [&:is(table)_img]:[box-shadow:none]`,
