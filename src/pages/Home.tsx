@@ -91,30 +91,17 @@ export default function Home() {
     <>
       <main data-home-page className={pageClasses("home-page")}>
         {/* Hero */}
-        <section className={pageClasses("hero-section hero-1 hero-rings bg-white!")}>
+        <section className={pageClasses("hero-section hero-1 hero-rings")}>
           <div className={pageClasses("hero-rings-background")} aria-hidden="true">
             <Suspense fallback={null}>
-              <MagicRings
-                speed={0.65}
-                noiseAmount={0}
-                followMouse
-                mouseInfluence={0.08}
-                parallax={0.015}
-                hoverScale={1.04}
-                color="#064C44"
-                colorTwo="#FF593E"
-                alphaMode="coverage"
-                opacity={0.35}
-              />
+              <MagicRings speed={0.65} noiseAmount={0.025} followMouse
+                mouseInfluence={0.08} parallax={0.015} hoverScale={1.04} />
             </Suspense>
           </div>
           <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
             <div className="hero-content">
-              <div className={pageClasses("sub-title hero-eyebrow")}>
-                <Star variant="coral" />
-                <span>AI-Accelerated Growth Execution</span>
-              </div>
-              <h1 className="hero-title text-[#261d1a]!">
+              <div className={pageClasses("sub-title hero-eyebrow")}><Star /><span>AI-Accelerated Growth Execution</span></div>
+              <h1 className="hero-title">
                 Build a Smarter <HeroGrowthText /><br />
                 With Blupeak Solutions
               </h1>

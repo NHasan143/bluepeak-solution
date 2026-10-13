@@ -34,22 +34,13 @@ const sectionUtilities: Record<string, string> = {
   ].join(" "),
   "home-page": [
     String.raw`[--text-color:#66544e] [--headings-color:#261d1a] [--theme-color2:#faf8f7] [--theme-color3:#faf8f7] bg-white text-[#261d1a] font-[family-name:var(--body-font-family)]`,
-    String.raw`[&>section:not([data-home-final-cta])]:bg-white!`,
-    String.raw`[&_:is(h1,h2,h3,h4)]:text-[#261d1a]! [&_:is(h1,h2,h3,h4)]:font-[family-name:var(--heading-font-family)] [&_:is(h1,h2,h3,h4)]:font-normal! [&_:is(h1,h2,h3,h4)]:tracking-[-0.03em]!`,
-    String.raw`[&_h1>span]:text-[var(--theme-color-coral)]! [&_h1>span]:font-[family-name:var(--style-font)]! [&_h1>span]:font-normal! [&_h1>span]:italic!`,
+    String.raw`[&>section:not([data-home-final-cta],.hero-section)]:bg-white!`,
+    String.raw`[&>section:not(.hero-section)_:is(h1,h2,h3,h4)]:text-[#261d1a]! [&>section:not(.hero-section)_:is(h1,h2,h3,h4)]:font-[family-name:var(--heading-font-family)] [&>section:not(.hero-section)_:is(h1,h2,h3,h4)]:font-normal! [&>section:not(.hero-section)_:is(h1,h2,h3,h4)]:tracking-[-0.03em]!`,
+    String.raw`[&>section:not(.hero-section)_h1>span]:text-[var(--theme-color-coral)]! [&>section:not(.hero-section)_h1>span]:font-[family-name:var(--style-font)]! [&>section:not(.hero-section)_h1>span]:font-normal! [&>section:not(.hero-section)_h1>span]:italic!`,
     String.raw`[&_.section-title_.title>span]:text-[var(--theme-color-coral)]! [&_.section-title_.title>span]:font-[family-name:var(--style-font)]! [&_.section-title_.title>span]:font-normal! [&_.section-title_.title>span]:italic!`,
-    String.raw`[&_:is(p,[data-page-eyebrow],nav,nav_a,.sub-title>span)]:text-[#66544e]! [&_div[class*="uppercase"]>span]:text-[#66544e]!`,
-    String.raw`[&_.sub-title_svg]:text-[var(--theme-color-coral)]!`,
-
-    // Hero Section
-    String.raw`[&_.hero-rings]:[background:#ffffff]! [&_.hero-rings]:bg-white! [&_.hero-rings]:text-[#261d1a]!`,
-    String.raw`[&_.hero-rings-background]:[background:#ffffff]!`,
-    String.raw`[&_.hero-rings-background::after]:hidden! [&_.hero-rings-background::after]:[display:none]!`,
-    String.raw`[&_.hero-content_h1]:text-[#261d1a]!`,
-    String.raw`[&_.hero-eyebrow]:text-[#66544e]! [&_.hero-eyebrow_span]:text-[#66544e]! [&_.hero-eyebrow_svg]:text-[var(--theme-color-coral)]!`,
-    String.raw`[&_.hero-description]:text-[#66544e]!`,
-    String.raw`[&_.hero-secondary-link]:text-[#261d1a]! [&_.hero-secondary-link:hover]:text-[var(--theme-color-coral)]! [&_.hero-secondary-link_i]:text-[var(--theme-color-coral)]!`,
-    String.raw`[&_.text-circle_.down-icon]:text-[var(--theme-color-coral)]! [&_.text-circle_.down-icon]:border! [&_.text-circle_.down-icon]:border-[#eaded9]! [&_.text-circle_.down-icon]:bg-[#faf8f7]! [&_.text-circle_.down-icon]:rounded-full!`,
+    String.raw`[&>section:not(.hero-section)_:is(p,[data-page-eyebrow],nav,nav_a,.sub-title>span)]:text-[#66544e]! [&>section:not(.hero-section)_div[class*="uppercase"]>span]:text-[#66544e]!`,
+    String.raw`[&>section:not(.hero-section)_.sub-title_svg]:text-[var(--theme-color-coral)]!`,
+    String.raw`[&_.hero-section]:text-white! [&_.hero-content_h1]:text-white!`,
 
     // About Section on Home
     String.raw`[&_#home-about_[data-about-color-panel]_:is(h2,p,span)]:text-white!`,

@@ -68,22 +68,40 @@ export default function Header({ light = false }: { light?: boolean }) {
       </div>
 
       <div className={`fixed! right-0! top-0! w-[300px]! max-w-full! h-full! z-[999999]! ${mobileOpen ? "visible! opacity-100!" : "invisible! opacity-0! pointer-events-none!"}`} inert={!mobileOpen}>
-        <div className="fixed! inset-0! z-[1]! bg-black/70!" onClick={close} />
-        <nav id="mobile-navigation" ref={drawer} aria-label="Mobile navigation" className={`relative! z-[5]! flex! flex-col! w-full! h-full! max-h-full! overflow-y-auto! bg-[#0D0D0D]! transition-transform! duration-[400ms]! motion-reduce:transition-none! ${mobileOpen ? "translate-x-0! delay-200!" : "translate-x-[101%]!"}`}>
-          <div className="relative! flex! items-center! justify-between! w-full! p-5!">
-            <Link to="/" className={`flex! items-center! w-full! ${focus}`} aria-label="Blupeak home"><img src="/images/blupeak-light-full.png" alt="Blupeak" className="w-[160px]! h-[32px]! object-cover! object-center!" /></Link>
-            <button type="button" aria-label="Close navigation" className={`relative! top-[5px]! z-10! shrink-0! p-0! border-0! bg-transparent! text-white! hover:opacity-50! transition-opacity! duration-500! ${focus}`} onClick={close}><X size={30} aria-hidden="true" /></button>
+        <div className="fixed! inset-0! z-[1]! bg-black/60! backdrop-blur-[2px]!" onClick={close} />
+        <nav id="mobile-navigation" ref={drawer} aria-label="Mobile navigation" className={`relative! z-[5]! flex! flex-col! w-full! h-full! max-h-full! overflow-y-auto! bg-white! text-[#261d1a]! shadow-[-10px_0_30px_rgba(6,76,68,0.12)]! transition-transform! duration-[400ms]! motion-reduce:transition-none! ${mobileOpen ? "translate-x-0! delay-200!" : "translate-x-[101%]!"}`}>
+          <div className="relative! flex! items-center! justify-between! w-full! p-5! border-b! border-[#eaded9]!">
+            <Link to="/" className={`flex! items-center! w-full! ${focus}`} aria-label="Blupeak home"><img src="/images/blupeak-dark-full.png" alt="Blupeak" className="w-[160px]! h-[32px]! object-cover! object-center!" /></Link>
+            <button type="button" aria-label="Close navigation" className={`relative! top-[2px]! z-10! shrink-0! p-1! border-0! bg-transparent! text-[#261d1a]! hover:text-[var(--theme-color-coral)]! transition-colors! duration-300! ${focus}`} onClick={close}><X size={28} aria-hidden="true" /></button>
           </div>
-          <ul className="relative! block! w-full! border-t! border-white/10! list-none! m-0! p-0!"><Navigation mobile /></ul>
-          <ul className="relative! px-5! pt-[30px]! pb-5! list-none! m-0!">
+          <ul className="relative! block! w-full! list-none! m-0! p-0!"><Navigation mobile light={light} /></ul>
+          <ul className="relative! px-5! pt-6! pb-5! list-none! m-0! border-t! border-[#eaded9]!">
             {[
               { Icon: Phone, title: "Call Now", href: "tel:01849415421", text: "01849-415421" },
               { Icon: Mail, title: "Send Email", href: "mailto:contact@blupeaksolutions.com", text: "contact@blupeaksolutions.com" },
-              { Icon: Clock, title: "Send Email", text: "Mon - Sat 8:00 - 6:30, Sunday - CLOSED" },
-            ].map(({ Icon, title, href, text }, index) => <li key={index} className="relative! mb-5!"><div className="relative! pl-[54px]! text-sm! leading-6! text-white!"><Icon className="absolute! left-0! top-0!" size={34} strokeWidth={1.5} aria-hidden="true" /><span className="block! text-xs! text-[#b2c1c0]! font-normal! uppercase!">{title}</span>{href ? <a href={href} className={`text-white! transition-colors! duration-300! ${focus}`}>{text}</a> : text}</div></li>)}
+              { Icon: Clock, title: "Office Hours", text: "Mon - Sat 8:00 - 6:30, Sunday - CLOSED" },
+            ].map(({ Icon, title, href, text }, index) => (
+              <li key={index} className="relative! mb-5! last:mb-0!">
+                <div className="relative! pl-[46px]! text-sm! leading-6! text-[#261d1a]!">
+                  <Icon className="absolute! left-0! top-0.5! text-[var(--theme-color-coral)]!" size={28} strokeWidth={1.75} aria-hidden="true" />
+                  <span className="block! text-[11px]! font-semibold! uppercase! tracking-[0.08em]! text-[#66544e]!">{title}</span>
+                  {href ? (
+                    <a href={href} className={`font-medium! text-[#261d1a]! transition-colors! duration-300! hover:text-[var(--theme-color-coral)]! ${focus}`}>{text}</a>
+                  ) : (
+                    <span className="font-medium! text-[#261d1a]!">{text}</span>
+                  )}
+                </div>
+              </li>
+            ))}
           </ul>
-          <ul className={`relative! flex! items-center! justify-between! w-full! border-t! border-white/10! mt-auto! mb-0! p-0! list-none! ${light ? "bg-[var(--theme-color-coral)]!" : "bg-[#064C44]!"}`}>
-            {(["x", "facebook", "pinterest", "instagram"] as Brand[]).map(brand => <li key={brand} className="relative! w-full! text-center! border-r! border-white/10!"><a href="#" aria-label={brand} className={`relative! flex! items-center! justify-center! h-[50px]! ${light ? "text-[#261d1a]!" : "text-white/60!"} ${focus}`}><BrandIcon brand={brand} /></a></li>)}
+          <ul className="relative! flex! items-center! justify-between! w-full! border-t! border-[#eaded9]! mt-auto! mb-0! p-0! list-none! bg-[#faf8f7]!">
+            {(["x", "facebook", "pinterest", "instagram"] as Brand[]).map(brand => (
+              <li key={brand} className="relative! w-full! text-center! border-r! border-[#eaded9]! last:border-r-0!">
+                <a href="#" aria-label={brand} className={`relative! flex! items-center! justify-center! h-[50px]! text-[#064C44]! hover:text-[var(--theme-color-coral)]! hover:bg-white! transition-colors! duration-300! ${focus}`}>
+                  <BrandIcon brand={brand} />
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

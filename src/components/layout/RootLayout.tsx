@@ -61,7 +61,7 @@ export default function RootLayout({ bare = false }: { bare?: boolean }) {
       {!bare && (
         <>
           <BackToTop />
-          <Header light={["", "/about", "/contact", "/services", "/team"].includes(pathname.replace(/\/$/, ""))} />
+          <Header light={["/about", "/contact", "/services", "/team"].includes(pathname.replace(/\/$/, "")) || pathname.startsWith("/services")} />
         </>
       )}
 
