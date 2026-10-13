@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/layout/Footer";
-import HomeServicesList from "../components/sections/HomeServicesList";
+import ServicesPageList from "../components/sections/ServicesPageList";
 import TextReveal from "../components/common/TextReveal";
 import { usePageMetadata } from "../hooks/usePageMetadata";
 
@@ -35,7 +35,7 @@ export default function Services() {
             <h2 id="services-list-title" className="m-0! font-[family-name:var(--heading-font-family)]! text-lg! leading-normal! font-medium! tracking-[-0.02em]! text-[#261d1a]! sm:text-xl!">Our Services</h2>
             <span className="text-sm! text-[#66544e]!">One in-house team.</span>
           </div>
-          <HomeServicesList tone="light" />
+          <ServicesPageList />
 
           <div className="mt-12! flex! flex-col! items-start! justify-between! gap-6! rounded-2xl! bg-[#064C44]! p-7! sm:mt-16! sm:p-10! lg:flex-row! lg:items-center! lg:p-12!">
             <h2 className="m-0! font-[family-name:var(--heading-font-family)]! text-[clamp(2rem,3.5vw,3rem)]! leading-[1.12]! font-normal! tracking-[-0.03em]! text-white!">Let’s talk growth.</h2>
