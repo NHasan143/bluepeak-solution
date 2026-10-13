@@ -54,7 +54,7 @@ function hasChildren(
 /**
  * Navigation component. Used in the main header, sticky header, and mobile menu.
  */
-export default function Navigation({ mobile = false, sticky = false }: { mobile?: boolean; sticky?: boolean }) {
+export default function Navigation({ mobile = false, sticky = false, light = false }: { mobile?: boolean; sticky?: boolean; light?: boolean }) {
   const { pathname, key: locationKey } = useLocation();
   const [open, setOpen] = useState<Record<string, boolean>>({});
   const [servicesMenu, setServicesMenu] = useState({ locationKey, open: false });
@@ -104,15 +104,16 @@ export default function Navigation({ mobile = false, sticky = false }: { mobile?
     return false;
   };
 
-  const focus = "focus-visible:outline-2! focus-visible:outline-[#FF593E]! focus-visible:outline-offset-[-2px]! motion-reduce:transition-none!";
+  const lightHeader = light && !mobile;
+  const focus = `focus-visible:outline-2! focus-visible:outline-offset-[-2px]! motion-reduce:transition-none! ${lightHeader ? "focus-visible:outline-[#C3422A]!" : "focus-visible:outline-[#FF593E]!"}`;
   const itemClass = mobile
     ? "relative! block! border-b! border-white/10!"
     : sticky
-      ? "relative! py-5! ml-[46px]! group/nav"
-      : "relative! py-[18px]! mr-7! min-[1400px]:mr-[45px]! min-[1700px]:mr-[60px]! last:mr-0! group/nav";
+      ? `relative! py-5! ml-[46px]! group/nav ${lightHeader ? "text-[#261d1a]!" : ""}`
+      : `relative! py-[18px]! mr-7! min-[1400px]:mr-[45px]! min-[1700px]:mr-[60px]! last:mr-0! group/nav ${lightHeader ? "text-[#261d1a]!" : ""}`;
   const linkClass = mobile
     ? `relative! block! px-5! py-2.5! text-base! leading-6! font-medium! text-white! hover:text-[#FF593E]! ${focus}`
-    : `relative! flex! p-0! text-[15px]! min-[1900px]:text-base! leading-[30px]! font-medium! text-white! hover:text-[#FF593E]! transition-colors! duration-300! ${focus}`;
+    : `relative! flex! p-0! text-[15px]! min-[1900px]:text-base! leading-[30px]! font-medium! transition-colors! duration-300! ${lightHeader ? "text-[#261d1a]! hover:text-[#C3422A]!" : "text-white! hover:text-[#FF593E]!"} ${focus}`;
 
   const renderServicesDropdown = (key: string) => {
     const isServicesActive = isCurrent({ label: "Services", isServicesMenu: true });
@@ -191,10 +192,10 @@ export default function Navigation({ mobile = false, sticky = false }: { mobile?
           </>
         ) : (
           <>
-            <Link to="/services" className={`services-trigger-link ${linkClass} pr-[22px]! ${isServicesActive ? "[font-weight:700]!" : ""} ${sticky && isServicesActive ? "text-[#FF593E]!" : ""}`} onClick={() => setServicesOpen(false)}>Services</Link>
+            <Link to="/services" className={`services-trigger-link ${linkClass} pr-[22px]! ${isServicesActive ? "[font-weight:700]!" : ""} ${sticky && isServicesActive ? lightHeader ? "text-[#C3422A]!" : "text-[#FF593E]!" : ""}`} onClick={() => setServicesOpen(false)}>Services</Link>
             <button
               type="button"
-              className={`services-toggle absolute! top-1/2! -right-[3px] -translate-y-1/2! grid! place-items-center w-6! h-10! p-0! border-0! rounded-md! bg-transparent! cursor-pointer! text-inherit! hover:text-[#FF593E]! ${focus} ${servicesOpen ? "text-[#FF593E]!" : ""}`}
+              className={`services-toggle absolute! top-1/2! -right-[3px] -translate-y-1/2! grid! place-items-center w-6! h-10! p-0! border-0! rounded-md! bg-transparent! cursor-pointer! text-inherit! ${lightHeader ? "hover:text-[#C3422A]!" : "hover:text-[#FF593E]!"} ${focus} ${servicesOpen ? lightHeader ? "text-[#C3422A]!" : "text-[#FF593E]!" : ""}`}
               aria-label="Services submenu"
               aria-expanded={servicesOpen}
               aria-controls={servicesId}
@@ -251,7 +252,7 @@ export default function Navigation({ mobile = false, sticky = false }: { mobile?
           className={depth === 0 ? itemClass : mobile ? "relative! block! pl-5! border-b! border-white/10! last:border-b-0! first:border-t!" : "relative! w-full! border-b! border-[#1d2022]! last:border-b-0!"}
         >
           {"to" in item && item.to ? (
-            <Link to={item.to} className={`${depth === 0 || mobile ? linkClass : `relative! block! py-2.5! mx-[30px]! text-base! leading-[29px]! font-medium! text-white! hover:text-[var(--theme-color1)]! ${focus}`} ${current ? "[font-weight:700]!" : ""} ${current && (mobile || sticky) ? "text-[var(--theme-color1)]!" : ""}`}>{item.label}</Link>
+            <Link to={item.to} className={`${depth === 0 || mobile ? linkClass : `relative! block! py-2.5! mx-[30px]! text-base! leading-[29px]! font-medium! text-white! hover:text-[var(--theme-color1)]! ${focus}`} ${current ? "[font-weight:700]!" : ""} ${current && (mobile || sticky) ? lightHeader ? "text-[#C3422A]!" : "text-[var(--theme-color1)]!" : ""}`}>{item.label}</Link>
           ) : (
             <a
               href="#"

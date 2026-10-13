@@ -5,7 +5,7 @@ import Navigation from "./Navigation";
 import DotLink from "../common/DotLink";
 import BrandIcon, { type Brand } from "../common/BrandIcon";
 
-export default function Header() {
+export default function Header({ light = false }: { light?: boolean }) {
   const { key: locationKey } = useLocation();
   const [sticky, setSticky] = useState(false);
   const [mobileMenu, setMobileMenu] = useState({ locationKey, open: false });
@@ -45,20 +45,22 @@ export default function Header() {
     };
   }, [mobileOpen]);
 
-  const focus = "focus-visible:outline-2! focus-visible:outline-[#FF593E]! focus-visible:outline-offset-4!";
-  const toggleClass = `relative! ml-[25px]! order-8! cursor-pointer! border-0! bg-transparent! p-0! text-[#d9d9d9]! min-[1024px]:hidden! ${focus}`;
+  const focus = `focus-visible:outline-2! focus-visible:outline-offset-4! ${light ? "focus-visible:outline-[#C3422A]!" : "focus-visible:outline-[#FF593E]!"}`;
+  const foreground = light ? "text-[#261d1a]!" : "text-white!";
+  const logo = light ? "/images/blupeak-dark-full.png" : "/images/blupeak-light-full.png";
+  const toggleClass = `relative! ml-[25px]! order-8! cursor-pointer! border-0! bg-transparent! p-0! min-[1024px]:hidden! ${light ? "text-[#261d1a]!" : "text-[#d9d9d9]!"} ${focus}`;
   return (
-    <header data-site-header className="absolute! top-0! left-0! w-full! z-[9999]! pt-5!">
+    <header data-site-header className={`absolute! top-0! left-0! w-full! z-[9999]! pt-5! ${light ? "bg-white!" : ""}`}>
       <div data-header-lower className="px-[30px]! py-[14px]! min-[1024px]:py-0! min-[1700px]:px-[60px]!">
         <div className="relative! flex! items-center! justify-between! w-full!">
-          <Link to="/" aria-label="Blupeak home" className={`flex! items-center! ${focus}`}><img src="/images/blupeak-light-full.png" alt="Blupeak" className="w-[170px]! h-[34px]! object-cover! object-center!" /></Link>
-          <nav aria-label="Main navigation" className="absolute! left-1/2! -translate-x-1/2! hidden! min-[1024px]:block! bg-[rgba(217,217,217,0.07)]! backdrop-blur-[12px]! rounded-[38.5px]! px-[50px]!">
-            <ul className="relative! flex! list-none! m-0! p-0!"><Navigation /></ul>
+          <Link to="/" aria-label="Blupeak home" className={`flex! items-center! ${focus}`}><img src={logo} alt="Blupeak" className="w-[170px]! h-[34px]! object-cover! object-center!" /></Link>
+          <nav aria-label="Main navigation" className={`absolute! left-1/2! -translate-x-1/2! hidden! min-[1024px]:block! rounded-[38.5px]! px-[50px]! ${light ? "bg-[#faf5f3]!" : "bg-[rgba(217,217,217,0.07)]! backdrop-blur-[12px]!"}`}>
+            <ul className="relative! flex! list-none! m-0! p-0!"><Navigation light={light} /></ul>
           </nav>
           <div className="flex! items-center! gap-[25px]! min-[1700px]:gap-[30px]!">
             <div className="flex! items-center! gap-[50px]!">
-              <p className="hidden! min-[1400px]:flex! items-center! gap-[15px]! font-semibold! text-base! m-0!"><img src="/images/icons/call.png" alt="" /><a href="tel:01849415421" className={`text-white! ${focus}`}>01849-415421</a></p>
-              <div className="hidden! min-[1024px]:block!"><DotLink to="/contact">Contact Us</DotLink></div>
+              <p className={`hidden! min-[1400px]:flex! items-center! gap-[15px]! font-semibold! text-base! m-0! ${foreground}`}>{light ? <Phone size={24} strokeWidth={1.5} className="text-[var(--theme-color-coral)]!" aria-hidden="true" /> : <img src="/images/icons/call.png" alt="" />}<a href="tel:01849415421" className={`${foreground} ${focus}`}>01849-415421</a></p>
+              <div className="hidden! min-[1024px]:block!"><DotLink to="/contact" accent={light ? "coral" : "teal"}>Contact Us</DotLink></div>
             </div>
             <button type="button" className={`${toggleClass} h-[49.4px]! flex! items-center!`} aria-label="Open navigation" aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={event => open(event.currentTarget)}><MenuIcon size={26} aria-hidden="true" /></button>
           </div>
@@ -80,18 +82,18 @@ export default function Header() {
               { Icon: Clock, title: "Send Email", text: "Mon - Sat 8:00 - 6:30, Sunday - CLOSED" },
             ].map(({ Icon, title, href, text }, index) => <li key={index} className="relative! mb-5!"><div className="relative! pl-[54px]! text-sm! leading-6! text-white!"><Icon className="absolute! left-0! top-0!" size={34} strokeWidth={1.5} aria-hidden="true" /><span className="block! text-xs! text-[#b2c1c0]! font-normal! uppercase!">{title}</span>{href ? <a href={href} className={`text-white! transition-colors! duration-300! ${focus}`}>{text}</a> : text}</div></li>)}
           </ul>
-          <ul className="relative! flex! items-center! justify-between! bg-[#064C44]! w-full! border-t! border-white/10! mt-auto! mb-0! p-0! list-none!">
-            {(["x", "facebook", "pinterest", "instagram"] as Brand[]).map(brand => <li key={brand} className="relative! w-full! text-center! border-r! border-white/10!"><a href="#" aria-label={brand} className={`relative! flex! items-center! justify-center! h-[50px]! text-white/60! ${focus}`}><BrandIcon brand={brand} /></a></li>)}
+          <ul className={`relative! flex! items-center! justify-between! w-full! border-t! border-white/10! mt-auto! mb-0! p-0! list-none! ${light ? "bg-[var(--theme-color-coral)]!" : "bg-[#064C44]!"}`}>
+            {(["x", "facebook", "pinterest", "instagram"] as Brand[]).map(brand => <li key={brand} className="relative! w-full! text-center! border-r! border-white/10!"><a href="#" aria-label={brand} className={`relative! flex! items-center! justify-center! h-[50px]! ${light ? "text-[#261d1a]!" : "text-white/60!"} ${focus}`}><BrandIcon brand={brand} /></a></li>)}
           </ul>
         </nav>
       </div>
 
-      <div data-sticky-header className={`fixed! top-0! left-0! w-full! z-[9999]! bg-[rgba(10,8,8,0.9843137255)]! shadow-[2px_2px_5px_1px_rgba(0,0,0,0.05),-2px_0_5px_1px_rgba(0,0,0,0.05)]! ${sticky ? "visible! opacity-100! animate-[slideInDown_1s_both]! motion-reduce:animate-none!" : "invisible! opacity-0! pointer-events-none!"}`} inert={!sticky}>
+      <div data-sticky-header className={`fixed! top-0! left-0! w-full! z-[9999]! ${light ? "bg-white! border-b! border-[#eaded9]!" : "bg-[rgba(10,8,8,0.9843137255)]! shadow-[2px_2px_5px_1px_rgba(0,0,0,0.05),-2px_0_5px_1px_rgba(0,0,0,0.05)]!"} ${sticky ? "visible! opacity-100! animate-[slideInDown_1s_both]! motion-reduce:animate-none!" : "invisible! opacity-0! pointer-events-none!"}`} inert={!sticky}>
         <div className="mx-auto! max-w-[1320px]! px-[15px]!">
           <div className="relative! flex! items-center! justify-between!">
-            <Link to="/" aria-label="Blupeak home" className={`py-2.5! flex! items-center! ${focus}`}><img src="/images/blupeak-light-full.png" alt="Blupeak" className="w-[170px]! h-[34px]! object-cover! object-center!" /></Link>
-            <nav aria-label="Sticky navigation" className="relative! hidden! min-[1024px]:block!"><ul className="relative! flex! list-none! m-0! p-0!"><Navigation sticky /></ul></nav>
-            <button type="button" className={`${toggleClass} text-white!`} aria-label="Open navigation" aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={event => open(event.currentTarget)}><Menu size={22} aria-hidden="true" /></button>
+            <Link to="/" aria-label="Blupeak home" className={`py-2.5! flex! items-center! ${focus}`}><img src={logo} alt="Blupeak" className="w-[170px]! h-[34px]! object-cover! object-center!" /></Link>
+            <nav aria-label="Sticky navigation" className="relative! hidden! min-[1024px]:block!"><ul className="relative! flex! list-none! m-0! p-0!"><Navigation sticky light={light} /></ul></nav>
+            <button type="button" className={`${toggleClass} ${foreground}`} aria-label="Open navigation" aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={event => open(event.currentTarget)}><Menu size={22} aria-hidden="true" /></button>
           </div>
         </div>
       </div>

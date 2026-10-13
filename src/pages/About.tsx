@@ -1,8 +1,9 @@
 import { pageClasses } from "../styles/pageUtilities";
-import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Rocket, Target } from "lucide-react";
 import Footer from "../components/layout/Footer";
 import Star from "../components/common/Star";
+import TextReveal from "../components/common/TextReveal";
 import AboutSection from "../components/sections/AboutSection";
 import ClientsSection from "../components/sections/ClientsSection";
 import FeatureSection from "../components/sections/FeatureSection";
@@ -55,35 +56,35 @@ export default function About() {
 
   return (
     <>
+      <main data-about-page className={pageClasses("about-page")}>
       {/* Section 1 & Section 2: Hero / Intro Stats Block & Two Column Feature Highlight */}
       <AboutSection
         id="about-us"
-        pageHeader={
-          <nav aria-label="Breadcrumb" className="mb-8! text-left! sm:mb-12!">
-            <ol className="m-0! flex! list-none! items-center! gap-3! p-0! text-sm!">
-              <li>
-                <Link to="/" className="text-[#b9beb6]! underline-offset-4! hover:text-[#FF593E]! hover:underline! focus-visible:outline-2! focus-visible:outline-solid! focus-visible:outline-[#FF593E]! focus-visible:outline-offset-4!">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true"><ChevronRight size={14} className="text-[#747c6e]!" /></li>
-              <li aria-current="page" className="text-[#FF593E]!">About Us</li>
-            </ol>
-          </nav>
-        }
+        pageIntro
+        showEyebrow={false}
+        stat3Label="In House Delivery"
+        feature1Icon={<Rocket size={30} strokeWidth={1.75} className="inline-block! align-middle! text-[var(--theme-color-coral)]!" aria-hidden="true" />}
+        feature2Icon={<Target size={30} strokeWidth={1.75} className="inline-block! align-middle! text-[var(--theme-color-coral)]!" aria-hidden="true" />}
       />
 
       {/* Section 3: "Our Features" / Capabilities Grid */}
-      <FeatureSection id="our-features" variant="static" />
+      <FeatureSection
+        id="our-features"
+        variant="static"
+        animateTitle={false}
+        animateDescription={false}
+        showEyebrow={false}
+        title={<>Turning Companies Into<br /><span><TextReveal text="Category Leaders" /></span></>}
+      />
 
       {/* Section 4: Trust Band */}
-      <ClientsSection heading={false} showObject={false}>
+      <ClientsSection id="about-growth-standards" compact heading={false} showObject={false}>
         <div className="relative! text-center! mb-0!">
           <div className="mb-[5px]! [&>svg]:text-[var(--theme-color1)]! [&>svg]:-mt-0.5! [&>svg]:mr-[5px]! [&>span]:text-white! [&>span]:text-sm! [&>span]:font-normal! [&>span]:leading-normal! [&>span]:uppercase!">
             <Star />
             <span>Growth Standards Built for Global Brands</span>
           </div>
-          <h2 className="text-anim max-w-[880px]! mx-auto! mt-6! mb-0! text-[clamp(22px,3.2vw,34px)]! leading-[1.45]! font-medium! text-white! tracking-[-1.5px]!">
+          <h2 className="text-anim max-w-[1100px]! mx-auto! mt-6! mb-0! text-balance! text-[clamp(22px,3.2vw,34px)]! min-[992px]:text-[30px]! min-[1200px]:text-[34px]! leading-[1.45]! font-medium! text-white! tracking-[-1.5px]!">
             Blupeak's team brings 6+ years of combined experience across sales, technology,
             and search, applied in service of every client we work with.
           </h2>
@@ -99,12 +100,9 @@ export default function About() {
           <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! items-end!">
             <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-7/12!">
               <div className={pageClasses("section-title mb-[0px]!")}>
-                <div className="sub-title text-left!">
-                  <Star variant="lime" color="#BAFF39" />
-                  <span>Our Services</span>
-                </div>
-                <h2 className={pageClasses("title text-anim")}>
-                  Revenue Architecture, <span className="min-[1200px]:block!">Built In House</span>
+                <h2 className="title" data-about-services-title>
+                  <span data-service-title-line>Revenue Architecture,</span><br />
+                  <span data-service-title-accent><TextReveal text="Built In House" /></span>
                 </h2>
               </div>
             </div>
@@ -133,6 +131,7 @@ export default function About() {
         </div>
       </section>
 
+      </main>
       {/* Section 6: Footer Tagline */}
       <Footer padded tagline="Through disciplined execution and in house expertise, Blupeak exists to turn ambitious companies into category leaders." />
     </>

@@ -1,7 +1,4 @@
 import { pageClasses } from "../styles/pageUtilities";
-import { ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
-import PageEyebrow from "../components/common/PageEyebrow";
 import TextReveal from "../components/common/TextReveal";
 import Footer from "../components/layout/Footer";
 import TeamSection from "../components/sections/TeamSection";
@@ -15,29 +12,19 @@ export default function Team() {
 
   return (
     <>
-      <main className="bg-[#000000]! text-white! selection:bg-[#064C44]! selection:text-white!" data-team-page>
-        <section aria-labelledby="team-title" className="mx-auto! max-w-[1424px]! px-5! pt-32! pb-12! sm:px-8! sm:pt-40! sm:pb-16! lg:px-16! lg:pt-44!">
-          <nav aria-label="Breadcrumb" className="mb-8! sm:mb-12!">
-            <ol className="m-0! flex! list-none! items-center! gap-3! p-0! text-sm!">
-              <li>
-                <Link to="/" className="text-[#b9beb6]! underline-offset-4! hover:text-[#FF593E]! hover:underline! focus-visible:outline-2! focus-visible:outline-solid! focus-visible:outline-[#FF593E]! focus-visible:outline-offset-4!">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true"><ChevronRight size={14} className="text-[#747c6e]!" /></li>
-              <li aria-current="page" className="text-[#FF593E]!">Team</li>
-            </ol>
-          </nav>
-          <PageEyebrow>Our Expert Team</PageEyebrow>
-          <h1 id="team-title" className="m-0! max-w-[900px]! font-[family-name:var(--heading-font-family)]! text-[35px]! leading-[40px]! font-normal! tracking-[-1.5px]! text-white! text-balance! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[60px]! min-[768px]:leading-[1.1]!">
+      <main className="bg-white! text-[#261d1a]! selection:bg-[var(--theme-color-coral)]! selection:text-[#261d1a]!" data-team-page>
+        <section aria-labelledby="team-title" className="mx-auto! max-w-[1424px]! px-5! pt-30! pb-12! sm:px-8! sm:pt-32! sm:pb-16! lg:px-16!">
+          <h1 id="team-title" className="m-0! max-w-full! font-[family-name:var(--heading-font-family)]! text-[35px]! leading-[40px]! font-normal! tracking-[-0.03em]! text-[#261d1a]! text-balance! min-[470px]:text-[40px]! min-[470px]:leading-[50px]! min-[768px]:text-[clamp(36px,4.2vw,60px)]! min-[768px]:leading-[1.1]!">
             <TextReveal
               text="Meet the Blupeak Solutions Team Driving Your Business Growth"
+              className="min-[768px]:whitespace-nowrap!"
+              lineBreakBefore="Your Business Growth"
               emphasis={{ text: "Your Business Growth", className: "font-[family-name:var(--style-font)]! font-normal! text-[#FF593E]! italic!" }}
             />
           </h1>
         </section>
 
-        <TeamSection showHeading={false} className={pageClasses("team-section-five section-padding pt-0! pb-[0px]!")} />
+        <TeamSection tone="light" showHeading={false} className={pageClasses("team-section-five section-padding pt-0! pb-[0px]!")} />
       </main>
 
       <Footer padded />
