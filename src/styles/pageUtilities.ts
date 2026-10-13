@@ -35,10 +35,10 @@ const sectionUtilities: Record<string, string> = {
   "home-page": [
     String.raw`[--text-color:#66544e] [--headings-color:#261d1a] [--theme-color2:#faf8f7] [--theme-color3:#faf8f7] bg-white text-[#261d1a] font-[family-name:var(--body-font-family)]`,
     String.raw`[&>section:not([data-home-final-cta],.hero-section)]:bg-white!`,
-    String.raw`[&>section:not(.hero-section)_:is(h1,h2,h3,h4)]:text-[#261d1a]! [&>section:not(.hero-section)_:is(h1,h2,h3,h4)]:font-[family-name:var(--heading-font-family)] [&>section:not(.hero-section)_:is(h1,h2,h3,h4)]:font-normal! [&>section:not(.hero-section)_:is(h1,h2,h3,h4)]:tracking-[-0.03em]!`,
-    String.raw`[&>section:not(.hero-section)_h1>span]:text-[var(--theme-color-coral)]! [&>section:not(.hero-section)_h1>span]:font-[family-name:var(--style-font)]! [&>section:not(.hero-section)_h1>span]:font-normal! [&>section:not(.hero-section)_h1>span]:italic!`,
+    String.raw`[&>section:not(.hero-section,[data-home-final-cta])_:is(h1,h2,h3,h4)]:text-[#261d1a]! [&>section:not(.hero-section,[data-home-final-cta])_:is(h1,h2,h3,h4)]:font-[family-name:var(--heading-font-family)] [&>section:not(.hero-section,[data-home-final-cta])_:is(h1,h2,h3,h4)]:font-normal! [&>section:not(.hero-section,[data-home-final-cta])_:is(h1,h2,h3,h4)]:tracking-[-0.03em]!`,
+    String.raw`[&>section:not(.hero-section,[data-home-final-cta])_h1>span]:text-[var(--theme-color-coral)]! [&>section:not(.hero-section,[data-home-final-cta])_h1>span]:font-[family-name:var(--style-font)]! [&>section:not(.hero-section,[data-home-final-cta])_h1>span]:font-normal! [&>section:not(.hero-section,[data-home-final-cta])_h1>span]:italic!`,
     String.raw`[&_.section-title_.title>span]:text-[var(--theme-color-coral)]! [&_.section-title_.title>span]:font-[family-name:var(--style-font)]! [&_.section-title_.title>span]:font-normal! [&_.section-title_.title>span]:italic!`,
-    String.raw`[&>section:not(.hero-section)_:is(p,[data-page-eyebrow],nav,nav_a,.sub-title>span)]:text-[#66544e]! [&>section:not(.hero-section)_div[class*="uppercase"]>span]:text-[#66544e]!`,
+    String.raw`[&>section:not(.hero-section,[data-home-final-cta])_:is(p:not(.form-column *),[data-page-eyebrow],nav,nav_a,.sub-title>span)]:text-[#66544e]! [&>section:not(.hero-section,[data-home-final-cta])_div[class*="uppercase"]>span]:text-[#66544e]!`,
     String.raw`[&>section:not(.hero-section)_.sub-title_svg]:text-[var(--theme-color-coral)]!`,
     String.raw`[&_.hero-section]:text-white! [&_.hero-content_h1]:text-white!`,
 
@@ -102,7 +102,7 @@ const sectionUtilities: Record<string, string> = {
     String.raw`[&_.contact-section]:bg-white! [&_.contact-section::before]:hidden!`,
     String.raw`[&_.contact-info_.email_a]:text-[#66544e]! [&_.contact-info_.email_a:hover]:text-[var(--theme-color-coral)]!`,
     String.raw`[&_.contact-info_.phone_a]:text-[#261d1a]! [&_.contact-info_.phone_a:hover]:text-[var(--theme-color-coral)]!`,
-    String.raw`[&_.contact-section_.form-column_h3]:text-white! [&_.contact-section_.form-column_p]:text-white/80!`,
+    String.raw`[&_.contact-section_.form-column_h3]:text-white! [&_.contact-section_.form-column_p]:text-white! [&_.contact-section_.form-column_p]:opacity-100!`,
 
     // Final CTA Section
     String.raw`[&_[data-home-final-cta]]:bg-[#064C44]! [&_[data-home-final-cta]_h2]:text-white!`,
@@ -1207,7 +1207,7 @@ const sectionUtilities: Record<string, string> = {
     String.raw`[&_.theme-btn]:inline-flex [&_.theme-btn]:items-center [&_.theme-btn]:[gap:18px]`,
     String.raw`[&_.theme-btn_i]:[transition:transform_300ms_ease]`,
     String.raw`[&_.theme-btn:hover_i]:[transform:translateX(4px)]`,
-    String.raw`max-[767.98px]:justify-start`,
+    String.raw`max-[767.98px]:justify-center`,
   ].join(" "),
   "tbl-shopping-cart": [
     String.raw`[&:is(table)_img]:[width:64px] [&:is(table)_img]:[-webkit-box-shadow:none] [&:is(table)_img]:[box-shadow:none]`,

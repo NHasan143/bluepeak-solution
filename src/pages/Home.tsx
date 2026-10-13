@@ -163,7 +163,7 @@ export default function Home() {
             </div>
 
             <HomeServicesList tone="light" />
-            <div className={pageClasses("growth-services-cta")}>
+            <div className={`${pageClasses("growth-services-cta")} max-[767.98px]:justify-center!`}>
               <Link to="/contact" className={pageClasses("theme-btn btn-style-one")}>
                 <span className="btn-title">Book a Growth Consultation</span>
                 <InterfaceIcon name="arrow-right" aria-hidden="true" />
@@ -333,7 +333,7 @@ export default function Home() {
                       <div className="relative! z-10! mb-8!">
                         <span className="block! text-xs! font-bold! uppercase! tracking-[0.14em]! text-[var(--theme-color-coral)]! mb-2!">Let’s Connect</span>
                         <h3 className="m-0! text-[clamp(1.8rem,3vw,2.4rem)]! font-bold! leading-tight! text-white!">Get In Touch</h3>
-                        <p className="mt-2! mb-0! text-sm! text-white/70! leading-relaxed!">Tell us about your project or growth goals. We’ll respond within 24 hours.</p>
+                        <p className="mt-2! mb-0! text-sm! text-white! leading-relaxed!">Tell us about your project or growth goals. We’ll respond within 24 hours.</p>
                       </div>
                       <HomeContactForm />
                     </div>
