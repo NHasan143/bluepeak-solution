@@ -17,7 +17,7 @@ const LinkedinIcon = ({ size = 24, ...props }: React.SVGProps<SVGSVGElement> & {
 
 /**
  * Default footer, shared by the homepage and every inner page.
- * Inner pages render it with `padded` (adds `pt-120!`), matching the original.
+ * Inner pages render it with `padded` for a little extra breathing room.
  */
 export default function Footer({
   padded = false,
@@ -27,23 +27,10 @@ export default function Footer({
   tagline?: string;
 }) {
   return (
-    <footer data-site-footer className={`relative! z-[9]! pb-[50px]! rounded-b-[30px]${padded ? " pt-[120px]!" : ""}`}>
-      <div className="absolute! bottom-0! right-0! -z-[1]! hidden! min-[1400px]:block!">
-        <img src="/images/icons/footer1-1ellipse.png" alt="img" />
-      </div>
-      <div className="absolute! top-0! left-0! -z-[1]! hidden! min-[1400px]:block!">
-        <img src="/images/icons/footer1-2ellipse.png" alt="img" />
-      </div>
-
-      <div className="relative! z-[9]! overflow-hidden! rounded-[28px]! bg-[#10120f]! mx-[clamp(16px,5vw,100px)]!">
-        <div className="absolute! bottom-[10%]! right-0! -z-[1]!">
-          <img src="/images/icons/footer1-shape-1.png" alt="img" />
-        </div>
-        <div className="tm-gsap-animate-circle absolute! bottom-20! left-0! -z-[1]! hidden! min-[1400px]:block!">
-          <img src="/images/icons/footer-shape1-1.png" alt="" />
-        </div>
+    <footer data-site-footer className={`relative! z-[9]! bg-black! text-white! pb-6! rounded-b-[30px] [&_a:focus-visible]:outline-2! [&_a:focus-visible]:outline-solid! [&_a:focus-visible]:outline-white! [&_a:focus-visible]:outline-offset-4!${padded ? " pt-4! sm:pt-6!" : ""}`}>
+      <div className="relative! z-[9]! overflow-hidden! rounded-[28px]! bg-black! mx-[clamp(16px,5vw,100px)]!">
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-          <div className="pt-[clamp(64px,8vw,104px)]! pb-[42px]! min-[768px]:pb-[76px]!">
+          <div className="pt-10! sm:pt-14! pb-6! min-[768px]:pb-10!">
             <div className="flex! flex-wrap! -mx-3!">
               <div
                 className={pageClasses("w-full! px-3! min-[768px]:w-2/3! min-[992px]:w-5/12! min-[1200px]:w-1/3! wow fadeInUp")}
@@ -56,7 +43,7 @@ export default function Footer({
                     </Link>
                   </div>
                   <div className="max-w-[315px]!">
-                    <p className="text-[#a9afa4]! text-base! leading-[1.75]!">{tagline}</p>
+                    <p className="text-white! text-base! leading-[1.75]!">{tagline}</p>
                   </div>
                 </div>
               </div>
@@ -66,9 +53,9 @@ export default function Footer({
               >
                 <div className="m-0!">
                   <div className="mb-[30px]!">
-                    <h4 className="text-[15px]! leading-[21px]! font-bold! tracking-[0.08em]! uppercase! text-[#f3f5ed]!">Quick Links</h4>
+                    <h4 className="text-[15px]! leading-[21px]! font-bold! tracking-[0.08em]! uppercase! text-white!">Quick Links</h4>
                   </div>
-                  <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-[#d9d9d9]! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:text-[#FF593E]! [&>li>a:hover]:translate-x-1">
+                  <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-white! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:underline! [&>li>a]:underline-offset-4! [&>li>a:hover]:translate-x-1">
                     <li>
                       <Link to="/">Home</Link>
                     </li>
@@ -96,9 +83,9 @@ export default function Footer({
               >
                 <div className="m-0!">
                   <div className="mb-[30px]!">
-                    <h4 className="text-[15px]! leading-[21px]! font-bold! tracking-[0.08em]! uppercase! text-[#f3f5ed]!">Our Services</h4>
+                    <h4 className="text-[15px]! leading-[21px]! font-bold! tracking-[0.08em]! uppercase! text-white!">Our Services</h4>
                   </div>
-                  <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-[#d9d9d9]! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:text-[#FF593E]! [&>li>a:hover]:translate-x-1">
+                  <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-white! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:underline! [&>li>a]:underline-offset-4! [&>li>a:hover]:translate-x-1">
                     <li>
                       <Link to="/services/revenue-sales-systems">Revenue &amp; Sales Systems</Link>
                     </li>
@@ -123,9 +110,9 @@ export default function Footer({
               >
                 <div className="m-0!">
                   <div className="mb-[30px]!">
-                    <h4 className="text-[15px]! leading-[21px]! font-bold! tracking-[0.08em]! uppercase! text-[#f3f5ed]!">Legal</h4>
+                    <h4 className="text-[15px]! leading-[21px]! font-bold! tracking-[0.08em]! uppercase! text-white!">Legal</h4>
                   </div>
-                  <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-[#d9d9d9]! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:text-[#FF593E]! [&>li>a:hover]:translate-x-1">
+                  <ul className="list-none! p-0! ml-0! [&>li]:mb-[13px]! [&>li]:text-base! [&>li]:leading-[30.4px]! [&>li>a]:relative [&>li>a]:text-white! [&>li>a]:capitalize [&>li>a]:transition-[color,transform] [&>li>a]:duration-[180ms] [&>li>a:hover]:underline! [&>li>a]:underline-offset-4! [&>li>a:hover]:translate-x-1">
                     <li>
                       <Link to="/privacy-policy">Privacy Policy</Link>
                     </li>
@@ -138,20 +125,20 @@ export default function Footer({
             </div>
           </div>
         </div>
-        <div className="bg-[#080a08]! rounded-b-[28px]! py-[23px]!">
+        <div className="bg-black! rounded-b-[28px]! py-3!">
           <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
             <div className="flex! flex-wrap! flex-col! items-start! justify-center! gap-2.5! min-[768px]:flex-row! min-[768px]:items-center! min-[768px]:justify-between! min-[768px]:gap-0!">
-              <p className={pageClasses("text-[#7e857a]! text-[13px]! wow fadeInLeft")} data-wow-delay=".5s">
-                &copy; Copyright Reserved by Blupeak
+              <p className={pageClasses("text-white! text-[13px]! wow fadeInLeft")} data-wow-delay=".5s">
+                &copy; {new Date().getFullYear()} Copyright Reserved by Blupeak Solutions
               </p>
               <ul className={pageClasses("flex! gap-4! list-none! p-0! m-0! wow fadeInRight")} data-wow-delay=".5s">
                 <li>
-                  <a href="#" aria-label="Facebook" className="text-[#a9afa4]! hover:text-[#FF593E]! transition-colors! duration-200!">
+                  <a href="#" aria-label="Facebook" className="text-white! hover:opacity-80! transition-opacity! duration-200! motion-reduce:transition-none!">
                     <FacebookIcon size={24} />
                   </a>
                 </li>
                 <li>
-                  <a href="#" aria-label="LinkedIn" className="text-[#a9afa4]! hover:text-[#FF593E]! transition-colors! duration-200!">
+                  <a href="#" aria-label="LinkedIn" className="text-white! hover:opacity-80! transition-opacity! duration-200! motion-reduce:transition-none!">
                     <LinkedinIcon size={24} />
                   </a>
                 </li>

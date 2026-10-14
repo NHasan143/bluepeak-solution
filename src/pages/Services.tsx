@@ -30,7 +30,7 @@ export default function Services() {
           </h1>
         </section>
 
-        <section aria-labelledby="services-list-title" className="mx-auto! max-w-[1424px]! px-5! pb-16! sm:px-8! sm:pb-24! lg:px-16!">
+        <section aria-labelledby="services-list-title" className="mx-auto! max-w-[1424px]! px-5! pb-10! sm:px-8! sm:pb-12! lg:px-16!">
           <div className="flex! items-center! justify-between! gap-4! pt-6!">
             <h2 id="services-list-title" className="m-0! font-[family-name:var(--heading-font-family)]! text-lg! leading-normal! font-medium! tracking-[-0.02em]! text-[#261d1a]! sm:text-xl!">Our Services</h2>
             <span className="text-sm! text-[#66544e]!">One in-house team.</span>

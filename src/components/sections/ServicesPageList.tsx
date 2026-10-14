@@ -47,27 +47,27 @@ export default function ServicesPageList() {
           const bounds = SERVICE_IMAGE_BOUNDS[service.slug];
 
           return (
-            <li key={service.slug} className="relative! m-0! border-0! border-b! border-solid! border-[#d9d0cc]! bg-white! p-0! last:border-b-0!">
+            <li key={service.slug} className="relative! m-0! border-0! border-b! border-solid! border-white/20! bg-[#064C44]! p-0! last:border-b-0!">
               <div
-                className="grid! grid-cols-[minmax(0,1fr)_112px]! items-center! gap-5! py-9! min-[470px]:grid-cols-[minmax(0,1fr)_180px]! sm:gap-10! sm:py-12! md:min-h-[288px]! md:grid-cols-2! lg:gap-20!"
+                className="relative! grid! grid-cols-[minmax(0,1fr)_80px]! items-center! gap-5! px-4! py-9! min-[370px]:grid-cols-[minmax(0,1fr)_112px]! min-[470px]:grid-cols-[minmax(0,1fr)_180px]! sm:gap-10! sm:px-6! sm:py-12! md:min-h-[288px]! md:grid-cols-2! lg:gap-20! lg:px-10!"
                 data-service-row
               >
                 <div className={`min-w-0! ${reversed ? "md:col-start-2! md:row-start-1! md:text-right!" : "md:col-start-1! md:row-start-1!"}`}>
-                  <h3 className="m-0! font-[family-name:var(--heading-font-family)]! text-[24px]! leading-[1.2]! font-medium! tracking-[-0.02em]! text-[#261d1a]! text-balance! sm:text-[32px]!">
+                  <h3 className="m-0! font-[family-name:var(--heading-font-family)]! text-[24px]! leading-[1.2]! font-medium! tracking-[-0.02em]! text-white! text-balance! sm:text-[32px]!">
                     {service.title}
                   </h3>
                   <span aria-hidden="true" className={`mt-3! mb-4! block! h-px! w-14! bg-[var(--theme-color-coral)]! ${reversed ? "md:ml-auto!" : ""}`} />
-                  <p className={`m-0! max-w-[54ch]! text-base! leading-[1.75]! text-[#66544e]! ${reversed ? "md:ml-auto!" : ""}`}>
+                  <p className={`m-0! max-w-[54ch]! text-base! leading-[1.75]! text-white! ${reversed ? "md:ml-auto!" : ""}`}>
                     {service.intro}
                   </p>
                   <div className={`mt-5! flex! ${reversed ? "md:justify-end!" : ""}`}>
                     <Link
                       to={`/services/${service.slug}`}
                       aria-label={`View ${service.title} details`}
-                      className="inline-flex! min-h-11! items-center! gap-4! text-[#C3422A]! no-underline! cursor-pointer! transition-colors! duration-200! hover:text-[var(--theme-color-teal)]! focus-visible:outline-2! focus-visible:outline-solid! focus-visible:outline-[#C3422A]! focus-visible:outline-offset-4! motion-reduce:transition-none!"
+                      className="inline-flex! min-h-11! min-w-0! max-w-full! items-center! gap-4! rounded-full! bg-[var(--theme-color-coral)]! px-4! py-2! text-[#261d1a]! no-underline! cursor-pointer! transition-colors! duration-200! hover:bg-[#ff806c]! focus-visible:outline-2! focus-visible:outline-solid! focus-visible:outline-white! focus-visible:outline-offset-4! motion-reduce:transition-none!"
                       data-service-cta
                     >
-                      <span className="text-[10px]! leading-normal! font-bold! tracking-[0.08em]! uppercase! sm:text-[11px]!">
+                      <span className="min-w-0! text-[10px]! leading-normal! font-bold! tracking-[0.08em]! uppercase! sm:text-[11px]!">
                         {SERVICE_TAGS[service.slug]}
                       </span>
                       <ArrowRight aria-hidden="true" size={18} strokeWidth={1.75} className="shrink-0!" />
@@ -78,7 +78,7 @@ export default function ServicesPageList() {
                 <div
                   aria-hidden="true"
                   data-service-image={service.slug}
-                  className={`relative! block! h-14! w-auto! justify-self-end! overflow-hidden! select-none! min-[470px]:h-22! md:h-[clamp(140px,16vw,220px)]! ${reversed ? "md:col-start-1! md:row-start-1! md:justify-self-start!" : "md:col-start-2! md:row-start-1!"}`}
+                  className={`relative! block! h-10! w-auto! justify-self-end! overflow-hidden! select-none! min-[370px]:h-14! min-[470px]:h-22! md:h-[clamp(140px,16vw,220px)]! ${reversed ? "md:col-start-1! md:row-start-1! md:justify-self-start!" : "md:col-start-2! md:row-start-1!"}`}
                   style={{ aspectRatio: `${bounds.width} / ${bounds.height}` }}
                 >
                   {image && (
