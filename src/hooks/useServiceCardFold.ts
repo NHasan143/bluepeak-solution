@@ -23,10 +23,19 @@ export function useServiceCardFold(listRef: RefObject<HTMLUListElement | null>) 
       if (cancelled) return;
       frame = requestAnimationFrame(() => {
         media.add("(prefers-reduced-motion: no-preference)", () => {
+          // Capture the unpinned wrapper before ScrollTrigger reparents the list.
+          const section = list.parentElement ?? list;
           const anchor = () => Math.max(96, (document.querySelector("header")?.getBoundingClientRect().height ?? 72) + 24);
           const stackTop = (index: number) => cards.slice(0, index).reduce((top, card) => top + card.offsetHeight * VISIBLE_FRACTION, 0);
           const stackLift = (index: number) => Math.max(0, stackTop(index) + cards[index].offsetHeight - (window.innerHeight - anchor() - 24));
           const stackedY = (card: HTMLElement, arrivingIndex: number) => stackTop(cards.indexOf(card)) - card.offsetTop - stackLift(arrivingIndex);
+          const secondCardEntryTop = () => {
+            const scroll = ScrollSmoother.get()?.scrollTop() ?? window.scrollY;
+            const sectionTop = section.getBoundingClientRect().top + scroll;
+            // Card two enters while card one is still scrolling toward its pin,
+            // but remains below the viewport when the visitor first lands.
+            return Math.max(cards[0].offsetHeight, window.innerHeight - sectionTop + 40);
+          };
 
           gsap.set(list, { overflow: "hidden" });
           gsap.set(cards, { zIndex: (index: number) => index + 1 });
@@ -52,7 +61,7 @@ export function useServiceCardFold(listRef: RefObject<HTMLUListElement | null>) 
             const index = offset + 1;
             const position = offset * (ARRIVAL_DURATION + ARRIVAL_PAUSE);
             timeline.fromTo(card, {
-              y: () => window.innerHeight + 40 - card.offsetTop,
+              y: () => (index === 1 ? secondCardEntryTop() : window.innerHeight + 40) - card.offsetTop,
               boxShadow: "0 -12px 24px rgba(38,29,26,0.06)",
             }, {
               y: () => stackedY(card, index),

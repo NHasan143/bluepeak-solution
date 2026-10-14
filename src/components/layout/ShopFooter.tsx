@@ -119,10 +119,10 @@ export default function ShopFooter() {
             </div>
           </div>
         </div>
-        <div className="bg-black! py-[22px]! rounded-b-[30px]!">
+        <div className="bg-black! py-3! rounded-b-[30px]!">
           <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
             <div className="inner-container justify-center!">
-              <div className="copyright-text">© Copyright Reserved by Bluepeak Solution</div>
+              <div className="copyright-text">© {new Date().getFullYear()} Copyright Reserved by Blupeak Solutions</div>
             </div>
           </div>
         </div>
