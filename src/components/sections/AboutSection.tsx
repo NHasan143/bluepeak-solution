@@ -188,7 +188,18 @@ export default function AboutSection({
                   </div>
                 </li>
               </ul>
-              {resolvedCtaLink.startsWith("#") ? (
+              {isHome ? (
+                <Link to={resolvedCtaLink} className="group/about-cta inline-flex! min-h-14! items-center! justify-center! gap-3! rounded-full! bg-[var(--theme-color-coral)]! pl-8! pr-2! py-2! text-base! font-semibold! text-[#261d1a]! transition-all! duration-300! hover:bg-[#f24c32]! focus-visible:outline-2! focus-visible:outline-[#064C44]! focus-visible:outline-offset-4! max-[991px]:flex! max-[991px]:mx-auto! max-[991px]:w-fit!">
+                  <span>{ctaText}</span>
+                  <span aria-hidden="true" className="dot-box inline-flex! size-10! shrink-0! items-center! justify-center! rounded-full! bg-[#f24c32]!">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+                      <circle cx="25" cy="20" r="2.5" className="transition-[translate]! duration-300! group-hover/about-cta:-translate-x-2.5! motion-reduce:transition-none!" />
+                      <circle cx="18" cy="13" r="2.5" className="transition-[translate]! duration-300! group-hover/about-cta:translate-x-1! group-hover/about-cta:translate-y-[14px]! motion-reduce:transition-none!" />
+                      <circle cx="18" cy="27" r="2.5" className="transition-[translate]! duration-300! group-hover/about-cta:translate-x-1! group-hover/about-cta:-translate-y-[14px]! motion-reduce:transition-none!" />
+                    </svg>
+                  </span>
+                </Link>
+              ) : resolvedCtaLink.startsWith("#") ? (
                 <a href={resolvedCtaLink} className={pageClasses("theme-btn btn-style-four")}>
                   <span className="btn-title">{ctaText}</span>
                   <span className="dot-box">

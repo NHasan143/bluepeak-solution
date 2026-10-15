@@ -1,5 +1,8 @@
 import { pageClasses } from "../../styles/pageUtilities";
+import { useId, useRef, useState } from "react";
+import type { Swiper as SwiperInstance } from "swiper";
 import InterfaceIcon from "../common/InterfaceIcon";
+import LinePagination from "../common/LinePagination";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Star from "../common/Star";
@@ -123,6 +126,9 @@ export default function FeatureSection({
   ctaText = "More Features",
   ctaLink = "/services",
 }: FeatureSectionProps = {}) {
+  const carouselId = useId();
+  const carousel = useRef<SwiperInstance | null>(null);
+  const [activeFeature, setActiveFeature] = useState(0);
   const isStatic = variant === "static";
   const light = tone === "light";
   const resolvedTitle =
@@ -150,7 +156,7 @@ export default function FeatureSection({
   return (
     <section
       id={resolvedId}
-      className={`relative! ${light ? "bg-white!" : "bg-[#131212]!"} pt-20! min-[992px]:pt-[100px]! min-[1200px]:pt-[130px]! pb-[300px]! max-[575px]:px-3! before:absolute! before:top-[57%]! before:left-1/2! before:size-[455px]! before:bg-[var(--theme-color1)]! before:blur-[127.85px]! before:-translate-x-1/2! before:-translate-y-1/2! before:z-[1]! ${light ? "before:opacity-10!" : "before:opacity-30!"} ${isStatic ? "overflow-hidden!" : ""}`}
+      className={`relative! ${light ? "bg-white!" : "bg-[#131212]!"} pt-20! min-[992px]:pt-[100px]! min-[1200px]:pt-[130px]! ${isStatic ? "pb-[300px]!" : "pb-6! sm:pb-8!"} max-[575px]:px-3! before:absolute! before:top-[57%]! before:left-1/2! before:-translate-x-1/2! before:-translate-y-1/2! before:z-[1]! before:size-[455px]! before:bg-[var(--theme-color1)]! before:blur-[127.85px]! ${light ? "before:opacity-10!" : "before:opacity-30!"} ${isStatic ? "overflow-hidden!" : ""}`}
     >
       <div className="absolute! right-0! top-0! hidden! min-[1400px]:block!">
         <svg width="1920" height="1158" viewBox="0 0 1919 1158" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -160,7 +166,7 @@ export default function FeatureSection({
       </div>
 
       <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-        <div className="flex! flex-wrap! -mx-3! justify-center! mb-[60px]!">
+        <div className={`flex! flex-wrap! -mx-3! justify-center! mb-[60px]! ${!isStatic ? "min-[1500px]:mb-10!" : ""}`}>
           <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-8/12! min-[992px]:w-9/12!">
             <div className="relative! text-center!">
               {showEyebrow && <div className="mb-[5px]! [&>svg]:text-[#FF593E]! [&>svg]:-mt-0.5! [&>svg]:mr-[5px]! [&>span]:text-white! [&>span]:text-sm! [&>span]:font-normal! [&>span]:leading-normal! [&>span]:uppercase!">
@@ -180,9 +186,12 @@ export default function FeatureSection({
         </div>
       </div>
       <div className="relative">
-        <div className={`relative! flex! justify-center! ${isStatic ? "flex-wrap! items-stretch! gap-6! mt-10!" : "items-center! flex-wrap! gap-[30px]! mt-0! min-[1500px]:flex-nowrap! min-[1500px]:gap-0! min-[1500px]:mt-[170px]!"}`}>
+        <div className={`relative! flex! justify-center! ${isStatic ? "flex-wrap! items-stretch! gap-6! mt-10!" : "items-center! flex-wrap! gap-[30px]! mt-0! min-[1500px]:flex-nowrap! min-[1500px]:gap-0!"}`}>
           {variant === "slider" ? (
             <Swiper
+              id={carouselId}
+              onSwiper={swiper => { carousel.current = swiper; }}
+              onSlideChange={swiper => setActiveFeature(swiper.realIndex)}
               className="feature-slider-home1 w-full! box-border! px-3! py-6! min-[576px]:px-4! [&_.swiper-wrapper]:items-stretch! [&_.swiper-slide]:flex! [&_.swiper-slide]:justify-center! [&_.swiper-slide]:items-stretch! [&_.swiper-slide]:h-auto!"
               slidesPerView={5}
               spaceBetween={20}
@@ -206,8 +215,20 @@ export default function FeatureSection({
             resolvedCards.map((card, i) => <Card key={i} card={card} isStatic tone={tone} />)
           )}
         </div>
-        <div className="relative! z-[99]! max-w-[180px]! mx-auto! mt-0! mb-[-180px]! min-[1500px]:-mt-[60px]! text-center!">
-          <Link to={ctaLink} className={pageClasses(`group/circle relative! flex! items-center! justify-center! size-[180px]! min-w-[180px]! rounded-full! ${light ? "bg-[#faf8f7]! border! border-[#eaded9]! text-[#261d1a]!" : "bg-[#1B1919]! text-[#d9d9d9]!"} text-base! font-semibold! text-center! mt-[50px]! before:absolute! before:left-1/2! before:top-1/2! before:size-2.5! before:rounded-full! before:bg-[rgba(255,89,62,0.35)]! before:-translate-x-1/2! before:-translate-y-1/2! before:opacity-0! before:transition-all! before:duration-500! hover:before:w-full! hover:before:h-full! hover:before:opacity-100! after:absolute! after:left-1/2! after:top-1/2! after:size-[50px]! after:rounded-full! after:bg-[#064C44]! after:-translate-x-1/2! after:-translate-y-1/2! after:opacity-0! after:transition-all! after:duration-[1800ms]! hover:after:w-full! hover:after:h-full! hover:after:opacity-100! wow fadeInUp`)} data-wow-delay=".5s">
+        {!isStatic && (
+          <LinePagination
+            label="Features pagination"
+            labels={resolvedCards.map((card, index) => `Feature ${index + 1}: ${card.title}`)}
+            currentIndex={activeFeature}
+            controlsId={carouselId}
+            onSelect={index => carousel.current?.slideToLoop(index, window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 600)}
+            tone={tone}
+            status={`Showing ${resolvedCards[activeFeature]?.title ?? ""}.`}
+            className="max-[575px]:-mx-3! min-[1200px]:hidden!"
+          />
+        )}
+        <div className={`relative! z-[99]! mx-auto! text-center! ${isStatic ? "max-w-[180px]! mt-0! mb-[-180px]! min-[1500px]:-mt-[60px]!" : "mt-8! sm:mt-10!"}`}>
+          {isStatic ? <Link to={ctaLink} className={pageClasses(`group/circle relative! flex! items-center! justify-center! size-[180px]! min-w-[180px]! rounded-full! ${light ? "bg-[#faf8f7]! border! border-[#eaded9]! text-[#261d1a]!" : "bg-[#1B1919]! text-[#d9d9d9]!"} text-base! font-semibold! text-center! mt-[50px]! before:absolute! before:left-1/2! before:top-1/2! before:size-2.5! before:rounded-full! before:bg-[rgba(255,89,62,0.35)]! before:-translate-x-1/2! before:-translate-y-1/2! before:opacity-0! before:transition-all! before:duration-500! hover:before:w-full! hover:before:h-full! hover:before:opacity-100! after:absolute! after:left-1/2! after:top-1/2! after:size-[50px]! after:rounded-full! after:bg-[#064C44]! after:-translate-x-1/2! after:-translate-y-1/2! after:opacity-0! after:transition-all! after:duration-[1800ms]! hover:after:w-full! hover:after:h-full! hover:after:opacity-100! wow fadeInUp`)} data-wow-delay=".5s">
             <span className="relative! z-[9]! group-hover/circle:text-white!">
               <InterfaceIcon name="arrow-right" className="block! text-[22px]! -rotate-45!" /> {ctaText === "More Features" ? (
                 <>
@@ -218,7 +239,16 @@ export default function FeatureSection({
                 ctaText
               )}
             </span>
-          </Link>
+          </Link> : (
+            <Link
+              to={ctaLink}
+              className="inline-flex! min-h-14! items-center! justify-center! gap-3! rounded-full! bg-[var(--theme-color-coral)]! px-8! py-4! text-base! font-semibold! text-[#261d1a]! transition-all! duration-300! hover:bg-[#f24c32]! focus-visible:outline-2! focus-visible:outline-[#064C44]! focus-visible:outline-offset-4! wow fadeInUp"
+              data-wow-delay=".5s"
+            >
+              <span>{ctaText}</span>
+              <InterfaceIcon name="arrow-right" />
+            </Link>
+          )}
         </div>
       </div>
     </section>

@@ -164,7 +164,7 @@ export function usePageEffects() {
 
       /* -------------------------------------------------- advance stagger */
       ScrollTrigger.matchMedia({
-        "(min-width: 1200px)": () => {
+        "(min-width: 1200px) and (prefers-reduced-motion: no-preference)": () => {
           const items = root.querySelectorAll<HTMLElement>(
             ".advance-wrap .advance-item",
           );
@@ -177,10 +177,16 @@ export function usePageEffects() {
             },
             defaults: { ease: "power1.out", duration: 1 },
           });
-          tl.from(items[0], { xPercent: 100, rotate: -8 })
-            .from(items[1], { xPercent: 30, rotate: 4.13 }, "<")
-            .from(items[2], { xPercent: -30, rotate: -6.42 }, "<")
-            .from(items[3], { xPercent: -60, rotate: -12.15 }, "<");
+          // Keep the scattered entrance, then settle every card into its grid cell.
+          const from = [
+            { xPercent: 100, rotation: -8 },
+            { xPercent: 30, rotation: 4.13 },
+            { xPercent: -30, rotation: -6.42 },
+            { xPercent: -60, rotation: -12.15 },
+          ];
+          items.forEach((item, index) => {
+            tl.fromTo(item, from[index], { xPercent: 0, rotation: 0 }, 0);
+          });
         },
       });
     }, root);
@@ -264,7 +270,6 @@ export function usePageEffects() {
       ".service-items",
       ".work-block-active",
       ".feature-signle-box-area",
-      ".counter-card-item",
       ".feature-block-one",
       ".ks-mouseenter",
       ".ks-mouseenter2",

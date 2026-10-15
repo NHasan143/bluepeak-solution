@@ -24,7 +24,7 @@ export default function Team() {
           </h1>
         </section>
 
-        <TeamSection tone="light" showHeading={false} className={pageClasses("team-section-five section-padding pt-0! pb-[0px]!")} />
+        <TeamSection tone="light" showHeading={false} className={pageClasses("team-section-five section-padding pt-0! pb-4! sm:pb-6! [&_[data-team-member]]:pb-4! sm:[&_[data-team-member]]:pb-6!")} />
       </main>
 
       <Footer padded />
