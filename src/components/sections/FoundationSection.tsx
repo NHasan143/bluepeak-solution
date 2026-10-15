@@ -58,7 +58,7 @@ export default function FoundationSection() {
           {FOUNDATIONS.map((description, index) => (
             <article key={description} data-foundation-row className={`grid! items-center! gap-4! rounded-2xl! border! border-solid! border-[#eaded9]! bg-[#faf8f7]! p-4! sm:p-5! min-[768px]:gap-6! min-[992px]:gap-8! ${index % 2 === 0 ? "min-[768px]:grid-cols-[minmax(0,1fr)_200px]! min-[992px]:grid-cols-[minmax(0,1fr)_240px]!" : "min-[768px]:grid-cols-[200px_minmax(0,1fr)]! min-[992px]:grid-cols-[240px_minmax(0,1fr)]!"}`}>
               <img
-                src="/images/about/about-1-5.jpg"
+                src={`/images/home/our_foundation_${index + 1}.jpg`}
                 alt="Growth analytics dashboard"
                 width={491}
                 height={307}
