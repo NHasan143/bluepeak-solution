@@ -110,14 +110,14 @@ export default function AboutSection({
               </div>
             </div>
             <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-5/12! wow fadeInUp")} data-wow-delay=".3s">
-              <div className="flex! items-center! justify-end! max-[991px]:justify-center! max-[991px]:mt-[25px]! max-[991px]:mb-5! max-[575px]:w-full! max-[575px]:gap-0!">
-                <div data-about-experience-stat className={`relative! z-[1]! flex! flex-col! items-center! justify-center! size-[130px]! min-[576px]:size-[165px]! shrink-0! rounded-full! ${light ? "bg-[#faf8f7]! border! border-[#eaded9]!" : "bg-[#171816]! border! border-white/8!"} px-2! min-[576px]:px-3!`}>
+              <div className="flex! items-center! justify-end! max-[991px]:justify-center! max-[991px]:mt-[25px]! max-[991px]:mb-5! max-[575px]:w-full! gap-2! min-[576px]:gap-3!">
+                <div data-about-experience-stat className={`relative! z-[1]! flex! flex-col! items-center! justify-center! size-[135px]! min-[576px]:size-[165px]! shrink-0! rounded-full! ${light ? "bg-[#faf8f7]! border! border-[#eaded9]!" : "bg-[#171816]! border! border-white/8!"} px-2! min-[576px]:px-3!`}>
                   <p className={`text-[11px]! min-[576px]:text-[13px]! font-medium! ${light ? "text-[#66544e]!" : "text-[#a0a6a0]!"} mb-0.5! min-[576px]:mb-1! text-center! leading-[1.2]!`}>{stat1Label}</p>
                   <h2 className={`text-2xl! min-[576px]:text-[32px]! font-bold! ${light ? "text-[#261d1a]!" : "text-white!"} leading-none!`}>{stat1Value}</h2>
                 </div>
-                <div data-about-color-panel className="relative! z-[2]! flex! flex-col! items-center! justify-center! size-[155px]! min-[576px]:size-[205px]! shrink-0! rounded-full! bg-[var(--theme-color1)]! px-2.5! min-[576px]:px-[15px]! -ml-5! min-[576px]:-ml-[35px]! shadow-[-10px_0_25px_rgba(0,0,0,0.35)]!">
+                <div data-about-color-panel className="relative! z-[2]! flex! flex-col! items-center! justify-center! size-[150px]! min-[576px]:size-[195px]! shrink-0! rounded-full! bg-[var(--theme-color1)]! px-2.5! min-[576px]:px-[15px]! -ml-2! min-[576px]:-ml-3! shadow-[-6px_0_20px_rgba(0,0,0,0.25)]!">
                   <p className="text-xs! min-[576px]:text-[15px]! font-semibold! text-white! mb-0.5! min-[576px]:mb-1! text-center! leading-[1.2]!">{stat2Label}</p>
-                  <h2 className="text-[34px]! min-[576px]:text-[52px]! font-bold! text-white! leading-none!">
+                  <h2 className="text-[32px]! min-[576px]:text-[48px]! font-bold! text-white! leading-none!">
                     <span className="count-text" data-speed="3000" data-stop={stat2Value} data-lag="0">
                       {stat2Value}
                     </span>
