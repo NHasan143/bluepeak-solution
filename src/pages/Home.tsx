@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import { ScrollSmoother } from "../lib/gsap";
 import Star from "../components/common/Star";
 import HeroGrowthText from "../components/common/HeroGrowthText";
+import CountUp from "../components/common/CountUp";
 import Accordion, { type AccordionEntry } from "../components/common/Accordion";
 import Footer from "../components/layout/Footer";
 import HomeContactForm from "../components/forms/HomeContactForm";
 import AboutSection from "../components/sections/AboutSection";
 import FeatureSection from "../components/sections/FeatureSection";
+import FoundationSection from "../components/sections/FoundationSection";
 import ClientsSection from "../components/sections/ClientsSection";
 import HomeServicesList from "../components/sections/HomeServicesList";
 import TeamSection from "../components/sections/TeamSection";
@@ -39,10 +41,10 @@ const NEWS = [
 */
 
 const COUNTERS = [
-  { stop: "100", start: "0", suffix: "+", label: "Businesses Supported With Growth Strategies" },
-  { stop: "500", start: "0", suffix: "+", label: "Marketing Campaigns Strategically Managed", rotate: true },
-  { stop: "10", start: "0", suffix: "K+", label: "Qualified Leads Generated Through Campaigns", rotate: true },
-  { stop: "95", start: "0", suffix: "%+", label: "Client-Focused Growth & Retention Commitment" },
+  { stop: "100", suffix: "+", label: "Businesses Supported With Growth Strategies" },
+  { stop: "500", suffix: "+", label: "Marketing Campaigns Strategically Managed" },
+  { stop: "10", suffix: "K+", label: "Qualified Leads Generated Through Campaigns" },
+  { stop: "95", suffix: "%+", label: "Client-Focused Growth & Retention Commitment" },
 ];
 
 /* Banner rendering is disabled below; keep its content inactive as well.
@@ -89,7 +91,7 @@ export default function Home() {
 
   return (
     <>
-      <main data-home-page className={pageClasses("home-page")}>
+      <main data-home-page className={pageClasses("home-page pb-10! sm:pb-12!")}>
         {/* Hero */}
         <section className={pageClasses("hero-section hero-1 hero-rings")}>
           <div className={pageClasses("hero-rings-background")} aria-hidden="true">
@@ -129,6 +131,7 @@ export default function Home() {
         <AboutSection
           id="home-about"
           tone="light"
+          stat3Label="In House Delivery"
           bodyParagraph="Blupeak Solutions unifies sales, marketing, engineering, SEO and automation into one growth engine built to accelerate revenue."
         />
 
@@ -150,7 +153,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! wow fadeInUp")} data-wow-delay=".3s">
+              <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! max-[1200px]:hidden! wow fadeInUp")} data-wow-delay=".3s">
                 <div className="circle-area flex! justify-end!">
                   <Link to="/services" className={pageClasses("circle-box")}>
                     <span>
@@ -164,8 +167,8 @@ export default function Home() {
 
             <HomeServicesList tone="light" />
             <div className={`${pageClasses("growth-services-cta")} max-[767.98px]:justify-center!`}>
-              <Link to="/contact" className={pageClasses("theme-btn btn-style-one")}>
-                <span className="btn-title">Book a Growth Consultation</span>
+              <Link to="/contact" className="inline-flex! min-h-14! items-center! justify-center! gap-3! rounded-full! bg-[var(--theme-color-coral)]! px-8! py-4! text-base! font-semibold! text-[#261d1a]! transition-all! duration-300! hover:bg-[#f24c32]! focus-visible:outline-2! focus-visible:outline-[#064C44]! focus-visible:outline-offset-4!">
+                <span>Book a Growth Consultation</span>
                 <InterfaceIcon name="arrow-right" aria-hidden="true" />
               </Link>
             </div>
@@ -173,97 +176,31 @@ export default function Home() {
         </section>
 
         {/* Team Section */}
-        <TeamSection tone="light" />
+        <TeamSection tone="light" paginated />
 
         {/* Feature Section */}
-        <FeatureSection variant="slider" tone="light" />
+        <FeatureSection
+          variant="slider"
+          tone="light"
+          animateDescription={false}
+          description="Blupeak Solutions brings sales, marketing, engineering, SEO, and automation together under one accountable team to build smarter systems, strengthen market presence, and accelerate sustainable business growth."
+        />
 
         {/* Recognition / Milestones */}
-        <section className={pageClasses("award-section1 section-padding bg-[#faf8f7]!")}>
-          <div className="award1-ellipse1">
-            <img src="/images/icons/award1-ellipse1.png" alt="img" />
-          </div>
-          <div className="shape1 hidden! min-[1400px]:block!">
-            <img src="/images/icons/shape1-1.png" alt="" />
-          </div>
-          <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-            <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! mb-[60px]! justify-between! items-center!">
-              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-6/12! min-[992px]:w-8/12!">
-                <div className={pageClasses("section-title")}>
-                  <div className="sub-title">
-                    <Star variant="coral" />
-                    <span>Our Foundation</span>
-                  </div>
-                  <h2 className={pageClasses("title text-anim text-[#261d1a]!")}>
-                    Built on Real Experience, <span>Not Empty Promises</span>
-                  </h2>
-                </div>
-              </div>
-              <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-4/12! min-[992px]:w-4/12! wow fadeInUp")} data-wow-delay=".3s">
-                <p className="text-[#66544e]!">
-                  Blupeak is a young agency, but the team behind it isn’t. Here is what actually backs that up.
-                </p>
-              </div>
-            </div>
-            <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! items-end!">
-              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-5/12!">
-                <div className="flex! flex-col! justify-center! h-full! min-[992px]:px-[24px]! min-h-[300px]!">
-                  <h2 className="[font-size:clamp(80px,_8vw,_120px)]! [line-height:1]! text-[#064C44]! [font-weight:800]! [margin-bottom:16px]! [letter-spacing:-2px]!">6+</h2>
-                  <h4 className="[font-size:clamp(24px,_3vw,_36px)]! text-[#261d1a]! [font-weight:300]! [line-height:1.2]! [letter-spacing:0.5px]!">
-                    Years of combined, <br />hands-on experience
-                  </h4>
-                </div>
-              </div>
-              <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-7/12!">
-                <div className={pageClasses("award-list-items-area")}>
-                  {[".3s", ".3s", ".5s", ".7s"].map((delay, i) => (
-                    <div
-                      key={i}
-                      className={pageClasses(`award-list-items-items${i === 0 ? " active" : ""}${i === 3 ? " mb-0!" : ""} wow fadeInUp`)}
-                      data-wow-delay={delay}
-                    >
-                      <div className="content-items">
-                        <div className="content">
-                          <h4 className={pageClasses("title text-[#261d1a]!")}>
-                            {[
-                              "6+ years of combined, hands-on experience across our sales, tech and creative team",
-                              "A team built from people who have run outbound, closing and CRM systems for growing B2B companies before",
-                              "Every project handled by our own in-house specialists, never subcontracted out",
-                              "One accountable team covering strategy, execution and reporting for each client, start to finish",
-                            ][i]}
-                          </h4>
-                        </div>
-                        <img
-                          className="foundation-image"
-                          src="/images/about/about-1-5.jpg"
-                          alt="Blupeak team"
-                        />
-                      </div>
+        <FoundationSection />
 
-                      <Link to="/about" className="arrow-icon">
-                        <InterfaceIcon name="arrow-right" />
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <ClientsSection tone="light" />
+        <ClientsSection tone="light" compact splitHeading />
 
         {/* Counters */}
-        <section className={pageClasses("counter-section section-padding bg-white!")}>
+        <section className={pageClasses("counter-section section-padding pt-12! sm:pt-16! bg-white!")}>
           <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
             <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! advance-wrap">
               {COUNTERS.map((c, i) => (
                 <div key={i} className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-3/12! min-[992px]:w-3/12! min-[768px]:w-6/12! min-[576px]:w-6/12!">
-                  <div className={pageClasses(`counter-card-item${c.rotate ? " ratote-2" : ""} advance-item`)}>
-                    <div className="count-box">
+                  <div className={pageClasses("counter-card-item advance-item")}>
+                    <div>
                       <h2 className={pageClasses("title")}>
-                        <span className="count-text" data-speed="3000" data-stop={c.stop}>{c.start}</span>
-                        {c.suffix}
+                        <CountUp value={Number(c.stop)} suffix={c.suffix} decimals={c.suffix === "K+" ? 1 : 0} />
                       </h2>
                       <p>{c.label}</p>
                     </div>
@@ -303,7 +240,7 @@ export default function Home() {
         </section>
 
         {/* Contact */}
-        <section className={pageClasses("contact-section style-four bg-white!")}>
+        <section className={pageClasses("contact-section style-four bg-white! pb-12! sm:pb-16! mb-0!")}>
           <div className="outer-box">
             <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
               <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! justify-between!">
@@ -345,23 +282,25 @@ export default function Home() {
         </section>
 
         {/* Final CTA */}
-        <section data-home-final-cta className="relative! z-[99]! mx-5! min-[1200px]:mx-10! min-[1700px]:mx-[100px]! rounded-[28px]! bg-[#064C44]! py-16! px-6! sm:px-12! mb-16! shadow-[0_20px_50px_rgba(6,76,68,0.25)]!">
-          <div className="mx-auto! w-full! max-w-[1320px]!">
-            <div className="flex! flex-col! items-center! justify-between! gap-6! text-center! min-[992px]:flex-row! min-[992px]:text-left!">
-              <h2 className="m-0! text-[clamp(2.2rem,4.5vw,4.5rem)]! font-medium! leading-[1.1]! tracking-[-0.03em]! text-white!">
-                Let’s Build Your Growth Engine
-              </h2>
-              <Link
-                to="/contact"
-                className="inline-flex! shrink-0! items-center! justify-center! gap-3! rounded-full! bg-[var(--theme-color-coral)]! px-8! py-4! text-base! font-semibold! text-[#261d1a]! transition-all! duration-300! hover:bg-[#f24c32]! focus-visible:outline-2! focus-visible:outline-white! focus-visible:outline-offset-4! wow fadeInUp"
-                data-wow-delay=".3s"
-              >
-                <span>Book a Growth Consultation</span>
-                <InterfaceIcon name="arrow-right" />
-              </Link>
+        <div className="mx-auto! max-w-[1424px]! px-5! sm:px-8! lg:px-16!">
+          <section data-home-final-cta className="relative! z-[99]! rounded-[28px]! bg-[#064C44]! py-10! sm:py-12! px-6! sm:px-12!">
+            <div className="mx-auto! w-full! max-w-[1320px]!">
+              <div className="flex! flex-col! items-center! justify-between! gap-6! sm:gap-8! text-center! min-[1280px]:flex-row! min-[1280px]:text-left!">
+                <h2 className="m-0! min-w-0! text-[clamp(2rem,3.5vw,3rem)]! font-medium! leading-[1.12]! tracking-[-0.03em]! text-white! text-balance!">
+                  Let’s Build Your Growth Engine
+                </h2>
+                <Link
+                  to="/contact"
+                  className="inline-flex! min-h-14! w-full! shrink-0! items-center! justify-center! gap-3! rounded-full! bg-[var(--theme-color-coral)]! px-5! py-4! text-base! font-semibold! text-[#261d1a]! transition-all! duration-300! hover:bg-[#f24c32]! focus-visible:outline-2! focus-visible:outline-white! focus-visible:outline-offset-4! sm:w-auto! sm:px-8! wow fadeInUp"
+                  data-wow-delay=".3s"
+                >
+                  <span>Book a Growth Consultation</span>
+                  <InterfaceIcon name="arrow-right" />
+                </Link>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </main>
 
       <Footer />

@@ -27,10 +27,10 @@ export default function Footer({
   tagline?: string;
 }) {
   return (
-    <footer data-site-footer className={`relative! z-[9]! bg-black! text-white! pb-6! rounded-b-[30px] [&_a:focus-visible]:outline-2! [&_a:focus-visible]:outline-solid! [&_a:focus-visible]:outline-white! [&_a:focus-visible]:outline-offset-4!${padded ? " pt-4! sm:pt-6!" : ""}`}>
+    <footer data-site-footer className={`relative! z-[9]! bg-black! text-white! pb-6! rounded-b-[30px] [&_a:focus-visible]:outline-2! [&_a:focus-visible]:outline-solid! [&_a:focus-visible]:outline-white! [&_a:focus-visible]:outline-offset-4!${padded ? " pt-2! sm:pt-3!" : ""}`}>
       <div className="relative! z-[9]! overflow-hidden! rounded-[28px]! bg-black! mx-[clamp(16px,5vw,100px)]!">
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-          <div className="pt-10! sm:pt-14! pb-6! min-[768px]:pb-10!">
+          <div className="pt-8! sm:pt-10! pb-4! min-[768px]:pb-6!">
             <div className="flex! flex-wrap! -mx-3!">
               <div
                 className={pageClasses("w-full! px-3! min-[768px]:w-2/3! min-[992px]:w-5/12! min-[1200px]:w-1/3! wow fadeInUp")}
@@ -125,7 +125,7 @@ export default function Footer({
             </div>
           </div>
         </div>
-        <div className="bg-black! rounded-b-[28px]! py-3!">
+        <div className="bg-black! rounded-b-[28px]! pt-2! pb-3!">
           <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
             <div className="flex! flex-wrap! flex-col! items-start! justify-center! gap-2.5! min-[768px]:flex-row! min-[768px]:items-center! min-[768px]:justify-between! min-[768px]:gap-0!">
               <p className={pageClasses("text-white! text-[13px]! wow fadeInLeft")} data-wow-delay=".5s">

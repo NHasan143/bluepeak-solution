@@ -34,12 +34,18 @@ const sectionUtilities: Record<string, string> = {
   ].join(" "),
   "home-page": [
     String.raw`[--text-color:#66544e] [--headings-color:#261d1a] [--theme-color2:#faf8f7] [--theme-color3:#faf8f7] bg-white text-[#261d1a] font-[family-name:var(--body-font-family)]`,
+    // Adjacent sections share a 48px mobile / 64px larger-screen gap, split equally.
+    String.raw`[--home-section-half-gap:1.5rem] sm:[--home-section-half-gap:2rem]`,
+    String.raw`[&_#home-about]:pb-[var(--home-section-half-gap)]! [&>.service-section]:py-[var(--home-section-half-gap)]! [&_#team-section]:pt-[var(--home-section-half-gap)]!`,
+    String.raw`[&>.faq-section]:pb-[var(--home-section-half-gap)]! [&>.contact-section]:pt-[var(--home-section-half-gap)]!`,
+    String.raw`max-[1200px]:[&_#team-section]:pb-[var(--home-section-half-gap)]! max-[1200px]:[&_section:has(.feature-slider-home1)]:pt-[var(--home-section-half-gap)]!`,
     String.raw`[&>section:not([data-home-final-cta],.hero-section)]:bg-white!`,
     String.raw`[&>section:not(.hero-section,[data-home-final-cta])_:is(h1,h2,h3,h4)]:text-[#261d1a]! [&>section:not(.hero-section,[data-home-final-cta])_:is(h1,h2,h3,h4)]:font-[family-name:var(--heading-font-family)] [&>section:not(.hero-section,[data-home-final-cta])_:is(h1,h2,h3,h4)]:font-normal! [&>section:not(.hero-section,[data-home-final-cta])_:is(h1,h2,h3,h4)]:tracking-[-0.03em]!`,
     String.raw`[&>section:not(.hero-section,[data-home-final-cta])_h1>span]:text-[var(--theme-color-coral)]! [&>section:not(.hero-section,[data-home-final-cta])_h1>span]:font-[family-name:var(--style-font)]! [&>section:not(.hero-section,[data-home-final-cta])_h1>span]:font-normal! [&>section:not(.hero-section,[data-home-final-cta])_h1>span]:italic!`,
     String.raw`[&_.section-title_.title>span]:text-[var(--theme-color-coral)]! [&_.section-title_.title>span]:font-[family-name:var(--style-font)]! [&_.section-title_.title>span]:font-normal! [&_.section-title_.title>span]:italic!`,
     String.raw`[&>section:not(.hero-section,[data-home-final-cta])_:is(p:not(.form-column *),[data-page-eyebrow],nav,nav_a,.sub-title>span)]:text-[#66544e]! [&>section:not(.hero-section,[data-home-final-cta])_div[class*="uppercase"]>span]:text-[#66544e]!`,
     String.raw`[&>section:not(.hero-section)_.sub-title_svg]:text-[var(--theme-color-coral)]!`,
+    String.raw`[&_.section-title_.sub-title>span]:text-[#66544e]!`,
     String.raw`[&_.hero-section]:text-white! [&_.hero-content_h1]:text-white!`,
 
     // About Section on Home
@@ -63,27 +69,17 @@ const sectionUtilities: Record<string, string> = {
     String.raw`[&_.group\/circle]:bg-[#faf8f7]! [&_.group\/circle]:border! [&_.group\/circle]:border-[#eaded9]! [&_.group\/circle]:text-[#261d1a]! [&_.group\/circle_i]:text-[var(--theme-color-coral)]!`,
     String.raw`[&_.group\/circle:hover>span]:text-white!`,
 
-    // Award / Milestones Foundation Section
-    String.raw`[&_.award-section1]:bg-[#faf8f7]!`,
-    String.raw`[&_.award1-ellipse1]:hidden!`,
-    String.raw`[&_.award-list-items-items]:border-[#eaded9]!`,
-    String.raw`[&_.award-list-items-items_.content_.title]:text-[#261d1a]!`,
-    String.raw`[&_.award-list-items-items_.arrow-icon]:bg-white! [&_.award-list-items-items_.arrow-icon]:border! [&_.award-list-items-items_.arrow-icon]:border-[#eaded9]! [&_.award-list-items-items_.arrow-icon]:text-[#261d1a]!`,
-    String.raw`[&_.award-list-items-items:hover_.content_.title]:text-[var(--theme-color-coral)]!`,
-    String.raw`[&_.award-list-items-items:hover_.arrow-icon]:bg-[var(--theme-color-coral)]! [&_.award-list-items-items:hover_.arrow-icon]:border-[var(--theme-color-coral)]! [&_.award-list-items-items:hover_.arrow-icon]:text-[#261d1a]!`,
-    String.raw`[&_.award-list-items-items.active_.content_.title]:text-[var(--theme-color-coral)]!`,
-    String.raw`[&_.award-list-items-items.active_.arrow-icon]:bg-[var(--theme-color-coral)]! [&_.award-list-items-items.active_.arrow-icon]:border-[var(--theme-color-coral)]! [&_.award-list-items-items.active_.arrow-icon]:text-[#261d1a]!`,
-
     // Clients Section Panel
     String.raw`[&_[data-clients-panel]]:bg-[#faf8f7]! [&_[data-clients-panel]]:border! [&_[data-clients-panel]]:border-[#eaded9]!`,
     String.raw`[&_[data-clients-panel]_h2]:text-[#261d1a]!`,
 
     // Counter Cards
-    String.raw`[&_.counter-card-item]:[background:#faf8f7]! [&_.counter-card-item]:[background-image:none]! [&_.counter-card-item]:border-[#eaded9]! [&_.counter-card-item]:shadow-[0_10px_30px_rgba(38,29,26,0.05)]!`,
+    String.raw`[&_.counter-card-item]:[background:#064C44]! [&_.counter-card-item]:[background-image:none]! [&_.counter-card-item]:border-[#064C44]! [&_.counter-card-item]:shadow-[0_10px_30px_rgba(38,29,26,0.05)]!`,
     String.raw`[&_.counter-card-item::before]:hidden!`,
-    String.raw`[&_.counter-card-item_.title]:text-[#064C44]!`,
-    String.raw`[&_.counter-card-item_p]:text-[#66544e]!`,
-    String.raw`[&_.counter-card-item:hover]:border-[var(--theme-color-coral)]! [&_.counter-card-item:hover]:shadow-[0_14px_36px_rgba(38,29,26,0.1)]!`,
+    String.raw`[&_.counter-card-item_.title]:text-white!`,
+    String.raw`[&_.counter-card-item_p]:text-white!`,
+    String.raw`[&_.counter-card-item]:transition-[translate,box-shadow,border-color]! [&_.counter-card-item]:duration-250! [&_.counter-card-item]:ease-[cubic-bezier(0.16,1,0.3,1)]! motion-reduce:[&_.counter-card-item]:transition-none!`,
+    String.raw`motion-safe:[&_.counter-card-item]:hover:-translate-y-1! [&_.counter-card-item]:hover:border-[var(--theme-color-coral)]! [&_.counter-card-item]:hover:shadow-[0_16px_32px_rgba(6,76,68,0.12)]!`,
 
     // FAQ Section
     String.raw`[&_.faq-section]:bg-white!`,
@@ -302,14 +298,12 @@ const sectionUtilities: Record<string, string> = {
     String.raw`[&.hero-rings_.text-circle_.down-icon]:[width:48px] [&.hero-rings_.text-circle_.down-icon]:[height:48px] [&.hero-rings_.text-circle_.down-icon]:grid [&.hero-rings_.text-circle_.down-icon]:[place-items:center]`,
   ].join(" "),
   "counter-card-item": [
-    String.raw`[background:radial-gradient(88.98%_147.73%_at_4.75%_-21.98%,_#0D0D0D_74.87%,_#064C44_100%)] [border:1px_solid_rgba(255,_255,_255,_0.1)] [border-radius:20px] [transform:rotate(-4deg)] [padding:55px_50px] [padding-top:45px] relative [z-index:9]`,
-    String.raw`max-[1199.98px]:[transform:rotate(0deg)] max-[1199.98px]:[&.ratote-2]:[transform:rotate(0deg)]`,
+    String.raw`[background:radial-gradient(88.98%_147.73%_at_4.75%_-21.98%,_#0D0D0D_74.87%,_#064C44_100%)] [border:1px_solid_rgba(255,_255,_255,_0.1)] [border-radius:20px] [transform:none] h-full [padding:55px_50px] [padding-top:45px] relative [z-index:9]`,
     String.raw`max-[767.98px]:[padding:30px] max-[767.98px]:[&_.title]:[font-size:50px] max-[767.98px]:[&_.title]:[margin-bottom:60px] max-[767.98px]:[&_p]:[font-size:15px]`,
     String.raw`[&::before]:absolute [&::before]:[content:""] [&::before]:[left:0px] [&::before]:[top:0px] [&::before]:[right:0px] [&::before]:[bottom:0px] [&::before]:[opacity:0] [&::before]:[transform:scale(1,_0.3)] [&::before]:[background-color:var(--theme-color1)] [&::before]:[transition:all_500ms_ease] [&::before]:[z-index:-1] [&::before]:[border-radius:8px]`,
     String.raw`[&_.title]:[font-size:clamp(48px,_4.2vw,_72px)]! [&_.title]:font-normal [&_.title]:[line-height:1] [&_.title]:[margin-bottom:70px]! [&_.title]:whitespace-nowrap! [&_.title]:[letter-spacing:-0.02em]`,
     String.raw`max-[1399.98px]:[&_.title]:[font-size:65px]`,
     String.raw`[&_p]:font-medium [&_p]:[font-size:18px] [&_p]:[color:var(--theme-color-accent)] [&_p]:capitalize`,
-    String.raw`[&.ratote-2]:[transform:rotate(8deg)]`,
     String.raw`[&.active::before]:[opacity:1] [&.active::before]:[transform:scale(1,_1)] [&.active::before]:[border-radius:20px]`,
     String.raw`[&.active_.title]:[color:var(--theme-color-white)]`,
     String.raw`[&.active_p]:[color:var(--theme-color-white)]`,

@@ -46,9 +46,11 @@ export default function Header({ light = false }: { light?: boolean }) {
   }, [mobileOpen]);
 
   const focus = `focus-visible:outline-2! focus-visible:outline-offset-4! ${light ? "focus-visible:outline-[#C3422A]!" : "focus-visible:outline-[#FF593E]!"}`;
+  const stickyFocus = "focus-visible:outline-2! focus-visible:outline-offset-4! focus-visible:outline-[#FF593E]!";
   const foreground = light ? "text-[#261d1a]!" : "text-white!";
   const logo = light ? "/images/blupeak-dark-full.png" : "/images/blupeak-light-full.png";
-  const toggleClass = `relative! ml-[25px]! order-8! cursor-pointer! border-0! bg-transparent! p-0! min-[1024px]:hidden! ${light ? "text-[#261d1a]!" : "text-[#d9d9d9]!"} ${focus}`;
+  const toggleLayout = "relative! ml-[25px]! order-8! cursor-pointer! border-0! bg-transparent! p-0! min-[1024px]:hidden!";
+  const toggleClass = `${toggleLayout} ${light ? "text-[#261d1a]!" : "text-[#d9d9d9]!"} ${focus}`;
   return (
     <header data-site-header className={`absolute! top-0! left-0! w-full! z-[9999]! pt-5! ${light ? "bg-white!" : ""}`}>
       <div data-header-lower className="px-[30px]! py-[14px]! min-[1024px]:py-0! min-[1700px]:px-[60px]!">
@@ -106,12 +108,12 @@ export default function Header({ light = false }: { light?: boolean }) {
         </nav>
       </div>
 
-      <div data-sticky-header className={`fixed! top-0! left-0! w-full! z-[9999]! ${light ? "bg-white! border-b! border-[#eaded9]!" : "bg-[rgba(10,8,8,0.9843137255)]! shadow-[2px_2px_5px_1px_rgba(0,0,0,0.05),-2px_0_5px_1px_rgba(0,0,0,0.05)]!"} ${sticky ? "visible! opacity-100! animate-[slideInDown_1s_both]! motion-reduce:animate-none!" : "invisible! opacity-0! pointer-events-none!"}`} inert={!sticky}>
+      <div data-sticky-header className={`fixed! top-0! left-0! w-full! z-[9999]! bg-[rgba(10,8,8,0.9843137255)]! shadow-[2px_2px_5px_1px_rgba(0,0,0,0.05),-2px_0_5px_1px_rgba(0,0,0,0.05)]! ${sticky ? "visible! opacity-100! animate-[slideInDown_1s_both]! motion-reduce:animate-none!" : "invisible! opacity-0! pointer-events-none!"}`} inert={!sticky}>
         <div className="mx-auto! max-w-[1320px]! px-[15px]!">
           <div className="relative! flex! items-center! justify-between!">
-            <Link to="/" aria-label="Blupeak home" className={`py-2.5! flex! items-center! ${focus}`}><img src={logo} alt="Blupeak" className="w-[170px]! h-[34px]! object-cover! object-center!" /></Link>
-            <nav aria-label="Sticky navigation" className="relative! hidden! min-[1024px]:block!"><ul className="relative! flex! list-none! m-0! p-0!"><Navigation sticky light={light} /></ul></nav>
-            <button type="button" className={`${toggleClass} ${foreground}`} aria-label="Open navigation" aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={event => open(event.currentTarget)}><Menu size={22} aria-hidden="true" /></button>
+            <Link to="/" aria-label="Blupeak home" className={`py-2.5! flex! items-center! ${stickyFocus}`}><img src="/images/blupeak-light-full.png" alt="Blupeak" className="w-[170px]! h-[34px]! object-cover! object-center!" /></Link>
+            <nav aria-label="Sticky navigation" className="relative! hidden! min-[1024px]:block!"><ul className="relative! flex! list-none! m-0! p-0!"><Navigation sticky /></ul></nav>
+            <button type="button" className={`${toggleLayout} text-white! ${stickyFocus}`} aria-label="Open navigation" aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={event => open(event.currentTarget)}><Menu size={22} aria-hidden="true" /></button>
           </div>
         </div>
       </div>
