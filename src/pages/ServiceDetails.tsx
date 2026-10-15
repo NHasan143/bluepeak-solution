@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Check, ChevronRight, Minus, Phone, Plus } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Footer from "../components/layout/Footer";
 import TextReveal from "../components/common/TextReveal";
 import { getService, SERVICES } from "../lib/services";
@@ -19,174 +20,16 @@ const SERVICE_IMAGE_BOUNDS: Record<string, { left: number; top: number; width: n
   "ai-workflow-automation": { left: 240, top: 357, width: 291, height: 161 },
 };
 
-const SERVICE_TAGS: Record<string, string> = {
-  "revenue-sales-systems": "Revenue Engine",
-  "brand-creative-solutions": "Brand & Identity",
-  "seo-organic-growth": "Search Authority",
-  "custom-web-software": "Web & Engineering",
-  "ai-workflow-automation": "AI & Automation",
-};
+const SLIDER = [0, 1, 2];
 
-type ServiceFAQ = {
-  question: string;
-  answer: string;
-};
+const FAQ_ANSWER =
+  "There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable.";
 
-const SERVICE_FAQS: Record<string, ServiceFAQ[]> = {
-  "revenue-sales-systems": [
-    {
-      question: "How quickly can our outbound campaigns go live?",
-      answer:
-        "Our onboarding, list calibration, and sequence crafting sprint takes 10 to 14 business days. Outreach and qualification begin immediately after final messaging sign-off.",
-    },
-    {
-      question: "Do you work within our current CRM or set up a new one?",
-      answer:
-        "We can integrate directly into your existing CRM (HubSpot, Salesforce, Pipedrive) or architect and configure a high-velocity sales CRM pipeline tailored to your sales reps.",
-    },
-    {
-      question: "How do you ensure only qualified decision-makers reach our calendar?",
-      answer:
-        "Every prospect is rigorously verified against multi-layer ideal customer profile criteria. Prospects must confirm budget, timeline, and need before appointments are handed off.",
-    },
-    {
-      question: "What is included with full-cycle deal closing?",
-      answer:
-        "Our senior sales consultants lead discovery calls, build tailored proposals, overcome objections, and navigate procurement through final contract execution.",
-    },
-  ],
-  "brand-creative-solutions": [
-    {
-      question: "What core brand assets will our company receive?",
-      answer:
-        "You receive comprehensive brand identity guidelines, typography standards, color palettes, vector logo suites, pitch deck templates, and conversion-optimized digital collateral.",
-    },
-    {
-      question: "Can you redesign our existing landing pages and sales collateral?",
-      answer:
-        "Yes. We conduct full conversion audits of your existing collateral and redesign them with high-contrast, responsive visual assets built to maximize conversion rates.",
-    },
-    {
-      question: "How do you ensure our brand identity stands out from competitors?",
-      answer:
-        "We begin with competitor positioning analysis and customer research to discover unique whitespace in your market, establishing an authoritative and differentiated visual system.",
-    },
-    {
-      question: "What is the typical turnaround time for creative sprints?",
-      answer:
-        "Brand identity and pitch deck sprints typically take 2 to 3 weeks, while ad creatives and landing page redesigns are executed within 7 to 10 business days.",
-    },
-  ],
-  "seo-organic-growth": [
-    {
-      question: "When can we expect to see tangible search ranking and traffic growth?",
-      answer:
-        "Technical crawlability and indexation improvements occur within 30 days. Compounding keyword ranking increases and qualified organic lead velocity typically materialize within 90 to 180 days.",
-    },
-    {
-      question: "Is content strategy and editorial writing handled in-house?",
-      answer:
-        "Yes. We do not outsource writing. Our in-house content strategists write search-optimized, high-authority articles and guides tailored directly to your B2B buyers.",
-    },
-    {
-      question: "How do you approach keyword clustering?",
-      answer:
-        "We cluster keywords by commercial and transactional buyer search intent, ensuring your pages capture users actively looking for solutions rather than low-value informational clicks.",
-    },
-    {
-      question: "What reporting visibility will we have into organic growth?",
-      answer:
-        "You receive live access to transparent reporting dashboards tracking keyword positions, click-through rates, impression gains, and conversion attribution.",
-    },
-  ],
-  "custom-web-software": [
-    {
-      question: "What modern tech stacks do you specialize in?",
-      answer:
-        "We build with modern frameworks including React, Next.js, TypeScript, Tailwind CSS, Node.js, and scalable cloud APIs built for high availability and lightning-fast loading speeds.",
-    },
-    {
-      question: "Will our website or application be fully mobile-responsive?",
-      answer:
-        "Every build is crafted mobile-first, ensuring pixel-perfect responsiveness across phones, tablets, and wide monitors, while adhering to Google Core Web Vitals performance benchmarks.",
-    },
-    {
-      question: "Can you integrate third-party APIs and payment processors?",
-      answer:
-        "Yes. We specialize in custom API integrations, webhook automations, payment gateways (Stripe, etc.), authentication flows, and CRM data synchronizations.",
-    },
-    {
-      question: "Do you offer post-deployment maintenance and updates?",
-      answer:
-        "We provide ongoing SLA maintenance, security updates, performance monitoring, and iterative feature development to support your product's roadmap.",
-    },
-  ],
-  "ai-workflow-automation": [
-    {
-      question: "Which repetitive processes can Blupeak automate?",
-      answer:
-        "We automate manual lead routing, CRM data enrichment, automated follow-up cadences, contract generation, cross-platform syncing, and automated analytics summaries.",
-    },
-    {
-      question: "How do you ensure data security and privacy with AI automations?",
-      answer:
-        "We implement enterprise-grade encryption and secure private APIs. Your proprietary business data is never exposed or used to train public models.",
-    },
-    {
-      question: "How much team time does workflow automation typically save?",
-      answer:
-        "On average, our clients eliminate 15 to 30 hours of manual administrative data entry and status updating per employee every week.",
-    },
-    {
-      question: "How easy is it for our internal team to adopt the new workflows?",
-      answer:
-        "We design workflows around tools your team already uses (Slack, email, CRM). We also supply complete documentation and hands-on staff training sessions.",
-    },
-  ],
-};
-
-const DEFAULT_FAQS: ServiceFAQ[] = [
-  {
-    question: "How do we get started with this service?",
-    answer:
-      "Book a discovery consultation with our strategy team. We will review your current systems, define clear growth benchmarks, and present a custom execution proposal.",
-  },
-  {
-    question: "Is delivery handled by an in-house team?",
-    answer:
-      "Yes, 100%. Blupeak does not outsource client delivery. You work directly with our in-house consultants, strategists, and engineers.",
-  },
-  {
-    question: "What contract terms and engagement models do you offer?",
-    answer:
-      "We offer flexible monthly retainers, milestone-based sprints, and hybrid performance models designed to align with your business milestones.",
-  },
-  {
-    question: "How frequently will we receive progress updates?",
-    answer:
-      "You receive weekly sprint reports, live metric dashboard access, and scheduled strategy syncs with your dedicated growth lead.",
-  },
-];
-
-const PROCESS_STEPS = [
-  {
-    phase: "01",
-    title: "Discovery & Architecture",
-    description:
-      "Deep audit of your current assets, conversion funnel, and market dynamics to architect a high-precision execution plan.",
-  },
-  {
-    phase: "02",
-    title: "Sprint Execution & Build",
-    description:
-      "Rapid launch of custom workflows, collateral, and technical infrastructure built entirely by our in-house specialists.",
-  },
-  {
-    phase: "03",
-    title: "Optimization & Scaling",
-    description:
-      "Continuous performance telemetry, weekly reporting reviews, and proactive iteration to compound your business return.",
-  },
+const FAQ = [
+  { no: "01.", question: "Is my technology allowed on tech?", answer: FAQ_ANSWER },
+  { no: "02.", question: "How to soft launch your business?", answer: FAQ_ANSWER },
+  { no: "03.", question: "How to turn visitors into contributors", answer: FAQ_ANSWER },
+  { no: "04.", question: "How can i find my solutions?", answer: FAQ_ANSWER },
 ];
 
 function imageForService(slug: string) {
@@ -202,12 +45,10 @@ export default function ServiceDetails() {
   const service = getService(slug);
   usePageMetadata(service.metaTitle, service.metaDescription);
 
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(1);
 
   const image = imageForService(service.slug);
   const bounds = SERVICE_IMAGE_BOUNDS[service.slug];
-  const tag = SERVICE_TAGS[service.slug] || "Growth Capability";
-  const faqs = SERVICE_FAQS[service.slug] || DEFAULT_FAQS;
 
   return (
     <>
@@ -247,7 +88,7 @@ export default function ServiceDetails() {
           {/* Eyebrow badge */}
           <div className="mb-4! inline-flex! items-center! gap-2! rounded-full! border! border-[#064C44]/15! bg-[#064C44]/5! px-3.5! py-1! text-xs! font-bold! uppercase! tracking-[0.1em]! text-[#064C44]!">
             <span className="size-1.5! rounded-full! bg-[var(--theme-color-coral)]!" aria-hidden="true" />
-            {tag}
+            Services
           </div>
 
           {/* Page Heading */}
@@ -275,7 +116,7 @@ export default function ServiceDetails() {
               {/* All Services Navigation Card */}
               <div className="rounded-2xl! border! border-[#eaded9]! bg-[#faf8f7]! p-4! sm:p-5! shadow-[0_4px_20px_rgba(38,29,26,0.03)]!">
                 <span className="block! px-3! pt-1! pb-3! text-xs! font-bold! uppercase! tracking-[0.12em]! text-[#66544e]!">
-                  All Growth Services
+                  Our Services
                 </span>
                 <ul className="m-0! list-none! p-0! space-y-2!">
                   {SERVICES.map((item) => {
@@ -311,70 +152,55 @@ export default function ServiceDetails() {
 
               {/* Consultation / Expert Help Card with Primary Lockup on Light Background */}
               <div className="relative! overflow-hidden! rounded-2xl! border! border-[#eaded9]! bg-[#faf8f7]! p-6! sm:p-7! shadow-[0_4px_20px_rgba(38,29,26,0.03)]!">
-                {/* Primary Lockup Logo */}
-                <div className="mb-5!">
+                {/* Header row: Primary Lockup Logo + Badge */}
+                <div className="flex! items-center! justify-between! gap-3! pb-1!">
                   <img
                     src="/images/blupeak-dark-full.png"
                     alt="Blupeak Solutions"
-                    className="h-7! w-auto! object-contain!"
+                    className="w-[160px]! sm:w-[175px]! h-[32px]! sm:h-[35px]! object-cover! object-center!"
                   />
+                  <span className="inline-flex! shrink-0! items-center! gap-1.5! rounded-full! border! border-[#064C44]/15! bg-[#064C44]/5! px-2.5! py-1! text-[11px]! font-bold! uppercase! tracking-[0.08em]! text-[#064C44]!">
+                    <span className="size-1.5! rounded-full! bg-[var(--theme-color-coral)]!" aria-hidden="true" />
+                    In-House
+                  </span>
                 </div>
 
-                <h3 className="m-0! font-[family-name:var(--heading-font-family)]! text-xl! font-normal! tracking-[-0.02em]! text-[#261d1a]!">
-                  Need expert guidance on your revenue roadmap?
+                {/* Heading taking proper full width */}
+                <h3 className="mt-5! mb-2! font-[family-name:var(--heading-font-family)]! text-[22px]! sm:text-[24px]! leading-[1.3]! font-medium! tracking-[-0.02em]! text-[#261d1a]!">
+                  Contact with us for any advice
                 </h3>
-                <p className="mt-2! mb-5! text-sm! leading-[1.65]! text-[#66544e]!">
-                  Speak directly with our strategy consultants to review your current bottlenecks and build a targeted growth pipeline.
+
+                <p className="m-0! text-sm! leading-[1.65]! text-[#66544e]!">
+                  Get in touch with our specialists for direct guidance on scaling your revenue engine.
                 </p>
 
-                {/* Direct Phone Line */}
-                <div className="flex! items-center! gap-3.5! rounded-xl! border! border-[#eaded9]! bg-white! p-3.5!">
-                  <div className="flex! size-11! shrink-0! items-center! justify-center! rounded-full! border! border-[#064C44]/15! bg-[#064C44]/10! text-[#064C44]!">
+                {/* Direct Phone Line - Clickable Card */}
+                <a
+                  href="tel:01849415421"
+                  aria-label="Call 01849-415421"
+                  className={`group/phone mt-5! flex! items-center! gap-4! rounded-xl! border! border-[#eaded9]! bg-white! p-4! transition-all! duration-200! hover:border-[#064C44]/40! hover:shadow-sm! no-underline! text-inherit! ${focusRing}`}
+                >
+                  <div className="flex! size-12! shrink-0! items-center! justify-center! rounded-full! border! border-[#064C44]/15! bg-[#064C44]/10! text-[#064C44]! group-hover/phone:bg-[#064C44]! group-hover/phone:text-white! transition-colors! duration-200!">
                     <Phone size={20} strokeWidth={1.75} aria-hidden="true" />
                   </div>
                   <div className="min-w-0!">
-                    <span className="block! text-[11px]! font-bold! uppercase! tracking-[0.1em]! text-[#66544e]!">
-                      Direct In-House Line
+                    <span className="block! text-[11px]! font-bold! uppercase! tracking-[0.08em]! text-[#66544e]!">
+                      Need help? Talk to an expert
                     </span>
-                    <a
-                      href="tel:01849415421"
-                      className={`block! text-lg! font-bold! tracking-tight! text-[#261d1a]! transition-colors! duration-200! hover:text-[var(--theme-color-coral)]! ${focusRing}`}
-                    >
+                    <span className="block! text-lg! sm:text-xl! font-bold! tracking-tight! text-[#261d1a]! transition-colors! duration-200! group-hover/phone:text-[var(--theme-color-coral)]!">
                       01849-415421
-                    </a>
+                    </span>
                   </div>
-                </div>
+                </a>
 
                 {/* Consultation CTA Button */}
                 <Link
                   to="/contact"
-                  className={`mt-5! inline-flex! min-h-12! w-full! items-center! justify-center! gap-3! rounded-full! bg-[var(--theme-color-coral)]! px-5! py-3! text-sm! font-semibold! text-[#261d1a]! text-center! transition-colors! duration-200! hover:bg-[#f24c32]! ${focusRing}`}
+                  className={`mt-4! inline-flex! min-h-12! w-full! items-center! justify-center! gap-3! rounded-full! bg-[var(--theme-color-coral)]! px-5! py-3.5! text-sm! sm:text-base! font-semibold! text-[#261d1a]! text-center! transition-colors! duration-200! hover:bg-[#f24c32]! ${focusRing}`}
                 >
-                  Book a Growth Consultation
-                  <ArrowRight size={16} strokeWidth={2} aria-hidden="true" className="shrink-0!" />
+                  <span>Contact Us</span>
+                  <ArrowRight size={18} strokeWidth={2} aria-hidden="true" className="shrink-0!" />
                 </Link>
-              </div>
-
-              {/* Service Delivery Highlights */}
-              <div className="rounded-2xl! border! border-[#eaded9]! bg-white! p-5! shadow-[0_4px_20px_rgba(38,29,26,0.03)]!">
-                <span className="block! pb-3! text-xs! font-bold! uppercase! tracking-[0.12em]! text-[#66544e]!">
-                  Our Delivery Standard
-                </span>
-                <ul className="m-0! list-none! p-0! space-y-3!">
-                  {[
-                    "100% In-house execution bench",
-                    "Dedicated Senior Strategy Consultant",
-                    "Weekly metric reviews & KPI reporting",
-                    "Frictionless integration with your stack",
-                  ].map((highlight) => (
-                    <li key={highlight} className="flex! items-center! gap-3! text-sm! text-[#261d1a]! font-medium!">
-                      <span className="flex! size-5! shrink-0! items-center! justify-center! rounded-full! bg-[#064C44]/10! text-[#064C44]!">
-                        <Check size={12} strokeWidth={3} className="text-[#064C44]!" />
-                      </span>
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </aside>
 
@@ -385,10 +211,6 @@ export default function ServiceDetails() {
                 <div className="relative! overflow-hidden! rounded-2xl! bg-[#064C44]! p-6! sm:p-8! text-white! shadow-sm!">
                   <div className="grid! grid-cols-1! md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]! gap-6! items-center!">
                     <div className="min-w-0!">
-                      <span className="inline-flex! items-center! gap-2! rounded-full! bg-white/10! px-3! py-1! text-xs! font-bold! uppercase! tracking-[0.1em]! text-white! mb-3!">
-                        <span className="size-1.5! rounded-full! bg-[var(--theme-color-coral)]!" aria-hidden="true" />
-                        Strategic Capability
-                      </span>
                       <h2 className="m-0! font-[family-name:var(--heading-font-family)]! text-2xl! sm:text-3xl! font-medium! leading-[1.25]! text-white!">
                         {service.title}
                       </h2>
@@ -424,117 +246,82 @@ export default function ServiceDetails() {
 
               {/* What's Included Section */}
               <section aria-labelledby="included-title" className="space-y-4!">
-                <div className="flex! flex-wrap! items-center! justify-between! gap-2!">
-                  <h2
-                    id="included-title"
-                    className="m-0! font-[family-name:var(--heading-font-family)]! text-2xl! sm:text-3xl! font-medium! tracking-[-0.02em]! text-[#261d1a]!"
-                  >
-                    What&apos;s Included
-                  </h2>
-                  <span className="text-xs! sm:text-sm! font-medium! text-[#66544e]!">
-                    Full In-House Execution
-                  </span>
-                </div>
-                <p className="mt-1! mb-4! text-sm! sm:text-base! text-[#66544e]!">
-                  Every component is delivered and managed by our in-house specialists to guarantee end-to-end quality:
-                </p>
+                <h3
+                  id="included-title"
+                  className="m-0! font-[family-name:var(--heading-font-family)]! text-2xl! sm:text-3xl! font-medium! tracking-[-0.02em]! text-[#261d1a]!"
+                >
+                  What&apos;s included
+                </h3>
 
-                <div className="grid! grid-cols-1! sm:grid-cols-2! gap-4!">
-                  {service.included.map((item, index) => (
-                    <div
+                <ul className="m-0! list-none! p-0! space-y-3!">
+                  {service.included.map((item) => (
+                    <li
                       key={item}
-                      className="group! flex! items-start! gap-4! rounded-xl! border! border-[#eaded9]! bg-[#faf8f7]! p-5! transition-all! duration-200! hover:border-[#064C44]/30! hover:bg-white! hover:shadow-sm!"
+                      className="group! flex! items-start! gap-4! rounded-xl! border! border-[#eaded9]! bg-[#faf8f7]! p-4! sm:p-5! transition-all! duration-200! hover:border-[#064C44]/30! hover:bg-white! hover:shadow-sm!"
                     >
                       <span className="flex! size-8! shrink-0! items-center! justify-center! rounded-full! bg-[#064C44]/10! text-[#064C44]! transition-colors! duration-200! group-hover:bg-[#064C44]! group-hover:text-white! mt-0.5!">
                         <Check size={16} strokeWidth={2.5} />
                       </span>
-                      <div className="min-w-0!">
-                        <span className="block! text-xs! font-bold! uppercase! tracking-wider! text-[#66544e]! mb-1!">
-                          Deliverable {String(index + 1).padStart(2, "0")}
-                        </span>
-                        <p className="m-0! text-sm! sm:text-base! font-medium! leading-snug! text-[#261d1a]!">
-                          {item}
-                        </p>
-                      </div>
-                    </div>
+                      <span className="text-sm! sm:text-base! font-medium! leading-snug! text-[#261d1a]!">
+                        {item}
+                      </span>
+                    </li>
                   ))}
-                </div>
-              </section>
+                </ul>
 
-              {/* Expected Strategic Outcome Callout */}
-              <section aria-label="Strategic outcome" className="relative! overflow-hidden! rounded-2xl! border! border-[#064C44]/20! bg-[#064C44]/5! p-6! sm:p-8! pl-7! sm:pl-9!">
-                {/* Structural brand teal accent line */}
-                <span className="absolute! left-0! top-0! bottom-0! w-1.5! bg-[#064C44]!" aria-hidden="true" />
-                <div className="flex! items-center! gap-2! text-xs! font-bold! uppercase! tracking-[0.12em]! text-[#064C44]! mb-2.5!">
-                  <span className="size-2! rounded-full! bg-[var(--theme-color-coral)]!" aria-hidden="true" />
-                  Target Business Outcome
-                </div>
-                <blockquote className="m-0! font-[family-name:var(--style-font)]! text-lg! sm:text-xl! md:text-2xl! font-normal! italic! leading-[1.5]! text-[#261d1a]!">
-                  &ldquo;{service.outcome}&rdquo;
+                {/* Outcome Blockquote */}
+                <blockquote className="relative! overflow-hidden! rounded-2xl! border! border-[#064C44]/20! bg-[#064C44]/5! p-6! sm:p-8! pl-7! sm:pl-9! mt-6!">
+                  <span className="absolute! left-0! top-0! bottom-0! w-1.5! bg-[#064C44]!" aria-hidden="true" />
+                  <p className="m-0! font-[family-name:var(--style-font)]! text-lg! sm:text-xl! font-normal! italic! leading-[1.6]! text-[#261d1a]!">
+                    {service.outcome}
+                  </p>
                 </blockquote>
               </section>
 
-              {/* How We Deliver: 3-Phase Execution Framework */}
-              <section aria-labelledby="delivery-framework-title" className="space-y-4!">
-                <div className="flex! flex-wrap! items-center! justify-between! gap-2!">
-                  <h2
-                    id="delivery-framework-title"
-                    className="m-0! font-[family-name:var(--heading-font-family)]! text-2xl! sm:text-3xl! font-medium! tracking-[-0.02em]! text-[#261d1a]!"
-                  >
-                    How We Deliver
-                  </h2>
-                  <span className="text-xs! sm:text-sm! font-medium! text-[#66544e]!">
-                    Disciplined 3-Phase Sprint
-                  </span>
-                </div>
-                <p className="mt-1! mb-4! text-sm! sm:text-base! text-[#66544e]!">
-                  A battle-tested framework engineered to eliminate implementation friction and compound results quickly:
-                </p>
-
-                <div className="grid! grid-cols-1! md:grid-cols-3! gap-4!">
-                  {PROCESS_STEPS.map((step) => (
-                    <div
-                      key={step.phase}
-                      className="flex! flex-col! justify-between! rounded-xl! border! border-[#eaded9]! bg-[#faf8f7]! p-5! sm:p-6! transition-all! duration-200! hover:border-[#064C44]/30! hover:bg-white! hover:shadow-sm!"
-                    >
-                      <div>
-                        <div className="flex! items-center! justify-between! gap-2! mb-3!">
-                          <span className="text-xs! font-bold! uppercase! tracking-widest! text-[var(--theme-color-coral)]!">
-                            Phase {step.phase}
-                          </span>
-                          <span className="size-1.5! rounded-full! bg-[var(--theme-color-coral)]!" aria-hidden="true" />
-                        </div>
-                        <h3 className="m-0! font-[family-name:var(--heading-font-family)]! text-lg! font-medium! text-[#261d1a]!">
-                          {step.title}
-                        </h3>
-                        <p className="mt-2! mb-0! text-xs! sm:text-sm! leading-relaxed! text-[#66544e]!">
-                          {step.description}
+              {/* Project Slider (Original Swiper from template, styled light) */}
+              <section aria-label="Project slider" className="mt-8!">
+                <Swiper
+                  className="project-image-slider rounded-2xl! overflow-hidden!"
+                  slidesPerView={2}
+                  spaceBetween={24}
+                  speed={600}
+                  loop
+                  breakpoints={{
+                    320: { slidesPerView: 1 },
+                    576: { slidesPerView: 1 },
+                    768: { slidesPerView: 1 },
+                    992: { slidesPerView: 2 },
+                  }}
+                >
+                  {SLIDER.map((i) => (
+                    <SwiperSlide key={i}>
+                      <div className="rounded-xl! border! border-[#eaded9]! bg-[#faf8f7]! p-6! h-full!">
+                        <p className="m-0! text-sm! sm:text-base! leading-relaxed! text-[#66544e]!">
+                          Lorem ipsum dolor sit amet consec adipis elit Dolor repellat pariatur
+                          temporibus doloribus hic conse quatur copy typing refreshing
                         </p>
                       </div>
-                    </div>
+                    </SwiperSlide>
                   ))}
-                </div>
+                </Swiper>
               </section>
 
-              {/* Frequently Asked Questions */}
-              <section aria-labelledby="service-faq-title" className="space-y-4!">
-                <div className="flex! flex-wrap! items-center! justify-between! gap-2!">
-                  <h2
-                    id="service-faq-title"
-                    className="m-0! font-[family-name:var(--heading-font-family)]! text-2xl! sm:text-3xl! font-medium! tracking-[-0.02em]! text-[#261d1a]!"
-                  >
-                    Frequently Asked Questions
-                  </h2>
-                  <span className="text-xs! sm:text-sm! font-medium! text-[#66544e]!">
-                    Clear Answers &amp; Expectations
-                  </span>
-                </div>
-                <p className="mt-1! mb-5! text-sm! sm:text-base! text-[#66544e]!">
-                  Everything you need to know about partnering with our in-house team for this service:
+              {/* Frequently Asked Question (Original template section, styled light) */}
+              <section aria-labelledby="service-faq-title" className="space-y-4! pt-4!">
+                <h3
+                  id="service-faq-title"
+                  className="m-0! font-[family-name:var(--heading-font-family)]! text-2xl! sm:text-3xl! font-medium! tracking-[-0.02em]! text-[#261d1a]!"
+                >
+                  Frequently Asked Question
+                </h3>
+                <p className="mt-1! mb-5! text-sm! sm:text-base! leading-relaxed! text-[#66544e]!">
+                  Lorem ipsum is simply free text used by copytyping refreshing. Neque porro est
+                  qui dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae vitae
+                  dicta sunt explicabo.
                 </p>
 
                 <div className="space-y-3!">
-                  {faqs.map((faq, index) => {
+                  {FAQ.map((faq, index) => {
                     const isOpen = openFaq === index;
                     return (
                       <div
@@ -555,7 +342,7 @@ export default function ServiceDetails() {
                         >
                           <div className="flex! items-center! gap-3.5! min-w-0!">
                             <span className="text-xs! sm:text-sm! font-bold! text-[var(--theme-color-coral)]! shrink-0!">
-                              {String(index + 1).padStart(2, "0")}.
+                              {faq.no}
                             </span>
                             <span className="font-[family-name:var(--heading-font-family)]! text-base! sm:text-lg! font-medium! tracking-tight! text-[#261d1a]!">
                               {faq.question}
@@ -593,19 +380,12 @@ export default function ServiceDetails() {
             </div>
           </div>
 
-          {/* Bottom Full-Width CTA Banner (matching Services.tsx style) */}
+          {/* Bottom Full-Width CTA Banner */}
           <div className="mt-14! flex! flex-col! items-start! justify-between! gap-6! rounded-2xl! bg-[#064C44]! p-7! sm:mt-20! sm:p-10! lg:flex-row! lg:items-center! lg:p-12! shadow-md!">
             <div className="min-w-0!">
-              <span className="inline-flex! items-center! gap-2! rounded-full! bg-white/10! px-3! py-1! text-xs! font-bold! uppercase! tracking-[0.1em]! text-white! mb-3!">
-                <span className="size-1.5! rounded-full! bg-[var(--theme-color-coral)]!" aria-hidden="true" />
-                Next Step
-              </span>
               <h2 className="m-0! font-[family-name:var(--heading-font-family)]! text-[clamp(1.75rem,3vw,2.5rem)]! leading-[1.2]! font-normal! tracking-[-0.03em]! text-white!">
-                Ready to scale your revenue engine?
+                Let’s talk growth.
               </h2>
-              <p className="mt-2! mb-0! max-w-[55ch]! text-sm! sm:text-base! text-white/80!">
-                Book a focused growth consultation with our in-house specialists to audit your pipeline and map out your execution sprint.
-              </p>
             </div>
 
             <Link

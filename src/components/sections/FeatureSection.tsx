@@ -147,7 +147,7 @@ export default function FeatureSection({
   const resolvedDescription =
     description ??
     (isStatic
-      ? "Blupeak operates across three pillars: Demand Generation, Digital Infrastructure, and Search and Creative Execution, giving clients one accountable partner instead of a patchwork of vendors."
+      ? "Blupeak operates across five pillars: Revenue & Sales Systems, Brand & Creative Solutions, SEO & Organic Growth, Custom Web & Software, and AI & Workflow Automation, giving clients one accountable partner instead of a patchwork of vendors."
       : undefined);
 
   const resolvedCards = cards ?? (isStatic ? ABOUT_FEATURE_CARDS : DEFAULT_SLIDER_CARDS);

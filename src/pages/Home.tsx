@@ -19,14 +19,14 @@ import TeamSection from "../components/sections/TeamSection";
 const MagicRings = lazy(() => import("../components/common/MagicRings"));
 
 const FAQ_LEFT: AccordionEntry[] = [
-  { no: "01.", question: "What services does Blupeak offer?", answer: "We run three pillars in-house: demand generation and full-cycle B2B sales, digital infrastructure and CRM automation, and SEO and creative execution. Everything your growth engine needs sits under one team." },
+  { no: "01.", question: "What services does Blupeak offer?", answer: "We run five pillars in-house: Revenue & Sales Systems, Brand & Creative Solutions, SEO & Organic Growth, Custom Web & Software, and AI & Workflow Automation. Everything your growth engine needs sits under one team." },
   { no: "02.", question: "How do you approach a new client engagement?", answer: "We start with a discovery consultation to map your ideal customer, build the outbound and CRM infrastructure around it, then deploy our sales consultants to run the pipeline, with reporting visibility from day one.", wowDelay: ".2s" },
   { no: "03.", question: "What industries do you specialize in?", answer: "We specialize in SaaS, professional services, home services, and healthcare. Our systems are built to adapt to high-ticket B2B sales cycles across sectors.", wowDelay: ".4s" },
   { no: "04.", question: "How long does it take to see results?", answer: "Outbound infrastructure and CRM builds are typically live within the first few weeks, with pipeline momentum building from there. Realistic onboarding and ramp milestones are mapped during discovery.", wowDelay: ".6s" },
 ];
 
 const FAQ_RIGHT: AccordionEntry[] = [
-  { no: "05.", question: "Do you only handle sales, or tech and creative too?", answer: "All three. Blupeak is a unified agency. The same internal team that fills your pipeline also builds your CRM automations and produces your brand and ad creative.", wowDelay: ".2s" },
+  { no: "05.", question: "Do you only handle sales, or tech and creative too?", answer: "Across all five pillars. Blupeak is a unified agency. The same internal team that fills your pipeline also builds your custom web & software, runs your SEO & organic growth, handles AI & workflow automation, and produces your brand and creative assets.", wowDelay: ".2s" },
   { no: "06.", question: "What is your pricing model?", answer: "We offer tailored retainer, performance-based, or hybrid models. We will walk through the right model for your goals during a growth consultation.", wowDelay: ".2s" },
   { no: "07.", question: "Do you offer ongoing support after launch?", answer: "Yes. Our team continuously optimizes outreach, CRM workflows and campaigns after launch rather than handing off and disappearing.", wowDelay: ".4s" },
   { no: "08.", question: "Do you work with startups or only established brands?", answer: "Both. We tailor engagement scope to company stage, from early-stage teams building their first outbound engine to established brands scaling an existing one.", wowDelay: ".6s" },
