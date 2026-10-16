@@ -3,7 +3,7 @@ import { Clock, Mail, Menu, MenuIcon, Phone, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import Navigation from "./Navigation";
 import DotLink from "../common/DotLink";
-import BrandIcon, { type Brand } from "../common/BrandIcon";
+import SocialLinks from "../common/SocialLinks";
 
 export default function Header({ light = false }: { light?: boolean }) {
   const { key: locationKey } = useLocation();
@@ -81,7 +81,7 @@ export default function Header({ light = false }: { light?: boolean }) {
             {[
               { Icon: Phone, title: "Call Now", href: "tel:01849415421", text: "01849-415421" },
               { Icon: Mail, title: "Send Email", href: "mailto:contact@blupeaksolutions.com", text: "contact@blupeaksolutions.com" },
-              { Icon: Clock, title: "Office Hours", text: "Mon - Sat 8:00 - 6:30, Sunday - CLOSED" },
+              { Icon: Clock, title: "Office Hours", text: "Mon - Fri 9:00 AM - 5:00 PM" },
             ].map(({ Icon, title, href, text }, index) => (
               <li key={index} className="relative! mb-5! last:mb-0!">
                 <div className="relative! pl-[46px]! text-sm! leading-6! text-[#261d1a]!">
@@ -96,15 +96,9 @@ export default function Header({ light = false }: { light?: boolean }) {
               </li>
             ))}
           </ul>
-          <ul className="relative! flex! items-center! justify-between! w-full! border-t! border-[#eaded9]! mt-auto! mb-0! p-0! list-none! bg-[#faf8f7]!">
-            {(["x", "facebook", "pinterest", "instagram"] as Brand[]).map(brand => (
-              <li key={brand} className="relative! w-full! text-center! border-r! border-[#eaded9]! last:border-r-0!">
-                <a href="#" aria-label={brand} className={`relative! flex! items-center! justify-center! h-[50px]! text-[#064C44]! hover:text-[var(--theme-color-coral)]! hover:bg-white! transition-colors! duration-300! ${focus}`}>
-                  <BrandIcon brand={brand} />
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-auto! w-full! bg-black! px-5! py-5!">
+            <SocialLinks className="justify-center!" />
+          </div>
         </nav>
       </div>
 

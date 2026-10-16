@@ -45,7 +45,7 @@ export default function ServiceDetails() {
   const service = getService(slug);
   usePageMetadata(service.metaTitle, service.metaDescription);
 
-  const [openFaq, setOpenFaq] = useState<number | null>(1);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const image = imageForService(service.slug);
   const bounds = SERVICE_IMAGE_BOUNDS[service.slug];
@@ -56,43 +56,13 @@ export default function ServiceDetails() {
         className="min-h-screen! bg-white! text-[#261d1a]! selection:bg-[var(--theme-color-coral)]! selection:text-[#261d1a]!"
         data-service-details-page
       >
-        {/* Top Hero & Breadcrumbs Section */}
+        {/* Service header */}
         <section
-          aria-label="Service header and navigation"
+          aria-labelledby="service-title"
           className="mx-auto! max-w-[1424px]! px-5! pt-30! pb-8! sm:px-8! sm:pt-32! sm:pb-10! lg:px-16!"
         >
-          {/* Breadcrumb Bar */}
-          <nav
-            aria-label="Breadcrumb"
-            className="mb-5! flex! flex-wrap! items-center! gap-2! text-xs! sm:text-sm! font-medium! text-[#66544e]!"
-          >
-            <Link
-              to="/"
-              className={`text-[#66544e]! transition-colors! duration-200! hover:text-[var(--theme-color-coral)]! ${focusRing}`}
-            >
-              Home
-            </Link>
-            <ChevronRight size={14} strokeWidth={2.5} className="text-[#eaded9]! shrink-0!" aria-hidden="true" />
-            <Link
-              to="/services"
-              className={`text-[#66544e]! transition-colors! duration-200! hover:text-[var(--theme-color-coral)]! ${focusRing}`}
-            >
-              Services
-            </Link>
-            <ChevronRight size={14} strokeWidth={2.5} className="text-[#eaded9]! shrink-0!" aria-hidden="true" />
-            <span className="text-[#261d1a]! font-semibold!" aria-current="page">
-              {service.title}
-            </span>
-          </nav>
-
-          {/* Eyebrow badge */}
-          <div className="mb-4! inline-flex! items-center! gap-2! rounded-full! border! border-[#064C44]/15! bg-[#064C44]/5! px-3.5! py-1! text-xs! font-bold! uppercase! tracking-[0.1em]! text-[#064C44]!">
-            <span className="size-1.5! rounded-full! bg-[var(--theme-color-coral)]!" aria-hidden="true" />
-            Services
-          </div>
-
           {/* Page Heading */}
-          <h1 className="m-0! max-w-full! font-[family-name:var(--heading-font-family)]! text-[32px]! leading-[1.15]! font-normal! tracking-[-0.03em]! text-[#261d1a]! text-balance! min-[470px]:text-[40px]! min-[768px]:text-[clamp(36px,4.5vw,56px)]! min-[768px]:leading-[1.1]!">
+          <h1 id="service-title" className="m-0! max-w-full! font-[family-name:var(--heading-font-family)]! text-[32px]! leading-[1.15]! font-normal! tracking-[-0.03em]! text-[#261d1a]! text-balance! min-[470px]:text-[40px]! min-[768px]:text-[clamp(36px,4.5vw,56px)]! min-[768px]:leading-[1.1]!">
             <TextReveal
               text={service.title}
               emphasis={{

@@ -77,11 +77,8 @@ export default function AboutSection({
 
   return (
     <section id={id} className={`relative! overflow-hidden! scroll-mt-[100px]! pb-20! min-[992px]:pb-[100px]! min-[1200px]:pb-[130px]! ${isPageHeader ? "bg-black! pt-0!" : isHome ? "pt-8! min-[576px]:pt-20! min-[992px]:pt-[100px]! min-[1200px]:pt-[130px]!" : "pt-20! min-[992px]:pt-[100px]! min-[1200px]:pt-[130px]!"}`}>
-      <div className="tm-gsap-animate-circle absolute! bottom-[50px]! left-0! hidden! min-[1700px]:block!">
-        <img src="/images/icons/about-shape1-1.png" alt="img" />
-      </div>
       <div
-        className={isPageHeader ? "bg-[#000000]! pt-32! pb-12! sm:pt-40! sm:pb-16! lg:pt-44!" : undefined}
+        className={isPageHeader ? "bg-[#000000]! pt-30! pb-12! sm:pt-32! sm:pb-16!" : undefined}
         data-about-page-header={isPageHeader ? "" : undefined}
         aria-labelledby={isPageHeader ? "about-page-title" : undefined}
       >
@@ -168,7 +165,7 @@ export default function AboutSection({
           </div>
           <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-4/12! wow fadeInUp")} data-wow-delay=".7s">
             <div className="min-[1200px]:ml-[30px]! max-[991px]:mt-[30px]! text-left! max-[991px]:[&>.theme-btn]:flex! max-[991px]:[&>.theme-btn]:justify-center! max-[991px]:[&>.theme-btn]:mx-auto! max-[991px]:[&>.theme-btn]:w-fit!">
-              <ul className="mb-12!">
+              <ul className={`mb-12! ${isPageHeader ? "max-[767.98px]:mb-8!" : ""}`}>
                 <li data-about-feature className={`group/about-feature flex! gap-4! min-[576px]:gap-[15px]! min-[1200px]:gap-[25px]! [&:not(:last-child)]:border-b! ${light ? "[&:not(:last-child)]:border-[#eaded9]!" : "[&:not(:last-child)]:border-white/11!"} [&:not(:last-child)]:mb-[25px]! [&:not(:last-child)]:pb-[25px]! min-[992px]:[&:not(:last-child)]:mb-[45px]! min-[992px]:[&:not(:last-child)]:pb-[45px]!`}>
                   <div className={`max-w-[50px]! min-w-[50px]! w-full! h-[50px]! leading-[50px]! min-[576px]:max-w-[60px]! min-[576px]:min-w-0! min-[576px]:h-[60px]! min-[576px]:leading-[60px]! rounded-full! ${light ? "bg-[#fff1ed]! text-[var(--theme-color-coral)]!" : "bg-[var(--theme-color1)]!"} text-center! max-[575px]:[&>img]:max-w-[26px]! group-hover/about-feature:[&>img]:animate-[wobble_1.5s_ease-in-out]!`}>
                     {feature1Icon ?? <img src="/images/icons/about-icon1-1.png" alt="" />}
