@@ -20,18 +20,6 @@ const SERVICE_IMAGE_BOUNDS: Record<string, { left: number; top: number; width: n
   "ai-workflow-automation": { left: 240, top: 357, width: 291, height: 161 },
 };
 
-const SLIDER = [0, 1, 2];
-
-const FAQ_ANSWER =
-  "There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable.";
-
-const FAQ = [
-  { no: "01.", question: "Is my technology allowed on tech?", answer: FAQ_ANSWER },
-  { no: "02.", question: "How to soft launch your business?", answer: FAQ_ANSWER },
-  { no: "03.", question: "How to turn visitors into contributors", answer: FAQ_ANSWER },
-  { no: "04.", question: "How can i find my solutions?", answer: FAQ_ANSWER },
-];
-
 function imageForService(slug: string) {
   return Object.entries(serviceImages).find(([path]) =>
     path.slice(path.lastIndexOf("/") + 1).startsWith(`${slug}.`),
@@ -255,7 +243,7 @@ export default function ServiceDetails() {
                   slidesPerView={2}
                   spaceBetween={24}
                   speed={600}
-                  loop
+                  rewind
                   breakpoints={{
                     320: { slidesPerView: 1 },
                     576: { slidesPerView: 1 },
@@ -263,12 +251,11 @@ export default function ServiceDetails() {
                     992: { slidesPerView: 2 },
                   }}
                 >
-                  {SLIDER.map((i) => (
-                    <SwiperSlide key={i}>
+                  {service.contentBoxes.map((content, index) => (
+                    <SwiperSlide key={`${service.slug}-${index}`}>
                       <div className="rounded-xl! border! border-[#eaded9]! bg-[#faf8f7]! p-6! h-full!">
                         <p className="m-0! text-sm! sm:text-base! leading-relaxed! text-[#66544e]!">
-                          Lorem ipsum dolor sit amet consec adipis elit Dolor repellat pariatur
-                          temporibus doloribus hic conse quatur copy typing refreshing
+                          {content}
                         </p>
                       </div>
                     </SwiperSlide>
@@ -282,16 +269,14 @@ export default function ServiceDetails() {
                   id="service-faq-title"
                   className="m-0! font-[family-name:var(--heading-font-family)]! text-2xl! sm:text-3xl! font-medium! tracking-[-0.02em]! text-[#261d1a]!"
                 >
-                  Frequently Asked Question
+                  Frequently asked questions
                 </h3>
                 <p className="mt-1! mb-5! text-sm! sm:text-base! leading-relaxed! text-[#66544e]!">
-                  Lorem ipsum is simply free text used by copytyping refreshing. Neque porro est
-                  qui dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae vitae
-                  dicta sunt explicabo.
+                  {service.faqDescription}
                 </p>
 
                 <div className="space-y-3!">
-                  {FAQ.map((faq, index) => {
+                  {service.faqs.map((faq, index) => {
                     const isOpen = openFaq === index;
                     return (
                       <div
@@ -312,7 +297,7 @@ export default function ServiceDetails() {
                         >
                           <div className="flex! items-center! gap-3.5! min-w-0!">
                             <span className="text-xs! sm:text-sm! font-bold! text-[var(--theme-color-coral)]! shrink-0!">
-                              {faq.no}
+                              {String(index + 1).padStart(2, "0")}.
                             </span>
                             <span className="font-[family-name:var(--heading-font-family)]! text-base! sm:text-lg! font-medium! tracking-tight! text-[#261d1a]!">
                               {faq.question}
