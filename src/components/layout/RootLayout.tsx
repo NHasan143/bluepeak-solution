@@ -3,6 +3,8 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { ScrollSmoother, ScrollTrigger } from "../../lib/gsap";
 import { usePageEffects } from "../../hooks/usePageEffects";
+import { useCanonicalUrl } from "../../hooks/useCanonicalUrl";
+import { useStructuredData } from "../../hooks/useStructuredData";
 import Preloader from "./Preloader";
 import BackToTop from "./BackToTop";
 import Header from "./Header";
@@ -16,6 +18,8 @@ import Header from "./Header";
  */
 export default function RootLayout({ bare = false }: { bare?: boolean }) {
   const { pathname } = useLocation();
+  const canonicalUrl = useCanonicalUrl(bare ? null : pathname);
+  useStructuredData(canonicalUrl);
   const smootherRef = useRef<ScrollSmoother | null>(null);
 
   // Create ScrollSmoother once, matching js/script-gsap.js.
