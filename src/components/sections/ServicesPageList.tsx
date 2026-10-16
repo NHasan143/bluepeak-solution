@@ -49,11 +49,11 @@ export default function ServicesPageList() {
           return (
             <li key={service.slug} className="relative! m-0! border-0! border-b! border-solid! border-white/20! bg-[#064C44]! p-0! last:border-b-0!">
               <div
-                className="relative! grid! grid-cols-[minmax(0,1fr)_80px]! items-center! gap-5! px-4! py-9! min-[370px]:grid-cols-[minmax(0,1fr)_112px]! min-[470px]:grid-cols-[minmax(0,1fr)_180px]! sm:gap-10! sm:px-6! sm:py-12! md:min-h-[288px]! md:grid-cols-2! lg:gap-20! lg:px-10!"
+                className="relative! grid! [--service-art-width:80px] [--service-card-gap:20px] grid-cols-[minmax(0,1fr)_var(--service-art-width)]! items-center! gap-5! px-4! py-9! min-[370px]:[--service-art-width:112px] min-[470px]:[--service-art-width:180px] sm:[--service-card-gap:40px] sm:gap-10! sm:px-6! sm:py-12! md:min-h-[288px]! md:grid-cols-2! lg:gap-20! lg:px-10!"
                 data-service-row
               >
                 <div className={`min-w-0! ${reversed ? "md:col-start-2! md:row-start-1! md:text-right!" : "md:col-start-1! md:row-start-1!"}`}>
-                  <h3 className="m-0! font-[family-name:var(--heading-font-family)]! text-[24px]! leading-[1.2]! font-medium! tracking-[-0.02em]! text-white! text-balance! sm:text-[32px]!">
+                  <h3 className="m-0! font-[family-name:var(--heading-font-family)]! text-[24px]! leading-[1.2]! font-medium! tracking-[-0.02em]! text-white! text-balance! sm:text-[32px]! max-[767.98px]:w-[calc(100%+var(--service-art-width)+var(--service-card-gap))]! max-[767.98px]:whitespace-nowrap! max-[767.98px]:text-[clamp(15px,calc(6.75vw_-_6px),32px)]!">
                     {service.title}
                   </h3>
                   <span aria-hidden="true" className={`mt-3! mb-4! block! h-px! w-14! bg-[var(--theme-color-coral)]! ${reversed ? "md:ml-auto!" : ""}`} />

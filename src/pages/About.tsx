@@ -56,7 +56,7 @@ export default function About() {
 
   return (
     <>
-      <main data-about-page className={pageClasses("about-page")}>
+      <main data-about-page className={pageClasses("about-page max-[767.98px]:[&_#about-us]:pb-6! max-[767.98px]:[&_#our-features]:pt-6!")}>
       {/* Section 1 & Section 2: Hero / Intro Stats Block & Two Column Feature Highlight */}
       <AboutSection
         id="about-us"

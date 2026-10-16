@@ -1,19 +1,6 @@
 import { pageClasses } from "../../styles/pageUtilities";
 import { Link } from "react-router-dom";
-
-const FacebookIcon = ({ size = 24, ...props }: React.SVGProps<SVGSVGElement> & { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
-);
-
-const LinkedinIcon = ({ size = 24, ...props }: React.SVGProps<SVGSVGElement> & { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect width="4" height="12" x="2" y="9" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-);
+import SocialLinks from "../common/SocialLinks";
 
 /**
  * Default footer, shared by the homepage and every inner page.
@@ -31,7 +18,7 @@ export default function Footer({
       <div className="relative! z-[9]! overflow-hidden! rounded-[28px]! bg-black! mx-[clamp(16px,5vw,100px)]!">
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="pt-8! sm:pt-10! pb-4! min-[768px]:pb-6!">
-            <div className="flex! flex-wrap! -mx-3!">
+            <div className="flex! flex-wrap! -mx-3! gap-y-6! min-[768px]:gap-y-0!">
               <div
                 className={pageClasses("w-full! px-3! min-[768px]:w-2/3! min-[992px]:w-5/12! min-[1200px]:w-1/3! wow fadeInUp")}
                 data-wow-delay=".2s"
@@ -48,7 +35,7 @@ export default function Footer({
                 </div>
               </div>
               <div
-                className={pageClasses("w-full! px-3! min-[576px]:w-1/2! min-[768px]:w-1/3! min-[992px]:w-1/4! min-[1200px]:pl-12! wow fadeInUp")}
+                className={pageClasses("w-1/2! min-w-0! px-3! min-[768px]:w-1/3! min-[992px]:w-1/4! min-[1200px]:pl-12! wow fadeInUp")}
                 data-wow-delay=".4s"
               >
                 <div className="m-0!">
@@ -78,7 +65,7 @@ export default function Footer({
                 </div>
               </div>
               <div
-                className={pageClasses("w-full! px-3! min-[576px]:w-1/2! min-[992px]:w-1/3! min-[1200px]:w-1/4! min-[1200px]:pl-12! wow fadeInUp")}
+                className={pageClasses("w-1/2! min-w-0! px-3! min-[992px]:w-1/3! min-[1200px]:w-1/4! min-[1200px]:pl-12! wow fadeInUp")}
                 data-wow-delay=".6s"
               >
                 <div className="m-0!">
@@ -131,18 +118,7 @@ export default function Footer({
               <p className={pageClasses("text-white! text-[13px]! wow fadeInLeft")} data-wow-delay=".5s">
                 &copy; {new Date().getFullYear()} Copyright Reserved by Blupeak Solutions
               </p>
-              <ul className={pageClasses("flex! gap-4! list-none! p-0! m-0! wow fadeInRight")} data-wow-delay=".5s">
-                <li>
-                  <a href="#" aria-label="Facebook" className="text-white! hover:opacity-80! transition-opacity! duration-200! motion-reduce:transition-none!">
-                    <FacebookIcon size={24} />
-                  </a>
-                </li>
-                <li>
-                  <a href="#" aria-label="LinkedIn" className="text-white! hover:opacity-80! transition-opacity! duration-200! motion-reduce:transition-none!">
-                    <LinkedinIcon size={24} />
-                  </a>
-                </li>
-              </ul>
+              <SocialLinks className={pageClasses("self-center! min-[768px]:self-auto! wow fadeInRight")} delay=".5s" />
             </div>
           </div>
         </div>

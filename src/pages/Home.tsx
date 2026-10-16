@@ -136,9 +136,9 @@ export default function Home() {
         />
 
         {/* Services */}
-        <section className={pageClasses("service-section fix section-padding section-bg bg-white!")}>
+        <section className={pageClasses("service-section fix section-padding section-bg bg-white! [&_.home-services-showcase]:mt-0!")}>
           <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
-            <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! mb-[60px]! justify-between!">
+            <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! mb-8! sm:mb-10! min-[992px]:mb-[60px]! justify-between!">
               <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-8/12!">
                 <div className={pageClasses("section-title mb-[0px]!")}>
                   <div className="sub-title text-left">
@@ -151,16 +151,6 @@ export default function Home() {
                   <p className={pageClasses("growth-services-intro")}>
                     End-to-end revenue systems, brand creative, SEO, custom web, and AI automation built and run under one roof.
                   </p>
-                </div>
-              </div>
-              <div className={pageClasses("w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[992px]:w-3/12! max-[1200px]:hidden! wow fadeInUp")} data-wow-delay=".3s">
-                <div className="circle-area flex! justify-end!">
-                  <Link to="/services" className={pageClasses("circle-box")}>
-                    <span>
-                      More Services
-                      <InterfaceIcon name="arrow-right" />
-                    </span>
-                  </Link>
                 </div>
               </div>
             </div>
@@ -282,7 +272,7 @@ export default function Home() {
         </section>
 
         {/* Final CTA */}
-        <div className="mx-auto! max-w-[1424px]! px-5! sm:px-8! lg:px-16!">
+        <div className="mx-auto! max-w-[1424px]! px-5! sm:px-8! lg:px-16! max-[767.98px]:hidden!">
           <section data-home-final-cta className="relative! z-[99]! rounded-[28px]! bg-[#064C44]! py-10! sm:py-12! px-6! sm:px-12!">
             <div className="mx-auto! w-full! max-w-[1320px]!">
               <div className="flex! flex-col! items-center! justify-between! gap-6! sm:gap-8! text-center! min-[1280px]:flex-row! min-[1280px]:text-left!">

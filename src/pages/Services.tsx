@@ -37,11 +37,11 @@ export default function Services() {
           </div>
           <ServicesPageList />
 
-          <div className="mt-12! flex! flex-col! items-start! justify-between! gap-6! rounded-2xl! bg-[#064C44]! p-7! sm:mt-16! sm:p-10! lg:flex-row! lg:items-center! lg:p-12!">
-            <h2 className="m-0! font-[family-name:var(--heading-font-family)]! text-[clamp(2rem,3.5vw,3rem)]! leading-[1.12]! font-normal! tracking-[-0.03em]! text-white!">Let’s talk growth.</h2>
-            <Link to="/contact" className={`relative! z-10! inline-flex! min-h-14! w-full! items-center! justify-center! gap-4! rounded-full! bg-[var(--theme-color-coral)]! px-6! py-4! text-base! font-semibold! text-[#261d1a]! text-center! cursor-pointer! transition-colors! duration-300! hover:bg-[#f24c32]! motion-reduce:transition-none! sm:w-auto! ${focusRing}`}>
+          <div className="mt-10! flex! flex-col! items-start! justify-between! gap-5! rounded-2xl! bg-[#064C44]! p-5! md:mt-16! md:gap-6! md:p-10! lg:flex-row! lg:items-center! lg:p-12!">
+            <h2 className="m-0! font-[family-name:var(--heading-font-family)]! text-[28px]! md:text-[clamp(2rem,3.5vw,3rem)]! leading-[1.12]! font-normal! tracking-[-0.03em]! text-white!">Let’s talk growth.</h2>
+            <Link to="/contact" className={`relative! z-10! inline-flex! min-h-12! w-full! items-center! justify-center! gap-2! rounded-full! bg-[var(--theme-color-coral)]! px-3! py-3! text-xs! leading-6! whitespace-nowrap! min-[370px]:text-sm! md:min-h-14! md:gap-4! md:px-6! md:py-4! md:text-base! font-semibold! text-[#261d1a]! text-center! cursor-pointer! transition-colors! duration-300! hover:bg-[#f24c32]! motion-reduce:transition-none! md:w-auto! ${focusRing}`}>
               Book a Growth Consultation
-              <ArrowRight size={20} strokeWidth={1.75} aria-hidden="true" className="shrink-0!" />
+              <ArrowRight size={20} strokeWidth={1.75} aria-hidden="true" className="size-4! shrink-0! md:size-5!" />
             </Link>
           </div>
         </section>
