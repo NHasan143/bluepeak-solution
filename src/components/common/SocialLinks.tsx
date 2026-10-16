@@ -19,11 +19,11 @@ export default function SocialLinks({ className = "", delay }: { className?: str
   return (
     <ul aria-label="Social links" className={`flex! items-center! gap-4! list-none! p-0! m-0! ${className}`} data-wow-delay={delay}>
       {[
-        { label: "Facebook", Icon: FacebookIcon },
-        { label: "LinkedIn", Icon: LinkedinIcon },
-      ].map(({ label, Icon }) => (
+        { label: "Facebook", href: "https://www.facebook.com/blupeaksolutions", Icon: FacebookIcon },
+        { label: "LinkedIn", href: "https://www.linkedin.com/company/146608438", Icon: LinkedinIcon },
+      ].map(({ label, href, Icon }) => (
         <li key={label}>
-          <a href="#" aria-label={label} className="text-white! hover:text-[var(--theme-color-coral)]! focus-visible:text-[var(--theme-color-coral)]! transition-colors! duration-200! motion-reduce:transition-none! focus-visible:outline-2! focus-visible:outline-white! focus-visible:outline-offset-4!">
+          <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="text-white! hover:text-[var(--theme-color-coral)]! focus-visible:text-[var(--theme-color-coral)]! transition-colors! duration-200! motion-reduce:transition-none! focus-visible:outline-2! focus-visible:outline-white! focus-visible:outline-offset-4!">
             <Icon size={24} aria-hidden="true" />
           </a>
         </li>

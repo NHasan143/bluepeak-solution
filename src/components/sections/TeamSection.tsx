@@ -18,7 +18,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   { img: "redoan.webp", name: "Md Redoan", role: "Motion & Video Editor", delay: ".3s" },
   { img: "akib-reza.webp", name: "Akib Reza", role: "Web Developer", delay: ".3s" },
   { img: "tarek.webp", name: "Sumon Hawlader", role: "Digital Marketing Specialist", delay: ".3s" },
-  { name: "Md Jonayed", role: "Business Analyst", delay: ".3s" },
+  { img: "jonayed.webp", name: "Md Jonayed", role: "Business Analyst", delay: ".3s" },
 ];
 
 function subscribeToTeamLayout(onChange: () => void) {
