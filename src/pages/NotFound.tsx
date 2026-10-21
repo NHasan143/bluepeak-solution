@@ -26,7 +26,7 @@ export default function NotFound() {
           <div className="w-full! shrink-0! px-3! [.gutter-row>&]:mt-6! min-[1200px]:w-full!">
             <div className={pageClasses("error-page__inner theme-btn-main")}>
               <div className="error-page__title-box">
-                <img src="/images/resource/404.png" alt="" />
+                <img src="/images/resource/404.png" alt="404 — page not found" title="404 — page not found" aria-hidden="true" />
                 <h3 className="error-page__sub-title mt-[50px]!">Page not found!</h3>
               </div>
               <p className="error-page__text">

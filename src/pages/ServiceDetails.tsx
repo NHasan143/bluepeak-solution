@@ -114,7 +114,7 @@ export default function ServiceDetails() {
                 <div className="flex! items-center! justify-between! gap-3! pb-1!">
                   <img
                     src="/images/blupeak-dark-full.png"
-                    alt="Blupeak Solutions"
+                    alt="Blupeak Solutions" title="Blupeak Solutions"
                     className="w-[160px]! sm:w-[175px]! h-[32px]! sm:h-[35px]! object-cover! object-center!"
                   />
                   <span className="inline-flex! shrink-0! items-center! gap-1.5! rounded-full! border! border-[#064C44]/15! bg-[#064C44]/5! px-2.5! py-1! text-[11px]! font-bold! uppercase! tracking-[0.08em]! text-[#064C44]!">
@@ -185,7 +185,7 @@ export default function ServiceDetails() {
                     >
                       <img
                         src={image}
-                        alt=""
+                        alt={`${service.title} service artwork`} title={`${service.title} service artwork`}
                         width={800}
                         height={800}
                         loading="lazy"

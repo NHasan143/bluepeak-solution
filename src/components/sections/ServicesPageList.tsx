@@ -84,7 +84,7 @@ export default function ServicesPageList() {
                   {image && (
                     <img
                       src={image}
-                      alt=""
+                      alt={`${service.title} service artwork`} title={`${service.title} service artwork`}
                       width={800}
                       height={800}
                       loading="lazy"

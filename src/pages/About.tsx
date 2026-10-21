@@ -94,7 +94,7 @@ export default function About() {
       {/* Section 5: "Our Services" / Services Grid */}
       <section className={pageClasses("service-section-2 fix section-bg section-padding pb-[70px]!")}>
         <div className="service-ellipse">
-          <img src="/images/icons/service2-1ellipse.png" alt="img" />
+          <img src="/images/icons/service2-1ellipse.png" alt="Soft lime and peach background glow" title="Soft lime and peach background glow" aria-hidden="true" />
         </div>
         <div className="mx-auto! w-full! px-3! min-[576px]:max-w-[540px]! min-[768px]:max-w-[720px]! min-[992px]:max-w-[960px]! min-[1200px]:max-w-[1140px]! min-[1400px]:max-w-[1320px]!">
           <div className="flex! flex-wrap! -mx-3! gutter-row -mt-6! items-end!">
@@ -121,9 +121,9 @@ export default function About() {
               className={pageClasses(`service-list-style1${s.active ? " active" : ""} wow fadeInUp`)}
               data-wow-delay={s.delay}
             >
-              <h4 className={pageClasses("title")}>
+              <h3 className={pageClasses("title")}>
                 <Link to={`/services/${s.slug}`}>{s.title}</Link>
-              </h4>
+              </h3>
 
               <p>{s.description}</p>
             </div>

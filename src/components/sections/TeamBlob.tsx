@@ -3,7 +3,7 @@ export default function TeamBlob() {
   return (
     <img
       src="/images/blupeak-dark-logo.png"
-      alt=""
+      alt="Blupeak logo watermark" title="Blupeak logo watermark"
       aria-hidden="true"
       width={1000}
       height={1000}

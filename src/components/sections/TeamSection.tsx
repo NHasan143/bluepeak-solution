@@ -93,7 +93,7 @@ export default function TeamSection({
                       <figure aria-hidden={!m.img || undefined} className={`relative! z-[1]! block! overflow-hidden! rounded-[20px]! ${cardGround} mb-0! min-h-[400px]! min-[768px]:min-h-[460px]! min-[1200px]:min-h-[543px]!`}>
                         {m.img && (
                           <>
-                            <img src={`/images/resource/${m.img}`} alt={m.name} className="absolute! bottom-0! left-1/2! -translate-x-1/2! w-[240px]! min-[768px]:w-[270px]! min-[1200px]:w-[337px]! max-w-[calc(100%-48px)]! h-auto! aspect-[337/495]! object-cover! object-bottom! z-[999]! grayscale! transition-[filter]! duration-500! group-hover/team-member:grayscale-0! group-focus-within/team-member:grayscale-0! motion-reduce:transition-none!" />
+                            <img src={`/images/resource/${m.img}`} alt={m.name} title={`${m.name} — ${m.role}`} className="absolute! bottom-0! left-1/2! -translate-x-1/2! w-[240px]! min-[768px]:w-[270px]! min-[1200px]:w-[337px]! max-w-[calc(100%-48px)]! h-auto! aspect-[337/495]! object-cover! object-bottom! z-[999]! grayscale! transition-[filter]! duration-500! group-hover/team-member:grayscale-0! group-focus-within/team-member:grayscale-0! motion-reduce:transition-none!" />
                             <TeamBlob />
                           </>
                         )}

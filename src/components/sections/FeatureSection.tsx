@@ -78,6 +78,7 @@ const ABOUT_FEATURE_CARDS: FeatureCardItem[] = [
 
 function Card({ card, isStatic = false, tone = "dark" }: { card: FeatureCardItem; isStatic?: boolean; tone?: "dark" | "light" }) {
   const light = tone === "light";
+  const Heading = isStatic ? "h3" : "h4";
   return (
     <div
       className={`feature-card group/feature ${card.cls} relative! isolate! z-[99]! flex! flex-col! max-w-[340px]! overflow-hidden! rounded-2xl! border! ${light ? "border-solid! border-[#eaded9]! bg-[#faf8f7]!" : "border-white/12! bg-[#1B1919]!"} px-[30px]! py-6! min-[1700px]:px-10! min-[1700px]:py-8! transition-[translate,box-shadow,border-color]! duration-300! ease-[cubic-bezier(0.16,1,0.3,1)]! hover:border-[var(--theme-color-coral)]! focus-within:border-[var(--theme-color-coral)]! motion-safe:hover:-translate-y-1! ${light ? "hover:shadow-[0_12px_24px_rgba(38,29,26,0.08)]! focus-within:shadow-[0_12px_24px_rgba(38,29,26,0.08)]!" : "hover:shadow-[0_12px_24px_rgba(0,0,0,0.32)]! focus-within:shadow-[0_12px_24px_rgba(0,0,0,0.32)]!"} motion-safe:focus-within:-translate-y-1! motion-reduce:translate-y-0! motion-reduce:transition-none! ${isStatic ? "flex-[0_1_320px]! mb-0!" : "w-full! h-full! mx-auto! mb-[30px]!"}`}
@@ -86,7 +87,7 @@ function Card({ card, isStatic = false, tone = "dark" }: { card: FeatureCardItem
         <card.icon size={32} strokeWidth={1.75} />
       </div>
       <div className="relative! z-[1]! mt-6! flex! flex-col! flex-1! min-w-0!">
-        <h4 className={`mb-3! max-w-[200px]! font-medium! ${light ? "text-[#261d1a]!" : "text-white!"}`}>{card.title}</h4>
+        <Heading className={`mb-3! max-w-[200px]! font-medium! ${isStatic ? "text-[length:var(--h4-font-size)]! leading-[var(--line-height-heading-small)]!" : ""} ${light ? "text-[#261d1a]!" : "text-white!"}`}>{card.title}</Heading>
         <p className={`m-0! flex-1! ${light ? "text-[#66544e]!" : "text-[#d9d9d9]!"}`}>{card.description}</p>
         <div className={`mt-5! pt-3! border-t! ${light ? "border-[#eaded9]!" : "border-white/10!"}`}>
           <Link to={`/services/${card.slug}`} aria-label={`Explore ${card.title}`} className={`flex! items-center! justify-between! gap-4! min-h-11! text-sm! font-medium! ${light ? "text-[#261d1a]!" : "text-white!"} rounded-sm! focus-visible:outline-2! focus-visible:outline-[var(--theme-color-coral)]! focus-visible:outline-offset-4!`}>

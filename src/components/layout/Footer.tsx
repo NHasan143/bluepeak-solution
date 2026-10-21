@@ -26,7 +26,7 @@ export default function Footer({
                 <div className="m-0!">
                   <div className="mb-[30px]!">
                     <Link to="/" aria-label="Blupeak home" className="inline-flex! items-center!">
-                      <img src="/images/blupeak-light-full.png" alt="Blupeak" className="w-[180px]! h-[36px]! object-cover! object-center!" />
+                      <img src="/images/blupeak-light-full.png" alt="Blupeak" title="Blupeak Solutions" className="w-[180px]! h-[36px]! object-cover! object-center!" />
                     </Link>
                   </div>
                   <div className="max-w-[315px]!">
