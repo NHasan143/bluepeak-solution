@@ -86,7 +86,7 @@ export default function Preloader() {
           <img
             ref={logo}
             src="/images/blupeak-light-full.png"
-            alt=""
+            alt="Blupeak Solutions logo" title="Blupeak Solutions logo"
             aria-hidden="true"
             width={1000}
             height={1000}

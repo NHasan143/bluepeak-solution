@@ -20,7 +20,7 @@ const sectionUtilities: Record<string, string> = {
     String.raw`min-[768px]:[&_.service-section-2_.section-title>[data-about-services-title]]:text-[60px]! min-[768px]:[&_.service-section-2_.section-title>[data-about-services-title]]:leading-[1.1]!`,
     String.raw`[&_[data-about-services-title]>span]:text-[length:inherit]! [&_[data-about-services-title]>span]:leading-[inherit]!`,
     String.raw`[&_[data-service-title-line]]:whitespace-nowrap [&_[data-service-title-line]]:text-[#261d1a]! [&_[data-service-title-line]]:font-[family-name:var(--heading-font-family)]! [&_[data-service-title-line]]:not-italic!`,
-    String.raw`[&_.feature-card]:bg-[#faf8f7]! [&_.feature-card]:border-[#eaded9]! [&_.feature-card_:is(h4,a)]:text-[#261d1a]!`,
+    String.raw`[&_.feature-card]:bg-[#faf8f7]! [&_.feature-card]:border-[#eaded9]! [&_.feature-card_:is(h3,h4,a)]:text-[#261d1a]!`,
     String.raw`[&_.feature-card_.feature-icon]:bg-[#fff1ed]! [&_.feature-card_[class*="border-t"]]:border-[#eaded9]!`,
     String.raw`[&_.feature-card:is(:hover,:focus-within)]:border-[var(--theme-color-coral)]! [&_.feature-card:is(:hover,:focus-within)]:shadow-[0_12px_24px_rgba(38,29,26,0.08)]!`,
     String.raw`[&_#our-features>div>svg>path:last-child]:fill-white`,

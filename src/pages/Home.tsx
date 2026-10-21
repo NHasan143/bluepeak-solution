@@ -255,7 +255,7 @@ export default function Home() {
                   <div className="inner-column">
                     <div className="relative! rounded-[28px]! bg-[#064C44]! p-8! sm:p-12! border! border-[#064C44]/20! shadow-[0_25px_60px_rgba(6,76,68,0.25)]! overflow-hidden! wow fadeInUp" data-wow-delay=".5s">
                       <div className="absolute! top-0! -left-1/3! pointer-events-none! opacity-20!">
-                        <img src="/images/icons/contact-line.png" alt="" />
+                        <img src="/images/icons/contact-line.png" alt="Colorful flowing wave pattern behind the contact form" aria-hidden="true" />
                       </div>
                       <div className="relative! z-10! mb-8!">
                         <span className="block! text-xs! font-bold! uppercase! tracking-[0.14em]! text-[var(--theme-color-coral)]! mb-2!">Let’s Connect</span>

@@ -150,14 +150,14 @@ export default function AboutSection({
               <img
                 data-speed=".8"
                 src="/images/about/about-1-5.jpg"
-                alt="Blupeak Solutions team"
+                alt="Blupeak Solutions team" title="Blupeak Solutions team"
                 width={491}
                 height={486}
                 className="rounded-xl! w-full! h-full! object-cover!"
               />
               <div data-about-color-panel className="absolute! rounded-[20px]! bg-[var(--theme-color1)]! left-[15px]! right-[15px]! bottom-[15px]! max-w-[calc(100%-30px)]! py-[18px]! px-5! min-[576px]:left-[30px]! min-[576px]:right-auto! min-[576px]:bottom-5! min-[576px]:max-w-[350px]! min-[576px]:py-[23px]! min-[576px]:px-[30px]!">
                 <div className="icon">
-                  <img src="/images/icons/quote-icon.png" alt="img" />
+                  <img src="/images/icons/quote-icon.png" alt="Quotation mark" title="Quotation mark" aria-hidden="true" />
                 </div>
                 <p className="text-white! font-medium! mt-[15px]!">{pullQuote}</p>
               </div>
@@ -168,7 +168,7 @@ export default function AboutSection({
               <ul className={`mb-12! ${isPageHeader ? "max-[767.98px]:mb-8!" : ""}`}>
                 <li data-about-feature className={`group/about-feature flex! gap-4! min-[576px]:gap-[15px]! min-[1200px]:gap-[25px]! [&:not(:last-child)]:border-b! ${light ? "[&:not(:last-child)]:border-[#eaded9]!" : "[&:not(:last-child)]:border-white/11!"} [&:not(:last-child)]:mb-[25px]! [&:not(:last-child)]:pb-[25px]! min-[992px]:[&:not(:last-child)]:mb-[45px]! min-[992px]:[&:not(:last-child)]:pb-[45px]!`}>
                   <div className={`max-w-[50px]! min-w-[50px]! w-full! h-[50px]! leading-[50px]! min-[576px]:max-w-[60px]! min-[576px]:min-w-0! min-[576px]:h-[60px]! min-[576px]:leading-[60px]! rounded-full! ${light ? "bg-[#fff1ed]! text-[var(--theme-color-coral)]!" : "bg-[var(--theme-color1)]!"} text-center! max-[575px]:[&>img]:max-w-[26px]! group-hover/about-feature:[&>img]:animate-[wobble_1.5s_ease-in-out]!`}>
-                    {feature1Icon ?? <img src="/images/icons/about-icon1-1.png" alt="" />}
+                    {feature1Icon ?? <img src="/images/icons/about-icon1-1.png" alt="Rocket icon for sales growth" title="Rocket icon for sales growth" aria-hidden="true" />}
                   </div>
                   <div className="content">
                     <h4 className={`text-[18px]! mb-2! min-[576px]:text-base! min-[576px]:mb-[5px]! min-[1200px]:text-xl! min-[1200px]:mb-[15px]! font-medium! ${light ? "text-[#261d1a]!" : ""}`}>{feature1Title}</h4>
@@ -177,7 +177,7 @@ export default function AboutSection({
                 </li>
                 <li data-about-feature className={`group/about-feature flex! gap-4! min-[576px]:gap-[15px]! min-[1200px]:gap-[25px]! [&:not(:last-child)]:border-b! ${light ? "[&:not(:last-child)]:border-[#eaded9]!" : "[&:not(:last-child)]:border-white/11!"} [&:not(:last-child)]:mb-[25px]! [&:not(:last-child)]:pb-[25px]! min-[992px]:[&:not(:last-child)]:mb-[45px]! min-[992px]:[&:not(:last-child)]:pb-[45px]!`}>
                   <div className={`max-w-[50px]! min-w-[50px]! w-full! h-[50px]! leading-[50px]! min-[576px]:max-w-[60px]! min-[576px]:min-w-0! min-[576px]:h-[60px]! min-[576px]:leading-[60px]! rounded-full! ${light ? "bg-[#fff1ed]! text-[var(--theme-color-coral)]!" : "bg-[var(--theme-color1)]!"} text-center! max-[575px]:[&>img]:max-w-[26px]! group-hover/about-feature:[&>img]:animate-[wobble_1.5s_ease-in-out]!`}>
-                    {feature2Icon ?? <img src="/images/icons/about-icon1-2.png" alt="" />}
+                    {feature2Icon ?? <img src="/images/icons/about-icon1-2.png" alt="Rocket icon for growth infrastructure" title="Rocket icon for growth infrastructure" aria-hidden="true" />}
                   </div>
                   <div className="content">
                     <h4 className={`text-[18px]! mb-2! min-[576px]:text-base! min-[576px]:mb-[5px]! min-[1200px]:text-xl! min-[1200px]:mb-[15px]! font-medium! ${light ? "text-[#261d1a]!" : ""}`}>{feature2Title}</h4>
